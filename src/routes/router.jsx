@@ -1,0 +1,108 @@
+import { createBrowserRouter } from "react-router-dom";
+import Main from "../components/Main/Main";
+import Home from "../pages/Home";
+import Services from "../pages/Services";
+import Blog from "../pages/Blog";
+import Announcements from "../pages/Announcements";
+import Contact from "../pages/Contact";
+import PrivateLabelPage from "../components/PrivateLabelPage/PrivateLabelPage";
+import RetailArbitragePage from "../components/RetailArbitragePage/RetailArbitragePage";
+import WholeSaleFBA from "../components/WholeSaleFBA/WholeSaleFBA";
+import WebDevelopment from "../components/WebDevelopment/WebDevelopment";
+import Shopify from "../components/Shopify/Shopify";
+import CreativeDesign from "../components/CreativeDesign/CreativeDesign";
+import DigitalMarketing from "../components/DigitalMarketing/DigitalMarketing";
+import ProductPhotography from "../components/ProductPhotography/ProductPhotography";
+import FCommerceService from "../components/FCommerceService/FCommerceService";
+import Blog1 from "../components/Blog1/Blog1";
+import Blog2 from "../components/Blog2/Blog2";
+import Blog3 from "../components/Blog3/Blog3";
+import Announcement1 from "../components/Announcement1/Announcement1";
+import Announcement2 from "../components/Announcement2/Announcement2";
+import Announcement3 from "../components/Announcement3/Announcement3";
+import Gallery from "../pages/Gallery/Gallery";
+import Gallery1 from "../components/Gallery1/Gallery1";
+import Gallery3 from "../components/Gallery3/Gallery3";
+import Gallery2 from "../components/Gallery2/Gallery2";
+
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Main />, // ✅ Navbar & Footer are inside Main
+        errorElement: <h1 className="text-5xl font-bold text-red-500">Page not found</h1>,
+        children: [
+            { path: "/", element: <Home /> },
+            { path: "blog", element: <Blog />,
+                children: [
+                    {
+                    path: "blog-1",
+                    element: <Blog1></Blog1>
+                    },
+                    {
+                    path: "blog-2",
+                    element: <Blog2></Blog2>
+                    },
+                    {
+                    path: "blog-3",
+                    element: <Blog3></Blog3>
+                    },
+                ]
+             },
+            { path: "announcements", element: <Announcements />,
+                children: [
+                    {
+                        path: "announcement-1",
+                        element: <Announcement1></Announcement1>
+                    },
+                    {
+                        path: "announcement-2",
+                        element: <Announcement2></Announcement2>
+                    },
+                    {
+                        path: "announcement-3",
+                        element: <Announcement3></Announcement3>
+                    },
+                    
+                ]
+             },
+            { path: "gallery", element: <Gallery></Gallery>,
+                children: [
+                    {
+                        path: "gallery-1",
+                        element: <Gallery1></Gallery1>
+                    },
+                    {
+                        path: "gallery-2",
+                        element: <Gallery2></Gallery2>
+                    },
+                    {
+                        path: "gallery-3",
+                        element: <Gallery3></Gallery3>
+                    },
+                ]
+             },
+            { path: "contact", element: <Contact /> },
+            { 
+                path: "services", // ✅ Services is now inside Main
+                element: <Services />,
+                children: [
+                    { path: "private-label", element: <PrivateLabelPage /> },
+                    { path: "retail-arbitrage", element: <RetailArbitragePage /> },
+                    { path: "wholesale-fba", element: <WholeSaleFBA /> },
+                    { path: "web-development", element: <WebDevelopment /> },
+                    { path: "shopify", element: <Shopify /> },
+                    { path: "creative-design", element: <CreativeDesign /> },
+                    { path: "digital-marketing", element: <DigitalMarketing /> },
+                    { path: "product-photography", element: <ProductPhotography /> },
+                    { path: "f-commerce-service", element: <FCommerceService /> },
+                ],
+            },
+        ],
+    },
+]);
+
+export default router;
+
+
+
