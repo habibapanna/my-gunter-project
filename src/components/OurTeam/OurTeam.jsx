@@ -62,7 +62,7 @@ const OurTeam = () => {
             <span className="border-2 w-3 border-orange-600"></span>
           </div>
         </div>
-        <button className="bg-orange-600 px-6 py-3 text-white font-semibold flex items-center gap-2 shadow-lg mt-4 md:mt-0">
+        <button className="bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden shadow-animation">
           View All
           <FaArrowRightLong />
         </button>
