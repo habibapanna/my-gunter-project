@@ -1,5 +1,5 @@
 import { Link, useLocation, Outlet, useNavigate } from "react-router-dom";
-import { FaArrowLeftLong, FaArrowRightLong, FaSquareFull } from "react-icons/fa6";
+import { FaSquareFull } from "react-icons/fa6";
 import { MdOutlineSearch } from "react-icons/md";
 import { useState } from "react";
 import Lottie from 'react-lottie';
@@ -50,7 +50,7 @@ const Announcements = () => {
 
             <div className="p-10 grid grid-cols-12 gap-6">
                 {/* ✅ Left Content Area - Shows Service Component */}
-                <div className="col-span-8 flex justify-center items-center text-gray-600 text-xl font-semibold">
+                <div className="col-span-12 md:col-span-8 flex justify-center items-center text-gray-600 text-xl font-semibold">
                     {currentAnnouncement ? (
                         <Outlet /> // This will load the selected service component
                     ) : (
@@ -60,40 +60,38 @@ const Announcements = () => {
                     )}
                 </div>
 
-                {/* ✅ Sidebar for Service List (Moved to the right) */}
-                <div className="col-span-4 bg-white p-4">
+                {/* ✅ Sidebar for Service List (Moved to the right on larger screens, top on mobile) */}
+                <div className="col-span-12 md:col-span-4 bg-white p-4 flex flex-col order-first md:order-none">
                     {/* ✅ Search Bar */}
                     <div className="relative mb-4">
                         <MdOutlineSearch className="absolute left-3 top-3 text-orange-600 text-xl" />
                         <input
                             type="text"
                             placeholder="Search Services..."
-                            className="w-full pl-10 pr-4 py-3 border border-gray-200 text-gray-600  focus:outline-none focus:ring-2 focus:ring-orange-600"
+                            className="w-full pl-10 pr-4 py-3 border border-gray-200 text-gray-600 focus:outline-none focus:ring-2 focus:ring-orange-600"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
                     </div>
-                  <div className="border border-gray-300">
-                  <h1 className="text-black text-lg font-bold p-3">Recent Announcements</h1>
-                  <div className="border-1 border-gray-300 w-80 mx-auto">
-                  </div>
+                    <div className="border border-gray-300">
+                        <h1 className="text-black text-lg font-bold p-3">Recent Announcements</h1>
+                        <div className="border-1 border-gray-300 w-80 mx-auto"></div>
 
-                      {/* ✅ Blog List */}
-                      <div className="flex flex-col ">
-                        {announcements.filter(announcement => announcement.title.toLowerCase().includes(search.toLowerCase())).map((announcement, index) => (
-                            <button
-                                key={index}
-                                className={`flex justify-between items-center p-3 border-gray-300 transition-all duration-300 relative transform text-left 
-                                ${location.pathname === announcement.path ? "bg-orange-600 text-white" : "bg-white text-black hover:text-orange-600 hover:scale-95"}`}
-                                onClick={() => navigate(announcement.path)}
-                            >
-                                <FaSquareFull className="text-sm mr-5" />
-                                <span className="text-sm ">{announcement.title}</span>
-                                
-                            </button>
-                        ))}
+                        {/* ✅ Blog List */}
+                        <div className="flex flex-col">
+                            {announcements.filter(announcement => announcement.title.toLowerCase().includes(search.toLowerCase())).map((announcement, index) => (
+                                <button
+                                    key={index}
+                                    className={`flex justify-between items-center p-3 border-gray-300 transition-all duration-300 relative transform text-left 
+                                    ${location.pathname === announcement.path ? "bg-orange-600 text-white" : "bg-white text-black hover:text-orange-600 hover:scale-95"}`}
+                                    onClick={() => navigate(announcement.path)}
+                                >
+                                    <FaSquareFull className="text-sm mr-5" />
+                                    <span className="text-sm ">{announcement.title}</span>
+                                </button>
+                            ))}
+                        </div>
                     </div>
-                  </div>
                 </div>
             </div>
         </div>
