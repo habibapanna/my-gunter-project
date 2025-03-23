@@ -94,13 +94,81 @@ const Footer = () => {
                 <div className="mt-12 text-right border-t border-gray-700 pt-4 relative">
                     {/* Scroll to Top Button */}
                     <div 
-                        onClick={scrollToTop} 
-                        className='absolute text-2xl left-[50%] ml-[-32px] -top-6 rounded-full p-2 bg-orange-600 cursor-pointer hover:bg-orange-700 transition duration-300'
-                    >
-                        <MdKeyboardArrowUp className='text-white' />
-                    </div>
+    onClick={scrollToTop} 
+    className="absolute text-2xl left-[50%] ml-[-24px] -top-10 w-10 h-10 flex items-center justify-center rounded-full bg-orange-600 text-white cursor-pointer shadow-animation overflow-hidden"
+>
+    <MdKeyboardArrowUp className="text-white" />
+</div>
                     <p className="text-sm">&copy; 2025 Imagine Dream World. All Rights Reserved.</p>
                 </div>
+                {/* Tailwind Keyframe Styles */}
+                <style>
+{`
+  .shadow-animation {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .shadow-animation:hover {
+    transform: scale(1.1);
+  }
+
+  .shadow-animation::before,
+  .shadow-animation::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+  }
+
+  /* Left panel (rises from bottom) */
+  .shadow-animation::before {
+    left: 0;
+    bottom: -100%;
+  }
+
+  /* Right panel (falls from top) */
+  .shadow-animation::after {
+    right: 0;
+    top: -100%;
+  }
+
+  /* Hover Effect */
+  .shadow-animation:hover::before {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+
+  .shadow-animation:hover::after {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+
+  /* Panels Disappear After a While */
+  .shadow-animation:hover::before,
+  .shadow-animation:hover::after {
+    animation: panelDisappear 1s ease-in-out forwards;
+  }
+
+  @keyframes panelDisappear {
+    0% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+  }
+`}
+</style>
+
             </footer>
         </div>
     );
