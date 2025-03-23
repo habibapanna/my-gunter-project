@@ -5,11 +5,11 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 
 const images = [
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/blog3-1-1-380x350.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/blog2-1-1-1-380x350.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2020/07/project4-380x350.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/project-details2-1-1-380x350.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/woman-bed-1-1-380x350.jpg" },
+  { image: "https://i.ibb.co.com/wF2Y3z2j/pexels-olenkabohovyk-3819969.jpg" },
+  { image: "https://i.ibb.co.com/fYSJMzTc/pexels-ayush-phillip-1415203-2732096.jpg" },
+  { image: "https://i.ibb.co.com/XrMmmxrv/pexels-laryssa-suaid-798122-1667071-1.jpg" },
+  { image: "https://i.ibb.co.com/wNrbjxky/pexels-alexazabache-3766111.jpg" },
+  { image: "https://i.ibb.co.com/j9mPCHhQ/pexels-binoid-cbd-1990665-3612182.jpg" },
 ];
 
 function ProductPhotography() {
@@ -25,7 +25,7 @@ function ProductPhotography() {
   return (
     <div className="bg-white min-h-screen py-10 text-black">
       {/* Carousel Section */}
-      <section className="w-full max-w-3xl mx-auto mb-10">
+      <section className="w-full md:max-w-3xl max-w-[400px] mx-auto mb-10">
         <Swiper
           modules={[Pagination, Autoplay]}
           pagination={{ clickable: true }}

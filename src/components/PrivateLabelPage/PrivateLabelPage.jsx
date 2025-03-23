@@ -8,8 +8,8 @@ import { FaPlus } from "react-icons/fa6";
 import { FiMinus } from "react-icons/fi";
 import { motion } from "framer-motion"; // Import framer-motion
 const images = [
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/blog3-1-1-380x350.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/blog2-1-1-1-380x350.jpg" },
+  { image: "https://i.ibb.co.com/7tmB9P6n/pexels-liza-summer-6347554.jpg" },
+  { image: "https://i.ibb.co.com/7N44mSpr/pexels-karolina-grabowska-6958478.jpg" },
   { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2020/07/project4-380x350.jpg" },
   { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/project-details2-1-1-380x350.jpg" },
   { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/woman-bed-1-1-380x350.jpg" },
@@ -34,7 +34,7 @@ function PrivateLabelPage() {
   return (
     <div className="bg-white min-h-screen py-10 text-black">
       {/* Carousel Section */}
-      <section className="w-full max-w-3xl mx-auto mb-10">
+      <section className="w-full md:max-w-3xl max-w-[400px] mx-auto mb-10">
         <Swiper
           modules={[Pagination, Autoplay]}
           pagination={{ clickable: true }}

@@ -35,11 +35,7 @@ const OurServices = () => {
                             <span className='border-2 w-3'></span>
                         </div>
                     </div>
-                    {/* "All Services" Button */}
-                    <button className="bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden shadow-animation">
-                        <Link to='/services'>All Services</Link>
-                         <FaArrowRightLong />
-                    </button>
+                    
                 </div>
             </div>
 
@@ -67,6 +63,13 @@ const OurServices = () => {
                         <FaArrowRightLong className="text-orange-600 text-xl transition-transform duration-500 group-hover:translate-x-2 group-hover:text-white z-10" />
                     </div>
                 ))}
+            </div>
+            <div className='mt-3'>
+                {/* "All Services" Button */}
+                <button className="bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto">
+                        <Link to='/services'>All Services</Link>
+                         <FaArrowRightLong />
+                    </button>
             </div>
         </div>
     );

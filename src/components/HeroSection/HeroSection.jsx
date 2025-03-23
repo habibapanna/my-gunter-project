@@ -6,7 +6,7 @@ import { TbPlayerPlay } from "react-icons/tb";
 const images = [
   "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/beard-man-1-1.png",
   "https://themes.envytheme.com/gunter/wp-content/uploads/2019/05/man1-1-1.png",
-  "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/main-women-1-1.png",
+  "https://i.ibb.co.com/TqgrzLG4/pexels-moh-adbelghaffar-771742-1.jpg",
 ];
 
 const texts = [
@@ -66,7 +66,7 @@ const HeroSection = () => {
           <img
             key={currentIndex}
             src={images[currentIndex]}
-            className="max-w-md rounded-lg shadow-2xl transition-transform duration-700 animate-slide-up"
+            className="max-w-md shadow-2xl transition-transform duration-700 animate-slide-up"
             alt="Hero"
           />
         </div>
@@ -85,39 +85,9 @@ const HeroSection = () => {
             <button onClick={scrollToContact} className="bg-orange-600 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation">
               Get Started
             </button>
-            <button onClick={() => setShowVideo(true)} className="flex items-center gap-3 text-gray-500 font-semibold group transition duration-300">
-              <span className="w-12 h-12 flex justify-center items-center border-2 border-orange-600 rounded-full text-orange-600 transition duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white">
-                <TbPlayerPlay className="text-2xl" />
-              </span>
-              <span className="transition duration-300 group-hover:text-orange-600">
-                Watch Video
-              </span>
-            </button>
           </div>
         </div>
       </div>
-       {/* Video Modal */}
-       {showVideo && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-          <div className="relative w-[90%] md:w-[70%] lg:w-[50%]">
-            <button
-              onClick={() => setShowVideo(false)}
-              className="absolute -top-6 -right-6 text-white text-3xl hover:text-orange-600 transition"
-            >
-              <IoClose />
-            </button>
-            <iframe
-              className="w-full h-72 md:h-96 lg:h-[450px] rounded-lg"
-              src="https://www.youtube.com/embed/waBuau8T4mY?autoplay=1"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-      )}
-
       {/* Right Arrow */}
       <button
         onClick={nextSlide}

@@ -28,7 +28,7 @@ const teamMembers = [
     name: "Michael Lee",
     title: "Art Director",
     image:
-      "https://i.ibb.co.com/BVK6ZQX6/pexels-mikhail-nilov-6980996.jpg",
+      "https://i.ibb.co.com/JRt4RcYB/pexels-michael-burrows-7129700.jpg",
   },
   {
     name: "Sophia Williams",
@@ -40,7 +40,7 @@ const teamMembers = [
     name: "Daniel Smith",
     title: "UI/UX Designer",
     image:
-      "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/team1-1-1.jpg",
+      "https://i.ibb.co.com/9jTZcz6/pexels-ketut-subiyanto-4623471.jpg",
   },
 ];
 
@@ -62,10 +62,7 @@ const OurTeam = () => {
             <span className="border-2 w-3 border-orange-600"></span>
           </div>
         </div>
-        <button className="bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden shadow-animation">
-          View All
-          <FaArrowRightLong />
-        </button>
+       
       </div>
 
       {/* Swiper Carousel */}
@@ -134,6 +131,10 @@ const OurTeam = () => {
           ></span>
         ))}
       </div>
+      <div className="mt-10"> <button className="bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto">
+          View All
+          <FaArrowRightLong />
+        </button></div>
     </div>
   );
 };

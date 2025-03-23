@@ -50,7 +50,7 @@ const Testimonials = () => {
         <div className='w-full lg:w-1/2 relative'>
         <img 
   className='relative transition-all duration-500 grayscale hover:grayscale-0 w-full' 
-  src="https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/women-1-1.jpg" 
+  src="https://i.ibb.co.com/7JgrTGQ3/pexels-ron-lach-9604304.jpg" 
   alt="" 
 />
 <motion.img
@@ -66,36 +66,9 @@ const Testimonials = () => {
     ease: "easeInOut", // Smooth animation
   }}
 />
-          <button onClick={() => setShowVideo(true)}className="flex items-center gap-3 text-white font-semibold group transition duration-300 absolute top-70 bg-orange-600 hover:bg-white rounded-full right-10 px-3 py-2">
-              <span className="w-12 h-12 flex justify-center items-center border-2 border-orange-600 rounded-full text-orange-600 transition duration-300 bg-white group-hover:bg-orange-600 group-hover:text-white group-hover:border-white">
-                <IoMdPlay className="text-2xl" />
-              </span>
-              <span className="transition duration-300 group-hover:text-orange-500">
-                Watch Video
-              </span>
-            </button>
         </div>
          {/* Video Modal */}
-      {showVideo && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-          <div className="relative w-[90%] md:w-[70%] lg:w-[50%]">
-            <button
-              onClick={() => setShowVideo(false)}
-              className="absolute -top-6 -right-6 text-white text-3xl hover:text-orange-600 transition"
-            >
-              <IoClose />
-            </button>
-            <iframe
-              className="w-full h-72 md:h-96 lg:h-[450px] rounded-lg"
-              src="https://www.youtube.com/embed/waBuau8T4mY?autoplay=1"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-      )}
+
         <div className='w-full lg:w-1/2 relative text-left'>
           <h3 className="text-orange-600 font-semibold">WHAT CLIENT SAYS ABOUT US</h3>
           <h2 className="text-4xl font-bold mt-3 text-white">Our Testimonials</h2>

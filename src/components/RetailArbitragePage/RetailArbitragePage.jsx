@@ -9,11 +9,11 @@ import { FiMinus } from "react-icons/fi";
 import { motion } from "framer-motion"; // Import framer-motion
 
 const images = [
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/blog3-1-1-380x350.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/blog2-1-1-1-380x350.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2020/07/project4-380x350.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/project-details2-1-1-380x350.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/woman-bed-1-1-380x350.jpg" },
+  { image: "https://i.ibb.co.com/Cp0zrKNt/pexels-pixabay-264502.jpg" },
+  { image: "https://i.ibb.co.com/ZzkzGzmh/pexels-romanp-16170.jpg" },
+  { image: "https://i.ibb.co.com/spVZ56ZF/pexels-pixabay-325876.jpg" },
+  { image: "https://i.ibb.co.com/XZqdQZ8k/pexels-timothy-paule-ii-614774-2002717.jpg" },
+  { image: "https://i.ibb.co.com/QvDtqBmB/pexels-aden-ardenrich-181745-581344.jpg" },
 ];
 
 function RetailArbitragePage() {
@@ -40,9 +40,9 @@ function RetailArbitragePage() {
   ];
 
   return (
-    <div className="bg-white min-h-screen py-10 text-black">
+    <div className="bg-white min-h-screen py-10 text-black max-w-3xl mx-auto">
       {/* Carousel Section */}
-      <section className="w-full max-w-3xl mx-auto mb-10">
+      <section className="w-full md:max-w-3xl max-w-[400px] mx-auto mb-10">
         <Swiper
           modules={[Pagination, Autoplay]}
           pagination={{ clickable: true }}

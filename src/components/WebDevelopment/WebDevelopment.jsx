@@ -7,11 +7,11 @@ import { FaCheck } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
 const images = [
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/blog3-1-1-380x350.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/blog2-1-1-1-380x350.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2020/07/project4-380x350.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/project-details2-1-1-380x350.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/woman-bed-1-1-380x350.jpg" },
+  { image: "https://i.ibb.co.com/ZzRLCy7h/pexels-divinetechygirl-1181467.jpg" },
+  { image: "https://i.ibb.co.com/G3Jgk8bp/pexels-designecologist-1779487.jpg" },
+  { image: "https://i.ibb.co.com/pvqsDkWX/pexels-tranmautritam-326503.jpg" },
+  { image: "https://i.ibb.co.com/JWbcFmhX/pexels-djordje-petrovic-590080-2102416.jpg" },
+  { image: "https://i.ibb.co.com/cc70sbfJ/pexels-shoper-pl-550490863-17485349.jpg" },
 ];
 
 const services = [
@@ -27,7 +27,7 @@ function WebDevelopment() {
   return (
     <div className="bg-white min-h-screen py-10 text-black">
       {/* Carousel Section */}
-      <section className="w-full max-w-3xl mx-auto mb-10">
+      <section className="w-full md:max-w-3xl max-w-[400px] mx-auto mb-10">
         <Swiper
           modules={[Pagination, Autoplay]}
           pagination={{ clickable: true }}

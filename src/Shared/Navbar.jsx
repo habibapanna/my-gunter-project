@@ -23,9 +23,11 @@ const Navbar = () => {
 <nav className={`${isBlackBg ? "bg-black" : "bg-white"} bg-opacity-80 text-white px-4 py-5 transition duration-300`}>
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <h1 className={`great-vibes btn border-none bg-black ${isBlackBg ? "text-white" : "text-black"} text-2xl font-bold`}>
-       <SiDreamstime></SiDreamstime> 
+        <div className="flex items-center justify-center gap-1">
+        <SiDreamstime className={`great-vibes border-none ${isBlackBg ? "text-white" : "text-black"} text-2xl font-bold`}></SiDreamstime> 
+        <h1 className={`great-vibes border-none ${isBlackBg ? "text-white" : "text-black"} text-2xl font-bold`}>
           Imagine Dream World</h1>
+        </div>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6 ">

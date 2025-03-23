@@ -18,12 +18,12 @@ const newsArticles = [
     description: "With millions of active users, Facebook Commerce is shaping the future of online selling in Bangladesh.",
   },
   {
-    title: "Amazon FBA Continues to Dominate eCommerce! ",
+    title: "Amazon FBA Continues to Dominate eCommerce!",
     image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/05/google-1-1-1-380x330.jpg",
     description: "Amazon’s FBA program is scaling businesses worldwide with fast shipping and automated fulfillment.",
   },
   {
-    title: "Amazon FBA Continues to Dominate eCommerce! ",
+    title: "Amazon FBA Continues to Dominate eCommerce!",
     image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/05/singlr-bolg-1-1-1-1-scaled-380x330.jpg",
     description: "Amazon’s FBA program is scaling businesses worldwide with fast shipping and automated fulfillment.",
   },
@@ -34,7 +34,7 @@ const LatestNews = () => {
 
   return (
     <div className="bg-black p-10">
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-6">
         <div>
           <h3 className="text-orange-600 font-semibold">OUR COMPANY BLOG</h3>
           <h2 className="text-4xl font-bold mt-3 text-white">Latest News</h2>
@@ -44,41 +44,44 @@ const LatestNews = () => {
             <span className="border-2 w-3 border-orange-600"></span>
           </div>
         </div>
-        <button className="bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden shadow-animation">
-          <Link to="/blog">View All</Link>
-          <FaArrowRightLong />
-        </button>
       </div>
 
+      {/* SWIPER CONFIGURATION */}
       <Swiper
         modules={[Pagination, Autoplay]}
-        slidesPerView={3}
-        spaceBetween={20}
         autoplay={{ delay: 3000 }}
         loop={true}
         speed={1000}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         className="p-5"
+        slidesPerView={1} // Default to 1 slide
+        breakpoints={{
+          640: { slidesPerView: 1, spaceBetween: 10 }, // Force 1 slide on mobile
+          768: { slidesPerView: 2, spaceBetween: 15 },
+          1024: { slidesPerView: 3, spaceBetween: 20 },
+        }}
       >
         {newsArticles.map((news, index) => (
-         <SwiperSlide key={index}>
-         <div className="relative group h-[450px] shadow-lg overflow-hidden">
-           <img
-             src={news.image}
-             alt={news.title}
-             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-           />
-           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[110%] bg-stone-900 backdrop-blur-md text-white p-6 flex flex-col gap-3 z-10">
-             <span className="bg-orange-600 px-3 py-1 w-max font-semibold">May 05</span>
-             <h3 className="text-xl font-bold text-left text-white px-1">{news.title}</h3>
-             <button className="text-orange-600 hover:underline font-semibold text-left">READ MORE</button>
-           </div>
-         </div>
-       </SwiperSlide>
-        
-        
+          <SwiperSlide key={index}>
+            <div className="relative group h-[450px] shadow-lg overflow-hidden">
+              <img
+                src={news.image}
+                alt={news.title}
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+              />
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[110%] bg-stone-900 backdrop-blur-md text-white p-6 flex flex-col gap-3 z-10">
+                <span className="bg-orange-600 px-3 py-1 w-max font-semibold">May 05</span>
+                <h3 className="text-xl font-bold text-left text-white px-1">{news.title}</h3>
+                <button className="text-orange-600 hover:underline font-semibold text-left">
+                  <Link to="/blog">READ MORE</Link>
+                </button>
+              </div>
+            </div>
+          </SwiperSlide>
         ))}
       </Swiper>
+
+
       <div className="flex justify-center gap-2 mt-12">
         {newsArticles.slice(0, 2).map((_, index) => (
           <span
@@ -89,6 +92,10 @@ const LatestNews = () => {
           ></span>
         ))}
       </div>
+      <div className="mt-10"><button className="bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto">
+          <Link to="/blog">View All</Link>
+          <FaArrowRightLong />
+        </button></div>
     </div>
   );
 };

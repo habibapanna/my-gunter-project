@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaArrowRightLong, FaRegStar } from 'react-icons/fa6';
 import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 
 const About = () => {
@@ -29,10 +30,11 @@ const About = () => {
 At Imagine Dream World, we provide A-to-Z e-commerce business management, helping brands thrive and scale across platforms like Amazon, Walmart, eBay, Shopify, and F-Commerce (Facebook & Social Commerce). Our comprehensive services ensure seamless operations, increased visibility, and long-term success.
 </p>
 
-                            {/* Signature Image */}
-                            <div className='mt-12'>
-                                <img src="https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/signature-1-1.png" alt="Signature" />
-                            </div>
+<div className='right-20 mt-10'>
+                        <button className=" bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation">
+                            <Link>More About Us</Link> <FaArrowRightLong />
+                        </button>
+                    </div>
                         </div>
                     </div>
                 </div>
@@ -40,7 +42,7 @@ At Imagine Dream World, we provide A-to-Z e-commerce business management, helpin
                 {/* Right Side Images & Button */}
                 <div className='lg:w-1/2 right-0 relative group'>
                     <div className="relative grayscale group-hover:grayscale-0 transition duration-300">
-                        <img className='hidden lg:block absolute top-30 -left-10 w-[250px]' src="https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/about2-1-1.jpg" alt="Decorative" />
+                        <img className='object-cover hidden lg:block absolute top-30 -left-10 w-[250px] h-[300px]' src="https://i.ibb.co.com/gMZ2TJn7/pexels-fauxels-3184638.jpg" alt="Decorative" />
                         <img src="https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/about1-1-1.jpg" alt="Main Image" />
                     </div>
                     <motion.img
@@ -58,11 +60,7 @@ At Imagine Dream World, we provide A-to-Z e-commerce business management, helpin
 />
 
                     {/* Button with Animated Shadows */}
-                    <div className='absolute right-20 top-85'>
-                        <button className="relative bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation">
-                            More About Us <FaArrowRightLong />
-                        </button>
-                    </div>
+                    
                 </div>
             </div>
 

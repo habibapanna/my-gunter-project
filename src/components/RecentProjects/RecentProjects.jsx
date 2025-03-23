@@ -6,11 +6,11 @@ import "swiper/css/pagination";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const services = [
-  { title: "500+ Amazon Stores Managed", image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/blog3-1-1-380x350.jpg" },
-  { title: "200+ Walmart Stores Managed", image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/blog2-1-1-1-380x350.jpg" },
+  { title: "500+ Amazon Stores Managed", image: "https://i.ibb.co.com/QF7bcvC4/pexels-cottonbro-3205504.jpg" },
+  { title: "200+ Walmart Stores Managed", image: "https://i.ibb.co.com/k2v2bGdh/pexels-fauxels-3183150.jpg" },
   { title: "100+ Shopify Stores Managed", image: "https://themes.envytheme.com/gunter/wp-content/uploads/2020/07/project4-380x350.jpg" },
-  { title: "Professional Product Photography", image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/project-details2-1-1-380x350.jpg" },
-  { title: "Expert Digital Marketing Services", image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/woman-bed-1-1-380x350.jpg" },
+  { title: "Professional Product Photography", image: "https://i.ibb.co.com/1Gn9CrBv/pexels-fauxels-3183197.jpg" },
+  { title: "Expert Digital Marketing Services", image: "https://i.ibb.co.com/JRS2jG3r/pexels-fauxels-3183153.jpg" },
 ];
 
 const RecentProjects = () => {
@@ -29,9 +29,7 @@ const RecentProjects = () => {
             <span className="border-2 w-3 border-orange-600"></span>
           </div>
         </div>
-        <button className="bg-orange-600 px-5 md:px-6 py-3 md:py-4 text-white font-semibold flex items-center gap-2 shadow-animation mt-4 md:mt-0">
-          All Projects <FaArrowRightLong />
-        </button>
+        
       </div>
 
       {/* Swiper Carousel */}
@@ -81,6 +79,12 @@ const RecentProjects = () => {
             }`}
           ></span>
         ))}
+      </div>
+
+      <div className="mt-10">
+      <button className="bg-orange-600 px-5 md:px-6 py-3 md:py-4 text-white font-semibold flex items-center gap-2 shadow-animation mt-4 md:mt-0 mx-auto">
+          All Projects <FaArrowRightLong />
+        </button>
       </div>
     </div>
   );
