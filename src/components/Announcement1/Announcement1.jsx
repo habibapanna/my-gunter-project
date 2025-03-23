@@ -4,7 +4,6 @@ const Announcement1 = () => {
     return (
         <div>
             Announcement1
-            Announcement1
         </div>
     );
 };
