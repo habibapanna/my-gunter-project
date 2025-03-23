@@ -40,8 +40,8 @@ const Testimonials = () => {
     autoplay: true,
     autoplaySpeed: 3000,
     beforeChange: (oldIndex, newIndex) => setCurrentIndex(newIndex),
-    nextArrow: <></>, // Hides default arrows
-    prevArrow: <></>, 
+    nextArrow: null, // Hides default arrows
+    prevArrow: null, 
   };
 
   return (
