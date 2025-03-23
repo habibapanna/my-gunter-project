@@ -48,20 +48,9 @@ const Gallery = () => {
                 </p>
             </div>
 
-            <div className="p-10 grid grid-cols-12 gap-6">
-                {/* ✅ Left Content Area - Shows Service Component */}
-                <div className="col-span-8 flex justify-center items-center text-gray-600 text-xl font-semibold">
-                    {currentGallery ? (
-                        <Outlet /> // This will load the selected service component
-                    ) : (
-                        <div className="flex flex-col items-center justify-center text-center">
-                            <Lottie options={defaultOptions} height={400} width={400} />
-                        </div>
-                    )}
-                </div>
-
-                {/* ✅ Sidebar for Service List (Moved to the right) */}
-                <div className="col-span-4 bg-white p-4">
+            <div className="p-10 grid grid-cols-1 md:grid-cols-12 gap-6">
+                {/* ✅ Sidebar for Service List (Moved to the top on mobile) */}
+                <div className="col-span-12 md:col-span-4 bg-white p-4 mb-6 md:mb-0">
                     {/* ✅ Search Bar */}
                     <div className="relative mb-4">
                         <MdOutlineSearch className="absolute left-3 top-3 text-orange-600 text-xl" />
@@ -73,27 +62,38 @@ const Gallery = () => {
                             onChange={(e) => setSearch(e.target.value)}
                         />
                     </div>
-                  <div className="border border-gray-300">
-                  <h1 className="text-black text-lg font-bold p-3">Recent Post</h1>
-                  <div className="border-1 border-gray-300 w-80 mx-auto">
-                  </div>
 
-                      {/* ✅ Blog List */}
-                      <div className="flex flex-col ">
-                        {galleries.filter(gallery => gallery.title.toLowerCase().includes(search.toLowerCase())).map((gallery, index) => (
-                            <button
-                                key={index}
-                                className={`flex justify-between items-center p-3 border-gray-300 transition-all duration-300 relative transform text-left 
-                                ${location.pathname === gallery.path ? "bg-orange-600 text-white" : "bg-white text-black hover:text-orange-600 hover:scale-95"}`}
-                                onClick={() => navigate(gallery.path)}
-                            >
-                                <FaSquareFull className="text-sm mr-5" />
-                                <span className="text-sm ">{gallery.title}</span>
-                                
-                            </button>
-                        ))}
+                    {/* ✅ Recent Post Section */}
+                    <div className="border border-gray-300 mb-4">
+                        <h1 className="text-black text-lg font-bold p-3">Recent Post</h1>
+                        <div className="border-1 border-gray-300 w-full mx-auto mb-4"></div>
+
+                        {/* ✅ Blog List */}
+                        <div className="flex flex-col">
+                            {galleries.filter(gallery => gallery.title.toLowerCase().includes(search.toLowerCase())).map((gallery, index) => (
+                                <button
+                                    key={index}
+                                    className={`flex justify-between items-center p-3 border-gray-300 transition-all duration-300 relative transform text-left 
+                                    ${location.pathname === gallery.path ? "bg-orange-600 text-white" : "bg-white text-black hover:text-orange-600 hover:scale-95"}`}
+                                    onClick={() => navigate(gallery.path)}
+                                >
+                                    <FaSquareFull className="text-sm mr-5" />
+                                    <span className="text-sm">{gallery.title}</span>
+                                </button>
+                            ))}
+                        </div>
                     </div>
-                  </div>
+                </div>
+
+                {/* ✅ Left Content Area - Shows Service Component */}
+                <div className="col-span-12 md:col-span-8 flex justify-center items-center text-gray-600 text-xl font-semibold">
+                    {currentGallery ? (
+                        <Outlet /> // This will load the selected service component
+                    ) : (
+                        <div className="flex flex-col items-center justify-center text-center">
+                            <Lottie options={defaultOptions} height={400} width={400} />
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
