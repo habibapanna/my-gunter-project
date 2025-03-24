@@ -24,9 +24,9 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center justify-center gap-1">
-        <SiDreamstime className={`great-vibes border-none ${isBlackBg ? "text-white" : "text-black"} text-2xl font-bold`}></SiDreamstime> 
+        <SiDreamstime className={`great-vibes border-none ${isBlackBg ? "text-orange-600" : "text-orange-600"} text-2xl font-bold`}></SiDreamstime> 
         <h1 className={`great-vibes border-none ${isBlackBg ? "text-white" : "text-black"} text-2xl font-bold`}>
-          Imagine Dream World</h1>
+          Imagine <span className="text-orange-600">Dream</span> World</h1>
         </div>
 
         {/* Desktop Menu */}
