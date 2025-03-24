@@ -1,6 +1,5 @@
 import { useState } from "react";
 import About from "../components/About/About";
-import ContactForm from "../components/ContactForm/ContactForm";
 import HeroSection from "../components/HeroSection/HeroSection";
 import LatestNews from "../components/LatestNews/LatestNews";
 import OurServices from "../components/OurServices/OurServices";
@@ -9,24 +8,37 @@ import RecentProjects from "../components/RecentProjects/RecentProjects";
 import ServiceCards from "../components/ServiceCards/ServiceCards";
 import Testimonials from "../components/Testimonials/Testimonials";
 
-
 const AnimatedStick = () => {
-
-
     return (
-        <div className="relative w-[2px] h-16 bg-orange-600 overflow-hidden mx-auto mt-2">
-            {/* Falling Black Elements */}
-            <div className="falling absolute left-0 w-[2px] h-4 bg-black"></div>
-            <div className="falling absolute left-0 w-[2px] h-4 bg-black" style={{ animationDelay: "0.5s" }}></div>
-        </div>
+        <>
+            <style>
+                {`
+                @keyframes fall {
+                    0% { transform: translateY(0); }
+                    100% { transform: translateY(100%); }
+                }
+
+                .falling {
+                    animation: fall 5s linear infinite;
+                }
+
+                .falling:nth-child(2) {
+                    animation-delay: 5s;
+                }
+                `}
+            </style>
+            <div className="relative w-[2px] h-16 bg-orange-600 overflow-hidden mx-auto mt-2">
+                <div className="falling absolute left-0 top-0 w-[2px] h-8 bg-black"></div>
+                <div className="falling absolute left-0 top-0 w-[2px] h-4 bg-black"></div>
+            </div>
+        </>
     );
 };
 
 
-
 const Section = ({ title, children }) => {
     return (
-        <div className="text-left mt-8">  {/* Reduced margin */}
+        <div className="text-left mt-8">
             <h2 className="text-2xl font-bold text-white">{title}</h2>
             <AnimatedStick />
             <div className="mt-6">{children}</div>
@@ -34,16 +46,17 @@ const Section = ({ title, children }) => {
     );
 };
 
-
 const Home = () => {
     const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: ""
     });
-    
+
+    const [successMessage, setSuccessMessage] = useState(false);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -51,24 +64,39 @@ const Home = () => {
             [name]: value
         });
     };
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission logic here, like sending the data to a server.
-        console.log('Form Data Submitted: ', formData);
+        console.log("Form Data Submitted: ", formData);
+
+        // Show success message
+        setSuccessMessage(true);
+
+        // Reset form fields
+        setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            subject: "",
+            message: ""
+        });
+
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+            setSuccessMessage(false);
+        }, 3000);
     };
 
     return (
         <>
-            {/* Scoped Animation inside Home */}
             <style>
                 {`
-                @keyframes fall {
-                    0% { transform: translateY(-100%); }
-                    100% { transform: translateY(100%); }
+                @keyframes fadeIn {
+                    0% { opacity: 0; transform: translateY(-10px); }
+                    100% { opacity: 1; transform: translateY(0); }
                 }
-                .falling {
-                    animation: fall 1.5s linear infinite;
+                .success-message {
+                    animation: fadeIn 0.5s ease-in-out;
                 }
                 `}
             </style>
@@ -97,119 +125,114 @@ const Home = () => {
                     <LatestNews />
                 </Section>
                 <Section>
-                <div id="contact" className="bg-black contact-form-container p-8">
-            <h2 className="text-center font-semibold mb-5 mt-10 text-orange-600">LET'S TALK</h2>
-            <h2 className="text-3xl font-bold mb-10 text-white text-center">Get in Touch</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {/* Contact Form Column */}
-                <div className=" mx-auto px-4">
-    {/* Contact Form */}
-    <form onSubmit={handleSubmit} className="space-y-6 bg-black p-6 rounded-lg shadow-lg">
-        <div className="grid grid-cols-2 gap-5">
-            {/* Name Field */}
-            <div className="form-group relative">
-                <label htmlFor="name" className="block text-white">
-                    Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 bg-stone-900 border-none focus:outline-none focus:ring-0 focus:bg-stone-200 focus:text-gray-800 transition-all"
-                    required
-                />
-            </div>
+                    <div id="contact" className="bg-black contact-form-container px-8 md:pl-5">
+                        <h2 className="text-center font-semibold mb-5 mt-10 text-orange-600">LET'S TALK</h2>
+                        <h2 className="text-3xl font-bold mb-10 text-white text-center">Get in Touch</h2>
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div className="mx-auto">
+                                <form onSubmit={handleSubmit} className="space-y-6 bg-black py-6 rounded-lg shadow-lg">
+                                    {successMessage && (
+                                        <div className="success-message bg-orange-600 text-white text-center py-2">
+                                            Message sent successfully!
+                                        </div>
+                                    )}
 
-            {/* Email Field */}
-            <div className="form-group relative">
-                <label htmlFor="email" className="block text-white">
-                    Email <span className="text-red-500">*</span>
-                </label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 bg-stone-900 border-none focus:outline-none focus:ring-0 focus:bg-stone-200 focus:text-gray-800 transition-all"
-                    required
-                />
-            </div>
+                                    <div className="grid grid-cols-2 gap-5">
+                                        <div className="form-group relative">
+                                            <label htmlFor="name" className="block text-white">
+                                                Name <span className="text-red-500">*</span>
+                                            </label>
+                                            <input
+                                                type="text"
+                                                id="name"
+                                                name="name"
+                                                value={formData.name}
+                                                onChange={handleChange}
+                                                className="w-full px-4 py-2 bg-stone-900 border-none focus:outline-none focus:ring-0 focus:bg-stone-200 focus:text-gray-800 transition-all"
+                                                required
+                                            />
+                                        </div>
 
-            {/* Phone Field */}
-            <div className="form-group relative">
-                <label htmlFor="phone" className="block text-white">
-                    Phone <span className="text-red-500">*</span>
-                </label>
-                <input
-                    type="text"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 bg-stone-900 border-none focus:outline-none focus:ring-0 focus:bg-stone-200 focus:text-gray-800 transition-all"
-                    required
-                />
-            </div>
+                                        <div className="form-group relative">
+                                            <label htmlFor="email" className="block text-white">
+                                                Email <span className="text-red-500">*</span>
+                                            </label>
+                                            <input
+                                                type="email"
+                                                id="email"
+                                                name="email"
+                                                value={formData.email}
+                                                onChange={handleChange}
+                                                className="w-full px-4 py-2 bg-stone-900 border-none focus:outline-none focus:ring-0 focus:bg-stone-200 focus:text-gray-800 transition-all"
+                                                required
+                                            />
+                                        </div>
 
-            {/* Subject Field */}
-            <div className="form-group relative">
-                <label htmlFor="subject" className="block text-white">
-                    Subject <span className="text-red-500">*</span>
-                </label>
-                <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 bg-stone-900 border-none focus:outline-none focus:ring-0 focus:bg-stone-200 focus:text-gray-800 transition-all"
-                    required
-                />
-            </div>
-        </div>
+                                        <div className="form-group relative">
+                                            <label htmlFor="phone" className="block text-white">
+                                                Phone <span className="text-red-500">*</span>
+                                            </label>
+                                            <input
+                                                type="text"
+                                                id="phone"
+                                                name="phone"
+                                                value={formData.phone}
+                                                onChange={handleChange}
+                                                className="w-full px-4 py-2 bg-stone-900 border-none focus:outline-none focus:ring-0 focus:bg-stone-200 focus:text-gray-800 transition-all"
+                                                required
+                                            />
+                                        </div>
 
-        {/* Message Field */}
-        <div className="form-group relative">
-            <label htmlFor="message" className="block text-white">
-                Message <span className="text-red-500">*</span>
-            </label>
-            <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full px-4 py-5 bg-stone-900 border-none focus:outline-none focus:ring-0 focus:bg-stone-200 focus:text-gray-800 transition-all"
-                required
-            />
-        </div>
+                                        <div className="form-group relative">
+                                            <label htmlFor="subject" className="block text-white">
+                                                Subject <span className="text-red-500">*</span>
+                                            </label>
+                                            <input
+                                                type="text"
+                                                id="subject"
+                                                name="subject"
+                                                value={formData.subject}
+                                                onChange={handleChange}
+                                                className="w-full px-4 py-2 bg-stone-900 border-none focus:outline-none focus:ring-0 focus:bg-stone-200 focus:text-gray-800 transition-all"
+                                                required
+                                            />
+                                        </div>
+                                    </div>
 
-        <button
-            type="submit"
-            className="bg-orange-600 px-10 py-4 text-white font-semibold transition duration-300 shadow-animation"
-        >
-            Submit Message
-        </button>
-    </form>
+                                    <div className="form-group relative">
+                                        <label htmlFor="message" className="block text-white">
+                                            Message <span className="text-red-500">*</span>
+                                        </label>
+                                        <textarea
+                                            id="message"
+                                            name="message"
+                                            value={formData.message}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-5 bg-stone-900 border-none focus:outline-none focus:ring-0 focus:bg-stone-200 focus:text-gray-800 transition-all"
+                                            required
+                                        />
+                                    </div>
 
-</div>
+                                    <button
+                                        type="submit"
+                                        className="bg-orange-600 px-10 py-4 text-white font-semibold transition duration-300 shadow-animation"
+                                    >
+                                        Submit Message
+                                    </button>
+                                </form>
+                            </div>
 
-
-                {/* Location Map Column */}
-                <div className="w-full aspect-video">
-            <iframe
-                className="w-full h-full shadow-lg"
-                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14607.996596886385!2d90.36290812581547!3d23.747409749772967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sHouse%20No%3A%20137%2F24%2FA%2C%20Dhanmondi%2C%20Dhaka-1209%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1742632275655!5m2!1sen!2sbd"
-                allowFullScreen=""
-                style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
-                loading="lazy"
-            ></iframe>
-        </div>
-
-            </div>
-        </div>
+                            <div className="w-full aspect-video md:pr-10">
+                                <iframe
+                                    className="w-full h-full shadow-lg"
+                                    src="https://www.google.com/maps/embed?pb=!1m16..."
+                                    allowFullScreen=""
+                                    style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
+                                    loading="lazy"
+                                ></iframe>
+                            </div>
+                        </div>
+                    </div>
                 </Section>
             </div>
         </>

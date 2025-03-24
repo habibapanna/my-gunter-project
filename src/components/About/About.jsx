@@ -5,6 +5,14 @@ import { Link } from 'react-router-dom';
 
 
 const About = () => {
+ // Scroll to Contact section
+ const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+};
+
     return (
         <div>
             <div className='bg-black p-10 flex flex-col lg:flex-row gap-20'>
@@ -31,7 +39,7 @@ At Imagine Dream World, we provide A-to-Z e-commerce business management, helpin
 </p>
 
 <div className='right-20 mt-10'>
-                        <button className=" bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation">
+                        <button onClick={scrollToContact} className=" bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation">
                             <Link>More About Us</Link> <FaArrowRightLong />
                         </button>
                     </div>

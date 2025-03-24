@@ -1,6 +1,7 @@
 import { Link, useLocation, Outlet, useNavigate } from "react-router-dom";
 import { FaSquareFull } from "react-icons/fa6";
 import { MdOutlineSearch } from "react-icons/md";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 const Blog = () => {
@@ -52,20 +53,26 @@ const Blog = () => {
 
                     </div>
                     {/* ✅ Recent Posts */}
-                    <div className="border border-gray-300 p-3 text-black">
-                        <h1 className="text-lg font-bold">Recent Posts</h1>
-                        <div className="border-b border-gray-300 my-2"></div>
-                        {filteredBlogs.filter(blog => blog.title.toLowerCase().includes(search.toLowerCase())).map((blog, index) => (
-                            <button
-                                key={index}
-                                className="flex items-center p-2 hover:text-orange-600"
-                                onClick={() => navigate(blog.path)}
-                            >
-                                <FaSquareFull className="text-sm mr-3" />
-                                <span className="text-sm">{blog.title}</span>
-                            </button>
-                        ))}
-                    </div>
+                    {/* ✅ Recent Posts */}
+<div className="border border-gray-300 p-3 text-black">
+    <h1 className="text-lg font-bold">Recent Posts</h1>
+    <div className="border-b border-gray-300 my-2"></div>
+    {filteredBlogs
+        .filter(blog => blog.title.toLowerCase().includes(search.toLowerCase()))
+        .map((blog, index) => (
+            <button
+                key={index}
+                className={`flex items-center p-2 text-left transition ${
+                    location.pathname === blog.path ? "text-orange-600 font-semibold" : "hover:text-orange-600"
+                }`}
+                onClick={() => navigate(blog.path)}
+            >
+                <FaSquareFull className="text-sm mr-3" />
+                <span className="text-sm">{blog.title}</span>
+            </button>
+        ))}
+</div>
+
                     {/* ✅ Categories */}
                     <div className="border border-gray-300 p-3 mt-4 text-black">
                         <h1 className="text-lg font-bold">Categories</h1>
@@ -89,16 +96,22 @@ const Blog = () => {
                     ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {blogs.map((blog, index) => (
-                                <div key={index} className="bg-white text-black p-4 border border-gray-200 shadow-md">
-                                    <img src={blog.cover} alt={blog.title} className="w-full h-40 object-cover mb-3" />
-                                    <h2 className="text-lg font-bold mb-2">{blog.title}</h2>
-                                    <button
-                                        className="text-orange-600 font-semibold hover:underline"
-                                        onClick={() => navigate(blog.path)}
-                                    >
-                                        Read More
-                                    </button>
-                                </div>
+                                <motion.div
+                                key={index}
+                                className="bg-white text-black p-4 border border-gray-200 shadow-md"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: index * 0.2 }} // Staggered animation
+                            >
+                                <img src={blog.cover} alt={blog.title} className="w-full h-40 object-cover mb-3" />
+                                <h2 className="text-lg font-bold mb-2">{blog.title}</h2>
+                                <button
+                                    className="text-orange-600 font-semibold hover:underline"
+                                    onClick={() => navigate(blog.path)}
+                                >
+                                    Read More
+                                </button>
+                            </motion.div>
                             ))}
                         </div>
                     )}

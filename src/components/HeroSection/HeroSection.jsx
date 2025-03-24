@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
-import { IoClose } from "react-icons/io5";
-import { TbPlayerPlay } from "react-icons/tb";
 
 const images = [
   "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/beard-man-1-1.png",

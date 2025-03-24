@@ -27,14 +27,13 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-  const [showVideo, setShowVideo] = useState(false); // Video modal state
   const sliderRef = useRef(null); // <-- Add useRef for the slider
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const settings = {
     dots: false,
     infinite: true,
-    speed: 1000,
+    speed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,

@@ -4,6 +4,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const services = [
   { title: "500+ Amazon Stores Managed", image: "https://i.ibb.co.com/QF7bcvC4/pexels-cottonbro-3205504.jpg" },
@@ -83,7 +84,7 @@ const RecentProjects = () => {
 
       <div className="mt-10">
       <button className="bg-orange-600 px-5 md:px-6 py-3 md:py-4 text-white font-semibold flex items-center gap-2 shadow-animation mt-4 md:mt-0 mx-auto">
-          All Projects <FaArrowRightLong />
+          <Link to="/blog">All Projects </Link><FaArrowRightLong />
         </button>
       </div>
     </div>

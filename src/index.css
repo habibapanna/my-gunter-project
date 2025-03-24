@@ -80,6 +80,11 @@ body {
     animation: falling 1.5s infinite ease-in-out;
 }
 
+.slick-prev, .slick-next {
+  display: none !important;
+}
+
+
 
   
  

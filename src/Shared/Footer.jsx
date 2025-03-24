@@ -18,7 +18,7 @@ const Footer = () => {
             <footer className="bg-black text-white py-10 relative">
                 {/* Falling animation on the border */}
                 <div className="border w-[2px] h-16 border-orange-600 bg-orange-600 mx-auto mt-10 mb-12 relative">
-                    <div className="falling absolute -left-1 w-2 h-4 bg-black animate-falling"></div>
+                    <div className="falling absolute -left-1 w-2 h-8 bg-black animate-falling"></div>
                     <div className="falling absolute -left-1 w-2 h-4 bg-black animate-falling" style={{ animationDelay: "0.5s" }}></div>
                 </div>
 

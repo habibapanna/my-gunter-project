@@ -10,6 +10,7 @@ import {
   FaTwitter,
   FaLinkedin,
 } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const teamMembers = [
   {
@@ -70,7 +71,7 @@ const OurTeam = () => {
         modules={[Pagination, Autoplay]}
         autoplay={{ delay: 3000 }}
         loop={true}
-        speed={1000}
+        speed={2000}
         pagination={{ clickable: true }}
         breakpoints={{
           320: { slidesPerView: 1, spaceBetween: 10 }, // Small screens: 1 slide
@@ -82,7 +83,7 @@ const OurTeam = () => {
       >
         {teamMembers.map((member, index) => (
           <SwiperSlide key={index}>
-            <div className="relative group h-[320px] shadow-lg">
+            <div className="relative group h-[400px] shadow-lg">
               {/* Image */}
               <img
                 src={member.image}
@@ -93,7 +94,7 @@ const OurTeam = () => {
               {/* Overlay Text */}
               <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-70 text-white p-3 text-center">
                 <h3 className="font-bold text-lg">{member.name}</h3>
-                <p className="text-orange-600">{member.title}</p>
+                <p className="text-orange-600 text-sm">{member.title}</p>
               </div>
 
               {/* Social Links on Hover */}
@@ -132,7 +133,7 @@ const OurTeam = () => {
         ))}
       </div>
       <div className="mt-10"> <button className="bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto">
-          View All
+         <Link to="/contact"> View All</Link>
           <FaArrowRightLong />
         </button></div>
     </div>

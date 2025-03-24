@@ -14,7 +14,7 @@ const newsArticles = [
   },
   {
     title: "F-Commerce Booming in Bangladesh: The Future of Online Business!",
-    image: "https://i.ibb.co.com/PGyPtgPj/pexels-olly-3761509.jpg",
+    image: "https://i.ibb.co.com/8n2xG3Gv/pexels-mustapha-damilola-458083529-31269038.jpg",
     description: "With millions of active users, Facebook Commerce is shaping the future of online selling in Bangladesh.",
   },
   {
@@ -24,7 +24,7 @@ const newsArticles = [
   },
   {
     title: "Amazon FBA Continues to Dominate eCommerce!",
-    image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/05/singlr-bolg-1-1-1-1-scaled-380x330.jpg",
+    image: "https://i.ibb.co.com/S7fvk9xs/pexels-airamdphoto-31258451.jpg",
     description: "Amazon’s FBA program is scaling businesses worldwide with fast shipping and automated fulfillment.",
   },
 ];
@@ -51,7 +51,7 @@ const LatestNews = () => {
         modules={[Pagination, Autoplay]}
         autoplay={{ delay: 3000 }}
         loop={true}
-        speed={1000}
+        speed={2000}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         className="p-5"
         slidesPerView={1} // Default to 1 slide
@@ -70,9 +70,9 @@ const LatestNews = () => {
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
               />
               <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[110%] bg-stone-900 backdrop-blur-md text-white p-6 flex flex-col gap-3 z-10">
-                <span className="bg-orange-600 px-3 py-1 w-max font-semibold">May 05</span>
-                <h3 className="text-xl font-bold text-left text-white px-1">{news.title}</h3>
-                <button className="text-orange-600 hover:underline font-semibold text-left">
+                <span className="bg-orange-600 px-3 py-1 w-max font-semibold ml-3">May 05</span>
+                <h3 className="text- font-semibold text-left text-white px-1 ml-3">{news.title}</h3>
+                <button className="text-orange-600 hover:underline font-semibold text-left text-sm ml-3">
                   <Link to="/blog">READ MORE</Link>
                 </button>
               </div>
