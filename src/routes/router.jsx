@@ -24,6 +24,9 @@ import Gallery from "../pages/Gallery/Gallery";
 import Gallery1 from "../components/Gallery1/Gallery1";
 import Gallery3 from "../components/Gallery3/Gallery3";
 import Gallery2 from "../components/Gallery2/Gallery2";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -33,7 +36,7 @@ const router = createBrowserRouter([
         errorElement: <h1 className="text-5xl font-bold text-red-500">Page not found</h1>,
         children: [
             { path: "/", element: <Home /> },
-            { path: "blog", element: <Blog />,
+            { path: "blog", element: <PrivateRoute><Blog /></PrivateRoute>,
                 children: [
                     {
                     path: "blog-1",
@@ -49,7 +52,7 @@ const router = createBrowserRouter([
                     },
                 ]
              },
-            { path: "announcements", element: <Announcements />,
+            { path: "announcements", element: <PrivateRoute><Announcements /></PrivateRoute>,
                 children: [
                     {
                         path: "announcement-1",
@@ -66,7 +69,7 @@ const router = createBrowserRouter([
                     
                 ]
              },
-            { path: "gallery", element: <Gallery></Gallery>,
+            { path: "gallery", element: <PrivateRoute><Gallery></Gallery></PrivateRoute>,
                 children: [
                     {
                         path: "gallery-1",
@@ -83,9 +86,11 @@ const router = createBrowserRouter([
                 ]
              },
             { path: "contact", element: <Contact /> },
+            { path: "login", element: <Login></Login> },
+            { path: "register", element: <Register></Register> },
             { 
                 path: "services", // ✅ Services is now inside Main
-                element: <Services />,
+                element: <PrivateRoute><Services /></PrivateRoute>,
                 children: [
                     { path: "private-label", element: <PrivateLabelPage /> },
                     { path: "retail-arbitrage", element: <RetailArbitragePage /> },
