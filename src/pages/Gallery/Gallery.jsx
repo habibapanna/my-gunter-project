@@ -70,23 +70,23 @@ const Gallery = () => {
                         <input
                             type="text"
                             placeholder="Search Services..."
-                            className="w-full pl-10 pr-4 py-3 border border-gray-800 text-white  focus:outline-none focus:ring-2 focus:ring-orange-600"
+                            className="w-full pl-10 pr-4 py-3 shadow-orange-600 shadow-md text-white  focus:outline-none focus:ring-2 focus:ring-orange-600"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
                     </div>
 
                     {/* ✅ Recent Post Section */}
-                    <div className="border border-gray-800 mb-4">
+                    <div className="shadow-orange-600 shadow-md mb-4">
                         <h1 className="text-white text-lg font-bold p-3">Recent Project</h1>
-                        <div className="border-1 border-gray-800 w-full mx-auto mb-4"></div>
+                        <div className="border-1 border-orange-600 mx-5 mb-4"></div>
 
                         {/* ✅ Blog List */}
                         <div className="flex flex-col">
                             {galleries.filter(gallery => gallery.title.toLowerCase().includes(search.toLowerCase())).map((gallery, index) => (
                                 <button
                                     key={index}
-                                    className={`flex justify-between items-center p-3 border-gray-800 transition-all duration-300 relative transform text-left 
+                                    className={`flex justify-between items-center p-3 shadow-orange-600 shadow-md transition-all duration-300 relative transform text-left 
                                     ${location.pathname === gallery.path ? "bg-orange-600 text-white" : "bg-black text-whitek hover:text-orange-600 hover:scale-95"}`}
                                     onClick={() => navigate(gallery.path)}
                                 >

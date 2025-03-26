@@ -45,7 +45,7 @@ function Shopify() {
       {/* Hero Section */}
       <section>
         <h1 className="text-4xl font-bold mb-4">Shopify Store Setup & Management – Build & Scale Your Online Business!</h1>
-        <p className="text-[16px] font-normal text-gray-500 max-w-3xl mx-auto">
+        <p className="text-[16px] font-normal text-gray-400 max-w-3xl mx-auto">
           Want to launch a professional, high-converting Shopify store? We provide end-to-end Shopify solutions, from store design and branding to SEO, product listings, and marketing, ensuring your success in eCommerce & dropshipping.
         </p>
       </section>

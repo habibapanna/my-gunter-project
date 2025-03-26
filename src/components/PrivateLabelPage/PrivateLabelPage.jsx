@@ -53,7 +53,7 @@ function PrivateLabelPage() {
       {/* Hero Section */}
       <section className="">
         <h1 className="text-4xl font-semibold mb-4">Private Label & Branding Services for Amazon FBA</h1>
-        <p className="text-gray-500 font-normal text-[16px] max-w-3xl mx-auto">
+        <p className="text-gray-400 font-normal text-[16px] max-w-3xl mx-auto">
           Looking to launch your Private Label brand on Amazon FBA? We provide end-to-end solutions to help you create a unique, high-converting brand that stands out.
         </p>
       </section>
@@ -88,7 +88,7 @@ function PrivateLabelPage() {
           ))}
         </div>
 
-        <p className="mt-10">Create a successful Private Label brand on Amazon & scale your business effortlessly!</p>
+        <p className="mt-10 text-orange-600">Create a successful Private Label brand on Amazon & scale your business effortlessly!</p>
 
         <div className="text-center mt-5">
           <button className="relative bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[18px]">

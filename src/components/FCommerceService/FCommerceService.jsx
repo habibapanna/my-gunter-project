@@ -45,7 +45,7 @@ function FCommerceService() {
       {/* Hero Section */}
       <section>
         <h1 className="text-4xl font-bold mb-4">F-Commerce Services – Grow & Scale Your Business on Facebook!</h1>
-        <p className="text-[16px] text-gray-500 font-normal max-w-3xl mx-auto">
+        <p className="text-[16px] text-gray-400 font-normal max-w-3xl mx-auto">
           Want to sell more on Facebook & Instagram? Our F-Commerce services help you set up, manage, and scale your business using Facebook Shops, Marketplace, and Ads, ensuring high engagement, more sales, and brand growth.
         </p>
       </section>
@@ -55,12 +55,12 @@ function FCommerceService() {
         <h2 className="text-2xl font-semibold mb-6">Our F-Commerce Services:</h2>
         <ul className="space-y-3">
           {services.map((service, index) => (
-            <li key={index} className="flex items-center text-gray-500 text-[16px]">
+            <li key={index} className="flex items-center text-gray-400 text-[16px]">
               <FaCheck className="text-orange-600 mr-3 text-2xl" /> {service}
             </li>
           ))}
         </ul>
-        <p className="mt-10">💼 Start and grow your F-Commerce business with expert strategies!</p>
+        <p className="mt-10 text-orange-600">💼 Start and grow your F-Commerce business with expert strategies!</p>
         <div className="text-center mt-8">
           <button className="relative bg-orange-600 px-6 py-4 text-white font-semibold transition-all duration-300 shadow-animation text-[18px]">
             <Link to='/contact'>📩 Contact us today for expert guidance!</Link>

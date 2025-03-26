@@ -46,7 +46,7 @@ function WebDevelopment() {
       {/* Hero Section */}
       <section className="">
         <h1 className="text-4xl font-bold mb-4">Web Development Services</h1>
-        <p className="text-[16px] text-gray-500 font-normal max-w-3xl mx-auto">
+        <p className="text-[16px] text-gray-400 font-normal max-w-3xl mx-auto">
           Need a fast, responsive, and SEO-optimized website? We specialize in custom web development for businesses, eCommerce, and personal brands, ensuring a user-friendly experience and maximum conversions.
         </p>
       </section>
@@ -56,7 +56,7 @@ function WebDevelopment() {
         <h2 className="text-2xl font-semibold mb-6">Our Web Development Services</h2>
         <div className="space-y-4">
           {services.map((service, index) => (
-            <div key={index} className="flex items-center gap-4 text-[16px] text-gray-500">
+            <div key={index} className="flex items-center gap-4 text-[16px] text-gray-400">
               <FaCheck className="text-orange-500 text-2xl" />
               {service}
             </div>

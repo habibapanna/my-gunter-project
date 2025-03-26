@@ -35,10 +35,10 @@ const Blog1 = () => {
       </section>
 
             <h1 className="text-4xl font-bold mb-4 text-white">The Ultimate Guide to Starting and Scaling an eCommerce Business in 2025</h1>
-            <p className="mb-4 text-gray-500 text-[16px] font-normal">The eCommerce industry is booming, with more businesses shifting online to reach a global audience. Whether you're an aspiring entrepreneur or an established retailer looking to expand, starting and scaling an eCommerce business requires the right strategy, tools, and mindset. In this guide, we’ll walk you through everything you need to know about building a successful eCommerce business in 2025.</p>
+            <p className="mb-4 text-gray-400 text-[16px] font-normal">The eCommerce industry is booming, with more businesses shifting online to reach a global audience. Whether you're an aspiring entrepreneur or an established retailer looking to expand, starting and scaling an eCommerce business requires the right strategy, tools, and mindset. In this guide, we’ll walk you through everything you need to know about building a successful eCommerce business in 2025.</p>
             
             <h2 className="text-2xl font-semibold mt-6 mb-3 text-white">1. Understanding the eCommerce Business Model</h2>
-            <ul className="list-none ml-6 mb-4 text-gray-500 text-[16px] font-normal">
+            <ul className="list-none ml-6 mb-4 text-gray-400 text-[16px] font-normal">
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>Dropshipping</strong> – Sell products without holding inventory; suppliers fulfill orders on your behalf.</li>
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>Wholesale & Private Label</strong> – Purchase products in bulk, brand them, and resell at a profit.</li>
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>Print-on-Demand</strong> – Create custom designs printed on products only after an order is placed.</li>
@@ -47,7 +47,7 @@ const Blog1 = () => {
             </ul>
 
             <h2 className="text-2xl font-semibold mt-6 text-white mb-3">2. Selecting the Right eCommerce Platform</h2>
-            <ul className="list-none ml-6 mb-4 text-gray-500 text-[16px] font-normal">
+            <ul className="list-none ml-6 mb-4 text-gray-400 text-[16px] font-normal">
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>Shopify</strong> – Ideal for beginners; easy to use with powerful integrations.</li>
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>WooCommerce</strong> – A WordPress plugin perfect for those who want flexibility.</li>
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>BigCommerce</strong> – Great for scaling larger businesses.</li>
@@ -56,7 +56,7 @@ const Blog1 = () => {
             </ul>
             
             <h2 className="text-2xl font-semibold mt-6  text-white mb-3">3. Finding Profitable Products to Sell</h2>
-            <ul className="list-none ml-6 mb-4 text-gray-500 text-[16px] font-normal">
+            <ul className="list-none ml-6 mb-4 text-gray-400 text-[16px] font-normal">
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>Market Research Tools</strong> – Use Google Trends, Jungle Scout, and Helium 10 to analyze demand.</li>
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>Competitor Analysis</strong> – Check what’s trending on Amazon, eBay, and social media.</li>
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>Niche Selection</strong> – Focus on untapped markets with high demand and low competition.</li>
@@ -64,7 +64,7 @@ const Blog1 = () => {
             </ul>
 
             <h2 className="text-2xl font-semibold mt-6 text-white mb-3">4. Building a Strong Brand Identity</h2>
-            <ul className="list-none ml-6 mb-4 text-gray-500 text-[16px] font-normal">
+            <ul className="list-none ml-6 mb-4 text-gray-400 text-[16px] font-normal">
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>A Unique Brand Name & Logo</strong> – Choose a name that reflects your business values.</li>
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>Consistent Visual Identity</strong> – Use a uniform color scheme, fonts, and style.</li>
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>Engaging Content</strong> – Create high-quality images, videos, and infographics.</li>
@@ -73,7 +73,7 @@ const Blog1 = () => {
             
             <h2 className="text-2xl font-semibold mt-6 text-white mb-3">5. Setting Up Your Online Store</h2>
             <p className="mb-4 text-gray-500 text-[16px] font-normal">Once you've chosen your platform and products, follow these steps to set up your store:</p>
-            <ul className="list-none ml-6 mb-4 text-gray-500 text-[16px] font-normal">
+            <ul className="list-none ml-6 mb-4 text-gray-400 text-[16px] font-normal">
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>Domain & Hosting</strong> – Secure a professional domain name.</li>
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>Website Design</strong> – Optimize for mobile responsiveness and user experience.</li>
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>Product Listings</strong> – Use high-quality images, compelling descriptions, and SEO-friendly titles.</li>
@@ -82,7 +82,7 @@ const Blog1 = () => {
             </ul>
 
             <h2 className="text-2xl font-semibold mt-6 text-white mb-3">6. Driving Traffic to Your Store</h2>
-            <ul className="list-none ml-6 mb-4 text-gray-500 text-[16px] font-normal">
+            <ul className="list-none ml-6 mb-4 text-gray-400 text-[16px] font-normal">
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>SEO Optimization</strong> – Use relevant keywords, optimize product pages, and improve site speed.</li>
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>Social Media Marketing</strong> – Run campaigns on Facebook, Instagram, and TikTok.</li>
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>Google Ads & PPC Campaigns</strong> – Invest in paid advertising to drive targeted traffic.</li>
@@ -91,7 +91,7 @@ const Blog1 = () => {
             </ul>
 
             <h2 className="text-2xl font-semibold mt-6 text-white mb-3">7. Scaling Your eCommerce Business</h2>
-            <ul className="list-none ml-6 mb-4 text-gray-500 text-[16px] font-normal">
+            <ul className="list-none ml-6 mb-4 text-gray-400 text-[16px] font-normal">
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>Automate Operations</strong> – Use tools like Zapier and Shopify apps to automate tasks.</li>
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>Expand Product Lines</strong> – Introduce new products based on customer demand.</li>
                 <li><FaSquareFull className="inline mr-2 text-orange-600" /><strong>Diversify Sales Channels</strong> – Sell on Amazon, Walmart, eBay, and other marketplaces.</li>
@@ -100,7 +100,7 @@ const Blog1 = () => {
             </ul>
 
             <h2 className="text-2xl font-semibold mt-6 text-white mb-3">Final Thoughts</h2>
-            <p className="mb-4 text-gray-500 text-[16px] font-normal">Starting an eCommerce business in 2025 is a lucrative opportunity if approached with the right strategy. From choosing the right business model and platform to marketing effectively and scaling, every step plays a crucial role in your success. With the proper tools, research, and mindset, you can build a thriving eCommerce store that stands out in a competitive market.</p>
+            <p className="mb-4 text-gray-400 text-[16px] font-normal">Starting an eCommerce business in 2025 is a lucrative opportunity if approached with the right strategy. From choosing the right business model and platform to marketing effectively and scaling, every step plays a crucial role in your success. With the proper tools, research, and mindset, you can build a thriving eCommerce store that stands out in a competitive market.</p>
             <div className="text-center mt-8">
           <button className="relative bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[18px]">
             <Link to='/contact'>Contact us today for expert guidance!</Link>

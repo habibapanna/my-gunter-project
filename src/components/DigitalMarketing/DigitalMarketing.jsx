@@ -46,7 +46,7 @@ function DigitalMarketing() {
       {/* Hero Section */}
       <section className="">
         <h1 className="text-4xl font-bold mb-4">Digital Marketing Services – Grow Your Brand & Boost Sales!</h1>
-        <p className="text-[16px] text-gray-500 max-w-3xl mx-auto font-normal">
+        <p className="text-[16px] text-gray-400 max-w-3xl mx-auto font-normal">
           Want to scale your business and reach the right audience? Our expert digital marketing services help you increase brand visibility, website traffic, and conversions through SEO, social media, PPC, and content marketing.
         </p>
       </section>
@@ -54,7 +54,7 @@ function DigitalMarketing() {
       {/* Services Section */}
       <section className="services bg-black px-5 md:px-20 mt-10">
         <h2 className="text-2xl font-semibold mb-6">Our Digital Marketing Services:</h2>
-        <ul className="space-y-4 text-[16px] text-gray-500">
+        <ul className="space-y-4 text-[16px] text-gray-400">
           {services.map((service, index) => (
             <motion.li 
               key={index} 

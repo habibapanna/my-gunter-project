@@ -38,7 +38,7 @@ function CreativeDesign() {
       {/* Hero Section */}
       <section className=" px-5">
         <h1 className="text-4xl font-bold mb-4">Creative Design Services – Elevate Your Brand with Stunning Visuals!</h1>
-        <p className="max-w-3xl mx-auto text-gray-500 font-normal text-[16px]">
+        <p className="max-w-3xl mx-auto text-gray-400 font-normal text-[16px]">
           Looking for eye-catching designs that make your brand stand out? Our creative design services help businesses create visually appealing and high-converting graphics for digital and print marketing.
         </p>
       </section>

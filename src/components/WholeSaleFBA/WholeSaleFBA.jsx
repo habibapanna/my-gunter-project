@@ -61,7 +61,7 @@ function WholeSaleFBA() {
             </li>
           ))}
         </ul>
-<p className="text-black mt-10">Start and scale your Wholesale FBA & WFS business today with expert guidance!</p>
+<p className="text-orange-600 mt-10">Start and scale your Wholesale FBA & WFS business today with expert guidance!</p>
 <div className="text-center mt-5">
           <button className="relative bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[18px]">
             <Link to='/contact'>Contact us today for expert guidance!</Link>

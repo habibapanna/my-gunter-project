@@ -44,7 +44,7 @@ function ProductPhotography() {
       {/* Hero Section */}
       <section className="text-left px-5 md:px-20">
         <h1 className="text-4xl font-bold mb-4">Product Photography & Videography</h1>
-        <p className="text-[16px] text-gray-500 max-w-3xl font-normal">
+        <p className="text-[16px] text-gray-400 max-w-3xl font-normal">
           High-quality product images and videos are essential for increasing conversions and building trust with customers. We provide professional photography and videography services for Amazon, Walmart, Shopify, eBay, and social media marketing to help your brand stand out.
         </p>
       </section>
@@ -56,7 +56,7 @@ function ProductPhotography() {
           {services.map((service, index) => (
             <div key={index} className="flex items-center gap-3">
               <span className="text-orange-600 text-lg">◆</span>
-              <p className="text-[16px] text-gray-500">{service}</p>
+              <p className="text-[16px] text-gray-400">{service}</p>
             </div>
           ))}
         </div>

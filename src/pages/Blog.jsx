@@ -37,16 +37,16 @@ const Blog = () => {
             </div>
 
             {/* ✅ Content Section */}
-            <div className="p-6 grid grid-cols-1 md:grid-cols-12 gap-6 ">
+            <div className="p-6 grid grid-cols-1 md:grid-cols-12 gap-6">
                 {/* ✅ Sidebar (Moves to Top on Mobile) */}
-                <div className="md:col-span-4 bg-black p-4 md:order-none">
+                <div className="md:col-span-4 bg-black p-4 md:order-none ">
                     {/* ✅ Search Bar */}
                     <div className="relative mb-4">
                         <MdOutlineSearch className="absolute left-3 top-3 text-orange-600 text-xl" />
                         <input
     type="text"
     placeholder="Search Blogs..."
-    className="w-full pl-10 pr-4 py-3 border border-gray-800 focus:ring-orange-600 text-white placeholder-gray-500"
+    className="w-full pl-10 pr-4 py-3 focus:ring-orange-600 text-white placeholder-gray-500 shadow-orange-600 shadow-md"
     value={search}
     onChange={(e) => setSearch(e.target.value)}
 />
@@ -54,9 +54,9 @@ const Blog = () => {
                     </div>
                     {/* ✅ Recent Posts */}
                     {/* ✅ Recent Posts */}
-<div className="border border-gray-800 p-3 text-white">
+<div className="shadow-orange-600 shadow-md p-3 text-white">
     <h1 className="text-lg font-bold">Recent Posts</h1>
-    <div className="border-b border-gray-800 my-2"></div>
+    <div className="shadow-orange-600 shadow-md my-2"></div>
     {filteredBlogs
         .filter(blog => blog.title.toLowerCase().includes(search.toLowerCase()))
         .map((blog, index) => (
@@ -74,7 +74,7 @@ const Blog = () => {
 </div>
 
                     {/* ✅ Categories */}
-                    <div className="border border-gray-800 p-3 mt-4 text-white">
+                    <div className="shadow-orange-600 shadow-md p-3 mt-4 text-white">
                         <h1 className="text-lg font-bold">Categories</h1>
                         <div className="border-b border-gray-800 my-2"></div>
                         {categories.map((category, index) => (
@@ -98,7 +98,7 @@ const Blog = () => {
                             {blogs.map((blog, index) => (
                                 <motion.div
                                 key={index}
-                                className="bg-black text-white p-4 border border-gray-800 shadow-md"
+                                className="bg-black text-white p-4 shadow-orange-600 shadow-md"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: index * 0.2 }} // Staggered animation

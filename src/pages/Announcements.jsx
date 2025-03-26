@@ -89,7 +89,7 @@ const Announcements = () => {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {newsArticles.map((news, index) => (
-                <div key={index} className="bg-black border border-gray-800 shadow-md p-4">
+                <div key={index} className="bg-black shadow-orange-600 shadow-md p-4">
                   <img src={news.image} alt={news.title} className="w-full h-40 object-cover" />
                   <h2 className="text-lg font-bold mt-3 text-white">{news.title}</h2>
                   <p className="text-gray-500 mt-2">{news.description}</p>
@@ -105,12 +105,12 @@ const Announcements = () => {
             <input
               type="text"
               placeholder="Search Services..."
-              className="w-full pl-10 pr-4 py-3 border border-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-orange-600"
+              className="w-full pl-10 pr-4 py-3 shadow-orange-600 shadow-md text-white focus:outline-none focus:ring-2 focus:ring-orange-600"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          <div className="border border-gray-800">
+          <div className="shadow-orange-600 shadow-md">
             <h1 className="text-white text-lg font-bold p-3">Recent Announcements</h1>
             <div className="border-1 border-gray-800 w-80 mx-auto"></div>
             <div className="flex flex-col">

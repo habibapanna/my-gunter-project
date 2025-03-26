@@ -36,13 +36,13 @@ const Blog3 = () => {
             </section>
 
             <h1 className="text-4xl font-bold mb-4 white">The Benefits of Private Label and Branding in eCommerce</h1>
-            <p className='text-gray-500 text-[16px] font-normal mb-8'>In today's competitive eCommerce landscape, private labeling and branding have become essential strategies for entrepreneurs looking to build long-term, profitable businesses. Unlike reselling existing products, private labeling allows sellers to create unique brands, increase profit margins, and establish customer loyalty. In this blog, we’ll explore the key benefits of private labeling and how branding can set your business apart.</p>
+            <p className='text-gray-400 text-[16px] font-normal mb-8'>In today's competitive eCommerce landscape, private labeling and branding have become essential strategies for entrepreneurs looking to build long-term, profitable businesses. Unlike reselling existing products, private labeling allows sellers to create unique brands, increase profit margins, and establish customer loyalty. In this blog, we’ll explore the key benefits of private labeling and how branding can set your business apart.</p>
             
             <h2 className='text-white text-2xl mb-5'>1. What is Private Labeling?</h2>
-            <p className='text-gray-500 text-[16px] font-normal'>Private labeling is the process of sourcing products from manufacturers and branding them under your own company name. Instead of selling generic or unbranded items, private label businesses create their own identity, packaging, and marketing strategies to stand out in the market.</p>
+            <p className='text-gray-400 text-[16px] font-normal'>Private labeling is the process of sourcing products from manufacturers and branding them under your own company name. Instead of selling generic or unbranded items, private label businesses create their own identity, packaging, and marketing strategies to stand out in the market.</p>
             
             <h3 className='text-white text-xl mt-3 mb-3'>Examples of Private Label Businesses:</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-500 text-[16px] font-normal">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-400 text-[16px] font-normal">
             <div className="flex items-start gap-2">
                 <FaDiamond className="text-orange-600 mt-1 text-2xl" />
                 <p>
@@ -65,7 +65,7 @@ const Blog3 = () => {
 
 
             <h2 className='text-white text-2xl mb-5 mt-8'>2. Key Benefits of Private Labeling</h2>
-            <ul className='text-gray-500 text-[16px] font-normal list-disc pl-5'>
+            <ul className='text-gray-400 text-[16px] font-normal list-disc pl-5'>
                 <li className="flex items-center gap-2"><FaDiamond className='text-orange-600' /><strong>Higher Profit Margins:</strong> You own the brand and set premium pricing.</li>
                 <li className="flex items-center gap-2"><FaDiamond className='text-orange-600' /><strong>Brand Recognition & Customer Loyalty:</strong> Builds trust and repeat purchases.</li>
                 <li className="flex items-center gap-2"><FaDiamond className='text-orange-600' /><strong>Reduced Competition:</strong> Eliminates direct competition with generic products.</li>
@@ -73,7 +73,7 @@ const Blog3 = () => {
             </ul>
 
             <h2 className='text-white text-2xl mb-5 mt-8'>3. How to Succeed with Private Labeling</h2>
-            <ul className='text-gray-500 text-[16px] font-normal list-decimal pl-5'>
+            <ul className='text-gray-400 text-[16px] font-normal list-decimal pl-5'>
                 <li className="flex items-center gap-2"><FaDiamond className='text-orange-600' />Market Research & Product Selection</li>
                 <li className="flex items-center gap-2"><FaDiamond className='text-orange-600' />Find a Reliable Supplier</li>
                 <li className="flex items-center gap-2"><FaDiamond className='text-orange-600' />Branding & Packaging</li>
@@ -82,8 +82,8 @@ const Blog3 = () => {
             </ul>
 
             <h2 className='text-white text-2xl mb-5 mt-8'>4. Final Thoughts</h2>
-            <p className='text-gray-500 text-[16px] font-normal'>Private labeling and branding provide long-term business stability and profitability...</p>
-            <p className='text-gray-700 font-semibold mt-6'>Ready to launch your private label brand? Start today and take control of your eCommerce future!</p>
+            <p className='text-gray-400 text-[16px] font-normal'>Private labeling and branding provide long-term business stability and profitability...</p>
+            <p className='text-orange-600 font-semibold mt-6'>Ready to launch your private label brand? Start today and take control of your eCommerce future!</p>
             <div className="text-center mt-8">
           <button className="relative bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[18px]">
             <Link to='/contact'>Contact us today for expert guidance!</Link>

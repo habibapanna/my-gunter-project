@@ -99,7 +99,7 @@ function RetailArbitragePage() {
         {/* 2-Step Dropshipping Section */}
         <div>
           <h1 className="mt-10 text-2xl">How 2-Step Dropshipping Works:</h1>
-          <ul className="list-none pl-4 mt-5 text-[16px] text-gray-500">
+          <ul className="list-none pl-4 mt-5 text-[16px] text-gray-400">
             {steps.map((step, index) => (
               <li key={index} className="flex items-start gap-2 mb-3">
                 <FaCheck className="text-orange-600 text-2xl" />
@@ -113,11 +113,11 @@ function RetailArbitragePage() {
 
         <div>
           <h2 className="text-xl mt-10">Walmart & Amazon Dropshipping Services</h2>
-          <p className="text-gray-500 font-normal text-[16px] mt-5">Sell without holding inventory! We help you dropship from trusted suppliers while following marketplace policies.</p>
+          <p className="text-gray-400 font-normal text-[16px] mt-5">Sell without holding inventory! We help you dropship from trusted suppliers while following marketplace policies.</p>
         </div>
         <div>
   <h2 className="text-xl mt-10">Amazon Dropshipping Services</h2>
-  <ul className="text-gray-500 font-normal text-[16px] mt-5 list-none space-y-3">
+  <ul className="text-gray-400 font-normal text-[16px] mt-5 list-none space-y-3">
     <li className="flex items-start">
       <FaDiamond className="text-orange-600 text-xl mr-3 mt-1" />
       Amazon TOS-Compliant Dropshipping – Work with legit suppliers to avoid account suspension.
@@ -137,7 +137,7 @@ function RetailArbitragePage() {
   </ul>
 </div>
 
-<p className="mt-10"> Want to start or scale your Amazon & Walmart business?</p>
+<p className="mt-10 text-orange-600"> Want to start or scale your Amazon & Walmart business?</p>
         <div className="text-center mt-5">
           <button className="relative bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[18px]">
             <Link to='/contact'>Contact us today for expert guidance!</Link>

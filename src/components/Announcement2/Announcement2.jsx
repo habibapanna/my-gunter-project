@@ -29,8 +29,8 @@ const Announcement2 = () => {
       <h2 className='text-white mb-5 text-2xl font-bold'>Latest News</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {newsArticles.map((article, index) => (
-          <div key={index} className="border border-gray-800 p-4 rounded-lg shadow-md">
-            <img src={article.image} alt={article.title} className="w-full h-48 object-cover rounded-md" />
+          <div key={index} className="shadow-orange-600 shadow-md p-4">
+            <img src={article.image} alt={article.title} className="w-full h-48 object-cover" />
             <h3 className="text-xl font-semibold mt-2 text-white">{article.title}</h3>
             <p className="mt-2 text-gray-500">{article.description}</p>
           </div>

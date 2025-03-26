@@ -90,7 +90,7 @@ const Services = () => {
                                 className={`flex justify-between items-center p-3 border-b border-gray-800 transition-all duration-300
                                     ${location.pathname === service.path 
                                         ? "bg-orange-600 text-white" 
-                                        : "bg-black text-gray-600 hover:bg-orange-600 hover:text-white"
+                                        : "bg-black text-gray-400 hover:bg-orange-600 hover:text-white"
                                     }`}
                                 onClick={() => {
                                     navigate(service.path);
@@ -105,13 +105,13 @@ const Services = () => {
                 </div>
 
                 {/* ✅ Right Content Area */}
-                <div className="lg:col-span-8 flex justify-center items-center text-gray-600 text-xl font-semibold">
+                <div className="lg:col-span-8 flex justify-center items-center text-gray-400 text-xl font-semibold">
                     {currentService ? (
                         <Outlet />
                     ) : (
                         <div className="flex flex-col items-center justify-center text-center">
                             {/* Default to Private Label service */}
-                            <h2 className="text-2xl font-bold text-gray-800">Private Label Service</h2>
+                            <h2 className="text-2xl font-bold text-white">Private Label Service</h2>
                             <p className="mt-4">Learn more about our Private Label services and how they can help you grow your business.</p>
                             <Lottie options={defaultOptions} height={300} width={300} />
                         </div>
