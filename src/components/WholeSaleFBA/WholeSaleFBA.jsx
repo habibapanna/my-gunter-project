@@ -16,7 +16,7 @@ const images = [
 
 function WholeSaleFBA() {
   return (
-    <div className="bg-white min-h-screen py-10 text-gray-500">
+    <div className="bg-black min-h-screen py-10 text-gray-500">
       {/* Carousel Section */}
       <section className="w-full md:max-w-3xl max-w-[400px] mx-auto mb-10">
         <Swiper
@@ -36,7 +36,7 @@ function WholeSaleFBA() {
 
       {/* Hero Section */}
       <section className="">
-        <h1 className="text-4xl font-bold mb-4 text-black">
+        <h1 className="text-4xl font-bold mb-4 text-white">
           Wholesale FBA & WFS – Scale Your Amazon & Walmart Business!
         </h1>
         <p className="text-[16px] max-w-3xl mx-auto mb-8 font-normal">
@@ -45,8 +45,8 @@ function WholeSaleFBA() {
       </section>
 
       {/* Services Section */}
-      <section className="bg-white px-5 md:px-20 mt-10">
-        <h2 className="text-2xl font-semibold text-black mb-6"> Our Wholesale FBA & WFS Services</h2>
+      <section className="bg-black px-5 md:px-20 mt-10">
+        <h2 className="text-2xl font-semibold text-white mb-6"> Our Wholesale FBA & WFS Services</h2>
 
         <ul className="space-y-4">
           {["Brand-Approved Wholesale Sourcing – Work with trusted distributors & manufacturers.",

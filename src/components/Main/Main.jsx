@@ -15,7 +15,7 @@ const Main = () => {
     }, [location.pathname]);
 
     return (
-        <div className="relative min-h-screen max-w-full mx-auto flex flex-col">
+        <div className="relative min-h-screen max-w-7xl mx-auto flex flex-col">
             {/* Smooth Fade In/Out Effect */}
             <div className={`fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 transition-opacity duration-700 ${loading ? "opacity-100 z-50" : "opacity-0 -z-50"}`}>
                 <Spinner />

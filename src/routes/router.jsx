@@ -27,6 +27,13 @@ import Gallery2 from "../components/Gallery2/Gallery2";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
+import AddBlog from "../pages/Dashboard/AddBlog";
+import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
+import AddService from "../pages/Dashboard/AddService";
+import ManageService from "../pages/Dashboard/ManageService";
+import ManageBlog from "../pages/Dashboard/ManageBlog";
+import AddGallery from "../pages/Dashboard/AddGallery";
+import ManageGallery from "../pages/Dashboard/ManageGallery";
 
 
 const router = createBrowserRouter([
@@ -36,7 +43,7 @@ const router = createBrowserRouter([
         errorElement: <h1 className="text-5xl font-bold text-red-500">Page not found</h1>,
         children: [
             { path: "/", element: <Home /> },
-            { path: "blog", element: <PrivateRoute><Blog /></PrivateRoute>,
+            { path: "blog", element: <Blog />,
                 children: [
                     {
                     path: "blog-1",
@@ -52,7 +59,7 @@ const router = createBrowserRouter([
                     },
                 ]
              },
-            { path: "announcements", element: <PrivateRoute><Announcements /></PrivateRoute>,
+            { path: "announcements", element: <Announcements />,
                 children: [
                     {
                         path: "announcement-1",
@@ -69,7 +76,7 @@ const router = createBrowserRouter([
                     
                 ]
              },
-            { path: "gallery", element: <PrivateRoute><Gallery></Gallery></PrivateRoute>,
+            { path: "gallery", element: <Gallery></Gallery>,
                 children: [
                     {
                         path: "gallery-1",
@@ -90,7 +97,7 @@ const router = createBrowserRouter([
             { path: "register", element: <Register></Register> },
             { 
                 path: "services", // ✅ Services is now inside Main
-                element: <PrivateRoute><Services /></PrivateRoute>,
+                element: <Services />,
                 children: [
                     { path: "private-label", element: <PrivateLabelPage /> },
                     { path: "retail-arbitrage", element: <RetailArbitragePage /> },
@@ -105,6 +112,42 @@ const router = createBrowserRouter([
             },
         ],
     },
+ {
+    path: "dashboard",
+    element: <Dashboard></Dashboard>,
+    // <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    children: [
+        {
+            path: "add-service",
+            element: <AddService></AddService>
+        },
+        {
+            path: "manage-service",
+            element: <ManageService></ManageService>
+        },
+        {
+            path: "add-blog",
+            element: <AddBlog></AddBlog>
+        },
+        {
+            path: "manage-blog",
+            element: <ManageBlog></ManageBlog>
+        },
+        {
+            path: "add-gallery",
+            element: <AddGallery></AddGallery>
+        },
+        {
+            path: "manage-gallery",
+            element: <ManageGallery></ManageGallery>
+        },
+        {
+            path: "add-blog",
+            element: <AddBlog></AddBlog>
+        },
+    ]
+ }
+
 ]);
 
 export default router;

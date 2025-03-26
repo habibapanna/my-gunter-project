@@ -40,7 +40,7 @@ function RetailArbitragePage() {
   ];
 
   return (
-    <div className="bg-white min-h-screen py-10 text-black max-w-3xl mx-auto">
+    <div className="bg-black min-h-screen py-10 text-white max-w-3xl mx-auto">
       {/* Carousel Section */}
       <section className="w-full md:max-w-3xl max-w-[400px] mx-auto mb-10">
         <Swiper
@@ -67,15 +67,15 @@ function RetailArbitragePage() {
       </section>
 
       {/* Services Section */}
-      <section className="services bg-white px-5 md:px-20 mt-10">
+      <section className="services bg-black px-5 md:px-20 mt-10">
         <h2 className="text-2xl font-semibold mb-6">Retail & Online Arbitrage Services</h2>
 
         {/* Accordion */}
         <div className="space-y-2">
           {accordions.map((accordion, index) => (
-            <div key={index} className="border border-gray-100 overflow-hidden">
+            <div key={index} className="border border-gray-800 overflow-hidden">
               <button
-                className="w-full flex gap-5 items-center bg-white text-black text-[16px]"
+                className="w-full flex gap-5 items-center bg-black text-white text-[16px]"
                 onClick={() => toggleAccordion(index)}
               >
                 <span className="p-2 bg-orange-600 text-white">
@@ -90,7 +90,7 @@ function RetailArbitragePage() {
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
-                <div className="p-4 text-sm bg-white text-gray-500">{accordion.details}</div>
+                <div className="p-4 text-sm bg-black text-white">{accordion.details}</div>
               </motion.div>
             </div>
           ))}

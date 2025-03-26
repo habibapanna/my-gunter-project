@@ -37,9 +37,9 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="bg-white p-6 md:p-10">
+        <div className="bg-black p-6 md:p-10">
             <h2 className="text-center font-semibold text-lg md:text-xl mb-3 text-orange-600 mt-5">LET'S TALK</h2>
-            <h2 className="text-2xl md:text-3xl font-bold mb-10 text-black text-center">Get in Touch</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-10  text-center">Get in Touch</h2>
 
             {successMessage && (
                 <div className="mb-6 text-center text-orange-600 text-lg font-semibold animate-fade">
@@ -53,7 +53,7 @@ const ContactForm = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {['name', 'email', 'phone', 'subject'].map((field) => (
                                 <div className="form-group" key={field}>
-                                    <label htmlFor={field} className="block text-gray-600 capitalize">
+                                    <label htmlFor={field} className="block text-white capitalize">
                                         {field} <span className="text-red-500">*</span>
                                     </label>
                                     <input
@@ -69,7 +69,7 @@ const ContactForm = () => {
                             ))}
                         </div>
                         <div className="form-group">
-                            <label htmlFor="message" className="block text-gray-600">
+                            <label htmlFor="message" className="block text-white">
                                 Message <span className="text-red-500">*</span>
                             </label>
                             <textarea

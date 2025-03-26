@@ -25,7 +25,7 @@ const services = [
 
 function WebDevelopment() {
   return (
-    <div className="bg-white min-h-screen py-10 text-black">
+    <div className="bg-black min-h-screen py-10 text-white">
       {/* Carousel Section */}
       <section className="w-full md:max-w-3xl max-w-[400px] mx-auto mb-10">
         <Swiper
@@ -52,7 +52,7 @@ function WebDevelopment() {
       </section>
 
       {/* Services Section */}
-      <section className="services bg-white px-5 md:px-20 mt-10">
+      <section className="services bg-black px-5 md:px-20 mt-10">
         <h2 className="text-2xl font-semibold mb-6">Our Web Development Services</h2>
         <div className="space-y-4">
           {services.map((service, index) => (

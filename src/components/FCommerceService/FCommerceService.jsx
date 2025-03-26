@@ -24,7 +24,7 @@ function FCommerceService() {
   ];
 
   return (
-    <div className="bg-white min-h-screen py-10 text-black">
+    <div className="bg-black min-h-screen py-10 text-white">
       {/* Carousel Section */}
       <section className="w-full md:max-w-3xl max-w-[400px] mx-auto mb-10">
         <Swiper
@@ -51,7 +51,7 @@ function FCommerceService() {
       </section>
 
       {/* Services Section */}
-      <section className="bg-white px-5 md:px-20 mt-10">
+      <section className="bg-black px-5 md:px-20 mt-10">
         <h2 className="text-2xl font-semibold mb-6">Our F-Commerce Services:</h2>
         <ul className="space-y-3">
           {services.map((service, index) => (

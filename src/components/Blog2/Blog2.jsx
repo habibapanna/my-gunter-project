@@ -33,48 +33,48 @@ const Blog2 = () => {
                 </Swiper>
             </section>
 
-            <h1 className="text-4xl font-bold mb-4 text-black">The Ultimate Guide to Amazon and Walmart Arbitrage in 2025</h1>
+            <h1 className="text-4xl font-bold mb-4 text-white">The Ultimate Guide to Amazon and Walmart Arbitrage in 2025</h1>
             <p className='text-gray-500 text-[16px] font-normal mb-8'>Arbitrage is one of the most lucrative and beginner-friendly ways to make money online. With Amazon and Walmart being two of the biggest eCommerce giants, leveraging retail arbitrage and online arbitrage can be a game-changer for aspiring sellers. This guide will take you through everything you need to know about starting, scaling, and succeeding in Amazon and Walmart arbitrage in 2025.</p>
             
-            <h2 className='text-black text-2xl mb-5'>1. What is Arbitrage?</h2>
+            <h2 className='text-white text-2xl mb-5'>1. What is Arbitrage?</h2>
             <p className='text-gray-500 text-[16px] font-normal'>Arbitrage is the process of buying products at a lower price from one marketplace and selling them at a higher price on another platform. With Amazon and Walmart offering millions of products, sellers can capitalize on price differences to generate significant profits.</p>
-            <h3 className='text-black text-xl mt-3 mb-3'>Types of Arbitrage:</h3>
+            <h3 className='text-white text-xl mt-3 mb-3'>Types of Arbitrage:</h3>
             <ul className='text-gray-500 text-[16px] font-normal'>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" /><strong>Retail Arbitrage</strong> – Sourcing discounted products from physical retail stores (Walmart, Target, Home Depot, etc.) and reselling them online.</li>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" /><strong>Online Arbitrage</strong> – Buying products at a discount from online retailers and reselling them on Amazon or Walmart Marketplace.</li>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" /><strong>Wholesale Arbitrage</strong> – Buying in bulk from distributors and selling at a higher margin.</li>
             </ul>
 
-            <h2 className='text-black mb-5 mt-8 text-2xl'>2. Why Choose Amazon and Walmart Arbitrage?</h2>
-            <h3 className='text-black mb-3'>Amazon Arbitrage Benefits:</h3>
+            <h2 className='text-white mb-5 mt-8 text-2xl'>2. Why Choose Amazon and Walmart Arbitrage?</h2>
+            <h3 className='text-white mb-3'>Amazon Arbitrage Benefits:</h3>
             <ul className='text-gray-500 text-[16px] font-normal'>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Massive Customer Base – Amazon has over 300 million active customers worldwide.</li>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Amazon FBA (Fulfillment by Amazon) – Amazon handles storage, packing, and shipping for sellers.</li>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Data-Driven Decisions – Tools like Jungle Scout, Helium 10, and Keepa help track pricing and demand.</li>
             </ul>
-            <h3 className='text-black mt-5 mb-3'>Walmart Arbitrage Benefits:</h3>
+            <h3 className='text-white mt-5 mb-3'>Walmart Arbitrage Benefits:</h3>
             <ul className='text-gray-500 text-[16px] font-normal'>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Growing Marketplace – Walmart Marketplace is expanding rapidly and offers great opportunities for sellers.</li>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Walmart Fulfillment Services (WFS) – Walmart's equivalent of FBA, allowing sellers to store and ship products efficiently.</li>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Less Competition – Compared to Amazon, Walmart has fewer third-party sellers, providing more opportunities.</li>
             </ul>
 
-            <h2 className='text-black mb-3 mt-8 text-2xl'>3. How to Start Amazon and Walmart Arbitrage</h2>
-            <h3 className='text-black mb-3'>Step 1: Product Research</h3>
+            <h2 className='text-white mb-3 mt-8 text-2xl'>3. How to Start Amazon and Walmart Arbitrage</h2>
+            <h3 className='text-white mb-3'>Step 1: Product Research</h3>
             <ul className='text-gray-500 text-[16px] font-normal mb-5'>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Use Amazon Best Sellers, Movers & Shakers, and Trending Products to identify high-demand items.</li>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Use Walmart’s Clearance Section and price tracking tools like BrickSeek to find discounted products.</li>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Analyze sales rank, profit margin, and demand using Keepa, Tactical Arbitrage, and SellerAMP.</li>
             </ul>
 
-            <h3 className='text-black mb-3'>Step 2: Sourcing Products</h3>
+            <h3 className='text-white mb-3'>Step 2: Sourcing Products</h3>
             <ul className='text-gray-500 text-[16px] font-normal mb-5'>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Retail Stores: Walmart, Target, Home Depot, Walgreens, Costco.</li>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Online Stores: Walmart.com, eBay, Best Buy, Kohls, and other online retailers.</li>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Wholesale Suppliers: Find bulk deals from distributors.</li>
             </ul>
 
-            <h3 className='text-black mb-3'>Step 3: Listing on Amazon & Walmart</h3>
+            <h3 className='text-white mb-3'>Step 3: Listing on Amazon & Walmart</h3>
             <ul className='text-gray-500 text-[16px] font-normal mb-5'>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Optimize your product title with high-ranking keywords for SEO.</li>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Use compelling product descriptions with bullet points.</li>
@@ -82,14 +82,14 @@ const Blog2 = () => {
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Set competitive pricing based on market trends.</li>
             </ul>
 
-            <h3 className='text-black mb-3'>Step 4: Fulfillment Options</h3>
+            <h3 className='text-white mb-3'>Step 4: Fulfillment Options</h3>
             <ul className='text-gray-500 text-[16px] font-normal mb-5'>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Amazon FBA – Amazon stores, packs, and ships products for you.</li>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Walmart WFS – Walmart handles fulfillment for eligible sellers.</li>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />FBM (Fulfilled by Merchant) – Sellers manage storage and shipping themselves.</li>
             </ul>
 
-            <h2 className='text-black mb-3 text-2xl'>4. Scaling Your Arbitrage Business</h2>
+            <h2 className='text-white mb-3 text-2xl'>4. Scaling Your Arbitrage Business</h2>
             <ul className='text-gray-500 text-[16px] font-normal mb-8'>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Use Automation Tools – Tactical Arbitrage, OA X-ray, and BrickSeek help streamline sourcing.</li>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Expand Your Inventory – Scale your product selection and test new categories.</li>
@@ -98,14 +98,14 @@ const Blog2 = () => {
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Improve Customer Service – Fast shipping and positive reviews build trust and boost sales.</li>
             </ul>
 
-            <h2 className='text-black mb-3 text-2xl'>5. Common Challenges & How to Overcome Them</h2>
-            <h3 className='text-black mb-3'>Pricing Wars:</h3>
+            <h2 className='text-white mb-3 text-2xl'>5. Common Challenges & How to Overcome Them</h2>
+            <h3 className='text-white mb-3'>Pricing Wars:</h3>
             <ul className='text-gray-500 text-[16px] font-normal'>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Use repricing tools to stay competitive without sacrificing profit margins.</li>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Source unique or exclusive products to reduce direct competition.</li>
             </ul>
 
-            <h3 className='text-black mb-3 mt-5'>Amazon & Walmart Restrictions:</h3>
+            <h3 className='text-white mb-3 mt-5'>Amazon & Walmart Restrictions:</h3>
             <ul className='text-gray-500 text-[16px] font-normal'>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Ensure compliance with seller policies to avoid account suspensions.</li>
                 <li><FaCheck className="text-orange-600 inline-block mr-2" />Monitor account health using Amazon Seller Central and Walmart Seller Center.</li>

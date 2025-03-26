@@ -62,7 +62,7 @@ const Navbar = () => {
             ))}
 
             {/* ✅ Show Login/Logout Button */}
-            {user ? (
+            {/* {user ? (
               <button onClick={handleLogout} className="bg-red-600 px-2 text-sm border-none shadow-animation">
                 Logout
               </button>
@@ -70,7 +70,7 @@ const Navbar = () => {
               <button className="bg-orange-600 px-2 text-sm border-none shadow-animation">
                 <Link to="/login">Login</Link>
               </button>
-            )}
+            )} */}
           </ul>
 
           {/* Mobile Menu Button */}
@@ -102,7 +102,7 @@ const Navbar = () => {
               ))}
 
               {/* ✅ Mobile Login/Logout Button */}
-              <li>
+              {/* <li>
                 {user ? (
                   <button onClick={handleLogout} className="bg-red-600 px-2 text-sm border-none shadow-animation">
                     Logout
@@ -112,7 +112,7 @@ const Navbar = () => {
                     <Link to="/login">Login</Link>
                   </button>
                 )}
-              </li>
+              </li> */}
             </ul>
           </div>
         )}

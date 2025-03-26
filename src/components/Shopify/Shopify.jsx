@@ -24,7 +24,7 @@ const services = [
 
 function Shopify() {
   return (
-    <div className="bg-white min-h-screen py-10 text-black">
+    <div className="bg-black min-h-screen py-10 text-white">
       {/* Carousel Section */}
       <section className="w-full md:max-w-3xl max-w-[400px] mx-auto mb-10">
         <Swiper
@@ -51,7 +51,7 @@ function Shopify() {
       </section>
 
       {/* Services Section */}
-      <section className="services bg-white px-5 md:px-20 mt-10">
+      <section className="services bg-black px-5 md:px-20 mt-10">
         <h2 className="text-3xl font-semibold mb-6">Our Shopify Services:</h2>
         <ul className="space-y-4">
           {services.map((service, index) => (
@@ -63,7 +63,7 @@ function Shopify() {
         </ul>
 
         <div className="text-center mt-8">
-          <button className="relative bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[18px]">
+          <button className="relative bg-orange-600 px-6 py-4 text-black font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[18px]">
             <Link to='/contact'>📩 Get in touch for expert Shopify solutions!</Link>
           </button>
         </div>

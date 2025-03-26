@@ -23,7 +23,7 @@ function ProductPhotography() {
   ];
 
   return (
-    <div className="bg-white min-h-screen py-10 text-black">
+    <div className="bg-black min-h-screen py-10 text-white">
       {/* Carousel Section */}
       <section className="w-full md:max-w-3xl max-w-[400px] mx-auto mb-10">
         <Swiper

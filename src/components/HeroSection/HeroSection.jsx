@@ -48,11 +48,11 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative bg-black min-h-screen flex justify-center items-center overflow-hidden">
+    <div className="relative bg-black min-h-screen flex justify-center items-center overflow-y-hidden">
       {/* Left Arrow */}
       <button
         onClick={prevSlide}
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white text-lg p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-50"
+        className="absolute left-1 top-1/2 transform -translate-y-1/2 text-white text-lg p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-40"
       >
         <FaArrowLeftLong />
       </button>
@@ -89,7 +89,7 @@ const HeroSection = () => {
       {/* Right Arrow */}
       <button
         onClick={nextSlide}
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 text-white text-lg p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-50"
+        className="absolute right-1 top-1/2 transform -translate-y-1/2 text-white text-lg p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-40"
       >
         <FaArrowRightLong />
       </button>

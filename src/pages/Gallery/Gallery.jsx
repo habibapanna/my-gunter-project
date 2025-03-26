@@ -10,6 +10,19 @@ const Gallery = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
+    // Gallery Images
+    const images = [
+        { image: "https://i.ibb.co/7tmB9P6n/pexels-liza-summer-6347554.jpg" },
+        { image: "https://i.ibb.co/7N44mSpr/pexels-karolina-grabowska-6958478.jpg" },
+        { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2020/07/project4-380x350.jpg" },
+        { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/project-details2-1-1-380x350.jpg" },
+        { image: "https://i.ibb.co/TBBywqhy/pexels-shoper-pl-550490863-17485353.jpg" },
+        { image: "https://i.ibb.co/LX55CzsT/pexels-ivan-samkov-7621136.jpg" },
+        { image: "https://i.ibb.co/KxkjsyPm/mailchimp-KR0-WW6bjtt0-unsplash.jpg" },
+        { image: "https://i.ibb.co/Rkk4dv0Z/myriam-jessier-eve-I7-MOc-Smw-unsplash.jpg" },
+        { image: "https://i.ibb.co/S4kXQt7V/charlesdeluvio-tcw-NN4-B9u-WE-unsplash.jpg" }
+    ];
+
     // Services List
     const galleries = [
         { title: "The Ultimate Guide to Starting and Scaling an eCommerce Business in 2025", path: "/gallery/gallery-1" },
@@ -31,7 +44,7 @@ const Gallery = () => {
     };
 
     return (
-        <div className="bg-white">
+        <div className="bg-black">
             {/* ✅ Banner Section (Dynamically Updates Title) */}
             <div className="bg-black py-20">
                 <h1 className="text-4xl font-bold mb-5 text-center text-white">
@@ -50,31 +63,31 @@ const Gallery = () => {
 
             <div className="p-10 grid grid-cols-1 md:grid-cols-12 gap-6">
                 {/* ✅ Sidebar for Service List (Moved to the top on mobile) */}
-                <div className="col-span-12 md:col-span-4 bg-white p-4 mb-6 md:mb-0">
+                <div className="col-span-12 md:col-span-4 bg-black p-4 mb-6 md:mb-0">
                     {/* ✅ Search Bar */}
                     <div className="relative mb-4">
                         <MdOutlineSearch className="absolute left-3 top-3 text-orange-600 text-xl" />
                         <input
                             type="text"
                             placeholder="Search Services..."
-                            className="w-full pl-10 pr-4 py-3 border border-gray-200 text-gray-600  focus:outline-none focus:ring-2 focus:ring-orange-600"
+                            className="w-full pl-10 pr-4 py-3 border border-gray-800 text-white  focus:outline-none focus:ring-2 focus:ring-orange-600"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
                     </div>
 
                     {/* ✅ Recent Post Section */}
-                    <div className="border border-gray-300 mb-4">
-                        <h1 className="text-black text-lg font-bold p-3">Recent Post</h1>
-                        <div className="border-1 border-gray-300 w-full mx-auto mb-4"></div>
+                    <div className="border border-gray-800 mb-4">
+                        <h1 className="text-white text-lg font-bold p-3">Recent Project</h1>
+                        <div className="border-1 border-gray-800 w-full mx-auto mb-4"></div>
 
                         {/* ✅ Blog List */}
                         <div className="flex flex-col">
                             {galleries.filter(gallery => gallery.title.toLowerCase().includes(search.toLowerCase())).map((gallery, index) => (
                                 <button
                                     key={index}
-                                    className={`flex justify-between items-center p-3 border-gray-300 transition-all duration-300 relative transform text-left 
-                                    ${location.pathname === gallery.path ? "bg-orange-600 text-white" : "bg-white text-black hover:text-orange-600 hover:scale-95"}`}
+                                    className={`flex justify-between items-center p-3 border-gray-800 transition-all duration-300 relative transform text-left 
+                                    ${location.pathname === gallery.path ? "bg-orange-600 text-white" : "bg-black text-whitek hover:text-orange-600 hover:scale-95"}`}
                                     onClick={() => navigate(gallery.path)}
                                 >
                                     <FaSquareFull className="text-sm mr-5" />
@@ -90,9 +103,13 @@ const Gallery = () => {
                     {currentGallery ? (
                         <Outlet /> // This will load the selected service component
                     ) : (
-                        <div className="flex flex-col items-center justify-center text-center">
-                            <Lottie options={defaultOptions} height={400} width={400} />
+                        <div className="col-span-12 md:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    {images.map((item, index) => (
+                        <div key={index} className="overflow-hidden shadow-lg">
+                            <img src={item.image} alt={`Gallery ${index + 1}`} className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105" />
                         </div>
+                    ))}
+                </div>
                     )}
                 </div>
             </div>
