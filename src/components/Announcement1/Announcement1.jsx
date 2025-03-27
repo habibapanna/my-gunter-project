@@ -29,7 +29,7 @@ const Announcement1 = () => {
       <h2 className="text-2xl font-semibold mb-4 text-white">Latest News Articles</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {newsArticles.map((article, index) => (
-          <div key={index} className="shadow-orange-600 shadow-md rounded-lg overflow-hidden">
+          <div key={index} className="shadow-orange-600 shadow-md overflow-hidden">
             <img
               src={article.image}
               alt={article.title}
