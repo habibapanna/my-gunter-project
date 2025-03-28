@@ -15,9 +15,9 @@ const Footer = () => {
 
     return (
         <div>
-            <footer className="bg-black text-white py-10 relative">
+            <footer className="bg-black text-white pt-10 relative pb-2">
                 {/* Falling animation on the border */}
-                <div className="border w-[2px] h-16 border-orange-600 bg-orange-600 mx-auto mt-10 mb-12 relative">
+                <div className="border w-[2px] h-16 border-orange-600 bg-orange-600 mx-auto mt-10 mb-5 relative">
                     <div className="falling absolute -left-1 w-2 h-8 bg-black animate-falling"></div>
                     <div className="falling absolute -left-1 w-2 h-4 bg-black animate-falling" style={{ animationDelay: "0.5s" }}></div>
                 </div>
@@ -28,7 +28,9 @@ const Footer = () => {
                     alt="footer-shape1" 
                     className="absolute top-20 left-10 transform -translate-x-1/4 translate-y-1/4 w-32"
                 />
-
+<div className="mt-20 text-right border-t border-stone-500 mx-20 pt-4 relative mb-2">
+                    {/* Scroll to Top Button */}
+                    </div>
                 <div className="max-w-6xl mx-auto px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
                     {/* Project Name (First Column) */}
                     <div className="flex flex-col justify-start">
@@ -57,7 +59,6 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Contact Section Link (Fourth Column) */}
                     {/* Contact Section Link (Fourth Column) */}
 <div className="flex flex-col">
     <h3 className="text-xl font-semibold text-white mb-3">Contact Us</h3>
@@ -89,17 +90,19 @@ const Footer = () => {
                     alt="footer-shape2" 
                     className="absolute bottom-0 right-10 transform translate-x-1/4 -translate-y-1/4 w-32"
                 />
+                
 
                 {/* Footer Bottom */}
-                <div className="mt-12 text-right border-t border-gray-700 pt-4 relative">
+                <div className="text-right pt-4 relative">
                     {/* Scroll to Top Button */}
                     <div 
     onClick={scrollToTop} 
-    className="absolute text-2xl left-[50%] ml-[-24px] -top-10 w-10 h-10 flex items-center justify-center rounded-full bg-orange-600 text-white cursor-pointer shadow-animation overflow-hidden"
+    className="absolute text-2xl left-10 ml-[-24px]-top-0 w-10 h-10 flex items-center justify-center rounded-full bg-orange-600 text-white cursor-pointer shadow-animation overflow-hidden"
 >
     <MdKeyboardArrowUp className="text-white" />
 </div>
-                    <p className="text-sm">&copy; 2025 Imagine Dream World. All Rights Reserved.</p>
+<p className="text-sm text-center text-stone-600">&copy; 2025 Imagine Dream World. All Rights Reserved.</p>
+                   
                 </div>
                 {/* Tailwind Keyframe Styles */}
                 <style>

@@ -34,6 +34,9 @@ import ManageService from "../pages/Dashboard/ManageService";
 import ManageBlog from "../pages/Dashboard/ManageBlog";
 import AddGallery from "../pages/Dashboard/AddGallery";
 import ManageGallery from "../pages/Dashboard/ManageGallery";
+import AddAnnouncements from "../pages/Dashboard/AddAnnouncements";
+import ManageAnnouncements from "../pages/Dashboard/ManageAnnouncements";
+import AllUsers from "../pages/Dashboard/AllUsers";
 
 
 const router = createBrowserRouter([
@@ -142,8 +145,16 @@ const router = createBrowserRouter([
             element: <ManageGallery></ManageGallery>
         },
         {
-            path: "add-blog",
-            element: <AddBlog></AddBlog>
+            path: "add-announcements",
+            element: <AddAnnouncements></AddAnnouncements>
+        },
+        {
+            path: "manage-announcements",
+            element: <ManageAnnouncements></ManageAnnouncements>
+        },
+        {
+            path: "all-user",
+            element: <AllUsers></AllUsers>
         },
     ]
  }

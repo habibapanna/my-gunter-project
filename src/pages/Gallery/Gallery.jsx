@@ -1,54 +1,55 @@
-import { Link, useLocation, Outlet, useNavigate } from "react-router-dom";
-import { FaArrowLeftLong, FaArrowRightLong, FaSquareFull } from "react-icons/fa6";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaSquareFull } from "react-icons/fa6";
 import { MdOutlineSearch } from "react-icons/md";
-import { useState } from "react";
-import Lottie from 'react-lottie';
-import lottie from "../../assets/service/gallery1.json"; // Update with correct path
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion"; // Import motion from Framer Motion
 
 const Gallery = () => {
     const [search, setSearch] = useState("");
+    const [galleryItems, setGalleryItems] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState(""); // Track the selected category
     const location = useLocation();
     const navigate = useNavigate();
 
-    // Gallery Images
-    const images = [
-        { image: "https://i.ibb.co/7tmB9P6n/pexels-liza-summer-6347554.jpg" },
-        { image: "https://i.ibb.co/7N44mSpr/pexels-karolina-grabowska-6958478.jpg" },
-        { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2020/07/project4-380x350.jpg" },
-        { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/project-details2-1-1-380x350.jpg" },
-        { image: "https://i.ibb.co/TBBywqhy/pexels-shoper-pl-550490863-17485353.jpg" },
-        { image: "https://i.ibb.co/LX55CzsT/pexels-ivan-samkov-7621136.jpg" },
-        { image: "https://i.ibb.co/KxkjsyPm/mailchimp-KR0-WW6bjtt0-unsplash.jpg" },
-        { image: "https://i.ibb.co/Rkk4dv0Z/myriam-jessier-eve-I7-MOc-Smw-unsplash.jpg" },
-        { image: "https://i.ibb.co/S4kXQt7V/charlesdeluvio-tcw-NN4-B9u-WE-unsplash.jpg" }
-    ];
+    // Fetch gallery data from the backend
+    useEffect(() => {
+        const fetchGalleryData = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/gallery');
+                const data = await response.json();
+                setGalleryItems(data);
 
-    // Services List
-    const galleries = [
-        { title: "The Ultimate Guide to Starting and Scaling an eCommerce Business in 2025", path: "/gallery/gallery-1" },
-        { title: "The Ultimate Guide to Amazon and Walmart Arbitrage in 2025", path: "/gallery/gallery-2" },
-        { title: "The Benefits of Private Label and Branding in eCommerce", path: "/gallery/gallery-3" },
-    ];
+                // Extract unique categories from the gallery data
+                const uniqueCategories = [...new Set(data.map(item => item.category))];
+                setCategories(uniqueCategories);
+            } catch (error) {
+                console.error("Error fetching gallery data:", error);
+            }
+        };
 
-    // Get the current service title based on the URL path
-    const currentGallery = galleries.find(gallery => gallery.path === location.pathname);
+        fetchGalleryData();
+    }, []);
 
-    // Lottie options for animation
-    const defaultOptions = {
-        loop: true,
-        autoplay: true, 
-        animationData: lottie,
-        rendererSettings: {
-            preserveAspectRatio: 'xMidYMid slice'
-        }
-    };
+    // Filter gallery items by category
+    const filteredImages = selectedCategory
+        ? galleryItems.filter(item => item.category === selectedCategory)
+        : galleryItems;
+
+    // Get the current gallery title based on the URL path
+    const currentGallery = location.pathname.split("/")[2]; // Extract category from the URL path
 
     return (
         <div className="bg-black">
-            {/* ✅ Banner Section (Dynamically Updates Title) */}
-            <div className="bg-black py-20">
+            {/* ✅ Banner Section (Dynamically Updates Title with Animation) */}
+            <motion.div 
+                className="bg-black py-20"
+                initial={{ opacity: 0, y: -50 }} // Initial state
+                animate={{ opacity: 1, y: 0 }} // Final state
+                transition={{ duration: 0.5 }}
+            >
                 <h1 className="text-4xl font-bold mb-5 text-center text-white">
-                    {currentGallery ? currentGallery.title : "Gallery"}
+                    {currentGallery ? currentGallery : "Gallery"}
                 </h1>
                 <p className="text-center text-white">
                     <Link to="/" className={`mr-3 transition-colors duration-300 ${location.pathname === "/" ? "text-orange-600 font-semibold" : "hover:text-orange-600"}`}>
@@ -56,10 +57,10 @@ const Gallery = () => {
                     </Link>
                     /
                     <span className="ml-3 text-orange-600 font-semibold">
-                        {currentGallery ? currentGallery.title : "Gallery"}
+                        {currentGallery ? currentGallery : "Gallery"}
                     </span>
                 </p>
-            </div>
+            </motion.div>
 
             <div className="p-10 grid grid-cols-1 md:grid-cols-12 gap-6">
                 {/* ✅ Sidebar for Service List (Moved to the top on mobile) */}
@@ -81,36 +82,43 @@ const Gallery = () => {
                         <h1 className="text-white text-lg font-bold p-3">Recent Project</h1>
                         <div className="border-1 border-orange-600 mx-5 mb-4"></div>
 
-                        {/* ✅ Blog List */}
-                        <div className="flex flex-col">
-                            {galleries.filter(gallery => gallery.title.toLowerCase().includes(search.toLowerCase())).map((gallery, index) => (
+                        {/* ✅ Category List */}
+                        <div className="flex flex-col mb-4">
+                            {categories.map((category, index) => (
                                 <button
                                     key={index}
                                     className={`flex justify-between items-center p-3 shadow-orange-600 shadow-md transition-all duration-300 relative transform text-left 
-                                    ${location.pathname === gallery.path ? "bg-orange-600 text-white" : "bg-black text-whitek hover:text-orange-600 hover:scale-95"}`}
-                                    onClick={() => navigate(gallery.path)}
+                                    ${selectedCategory === category ? "bg-orange-600 text-white" : "bg-black text-white hover:text-orange-600 hover:scale-95"}`}
+                                    onClick={() => setSelectedCategory(category)} // Update category on click
                                 >
                                     <FaSquareFull className="text-sm mr-5" />
-                                    <span className="text-sm">{gallery.title}</span>
+                                    <span className="text-sm">{category}</span>
                                 </button>
                             ))}
                         </div>
                     </div>
                 </div>
 
-                {/* ✅ Left Content Area - Shows Service Component */}
-                <div className="col-span-12 md:col-span-8 flex justify-center items-center text-gray-600 text-xl font-semibold">
-                    {currentGallery ? (
-                        <Outlet /> // This will load the selected service component
-                    ) : (
-                        <div className="col-span-12 md:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    {images.map((item, index) => (
-                        <div key={index} className="overflow-hidden shadow-lg">
-                            <img src={item.image} alt={`Gallery ${index + 1}`} className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105" />
-                        </div>
-                    ))}
-                </div>
-                    )}
+                {/* ✅ Left Content Area - Shows Service Component with Image Animation */}
+                <div className="col-span-12 md:col-span-8 flex justify-center items-center text-gray-600">
+                    <div className="col-span-12 md:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        {filteredImages.map((item, index) => (
+                            <motion.div 
+                                key={index} 
+                                className="overflow-hidden shadow-lg"
+                                initial={{ opacity: 0, y: 100 }} // Start below the viewport (y: 100px)
+                                animate={{ opacity: 1, y: 0 }} // Move to final position (y: 0)
+                                transition={{ duration: 0.6, delay: index * 0.1 }} // Delay for staggered effect
+                            >
+                                <img 
+                                    src={item.image} 
+                                    alt={item.title} 
+                                    className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105" 
+                                />
+                                <div className="p-3 bg-black text-orange-600 text-center">{item.title}</div>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

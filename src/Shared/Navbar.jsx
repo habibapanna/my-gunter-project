@@ -31,7 +31,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="shadow-md border-gray-900 sticky top-0 backdrop-blur-md z-50">
+    <div className="border-b border-stone-800 sticky top-0 backdrop-blur-md z-50">
       <nav className={`${isBlackBg ? "bg-black" : "bg-white"} bg-opacity-80 text-white px-4 py-5 transition duration-300`}>
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo */}
