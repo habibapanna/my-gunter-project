@@ -34,7 +34,7 @@ function PrivateLabelPage() {
   return (
     <div className="bg-black min-h-screen py-10 text-white">
       {/* Carousel Section */}
-      <section className="w-full md:max-w-3xl max-w-[400px] mx-auto mb-10">
+      <section className="w-full md:max-w-3xl max-w-sm mx-auto mb-10 px-5">
         <Swiper
           modules={[Pagination, Autoplay]}
           pagination={{ clickable: true }}
@@ -51,8 +51,8 @@ function PrivateLabelPage() {
       </section>
 
       {/* Hero Section */}
-      <section className="">
-        <h1 className="text-4xl font-semibold mb-4">Private Label & Branding Services for Amazon FBA</h1>
+      <section className="px-5">
+        <h1 className="text-2xl lg:text-4xl font-semibold mb-4">Private Label & Branding Services for Amazon FBA</h1>
         <p className="text-gray-400 font-normal text-[16px] max-w-3xl mx-auto">
           Looking to launch your Private Label brand on Amazon FBA? We provide end-to-end solutions to help you create a unique, high-converting brand that stands out.
         </p>
@@ -60,7 +60,7 @@ function PrivateLabelPage() {
 
       {/* Services Section */}
       <section className="services bg-black px-5 md:px-20 mt-10">
-        <h2 className="text-2xl font-semibold  mb-6">Our Private Label & Branding Services</h2>
+        <h2 className="text-xl lg:text-2xl font-semibold  mb-6">Our Private Label & Branding Services</h2>
         
 {/* Accordion */}
 <div className="space-y-2">
@@ -82,16 +82,16 @@ function PrivateLabelPage() {
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
-                <div className="p-4 text-sm bg-black text-white">{accordion.details}</div>
+                <div className="p-4 text-sm bg-black text-gray-400">{accordion.details}</div>
               </motion.div>
             </div>
           ))}
         </div>
 
-        <p className="mt-10 text-orange-600">Create a successful Private Label brand on Amazon & scale your business effortlessly!</p>
+        <p className="mt-10 text-orange-600 text-lg lg:text-xl">Create a successful Private Label brand on Amazon & scale your business effortlessly!</p>
 
         <div className="text-center mt-5">
-          <button className="relative bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[18px]">
+          <button className="relative bg-orange-600 px-6 py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-sm lg:text-[18px]">
             <Link to='/contact'>Contact us today for expert guidance!</Link>
           </button>
         </div>

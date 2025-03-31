@@ -48,11 +48,11 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative bg-black min-h-screen flex justify-center items-center overflow-y-hidden">
+    <div className="relative bg-black min-h-screen flex justify-center items-center overflow-y-hidden overflow-x-hidden mx-auto ">
       {/* Left Arrow */}
       <button
         onClick={prevSlide}
-        className="absolute left-1 top-1/2 transform -translate-y-1/2 text-white text-lg p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-40"
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 mt-70 lg:mt-0"
       >
         <FaArrowLeftLong />
       </button>
@@ -60,27 +60,27 @@ const HeroSection = () => {
       {/* Hero Content */}
       <div className="hero-content flex flex-col-reverse lg:flex-row-reverse items-center w-full px-10">
         {/* Image Section */}
-        <div className="lg:w-1/2 flex justify-end">
+        <div className="lg:w-1/2 flex justify-center lg:justify-end">
           <img
             key={currentIndex}
             src={images[currentIndex]}
-            className="max-w-md shadow-2xl transition-transform duration-700 animate-slide-up"
+            className="w-2/3 lg:max-w-md shadow-2xl transition-transform duration-700 animate-slide-up"
             alt="Hero"
           />
         </div>
 
         {/* Text Section */}
-        <div key={currentIndex} className="lg:w-1/2 text-left animate-slide-up mb-10 lg:mb-0">
+        <div key={currentIndex} className="lg:w-1/2 text-left animate-slide-up mb-10 mt-10 lg:mt-1 lg:mb-0">
         <span className="border-8 w-8 h-20 border-orange-600 bg-orange-600"></span>
-          <h1 className="text-3xl lg:text-6xl font-bold text-white mb-5 ">
+          <h1 className="text-2xl lg:text-6xl font-bold text-white lg:mb-5 ">
             {texts[currentIndex]?.title || "Default Title"}
           </h1>
-          <p className="py-6 text-white mb-5">
+          <p className="py-6 text-white lg:mb-5">
             {texts[currentIndex]?.description || "Default description for missing text."}
           </p>
 
           <div className="flex gap-5  lg:justify-start">
-            <button onClick={scrollToContact} className="bg-orange-600 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation">
+            <button onClick={scrollToContact} className="bg-orange-600 py-2 px-4 lg:px-6 lg:py-3 text-white lg:font-semibold transition duration-300 shadow-animation">
               Get Started
             </button>
           </div>
@@ -89,7 +89,7 @@ const HeroSection = () => {
       {/* Right Arrow */}
       <button
         onClick={nextSlide}
-        className="absolute right-1 top-1/2 transform -translate-y-1/2 text-white text-lg p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-40"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 mt-70 lg:mt-0"
       >
         <FaArrowRightLong />
       </button>

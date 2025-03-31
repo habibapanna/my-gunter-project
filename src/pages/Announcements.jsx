@@ -1,71 +1,97 @@
-import { Link, useLocation, Outlet, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Modal from "react-modal";
 import { FaSquareFull } from "react-icons/fa6";
 import { MdOutlineSearch } from "react-icons/md";
-import { useState } from "react";
-import Modal from "react-modal";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-
-const newsArticles = [
-  {
-    title: "Breaking News: Walmart Business is Revolutionizing eCommerce!",
-    image: "https://i.ibb.co.com/p6RXDJyy/vanilla-bear-films-JEw-NQerg3-Hs-unsplash.jpg",
-    description: "Walmart Business is transforming online retail with AI tools, fulfillment solutions, and massive growth opportunities.",
-  },
-  {
-    title: "F-Commerce Booming in Bangladesh: The Future of Online Business!",
-    image: "https://i.ibb.co.com/8n2xG3Gv/pexels-mustapha-damilola-458083529-31269038.jpg",
-    description: "With millions of active users, Facebook Commerce is shaping the future of online selling in Bangladesh.",
-  },
-  {
-    title: "Amazon FBA Continues to Dominate eCommerce!",
-    image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/05/google-1-1-1-380x330.jpg",
-    description: "Amazon’s FBA program is scaling businesses worldwide with fast shipping and automated fulfillment.",
-  },
-  {
-    title: "Amazon FBA Continues to Dominate eCommerce!",
-    image: "https://i.ibb.co.com/S7fvk9xs/pexels-airamdphoto-31258451.jpg",
-    description: "Amazon’s FBA program is scaling businesses worldwide with fast shipping and automated fulfillment.",
-  },
-];
-
-const announcements = [
-  { title: "The Ultimate Guide to Starting and Scaling an eCommerce Business in 2025", path: "/announcements/announcement-1" },
-  { title: "The Ultimate Guide to Amazon and Walmart Arbitrage in 2025", path: "/announcements/announcement-2" },
-  { title: "The Benefits of Private Label and Branding in eCommerce", path: "/announcements/announcement-3" },
-];
+import Spinner from "../components/Spinner/Spinner";
+import { GoDotFill } from "react-icons/go";
 
 const Announcements = () => {
+  const [announcements, setAnnouncements] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    whatsapp: "",
+    topic: "",
+    preferredDate: "",
+    cvFile: null,
+  });
+
   const location = useLocation();
   const navigate = useNavigate();
-  const currentAnnouncement = announcements.find(announcement => announcement.path === location.pathname);
 
-  // Modal State
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [formData, setFormData] = useState({ firstName: "", lastName: "", email: "", whatsapp: "", topic: "", preferredDate: "", cvFile: null });
+  useEffect(() => {
+    setLoading(true);
+    fetch("https://my-gunter-project-server.vercel.app/announcements")
+      .then((response) => response.json())
+      .then((data) => {
+        setAnnouncements(data);
+        const uniqueCategories = [
+          ...new Set(data.map((announcement) => announcement.category)),
+        ];
+        setCategories(uniqueCategories);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching announcements:", error);
+        setLoading(false);
+      });
+  }, []);
 
-  // Handle input changes
-  const handleChange = (e) => {
-    if (e.target.name === "preferredDate") {
-      // Optionally, parse the date here if necessary
-      const formattedDate = new Date(e.target.value).toISOString().split('T')[0]; // This ensures it's in the correct format
-      setFormData({ ...formData, [e.target.name]: formattedDate });
-    } else {
-      setFormData({ ...formData, [e.target.name]: e.target.value });
-    }
+  const handleCategoryClick = (category) => {
+    setLoading(true);
+    setSelectedCategory(category);
+    setSelectedAnnouncement(null);
+    setLoading(false);
   };
-  
 
-  // Handle file input change
-  const handleFileChange = (e) => {
-    setFormData({ ...formData, cvFile: e.target.files[0] });
+  const handleAnnouncementClick = (announcement) => {
+    setLoading(true);
+    setSelectedAnnouncement(announcement);
+    setSelectedCategory(null);
+    setLoading(false);
   };
 
-  // Handle form submission
+  const handleReadMore = (announcement) => {
+    setSelectedAnnouncement(announcement);
+  };
+
   const handleSubmit = () => {
     setModalIsOpen(false);
+    // Submit form data and send email notification
     Swal.fire("Success!", "Application successfully sent!", "success");
   };
+
+  // Handle input changes for form fields
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  // Handle file input changes
+  const handleFileChange = (e) => {
+    const { name, files } = e.target;
+    setFormData({
+      ...formData,
+      [name]: files[0],
+    });
+  };
+
+  const currentAnnouncement = announcements.find(
+    (announcement) => announcement.path === location.pathname
+  );
 
   return (
     <div className="bg-black">
@@ -74,7 +100,9 @@ const Announcements = () => {
           {currentAnnouncement ? currentAnnouncement.title : "Announcements"}
         </h1>
         <p className="text-center text-white">
-          <Link to="/" className="mr-3 transition-colors duration-300 hover:text-orange-600">Home</Link>
+          <Link to="/" className="mr-3 transition-colors duration-300 hover:text-orange-600">
+            Home
+          </Link>
           /
           <span className="ml-3 text-orange-600 font-semibold">
             {currentAnnouncement ? currentAnnouncement.title : "Announcements"}
@@ -84,21 +112,41 @@ const Announcements = () => {
 
       <div className="p-10 grid grid-cols-12 gap-6">
         <div className="col-span-12 md:col-span-8">
-          {currentAnnouncement ? (
-            <Outlet />
+          {loading ? (
+            <Spinner />
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {newsArticles.map((news, index) => (
-                <div key={index} className="bg-black shadow-orange-600 shadow-md p-4">
-                  <img src={news.image} alt={news.title} className="w-full h-40 object-cover" />
-                  <h2 className="text-lg font-bold mt-3 text-white">{news.title}</h2>
-                  <p className="text-gray-500 mt-2">{news.description}</p>
+            <>
+              {selectedAnnouncement ? (
+                <div className="bg-black p-4 shadow-md">
+                  <img className="w-full h-[400px] object-cover" src={selectedAnnouncement.
+image} alt="" />
+                  <h2 className="text-white text-xl font-bold mt-5">{selectedAnnouncement.title}</h2>
+                  <p className="text-gray-500 mt-2">{selectedAnnouncement.description}</p>
+                  <p className="text-gray-400 mt-2">{selectedAnnouncement.details}</p>
                 </div>
-              ))}
-            </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {announcements
+                    .filter((announcement) => !selectedCategory || announcement.category === selectedCategory)
+                    .map((announcement) => (
+                      <div key={announcement.id} className="bg-black shadow-orange-600 shadow-md p-4">
+                        <img src={announcement.image} alt={announcement.title} className="w-full h-40 object-cover" />
+                        <h2 className="text-lg font-bold mt-3 text-white">{announcement.title}</h2>
+                        <p className="text-gray-500 mt-2">{announcement.description}</p>
+                        <button
+                          className="text-orange-600 mt-2 hover:underline"
+                          onClick={() => handleReadMore(announcement)}
+                        >
+                          Read More
+                        </button>
+                      </div>
+                    ))}
+                </div>
+              )}
+            </>
           )}
         </div>
-
+{/* Search bar */}
         <div className="col-span-12 md:col-span-4 bg-black p-4">
           <div className="relative mb-4">
             <MdOutlineSearch className="absolute left-3 top-3 text-orange-600 text-xl" />
@@ -110,23 +158,43 @@ const Announcements = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
+{/* Title */}
           <div className="shadow-orange-600 shadow-md">
             <h1 className="text-white text-lg font-bold p-3">Recent Announcements</h1>
             <div className="border-1 border-gray-800 w-80 mx-auto"></div>
             <div className="flex flex-col">
-              {announcements.filter(announcement => announcement.title.toLowerCase().includes(search.toLowerCase())).map((announcement, index) => (
-                <button
-                  key={index}
-                  className={`flex justify-between items-center p-3 border-gray-800 transition-all duration-300 relative transform text-left 
-                  ${location.pathname === announcement.path ? "bg-orange-600 text-white" : "bg-black text-white hover:text-orange-600 hover:scale-95"}`}
-                  onClick={() => navigate(announcement.path)}
-                >
-                  <FaSquareFull className="text-sm mr-5" />
-                  <span className="text-sm">{announcement.title}</span>
-                </button>
-              ))}
+              {announcements
+                .filter((announcement) => announcement.title.toLowerCase().includes(search.toLowerCase()))
+                .map((announcement) => (
+                  <button
+                    key={announcement.id}
+                    className={`p-3 text-left items-center flex ${selectedAnnouncement === announcement ? "bg-orange-600 text-white" : "bg-black text-white hover:text-orange-600 hover:scale-95"}`}
+                    onClick={() => handleAnnouncementClick(announcement)}
+                  >
+                    <FaSquareFull className="text-sm mr-2" />
+                    <span className="text-sm">{announcement.title}</span>
+                  </button>
+                ))}
             </div>
           </div>
+{/* Category */}
+          <div className="shadow-orange-600 shadow-md mt-4">
+  <h1 className="text-white font-bold p-3">Categories</h1>
+  <div className="border-1 border-gray-800 w-80 mx-auto"></div>
+  <div className="flex flex-col mt-2">
+    {categories.map((category, index) => (
+      <button
+        key={index}
+        className={`text-white p-2 items-center flex hover:bg-orange-600  text-left ${selectedCategory === category ? 'bg-orange-600' : ''}`}
+        onClick={() => handleCategoryClick(category)}
+      >
+        <GoDotFill className="text-sm mr-2" />
+        {category}
+      </button>
+    ))}
+  </div>
+</div>
+
 
           {/* Apply Now Button */}
           <div className="text-center mt-6">
@@ -142,96 +210,103 @@ const Announcements = () => {
 
       {/* Modal */}
       <Modal
-  isOpen={modalIsOpen}
-  onRequestClose={() => setModalIsOpen(false)}
-  className="w-full max-w-xl bg-white p-5 shadow-lg mx-auto border mt-15 h-auto max-h-[80vh] relative"
-  overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
->
-  <button
-    onClick={() => setModalIsOpen(false)}
-    className="absolute top-3 right-3 text-orange-600 text-2xl"
-  >
-    &times;
-  </button>
-  <h2 className="text-xl font-semibold mb-4 text-center text-orange-600 mt-2">
-    Apply Now
-  </h2>
+        isOpen={modalIsOpen}
+        onRequestClose={() => setModalIsOpen(false)}
+        className="w-full max-w-xl bg-white p-5 shadow-lg mx-auto border mt-15 h-auto max-h-[80vh] relative"
+        overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+      >
+        <button
+          onClick={() => setModalIsOpen(false)}
+          className="absolute top-3 right-3 text-orange-600 text-2xl"
+        >
+          &times;
+        </button>
+        <h2 className="text-xl font-semibold mb-4 text-center text-orange-600 mt-2">
+          Apply Now
+        </h2>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-    <div>
-      <label className="block text-gray-700">First Name</label>
-      <input
-        type="text"
-        name="firstName"
-        value={formData.firstName}
-        onChange={handleChange}
-        className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
-      />
-    </div>
-    <div>
-      <label className="block text-gray-700">Last Name</label>
-      <input
-        type="text"
-        name="lastName"
-        value={formData.lastName}
-        onChange={handleChange}
-        className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
-      />
-    </div>
-    <div>
-      <label className="block text-gray-700">Email</label>
-      <input
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
-      />
-    </div>
-    <div>
-      <label className="block text-gray-700">Whatsapp</label>
-      <input
-        type="text"
-        name="whatsapp"
-        value={formData.whatsapp}
-        onChange={handleChange}
-        className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
-      />
-    </div>
-    <div className="sm:col-span-2">
-      <label className="block text-gray-700">Preferred Date</label>
-      <input
-        type="date"
-        name="preferredDate"
-        value={formData.preferredDate}
-        onChange={handleChange}
-        className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
-      />
-    </div>
-    <div className="sm:col-span-2">
-      <label className="block text-gray-700">Upload CV</label>
-      <input
-        type="file"
-        name="cvFile"
-        onChange={handleFileChange}
-        className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
-      />
-    </div>
-  </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+          <div>
+            <label className="block text-gray-700">First Name</label>
+            <input
+              type="text"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700">Last Name</label>
+            <input
+              type="text"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700">Email</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700">Whatsapp</label>
+            <input
+              type="text"
+              name="whatsapp"
+              value={formData.whatsapp}
+              onChange={handleChange}
+              className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700">Topic</label>
+            <input
+              type="text"
+              name="topic"
+              value={formData.topic}
+              onChange={handleChange}
+              className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700">Preferred Date</label>
+            <input
+              type="date"
+              name="preferredDate"
+              value={formData.preferredDate}
+              onChange={handleChange}
+              className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
+            />
+          </div>
+          
+        </div>
+        <div>
+            <label className="block text-gray-700">Upload CV</label>
+            <input
+              type="file"
+              name="cvFile"
+              onChange={handleFileChange}
+              className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
+            />
+          </div>
 
-  <div className="text-center mt-5 mb-2">
-    <button
-      onClick={handleSubmit}
-      className="bg-orange-600 px-4 py-2 text-white font-medium transition duration-300 shadow-animation"
-    >
-      Submit Application
-    </button>
-  </div>
-</Modal>
-
-
-
-
+        <div className="text-center mt-5">
+          <button
+            onClick={handleSubmit}
+            className="bg-orange-600 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation mt-3"
+          >
+            Submit Application
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 };

@@ -21,7 +21,7 @@ const AddGallery = () => {
         const data = { title, imageURL, category };
 
         try {
-            const response = await axios.post("http://localhost:5000/gallery", data);
+            const response = await axios.post("https://my-gunter-project-server.vercel.app/gallery", data);
 
             Swal.fire({
                 icon: "success",
@@ -43,8 +43,8 @@ const AddGallery = () => {
     };
 
     return (
-        <div className="p-6 bg-white text-black max-w-lg mx-auto">
-            <h2 className="text-2xl font-bold mb-4">Add Gallery Image</h2>
+        <div className="p-6 mt-5 bg-white text-black max-w-lg mx-auto">
+            <h2 className="text-2xl font-bold mb-4 text-orange-600">Add Gallery Image</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <label className="block text-sm font-semibold mb-2">Title</label>

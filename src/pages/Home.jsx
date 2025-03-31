@@ -101,7 +101,7 @@ const Home = () => {
                 `}
             </style>
 
-            <div className="bg-black">
+            <div className="bg-black overflow-x-hidden">
                 <HeroSection />
                 <Section>
                     <ServiceCards />
@@ -125,19 +125,19 @@ const Home = () => {
                     <LatestNews />
                 </Section>
                 <Section>
-                    <div id="contact" className="bg-black contact-form-container px-8 md:pl-5">
-                        <h2 className="text-center font-semibold mb-5 mt-10 text-orange-600">LET'S TALK</h2>
-                        <h2 className="text-3xl font-bold mb-10 text-white text-center">Get in Touch</h2>
+                    <div id="contact" className="bg-black contact-form-container px-5 lg:px-10 md:pl-5">
+                        <h2 className="text-left font-semibold mb-5 mt-20 lg:mt-10 text-orange-600">LET'S TALK</h2>
+                        <h2 className="text-2xl lg;text-3xl font-bold mb-5 lg:mb-10 text-white text-left">Get in Touch</h2>
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                            <div className="mx-auto">
-                                <form onSubmit={handleSubmit} className="space-y-6 bg-black py-6 rounded-lg shadow-lg">
+                            <div className="">
+                                <form onSubmit={handleSubmit} className="space-y-6 bg-black py-6 shadow-lg">
                                     {successMessage && (
                                         <div className="success-message bg-orange-600 text-white text-center py-2">
                                             Message sent successfully!
                                         </div>
                                     )}
 
-                                    <div className="grid grid-cols-2 gap-5">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                         <div className="form-group relative">
                                             <label htmlFor="name" className="block text-white">
                                                 Name <span className="text-red-500">*</span>
@@ -215,7 +215,7 @@ const Home = () => {
 
                                     <button
                                         type="submit"
-                                        className="bg-orange-600 px-10 py-4 text-white font-semibold transition duration-300 shadow-animation"
+                                        className="bg-orange-600 px-5 py-2 lg:px-10 lg:py-4 text-white lg:font-semibold transition duration-300 shadow-animation"
                                     >
                                         Submit Message
                                     </button>

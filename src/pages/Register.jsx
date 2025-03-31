@@ -28,7 +28,7 @@ const Register = () => {
             const createdUser = userCredential.user;
     
             // ✅ Step 2: Save user data in MongoDB (Backend)
-            const response = await fetch("http://localhost:5000/users", {
+            const response = await fetch("https://my-gunter-project-server.vercel.app/users", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

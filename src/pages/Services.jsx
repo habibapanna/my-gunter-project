@@ -59,17 +59,10 @@ const Services = () => {
                 </p> 
             </div>
 
-            <div className="p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-6"> 
-                {/* ✅ Mobile Sidebar Toggle */} 
-                <button 
-                    onClick={() => setIsSidebarOpen(!isSidebarOpen)} 
-                    className="lg:hidden flex items-center gap-2 px-4 py-2 bg-orange-600 text-white text-lg font-semibold w-full justify-center"
-                > 
-                    <MdMenu className="text-2xl" /> Menu 
-                </button> 
+            <div className="p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-6">  
 
                 {/* ✅ Sidebar */} 
-                <div className={`lg:col-span-4 bg-black p-4 transition-all duration-300 ${isSidebarOpen ? "block" : "hidden"} lg:block`}> 
+                <div className="lg:col-span-4 bg-black p-4 transition-all duration-300"> 
                     {/* ✅ Search Bar */}
                     <div className="relative mb-4">
                         <MdOutlineSearch className="absolute left-3 top-3 text-orange-600 text-xl" />

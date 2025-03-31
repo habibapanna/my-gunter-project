@@ -15,10 +15,10 @@ const About = () => {
 
     return (
         <div>
-            <div className='bg-black p-10 flex flex-col lg:flex-row gap-20'>
+            <div className='bg-black p-5 lg:p-10 flex flex-col lg:flex-row gap-10 lg:gap-20'>
                 <div className='lg:w-1/2'>
                     <h3 className='text-orange-600 font-semibold mb-3'>ABOUT US</h3>
-                    <h1 className='text-white text-4xl font-bold'>
+                    <h1 className='text-white text-2xl lg:text-4xl font-bold'>
                     Leading the way in Creative Digital Agency
                     </h1>
 
@@ -31,15 +31,15 @@ const About = () => {
 
                     {/* Services Section */}
                     <div className='flex gap-3'>
-                        <span><FaRegStar className='text-4xl text-orange-600' /></span>
+                        <span><FaRegStar className='text-2xl lg:text-4xl text-orange-600' /></span>
                         <div>
-                            <h1 className='text-xl font-bold mb-5 text-white'>Best Digital Agency in the World Include :</h1>
+                            <h1 className='text-lg lg:text-xl font-semibold mb-5 text-white'>Best Digital Agency in the World Include :</h1>
 <p>
 At Imagine Dream World, we provide A-to-Z e-commerce business management, helping brands thrive and scale across platforms like Amazon, Walmart, eBay, Shopify, and F-Commerce (Facebook & Social Commerce). Our comprehensive services ensure seamless operations, increased visibility, and long-term success.
 </p>
 
-<div className='right-20 mt-10'>
-                        <button onClick={scrollToContact} className=" bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation">
+<div className='right-20 mt-5 lg:mt-10'>
+                        <button onClick={scrollToContact} className=" bg-orange-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation">
                             <Link>More About Us</Link> <FaArrowRightLong />
                         </button>
                     </div>

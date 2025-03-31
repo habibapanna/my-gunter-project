@@ -49,15 +49,15 @@ const OurTeam = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="bg-black p-6 md:p-10">
+    <div className="bg-black p-5 md:p-10">
       {/* Header Section */}
-      <div className="flex flex-col md:flex-row justify-between items-center mb-6">
-        <div className="text-center md:text-left">
+      <div className="flex flex-col md:flex-row justify-between mb-6">
+        <div className="text-left">
           <h3 className="text-orange-600 font-semibold">Meet our experts</h3>
           <h2 className="text-3xl md:text-4xl font-bold mt-3 text-white">
             Our Team
           </h2>
-          <div className="flex gap-1 justify-center md:justify-start mt-6 mb-5">
+          <div className="flex gap-1 justify-start mt-6 mb-5">
             <span className="border-2 w-8 border-orange-600"></span>
             <span className="border-2 w-2 border-orange-600"></span>
             <span className="border-2 w-3 border-orange-600"></span>
@@ -132,7 +132,7 @@ const OurTeam = () => {
           ></span>
         ))}
       </div>
-      <div className="mt-10"> <button className="bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto">
+      <div className="mt-10"> <button className="bg-orange-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto">
          <Link to="/contact"> View All</Link>
           <FaArrowRightLong />
         </button></div>

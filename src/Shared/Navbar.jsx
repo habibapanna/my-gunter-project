@@ -37,8 +37,8 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center justify-center gap-1">
             <SiDreamstime className={`great-vibes border-none text-orange-600 text-2xl font-bold`} />
-            <h1 className={`great-vibes border-none ${isBlackBg ? "text-white" : "text-black"} text-2xl font-bold`}>
-              Imagine <span className="text-orange-600">Dream</span> World
+            <h1 className={`great-vibes border-none ${isBlackBg ? "text-white" : "text-black"} text-xl lg:text-2xl font-bold`}>
+              <NavLink t0="/">Imagine <span className="text-orange-600">Dream</span> World</NavLink>
             </h1>
           </div>
 
@@ -49,11 +49,11 @@ const Navbar = () => {
                 <NavLink
                   to={path}
                   className={({ isActive }) =>
-                    `relative transition duration-300 hover:text-orange-500 pb-1 font-semibold ${
+                    `relative transition duration-300 hover:text-orange-6000 pb-1 font-semibold ${
                       isActive
-                        ? "text-orange-500 border-b-2 border-orange-500"
+                        ? "text-orange-600 border-b-2 border-orange-600"
                         : `text-${isBlackBg ? "white" : "black"} border-b-2 border-transparent`
-                    } hover:border-orange-500`
+                    } hover:border-orange-600`
                   }
                 >
                   {name}
@@ -88,11 +88,11 @@ const Navbar = () => {
                   <NavLink
                     to={path}
                     className={({ isActive }) =>
-                      `block py-2 transition duration-300 hover:text-orange-500 pb-1 ${
+                      `block py-2 transition duration-300 hover:text-orange-600 pb-1 ${
                         isActive
-                          ? "text-orange-500 underline border-orange-500"
+                          ? "text-orange-600 underline border-orange-600"
                           : `text-${isBlackBg ? "white" : "black"} hover:underline border-transparent`
-                      } hover:border-orange-500`
+                      } hover:border-orange-600`
                     }
                     onClick={() => setIsOpen(false)} // Close menu when clicking a link
                   >

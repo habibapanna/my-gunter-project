@@ -177,7 +177,7 @@ const Dashboard = () => {
             setIsOpen(true);
           }}
         >
-          <FaBars className="text-black hover:text-orange-600" size={24} />
+          <FaBars className="text-orange-600 hover:text-orange-500" size={24} />
         </button>
 
         <Outlet /> {/* Loads the selected route content */}

@@ -16,7 +16,7 @@ const ManageGallery = () => {
   useEffect(() => {
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/gallery');
+        const response = await axios.get('https://my-gunter-project-server.vercel.app/gallery');
         setGalleryItems(response.data);
       } catch (error) {
         console.error('Error fetching gallery items:', error);
@@ -31,7 +31,7 @@ const ManageGallery = () => {
   // Handle update
   const handleUpdate = async (id) => {
     try {
-      await axios.put(`http://localhost:5000/gallery/${id}`, {
+      await axios.put(`https://my-gunter-project-server.vercel.app/gallery/${id}`, {
         title: updatedTitle,
         category: updatedCategory,
       });
@@ -67,7 +67,7 @@ const ManageGallery = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`http://localhost:5000/gallery/${id}`);
+          await axios.delete(`https://my-gunter-project-server.vercel.app/${id}`);
           setGalleryItems((prevItems) => prevItems.filter((item) => item._id !== id));
 
           // Show success alert
@@ -84,7 +84,7 @@ const ManageGallery = () => {
   };
 
   return (
-    <div>
+    <div className='mt-5'>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -101,7 +101,7 @@ const ManageGallery = () => {
               <tr key={item._id}>
                 <td className="border border-stone-600 p-2">{item.title}</td>
                 <td className="border border-stone-600 p-2">{item.category}</td>
-                <td className="border border-stone-600 p-2 flex justify-around">
+                <td className="border border-stone-600 px-4 py-4 lg:flex justify-around"> 
                   <TiEdit
                     className="cursor-pointer text-orange-600"
                     onClick={() => {
@@ -143,18 +143,79 @@ const ManageGallery = () => {
             <div className="flex justify-between">
               <button
                 onClick={() => setEditingItem(null)}
-                className="px-4 py-2 bg-gray-300 hover:bg-gray-500"
+                className="mt-4 w-full bg-gray-600 shadow-animation text-white py-2"
               >
                 Cancel
               </button>
               <button
                 onClick={() => handleUpdate(editingItem)}
-                className="px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white "
+                className="mt-4 w-full bg-orange-600 shadow-animation text-white py-2"
               >
                 Update
               </button>
             </div>
           </div>
+          <style>
+                {`
+                    .shadow-animation {
+                        position: relative;
+                        overflow: hidden;
+                    }
+
+                    .shadow-animation::before,
+                    .shadow-animation::after {
+                        content: '';
+                        position: absolute;
+                        width: 50%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.9); /* Solid dark panel */
+                        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+                        opacity: 0;
+                    }
+                    
+                    /* Left panel (rises from bottom) */
+                    .shadow-animation::before {
+                        left: 0;
+                        bottom: -100%;
+                    }
+                    
+                    /* Right panel (falls from top) */
+                    .shadow-animation::after {
+                        right: 0;
+                        top: -100%;
+                    }
+
+                    /* Hover Effect */
+                    .shadow-animation:hover::before {
+                        transform: translateY(-100%);
+                        opacity: 1;
+                    }
+
+                    .shadow-animation:hover::after {
+                        transform: translateY(100%);
+                        opacity: 1;
+                    }
+
+                    /* Panels Disappear After a While */
+                    .shadow-animation:hover::before,
+                    .shadow-animation:hover::after {
+                        animation: panelDisappear 1s ease-in-out forwards;
+                    }
+
+                    @keyframes panelDisappear {
+                        0% {
+                            opacity: 1;
+                        }
+                        70% {
+                            opacity: 1;
+                        }
+                        100% {
+                            opacity: 0;
+                            transform: translateY(0);
+                        }
+                    }
+                `}
+            </style>
         </div>
       )}
     </div>

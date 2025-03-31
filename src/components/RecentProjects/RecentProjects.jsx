@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -6,85 +6,102 @@ import "swiper/css/pagination";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-const services = [
-  { title: "500+ Amazon Stores Managed", image: "https://i.ibb.co.com/QF7bcvC4/pexels-cottonbro-3205504.jpg" },
-  { title: "200+ Walmart Stores Managed", image: "https://i.ibb.co.com/k2v2bGdh/pexels-fauxels-3183150.jpg" },
-  { title: "100+ Shopify Stores Managed", image: "https://themes.envytheme.com/gunter/wp-content/uploads/2020/07/project4-380x350.jpg" },
-  { title: "Professional Product Photography", image: "https://i.ibb.co.com/1Gn9CrBv/pexels-fauxels-3183197.jpg" },
-  { title: "Expert Digital Marketing Services", image: "https://i.ibb.co.com/JRS2jG3r/pexels-fauxels-3183153.jpg" },
-];
-
 const RecentProjects = () => {
+  const [projects, setProjects] = useState([]); // State to store API data
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    fetch("https://my-gunter-project-server.vercel.app/gallery")
+      .then((res) => res.json())
+      .then((data) => {
+        setProjects(data.slice(0, 5)); // Show only 4-5 projects
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+        setError("Failed to load projects.");
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <div className="bg-black p-6 md:p-10">
       {/* Header Section */}
-      <div className="flex flex-col md:flex-row justify-between items-center mb-6">
-        <div className="text-center md:text-left">
+      <div className="flex flex-col md:flex-row justify-between text-left mb-6">
+        <div>
           <h3 className="text-orange-600 font-semibold">OUR COMPLETED PROJECTS</h3>
-          <h2 className="text-3xl md:text-4xl font-bold mt-3 text-white">Recent Projects</h2>
-          <div className="flex gap-1 mt-6 mb-5 justify-center md:justify-start">
+          <h2 className="text-2xl md:text-4xl font-bold mt-3 text-white">Recent Projects</h2>
+          <div className="flex gap-1 mt-6 mb-5 justify-start">
             <span className="border-2 w-8 border-orange-600"></span>
             <span className="border-2 w-2 border-orange-600"></span>
             <span className="border-2 w-3 border-orange-600"></span>
           </div>
         </div>
-        
       </div>
+
+      {/* Loading & Error Handling */}
+      {loading && <p className="text-white text-center">Loading projects...</p>}
+      {error && <p className="text-red-500 text-center">{error}</p>}
 
       {/* Swiper Carousel */}
-      <Swiper
-        modules={[Pagination, Autoplay]}
-        breakpoints={{
-          320: { slidesPerView: 1, spaceBetween: 10 },  // Small screen: 1 slide
-          640: { slidesPerView: 2, spaceBetween: 15 },  // Medium screen: 2 slides
-          1024: { slidesPerView: 4, spaceBetween: 20 }, // Large screen: 4 slides
-        }}
-        autoplay={{ delay: 3000 }}
-        loop={true}
-        speed={1000}
-        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        className="p-2 md:p-5"
-      >
-        {services.map((service, index) => (
-          <SwiperSlide key={index}>
-            <div className="group relative h-[350px] md:h-[400px] shadow-lg overflow-hidden">
-              {/* Image with Hover Effect */}
-              <div className="relative w-full h-[250px] overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-all duration-500 group-hover:grayscale"
-                />
-              </div>
+      {!loading && !error && projects.length > 0 && (
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          breakpoints={{
+            320: { slidesPerView: 1, spaceBetween: 10 },  // Small screen: 1 slide
+            640: { slidesPerView: 2, spaceBetween: 15 },  // Medium screen: 2 slides
+            1024: { slidesPerView: 4, spaceBetween: 20 }, // Large screen: 4 slides
+          }}
+          autoplay={{ delay: 3000 }}
+          loop={true}
+          speed={1000}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+          className="p-2 md:p-5"
+        >
+          {projects.map((project, index) => (
+            <SwiperSlide key={index}>
+              <div className="group relative h-[350px] md:h-[400px] shadow-lg overflow-hidden">
+                {/* Image with Hover Effect */}
+                <div className="relative w-full h-[250px] overflow-hidden">
+                  <img
+                    src={project.image} // Dynamic image
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:grayscale"
+                  />
+                </div>
 
-              {/* Text Card */}
-              <div className="relative bg-stone-900 text-white font-semibold text-lg p-5 w-full text-center transition-all duration-500">
-                {service.title}
-                <div className="absolute bottom-0 left-0 w-full h-full bg-orange-600 transform scale-y-0 group-hover:scale-y-100 origin-bottom transition-all duration-500"></div>
-                <span className="relative z-10">{service.title}</span>
+                {/* Text Card */}
+                <div className="relative bg-stone-900 text-white text-lg p-5 w-full text-center transition-all duration-500 h-[100px]">
+                  <div className="absolute bottom-0 left-0 w-full h-full bg-orange-600 transform scale-y-0 group-hover:scale-y-100 origin-bottom transition-all duration-500"></div>
+                  <span className="relative z-10 text-sm lg:text-lg">{project.title}</span>
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
 
       {/* Bottom Indicator */}
-      <div className="flex justify-center gap-2 mt-5">
-        {services.slice(0, 2).map((_, index) => (
-          <span
-            key={index}
-            className={`h-[3px] w-10 transition-all duration-500 ${
-              activeIndex % services.length === index ? "bg-orange-600" : "bg-white"
-            }`}
-          ></span>
-        ))}
-      </div>
+      {!loading && !error && projects.length > 0 && (
+        <div className="flex justify-center gap-2 mt-5">
+          {projects.slice(0, 2).map((_, index) => (
+            <span
+              key={index}
+              className={`h-[3px] w-10 transition-all duration-500 ${
+                activeIndex % projects.length === index ? "bg-orange-600" : "bg-white"
+              }`}
+            ></span>
+          ))}
+        </div>
+      )}
 
+      {/* View All Projects Button */}
       <div className="mt-10">
-      <button className="bg-orange-600 px-5 md:px-6 py-3 md:py-4 text-white font-semibold flex items-center gap-2 shadow-animation mt-4 md:mt-0 mx-auto">
-          <Link to="/blog">All Projects </Link><FaArrowRightLong />
+        <button className="bg-orange-600 px-4 md:px-6 py-2 md:py-4 text-white lg:font-semibold flex items-center gap-2 shadow-animation mt-4 md:mt-0 mx-auto">
+          <Link to="/gallery">All Projects </Link>
+          <FaArrowRightLong />
         </button>
       </div>
     </div>
