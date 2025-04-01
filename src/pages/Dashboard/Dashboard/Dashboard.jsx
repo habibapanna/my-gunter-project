@@ -4,21 +4,33 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { TbLogs } from "react-icons/tb";
 import { TfiAnnouncement } from "react-icons/tfi";
-import { MdOutlineAnnouncement } from "react-icons/md";
-import { PiUsersThree } from "react-icons/pi";
+import { MdOutlineAnnouncement, MdOutlineManageAccounts, MdOutlineRoundaboutLeft, MdOutlineRoundaboutRight } from "react-icons/md";
+import { PiMicrosoftTeamsLogo, PiUsersThree } from "react-icons/pi";
 import { VscHome } from "react-icons/vsc";
+import { LiaUsersSolid } from "react-icons/lia";
+import { SlLike } from "react-icons/sl";
+import { AiOutlineTeam } from "react-icons/ai";
+import { SiApacherocketmq } from "react-icons/si";
+import { DiHeroku } from "react-icons/di";
 
 const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   // Prevent body scrolling when sidebar is open
   useEffect(() => {
+    // Prevent body scrolling when sidebar is open
     if (isOpen) {
       document.body.classList.add("overflow-hidden");
     } else {
       document.body.classList.remove("overflow-hidden");
     }
+  
+    // Cleanup: Remove the overflow-hidden class when the component is unmounted
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
   }, [isOpen]);
+  
 
   return (
     <div className="flex h-screen overflow-x-hidden">
@@ -130,6 +142,94 @@ const Dashboard = () => {
           >
             <MdOutlineAnnouncement size={20} />
             <span>Manage Announcements</span>
+          </NavLink>
+          <NavLink
+            to="/dashboard/add-team"
+            className={({ isActive }) =>
+              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+              }`
+            }
+          >
+            <AiOutlineTeam size={20} />
+            <span>Add Team</span>
+          </NavLink>
+          <NavLink
+            to="/dashboard/manage-team"
+            className={({ isActive }) =>
+              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+              }`
+            }
+          >
+            <PiMicrosoftTeamsLogo size={20} />
+            <span>Manage Team</span>
+          </NavLink>
+          <NavLink
+            to="/dashboard/add-testimonial"
+            className={({ isActive }) =>
+              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+              }`
+            }
+          >
+            <SlLike size={20} />
+            <span>Add Testimonial</span>
+          </NavLink>
+          <NavLink
+            to="/dashboard/manage-testimonial"
+            className={({ isActive }) =>
+              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+              }`
+            }
+          >
+            <MdOutlineManageAccounts size={20} />
+            <span>Manage Testimonial</span>
+          </NavLink>
+          <NavLink
+            to="/dashboard/add-hero"
+            className={({ isActive }) =>
+              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+              }`
+            }
+          >
+            <SiApacherocketmq size={20} />
+            <span>Add Hero Section</span>
+          </NavLink>
+          <NavLink
+            to="/dashboard/manage-hero"
+            className={({ isActive }) =>
+              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+              }`
+            }
+          >
+            <DiHeroku size={20} />
+            <span>Manage Hero Section</span>
+          </NavLink>
+          <NavLink
+            to="/dashboard/add-about"
+            className={({ isActive }) =>
+              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+              }`
+            }
+          >
+            <MdOutlineRoundaboutRight size={20} />
+            <span>Add About Section</span>
+          </NavLink>
+          <NavLink
+            to="/dashboard/manage-about"
+            className={({ isActive }) =>
+              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+              }`
+            }
+          >
+            <MdOutlineRoundaboutLeft size={20} />
+            <span>Manage About Section</span>
           </NavLink>
           <NavLink
             to="/dashboard/all-user"

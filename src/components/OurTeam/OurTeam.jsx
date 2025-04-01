@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -7,46 +7,34 @@ import {
   FaArrowRightLong,
   FaFacebook,
   FaInstagram,
-  FaTwitter,
+  FaXTwitter,
   FaLinkedin,
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-const teamMembers = [
-  {
-    name: "Josh Butler",
-    title: "Photographer",
-    image:
-      "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/team4-1-1.jpg",
-  },
-  {
-    name: "Emily Carter",
-    title: "Graphic Designer",
-    image:
-      "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/team2-1-1.jpg",
-  },
-  {
-    name: "Michael Lee",
-    title: "Art Director",
-    image:
-      "https://i.ibb.co.com/JRt4RcYB/pexels-michael-burrows-7129700.jpg",
-  },
-  {
-    name: "Sophia Williams",
-    title: "Marketing Manager",
-    image:
-      "https://i.ibb.co.com/5g1msBDj/luis-villasmil-Z4rqv-Rp-Rj38-unsplash.jpg",
-  },
-  {
-    name: "Daniel Smith",
-    title: "UI/UX Designer",
-    image:
-      "https://i.ibb.co.com/9jTZcz6/pexels-ketut-subiyanto-4623471.jpg",
-  },
-];
-
 const OurTeam = () => {
+  const [teamMembers, setTeamMembers] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Fetch team members from API
+  useEffect(() => {
+    fetch("https://my-gunter-project-server.vercel.app/team")
+      .then((res) => res.json())
+      .then((data) => {
+        setTeamMembers(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching team:", err);
+        setError("Failed to load team data.");
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <p className="text-white text-center">Loading team...</p>;
+  if (error) return <p className="text-red-500 text-center">{error}</p>;
 
   return (
     <div className="bg-black p-5 md:p-10">
@@ -63,7 +51,6 @@ const OurTeam = () => {
             <span className="border-2 w-3 border-orange-600"></span>
           </div>
         </div>
-       
       </div>
 
       {/* Swiper Carousel */}
@@ -74,15 +61,15 @@ const OurTeam = () => {
         speed={2000}
         pagination={{ clickable: true }}
         breakpoints={{
-          320: { slidesPerView: 1, spaceBetween: 10 }, // Small screens: 1 slide
-          768: { slidesPerView: 2, spaceBetween: 15 }, // Medium screens: 2 slides
-          1024: { slidesPerView: 4, spaceBetween: 20 }, // Large screens: 4 slides
+          320: { slidesPerView: 1, spaceBetween: 10 },
+          768: { slidesPerView: 2, spaceBetween: 15 },
+          1024: { slidesPerView: 4, spaceBetween: 20 },
         }}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         className="p-2 md:p-5"
       >
         {teamMembers.map((member, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={member._id || index}>
             <div className="relative group h-[400px] shadow-lg">
               {/* Image */}
               <img
@@ -100,14 +87,16 @@ const OurTeam = () => {
               {/* Social Links on Hover */}
               <div className="absolute top-0 left-0 w-full bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-all duration-300 flex justify-center gap-2 p-2">
                 {[
-                  { icon: FaFacebook, link: "#" },
-                  { icon: FaInstagram, link: "#" },
-                  { icon: FaTwitter, link: "#" },
-                  { icon: FaLinkedin, link: "#" },
+                  { icon: FaFacebook, link: member.facebook },
+                  { icon: FaInstagram, link: member.instagram },
+                  { icon: FaXTwitter, link: member.x },
+                  { icon: FaLinkedin, link: member.linkedin },
                 ].map(({ icon: Icon, link }, i) => (
                   <a
                     key={i}
                     href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-orange-600 hover:bg-orange-600 hover:text-white p-2 rounded-full border border-orange-500 text-sm"
                   >
                     <Icon size={16} />
@@ -132,10 +121,14 @@ const OurTeam = () => {
           ></span>
         ))}
       </div>
-      <div className="mt-10"> <button className="bg-orange-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto">
-         <Link to="/contact"> View All</Link>
+
+      {/* View All Button */}
+      <div className="mt-10">
+        <button className="bg-orange-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto">
+          <Link to="/contact"> View All</Link>
           <FaArrowRightLong />
-        </button></div>
+        </button>
+      </div>
     </div>
   );
 };

@@ -37,6 +37,14 @@ import ManageGallery from "../pages/Dashboard/ManageGallery";
 import AddAnnouncements from "../pages/Dashboard/AddAnnouncements";
 import ManageAnnouncements from "../pages/Dashboard/ManageAnnouncements";
 import AllUsers from "../pages/Dashboard/AllUsers";
+import AddTeam from "../pages/Dashboard/AddTeam";
+import ManageTeam from "../pages/Dashboard/ManageTeam";
+import ManageTestimonial from "../pages/Dashboard/ManageTestimonial";
+import AddTestimonial from "../pages/Dashboard/AddTestimonial";
+import AddHero from "../pages/Dashboard/AddHero";
+import ManageHero from "../pages/Dashboard/ManageHero";
+import AddAbout from "../pages/Dashboard/AddAbout";
+import ManageAbout from "../pages/Dashboard/ManageAbout";
 
 
 const router = createBrowserRouter([
@@ -151,6 +159,38 @@ const router = createBrowserRouter([
         {
             path: "manage-announcements",
             element: <ManageAnnouncements></ManageAnnouncements>
+        },
+        {
+            path: "add-team",
+            element: <AddTeam></AddTeam>
+        },
+        {
+            path: "manage-team",
+            element: <ManageTeam></ManageTeam>
+        },
+        {
+            path: "add-testimonial",
+            element: <AddTestimonial></AddTestimonial>
+        },
+        {
+            path: "manage-testimonial",
+            element: <ManageTestimonial></ManageTestimonial>
+        },
+        {
+            path: "add-hero",
+            element: <AddHero></AddHero>
+        },
+        {
+            path: "manage-Hero",
+            element: <ManageHero></ManageHero>
+        },
+        {
+            path: "add-about",
+            element: <AddAbout></AddAbout>
+        },
+        {
+            path: "manage-about",
+            element: <ManageAbout></ManageAbout>
         },
         {
             path: "all-user",

@@ -13,7 +13,7 @@ const ManageAnnouncements = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/announcements")
+      .get("https://my-gunter-project-server.vercel.app/announcements")
       .then((response) => {
         setAnnouncements(response.data);
       })

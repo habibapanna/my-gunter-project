@@ -121,87 +121,88 @@ const ManageBlog = () => {
 
       {/* Modal for updating blog */}
       {isModalOpen && (
-        <div className="inset-0 fixed mt-42 flex items-center justify-center text-black h-[200px]  text-sm">
-          <div className="bg-white px-6 py-2 w-96">
-            <h3 className="text-lg font-bold mb-4 text-center text-orange-600">Update Blog</h3>
-            <label>Title</label>
-            <input
-              type="text"
-              placeholder="Title"
-              value={selectedBlog.title}
-              onChange={(e) =>
-                setSelectedBlog({ ...selectedBlog, title: e.target.value })
-              }
-              className="w-full border border-gray-500 mb-2"
-            />
-            <label>Image</label>
-            <input
-              type="text"
-              placeholder="Title"
-              value={selectedBlog.image}
-              onChange={(e) =>
-                setSelectedBlog({ ...selectedBlog, title: e.target.value })
-              }
-              className="w-full border border-gray-500 mb-2"
-            />
-            <label>Category</label>
-            <input
-              type="text"
-              placeholder="Category"
-              value={selectedBlog.category}
-              onChange={(e) =>
-                setSelectedBlog({ ...selectedBlog, category: e.target.value })
-              }
-              className="w-full border border-gray-500 mb-2"
-            />
-            <label>Author</label>
-            <input
-              type="text"
-              placeholder="Author"
-              value={selectedBlog.author}
-              onChange={(e) =>
-                setSelectedBlog({ ...selectedBlog, author: e.target.value })
-              }
-              className="w-full border border-gray-500 mb-2"
-            />
-            <label>Description</label>
-            <textarea
-              placeholder="Description"
-              value={selectedBlog.description}
-              onChange={(e) =>
-                setSelectedBlog({
-                  ...selectedBlog,
-                  description: e.target.value,
-                })
-              }
-              className="w-full border border-gray-500 mb-2"
-            ></textarea>
-            <label>Details</label>
-            <textarea
-              placeholder="Details"
-              value={selectedBlog.details}
-              onChange={(e) =>
-                setSelectedBlog({ ...selectedBlog, details: e.target.value })
-              }
-              className="w-full border border-gray-500 mb-4"
-            ></textarea>
-            <div className="flex justify-between">
-              <button
-                className="bg-gray-400 px-4 py-2"
-                onClick={() => setIsModalOpen(false)}
-              >
-                Cancel
-              </button>
-              <button
-                className="bg-orange-600 text-white px-4 py-2"
-                onClick={handleUpdate}
-              >
-                Update
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center text-black h-full z-50">
+    <div className="bg-white px-6 py-2 w-96 text-sm">
+      <h3 className="text-lg font-bold mb-4 text-center text-orange-600">Update Blog</h3>
+      <label>Title</label>
+      <input
+        type="text"
+        placeholder="Title"
+        value={selectedBlog.title}
+        onChange={(e) =>
+          setSelectedBlog({ ...selectedBlog, title: e.target.value })
+        }
+        className="w-full border border-gray-500 mb-2 text-gray-500"
+      />
+      <label>Image</label>
+      <input
+        type="text"
+        placeholder="Image URL"
+        value={selectedBlog.image}
+        onChange={(e) =>
+          setSelectedBlog({ ...selectedBlog, image: e.target.value })
+        }
+        className="w-full border border-gray-500 text-gray-500 mb-2"
+      />
+      <label>Category</label>
+      <input
+        type="text"
+        placeholder="Category"
+        value={selectedBlog.category}
+        onChange={(e) =>
+          setSelectedBlog({ ...selectedBlog, category: e.target.value })
+        }
+        className="w-full border border-gray-500 text-gray-500 mb-2"
+      />
+      <label>Author</label>
+      <input
+        type="text"
+        placeholder="Author"
+        value={selectedBlog.author}
+        onChange={(e) =>
+          setSelectedBlog({ ...selectedBlog, author: e.target.value })
+        }
+        className="w-full border border-gray-500 text-gray-500 mb-2"
+      />
+      <label>Description</label>
+      <textarea
+        placeholder="Description"
+        value={selectedBlog.description}
+        onChange={(e) =>
+          setSelectedBlog({
+            ...selectedBlog,
+            description: e.target.value,
+          })
+        }
+        className="w-full border border-gray-500 text-gray-500 mb-2"
+      ></textarea>
+      <label>Details</label>
+      <textarea
+        placeholder="Details"
+        value={selectedBlog.details}
+        onChange={(e) =>
+          setSelectedBlog({ ...selectedBlog, details: e.target.value })
+        }
+        className="w-full border border-gray-500 text-gray-500 mb-4"
+      ></textarea>
+      <div className="flex justify-between">
+        <button
+          className="bg-gray-400 px-4 py-2"
+          onClick={() => setIsModalOpen(false)}
+        >
+          Cancel
+        </button>
+        <button
+          className="bg-orange-600 text-white px-4 py-2"
+          onClick={handleUpdate}
+        >
+          Update
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };
