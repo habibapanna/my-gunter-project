@@ -45,7 +45,7 @@ const Services = () => {
         <div className="bg-black"> 
             {/* ✅ Banner Section */}
             <div className="bg-black py-16 text-center"> 
-                <h1 className="text-3xl sm:text-4xl font-bold mb-3 text-white"> 
+                <h1 className="text-2xl lg:text-4xl font-bold mb-3 text-white"> 
                     {currentService ? currentService.title : "Services"} 
                 </h1> 
                 <p className="text-white"> 
@@ -59,7 +59,7 @@ const Services = () => {
                 </p> 
             </div>
 
-            <div className="p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-6">  
+            <div className="p-6 lg:p-10 grid grid-cols-1 lg:grid-cols-12 lg:gap-6">  
 
                 {/* ✅ Sidebar */} 
                 <div className="lg:col-span-4 bg-black p-4 transition-all duration-300"> 
@@ -90,8 +90,8 @@ const Services = () => {
                                     setIsSidebarOpen(false); // Close menu on mobile after clicking
                                 }}
                             >
-                                <span className="text-lg">{service.title}</span>
-                                <FaArrowRightLong className="text-lg" />
+                                <span className="lg:text-lg">{service.title}</span>
+                                <FaArrowRightLong className="lg:text-lg" />
                             </button>
                         ))}
                     </div>

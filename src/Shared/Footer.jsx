@@ -17,7 +17,7 @@ const Footer = () => {
 
     return (
         <div>
-            <footer className="bg-black text-white pt-10 relative">
+            <footer className="bg-black text-white relative">
                 <div className="border w-[2px] h-16 border-orange-600 bg-orange-600 mx-auto relative">
                     <div className="falling absolute -left-1 w-2 h-8 bg-black animate-falling"></div>
                     <div className="falling absolute -left-1 w-2 h-4 bg-black animate-falling" style={{ animationDelay: "0.5s" }}></div>
@@ -27,7 +27,7 @@ const Footer = () => {
                     alt="footer-shape1" 
                     className="absolute top-20 left-10 transform -translate-x-1/4 translate-y-1/4 w-32"
                 />
-                <div className="mt-20 text-right border-t border-stone-500 mx-5 pt-4 relative mb-2"></div>
+                <div className="mt-5 text-right border-t border-stone-500 mx-5 pt-4 relative mb-2"></div>
                 <div className="max-w-6xl mx-auto px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
                     <div className="flex flex-col justify-start">
                         <h3 className="text-2xl font-bold text-white mb-5">Imagine Dream World</h3>

@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 const AllUsers = () => {
     const [users, setUsers] = useState([]);
-
+    
     useEffect(() => {
         axios.get("https://my-gunter-project-server.vercel.app/users")
             .then(response => setUsers(response.data))
@@ -23,7 +23,7 @@ const AllUsers = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`https://my-gunter-project-server.vercel.app/${id}`)
+                axios.delete(`https://my-gunter-project-server.vercel.app/users/${id}`)
                     .then(() => {
                         setUsers(users.filter(user => user._id !== id));
                         Swal.fire("Deleted!", "User has been deleted.", "success");
@@ -34,13 +34,14 @@ const AllUsers = () => {
     };
 
     const handleMakeAdmin = (id) => {
-        axios.patch(`https://my-gunter-project-server.vercel.app/${id}`)
+        axios.patch(`https://my-gunter-project-server.vercel.app/users/admin/${id}`)
             .then(() => {
                 setUsers(users.map(user => user._id === id ? { ...user, role: "admin" } : user));
                 Swal.fire("Success!", "User has been promoted to Admin.", "success");
             })
             .catch(error => console.error("Error making user admin:", error));
     };
+    
 
     return (
         <div className="py-6">

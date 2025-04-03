@@ -36,7 +36,7 @@ const HeroSection = () => {
       {/* Left Arrow */}
       <button
         onClick={() => changeSlide("prev")}
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 mt-16 lg:mt-0"
+        className="shadow-animation absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 mt-90 lg:mt-0"
       >
         <FaArrowLeftLong />
       </button>
@@ -71,7 +71,7 @@ const HeroSection = () => {
           </p>
 
           <div className="flex gap-5 lg:justify-start">
-            <button className="bg-orange-600 py-2 px-4 lg:px-6 lg:py-3 text-white lg:font-semibold transition duration-300 shadow-animation">
+            <button className="shadow-animation bg-orange-600 py-2 px-4 lg:px-6 lg:py-3 text-white lg:font-semibold transition duration-300 shadow-animation">
               Get Started
             </button>
           </div>
@@ -81,7 +81,7 @@ const HeroSection = () => {
       {/* Right Arrow */}
       <button
         onClick={() => changeSlide("next")}
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 mt-16 lg:mt-0"
+        className="shadow-animation absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 mt-90 lg:mt-0"
       >
         <FaArrowRightLong />
       </button>
@@ -117,6 +117,56 @@ const HeroSection = () => {
 
           .animate-slide-down {
             animation: slideDown 0.3s ease-out;
+          }
+        `}
+      </style>
+      <style>
+        {`
+          .shadow-animation {
+              position: relative;
+              overflow: hidden;
+          }
+
+          .shadow-animation::before,
+          .shadow-animation::after {
+              content: '';
+              position: absolute;
+              width: 50%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.9);
+              transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+              opacity: 0;
+          }
+
+          .shadow-animation::before {
+              left: 0;
+              bottom: -100%;
+          }
+
+          .shadow-animation::after {
+              right: 0;
+              top: -100%;
+          }
+
+          .shadow-animation:hover::before {
+              transform: translateY(-100%);
+              opacity: 1;
+          }
+
+          .shadow-animation:hover::after {
+              transform: translateY(100%);
+              opacity: 1;
+          }
+
+          .shadow-animation:hover::before,
+          .shadow-animation:hover::after {
+              animation: panelDisappear 1s ease-in-out forwards;
+          }
+
+          @keyframes panelDisappear {
+              0% { opacity: 1; }
+              70% { opacity: 1; }
+              100% { opacity: 0; transform: translateY(0); }
           }
         `}
       </style>

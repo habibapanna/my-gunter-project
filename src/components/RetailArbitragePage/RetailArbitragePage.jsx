@@ -17,7 +17,7 @@ const images = [
 ];
 
 function RetailArbitragePage() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(0);
 
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -40,9 +40,9 @@ function RetailArbitragePage() {
   ];
 
   return (
-    <div className="bg-black min-h-screen py-10 text-white max-w-3xl mx-auto">
+    <div className="bg-black min-h-screen pt-10 text-white max-w-3xl mx-auto">
       {/* Carousel Section */}
-      <section className="w-full md:max-w-3xl max-w-[400px] mx-auto mb-10">
+      <section className="md:w-full md:max-w-3xl max-w-sm w-[350px] mx-auto mb-10 px-5">
         <Swiper
           modules={[Pagination, Autoplay]}
           pagination={{ clickable: true }}
@@ -52,15 +52,15 @@ function RetailArbitragePage() {
         >
           {images.map((img, index) => (
             <SwiperSlide key={index}>
-              <img src={img.image} alt={`Slide ${index}`} className="w-full shadow-md h-[400px] object-cover" />
+              <img src={img.image} alt={`Slide ${index}`} className="w-full shadow-md h-[300px] lg:h-[400px] object-cover" />
             </SwiperSlide>
           ))}
         </Swiper>
       </section>
 
       {/* Hero Section */}
-      <section>
-        <h1 className="text-4xl font-semibold mb-4">Retail & Online Arbitrage + Walmart & Amazon Dropshipping – Maximize Profits with Expert Strategies!</h1>
+      <section className="px-5">
+        <h1 className="text-2xl lg:text-4xl font-semibold mb-4">Retail & Online Arbitrage + Walmart & Amazon Dropshipping – Maximize Profits with Expert Strategies!</h1>
         <p className="text-[16px] font-normal mx-auto text-gray-400">
           Looking to make money with Retail Arbitrage (RA), Online Arbitrage (OA), Amazon & Walmart Dropshipping, and 2-Step Dropshipping? We provide expert sourcing, automation, and management solutions to help you scale your eCommerce business for maximum profit and long-term success.
         </p>
@@ -68,18 +68,18 @@ function RetailArbitragePage() {
 
       {/* Services Section */}
       <section className="services bg-black px-5 md:px-20 mt-10">
-        <h2 className="text-2xl font-semibold mb-6">Retail & Online Arbitrage Services</h2>
+        <h2 className="text-xl lg:text-2xl font-semibold mb-6">Retail & Online Arbitrage Services</h2>
 
         {/* Accordion */}
         <div className="space-y-2">
           {accordions.map((accordion, index) => (
             <div key={index} className="border border-gray-800 overflow-hidden">
               <button
-                className="w-full flex gap-5 items-center bg-black text-white text-[16px]"
+                className="w-full flex gap-2 lg:gap-5 items-center bg-black text-white text-[14px]"
                 onClick={() => toggleAccordion(index)}
               >
-                <span className="p-2 bg-orange-600 text-white">
-                  {openIndex === index ? <FiMinus className="h-5 w-5" /> : <FaPlus className="h-5 w-5" />}
+                <span className="p-1 lg:p-3 bg-orange-600 text-white">
+                  {openIndex === index ? <FiMinus className="h-3 w-3 lg:h-5 lg:w-5" /> : <FaPlus className="h-3 w-3 lg:h-5 lg:w-5" />}
                 </span>
                 {accordion.title}
               </button>
@@ -90,7 +90,7 @@ function RetailArbitragePage() {
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
-                <div className="p-4 text-sm bg-black text-white">{accordion.details}</div>
+                <div className="p-2 lg:p-4 text-sm bg-black text-gray-400 font-normal lg:font-semibold">{accordion.details}</div>
               </motion.div>
             </div>
           ))}
@@ -98,13 +98,13 @@ function RetailArbitragePage() {
 
         {/* 2-Step Dropshipping Section */}
         <div>
-          <h1 className="mt-10 text-2xl">How 2-Step Dropshipping Works:</h1>
+          <h1 className="mt-10 text-xl lg:text-2xl">How 2-Step Dropshipping Works:</h1>
           <ul className="list-none pl-4 mt-5 text-[16px] text-gray-400">
             {steps.map((step, index) => (
               <li key={index} className="flex items-start gap-2 mb-3">
-                <FaCheck className="text-orange-600 text-2xl" />
-                <span>
-                  <strong>{step.step}</strong> – {step.details}
+                <FaCheck className="text-orange-600 text-xl lg:text-2xl" />
+                <span className="text-sm lg:text-[16px] font-normal">
+                  <span className="text-lg font-bold text-gray-300">{step.step}</span> – {step.details}
                 </span>
               </li>
             ))}
@@ -139,7 +139,7 @@ function RetailArbitragePage() {
 
 <p className="mt-10 text-orange-600"> Want to start or scale your Amazon & Walmart business?</p>
         <div className="text-center mt-5">
-          <button className="relative bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[18px]">
+          <button className="relative bg-orange-600 px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center overflow-hidden transition-all duration-300 shadow-animation text-[16px] lg:text-[18px]">
             <Link to='/contact'>Contact us today for expert guidance!</Link>
           </button>
         </div>

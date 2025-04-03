@@ -17,9 +17,9 @@ const images = [
 
 function CreativeDesign() {
   return (
-    <div className="bg-black min-h-screen py-10 text-white">
+    <div className="bg-black min-h-screen pt-10 text-white">
       {/* Carousel Section */}
-      <section className="w-full md:max-w-3xl max-w-[400px] mx-auto mb-10">
+      <section className="md:w-full md:max-w-3xl max-w-sm w-[350px] mx-auto mb-10 px-5">
         <Swiper
           modules={[Pagination, Autoplay]}
           pagination={{ clickable: true }}
@@ -29,7 +29,7 @@ function CreativeDesign() {
         >
           {images.map((img, index) => (
             <SwiperSlide key={index}>
-              <img src={img.image} alt={`Slide ${index}`} className="w-full shadow-md h-[400px] object-cover" />
+              <img src={img.image} alt={`Slide ${index}`} className="w-full shadow-md h-[300px] lg:h-[400px] object-cover" />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -37,7 +37,7 @@ function CreativeDesign() {
 
       {/* Hero Section */}
       <section className=" px-5">
-        <h1 className="text-4xl font-bold mb-4">Creative Design Services – Elevate Your Brand with Stunning Visuals!</h1>
+        <h1 className="text-2xl lg:text-4xl font-bold mb-4">Creative Design Services – Elevate Your Brand with Stunning Visuals!</h1>
         <p className="max-w-3xl mx-auto text-gray-400 font-normal text-[16px]">
           Looking for eye-catching designs that make your brand stand out? Our creative design services help businesses create visually appealing and high-converting graphics for digital and print marketing.
         </p>
@@ -45,7 +45,7 @@ function CreativeDesign() {
 
       {/* Services Section */}
       <section className="services bg-black px-5 md:px-20 mt-10">
-        <h2 className="text-2xl font-semibold mb-6">Our Creative Design Services:</h2>
+        <h2 className="text-xl lg:text-2xl font-semibold mb-6">Our Creative Design Services:</h2>
         <ul className="space-y-3 text-[16px]">
           {[
             "Logo & Brand Identity Design – Unique, professional branding for businesses.",
@@ -55,14 +55,14 @@ function CreativeDesign() {
             "Infographics & Marketing Materials – High-quality visuals for presentations & promotions.",
             "Video & Motion Graphics – Professional animations and promotional videos.",
           ].map((service, index) => (
-            <li key={index} className="flex items-center gap-2 text-gray-700">
+            <li key={index} className="flex items-center gap-2 text-gray-400">
               <FaCheck className="text-orange-600 text-2xl" /> {service}
             </li>
           ))}
         </ul>
 
         <div className="text-center mt-8">
-          <button className="relative bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[18px]">
+          <button className="relative bg-orange-600 px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[16px] lg:text-[18px]">
             <Link to='/contact'>Contact us today for custom design solutions!</Link>
           </button>
         </div>

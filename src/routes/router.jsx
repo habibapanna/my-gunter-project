@@ -45,6 +45,7 @@ import AddHero from "../pages/Dashboard/AddHero";
 import ManageHero from "../pages/Dashboard/ManageHero";
 import AddAbout from "../pages/Dashboard/AddAbout";
 import ManageAbout from "../pages/Dashboard/ManageAbout";
+import AdminRoute from "./AdminRoute";
 
 
 const router = createBrowserRouter([
@@ -54,7 +55,7 @@ const router = createBrowserRouter([
         errorElement: <h1 className="text-5xl font-bold text-red-500">Page not found</h1>,
         children: [
             { path: "/", element: <Home /> },
-            { path: "blog", element: <Blog />,
+            { path: "blog", element:<PrivateRoute> <Blog /></PrivateRoute>,
                 children: [
                     {
                     path: "blog-1",
@@ -70,7 +71,7 @@ const router = createBrowserRouter([
                     },
                 ]
              },
-            { path: "announcements", element: <Announcements />,
+            { path: "announcements", element: <PrivateRoute><Announcements /></PrivateRoute>,
                 children: [
                     {
                         path: "announcement-1",
@@ -87,7 +88,7 @@ const router = createBrowserRouter([
                     
                 ]
              },
-            { path: "gallery", element: <Gallery></Gallery>,
+            { path: "gallery", element: <PrivateRoute><Gallery></Gallery></PrivateRoute>,
                 children: [
                     {
                         path: "gallery-1",
@@ -108,7 +109,7 @@ const router = createBrowserRouter([
             { path: "register", element: <Register></Register> },
             { 
                 path: "services", // ✅ Services is now inside Main
-                element: <Services />,
+                element: <PrivateRoute><Services /></PrivateRoute>,
                 children: [
                     { path: "private-label", element: <PrivateLabelPage /> },
                     { path: "retail-arbitrage", element: <RetailArbitragePage /> },
@@ -125,7 +126,9 @@ const router = createBrowserRouter([
     },
  {
     path: "dashboard",
-    element: <Dashboard></Dashboard>,
+    element: <AdminRoute>
+    <Dashboard />
+</AdminRoute>,
     // <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
         {

@@ -124,11 +124,61 @@ const OurTeam = () => {
 
       {/* View All Button */}
       <div className="mt-10">
-        <button className="bg-orange-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto">
+        <button className="shadow-animation bg-orange-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto">
           <Link to="/contact"> View All</Link>
           <FaArrowRightLong />
         </button>
       </div>
+      <style>
+        {`
+          .shadow-animation {
+              position: relative;
+              overflow: hidden;
+          }
+
+          .shadow-animation::before,
+          .shadow-animation::after {
+              content: '';
+              position: absolute;
+              width: 50%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.9);
+              transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+              opacity: 0;
+          }
+
+          .shadow-animation::before {
+              left: 0;
+              bottom: -100%;
+          }
+
+          .shadow-animation::after {
+              right: 0;
+              top: -100%;
+          }
+
+          .shadow-animation:hover::before {
+              transform: translateY(-100%);
+              opacity: 1;
+          }
+
+          .shadow-animation:hover::after {
+              transform: translateY(100%);
+              opacity: 1;
+          }
+
+          .shadow-animation:hover::before,
+          .shadow-animation:hover::after {
+              animation: panelDisappear 1s ease-in-out forwards;
+          }
+
+          @keyframes panelDisappear {
+              0% { opacity: 1; }
+              70% { opacity: 1; }
+              100% { opacity: 0; transform: translateY(0); }
+          }
+        `}
+      </style>
     </div>
   );
 };

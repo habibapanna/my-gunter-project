@@ -4,7 +4,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { TbLogs } from "react-icons/tb";
 import { TfiAnnouncement } from "react-icons/tfi";
-import { MdOutlineAnnouncement, MdOutlineManageAccounts, MdOutlineRoundaboutLeft, MdOutlineRoundaboutRight } from "react-icons/md";
+import { MdOutlineAnnouncement, MdOutlineDashboardCustomize, MdOutlineManageAccounts, MdOutlineRoundaboutLeft, MdOutlineRoundaboutRight } from "react-icons/md";
 import { PiMicrosoftTeamsLogo, PiUsersThree } from "react-icons/pi";
 import { VscHome } from "react-icons/vsc";
 import { LiaUsersSolid } from "react-icons/lia";
@@ -49,7 +49,18 @@ const Dashboard = () => {
         </button>
 
         <div className="flex flex-col space-y-4 px-4 py-14 md:py-6 overflow-y-scroll h-full">
-            <h1 className="text-xl text-center text-orange-600">Dashboard</h1>
+            
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+                isActive ? "text-white bg-stone-600" : "text-white hover:bg-orange-600"
+              }`
+            }
+          >
+            <MdOutlineDashboardCustomize size={20} />
+            <span>Dashboard</span>
+          </NavLink>
           <NavLink
             to="/dashboard/add-service"
             className={({ isActive }) =>

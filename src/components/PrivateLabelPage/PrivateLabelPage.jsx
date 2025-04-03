@@ -16,7 +16,7 @@ const images = [
 ];
 
 function PrivateLabelPage() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(0);
 
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -32,9 +32,9 @@ function PrivateLabelPage() {
   ];
 
   return (
-    <div className="bg-black min-h-screen py-10 text-white">
+    <div className="bg-black min-h-screen pt-10 text-white">
       {/* Carousel Section */}
-      <section className="w-full md:max-w-3xl max-w-sm mx-auto mb-10 px-5">
+      <section className="md:w-full md:max-w-3xl max-w-sm w-[350px] mx-auto mb-10 px-5">
         <Swiper
           modules={[Pagination, Autoplay]}
           pagination={{ clickable: true }}
@@ -44,7 +44,7 @@ function PrivateLabelPage() {
         >
           {images.map((img, index) => (
             <SwiperSlide key={index}>
-              <img src={img.image} alt={`Slide ${index}`} className="w-full shadow-md h-[400px] object-cover" />
+              <img src={img.image} alt={`Slide ${index}`} className="w-full shadow-md  h-[300px] lg:h-[400px] object-cover" />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -67,11 +67,11 @@ function PrivateLabelPage() {
           {accordions.map((accordion, index) => (
             <div key={index} className="border border-gray-800 overflow-hidden">
               <button
-                className="w-full flex gap-5 items-center bg-black text-white text-[16px] "
+                className="w-full flex gap-1 lg:gap-5 items-center bg-black text-white text-[16px] "
                 onClick={() => toggleAccordion(index)}
               >
-                <span className="p-2 bg-orange-600 text-white">
-                  {openIndex === index ? <FiMinus className="h-5 w-5" /> : <FaPlus className="h-5 w-5" />}
+                <span className="p-1 lg:p-3 bg-orange-600 text-white font-normal">
+                  {openIndex === index ? <FiMinus className="h-3 w-3 lg:h-5 lg:w-5" /> : <FaPlus className="h-3 w-3 lg:h-5 lg:w-5" />}
                 </span>
                 {accordion.title}
               </button>
@@ -82,7 +82,7 @@ function PrivateLabelPage() {
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
-                <div className="p-4 text-sm bg-black text-gray-400">{accordion.details}</div>
+                <div className="p-2 lg:p-4 text-sm bg-black text-gray-400 font-normal lg:font-semibold">{accordion.details}</div>
               </motion.div>
             </div>
           ))}
@@ -91,7 +91,7 @@ function PrivateLabelPage() {
         <p className="mt-10 text-orange-600 text-lg lg:text-xl">Create a successful Private Label brand on Amazon & scale your business effortlessly!</p>
 
         <div className="text-center mt-5">
-          <button className="relative bg-orange-600 px-6 py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-sm lg:text-[18px]">
+          <button className="relative bg-orange-600 px-2 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-sm lg:text-[18px]">
             <Link to='/contact'>Contact us today for expert guidance!</Link>
           </button>
         </div>

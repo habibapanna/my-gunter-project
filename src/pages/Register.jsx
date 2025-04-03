@@ -4,6 +4,7 @@ import Lottie from "lottie-react";
 import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import AuthContext from "../Context/AuthContext/AuthContext";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
@@ -12,6 +13,7 @@ const Register = () => {
         email: "",
         password: ""
     });
+    const [showPassword, setShowPassword] = useState(false);
 
     const navigate = useNavigate();
 
@@ -22,21 +24,55 @@ const Register = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
     
+        const { name, email, password } = userData;
+    
+        if (name.length < 3) {
+            return Swal.fire({
+                icon: "error",
+                title: "Invalid Name!",
+                text: "Name must be at least 3 characters long."
+            });
+        }
+        
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            return Swal.fire({
+                icon: "error",
+                title: "Invalid Email!",
+                text: "Please enter a valid email address."
+            });
+        }
+        
+        if (password.length < 6) {
+            return Swal.fire({
+                icon: "error",
+                title: "Weak Password!",
+                text: "Password must be at least 6 characters long."
+            });
+        }
+        
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+        if (!passwordPattern.test(password)) {
+            return Swal.fire({
+                icon: "error",
+                title: "Weak Password!",
+                text: "Password must contain at least one uppercase letter, one lowercase letter, and one number."
+            });
+        }
+        
         try {
-            // ✅ Step 1: Create user in Firebase
-            const userCredential = await createUser(userData.email, userData.password);
+            const userCredential = await createUser(email, password);
             const createdUser = userCredential.user;
     
-            // ✅ Step 2: Save user data in MongoDB (Backend)
             const response = await fetch("https://my-gunter-project-server.vercel.app/users", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    name: userData.name, // ✅ Save user name
-                    email: createdUser.email, // ✅ Save user email from Firebase
-                    uid: createdUser.uid, // ✅ Store Firebase UID in your DB
+                    name,
+                    email: createdUser.email,
+                    uid: createdUser.uid,
                 })
             });
     
@@ -51,7 +87,7 @@ const Register = () => {
                     showConfirmButton: false
                 });
     
-                navigate("/"); // ✅ Redirect to home page
+                navigate("/");
             } else {
                 throw new Error(result.message || "Failed to save user data");
             }
@@ -64,6 +100,7 @@ const Register = () => {
             });
         }
     };
+    
 
     return (
         <div className="bg-white">
@@ -76,7 +113,6 @@ const Register = () => {
                     </div>
                     <div className="bg-black w-full max-w-sm shrink-0 shadow-2xl">
                         <div className="card-body">
-                            {/* ✅ Wrap inside <form> and move onSubmit here */}
                             <form onSubmit={handleRegister}>
                                 <label className="fieldset-label">Name</label>
                                 <input 
@@ -97,15 +133,23 @@ const Register = () => {
                                     required 
                                 />
                                 <label className="fieldset-label">Password</label>
-                                <input 
-                                    value={userData.password}
-                                    onChange={handleChange} 
-                                    name="password" 
-                                    type="password" 
-                                    className="py-3 border px-2 border-gray-400" 
-                                    required 
-                                />
-                                {/* ✅ Submit button inside <form> */}
+                                <div className="relative">
+                                    <input 
+                                        value={userData.password}
+                                        onChange={handleChange} 
+                                        name="password" 
+                                        type={showPassword ? "text" : "password"} 
+                                        className="py-3 border px-2 border-gray-400 w-full" 
+                                        required 
+                                    />
+                                    <button 
+                                        type="button" 
+                                        onClick={() => setShowPassword(!showPassword)}
+                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600"
+                                    >
+                                        {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
+                                    </button>
+                                </div>
                                 <button
                                     type="submit"
                                     className="w-full md:w-auto bg-orange-600 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation mt-3"
