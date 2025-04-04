@@ -51,7 +51,7 @@ const Dashboard = () => {
         <div className="flex flex-col space-y-4 px-4 py-14 md:py-6 overflow-y-scroll h-full">
             
           <NavLink
-            to="/dashboard"
+            to="/dashboard/all-user"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 ${
                 isActive ? "text-white bg-stone-600" : "text-white hover:bg-orange-600"
@@ -60,6 +60,17 @@ const Dashboard = () => {
           >
             <MdOutlineDashboardCustomize size={20} />
             <span>Dashboard</span>
+          </NavLink>
+          <NavLink
+            to="/dashboard/all-user"
+            className={({ isActive }) =>
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
+                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+              }`
+            }
+          >
+            <PiUsersThree size={20} />
+            <span>All User</span>
           </NavLink>
           <NavLink
             to="/dashboard/add-service"
@@ -241,17 +252,6 @@ const Dashboard = () => {
           >
             <MdOutlineRoundaboutLeft size={20} />
             <span>Manage About Section</span>
-          </NavLink>
-          <NavLink
-            to="/dashboard/all-user"
-            className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
-              }`
-            }
-          >
-            <PiUsersThree size={20} />
-            <span>All User</span>
           </NavLink>
           <div className="border text-orange-600 mx-4 mt-5"></div>
           <NavLink

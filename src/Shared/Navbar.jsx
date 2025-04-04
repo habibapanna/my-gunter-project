@@ -61,7 +61,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
             ))}
-            <button className="text-sm bg-orange-600 px-2 shadow-animation cursor-pointer"><Link to="/dashboard">Go to Dashboard</Link></button>
+            <button className="text-sm bg-orange-600 px-2 shadow-animation cursor-pointer"><Link to="/dashboard/all-user">Go to Dashboard</Link></button>
 
             {/* ✅ Show Login/Logout Button */}
             {user ? (
