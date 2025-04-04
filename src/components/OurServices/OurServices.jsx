@@ -67,7 +67,7 @@ const OurServices = () => {
 
             <div className='mt-10'>
                 {/* "All Services" Button */}
-                <button className="shadow-animation bg-orange-600 px-4 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto">
+                <button className="shadow-animation bg-orange-600 px-4 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto cursor-pointer">
                     <Link to='/services' className="no-underline text-white">All Services</Link>
                     <FaArrowRightLong />
                 </button>

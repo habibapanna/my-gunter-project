@@ -112,7 +112,7 @@ const AddTestimonial = () => {
         </div>
 
         {/* Submit Button */}
-        <button type="submit" className="w-full bg-orange-600 text-white py-3 mt-4 hover:bg-orange-700 transition duration-200">
+        <button type="submit" className="w-full bg-orange-600 text-white py-3 mt-4 hover:bg-orange-700 transition duration-200 cursor-pointer">
           Add Testimonial
         </button>
       </form>

@@ -103,10 +103,10 @@ const ManageAnnouncements = () => {
                 <td className="border border-stone-600 px-4 py-2">{announcement.title}</td>
                 <td className="border border-stone-600 px-4 py-2">{announcement.category}</td>
                 <td className="border border-stone-600 px-4 py-2">
-                  <button className="mr-2 text-orange-600 hover:underline" onClick={() => openModal(announcement)}>
+                  <button className="mr-2 text-orange-600 hover:underline cursor-pointer" onClick={() => openModal(announcement)}>
                     <TiEdit />
                   </button>
-                  <button className="text-red-600 hover:underline" onClick={() => handleDelete(announcement._id)}>
+                  <button className="text-red-600 hover:underline cursor-pointer" onClick={() => handleDelete(announcement._id)}>
                     <AiOutlineDelete />
                   </button>
                 </td>
@@ -139,8 +139,8 @@ const ManageAnnouncements = () => {
               onChange={(e) => setUpdatedCategory(e.target.value)}
             />
             <div className="flex justify-end gap-2">
-              <button className="mt-4 w-full bg-gray-600 shadow-animation text-white py-2" onClick={closeModal}>Cancel</button>
-              <button className="mt-4 w-full bg-orange-600 shadow-animation text-white py-2" onClick={handleUpdate}>Update</button>
+              <button className="mt-4 w-full bg-gray-600 shadow-animation text-white py-2 cursor-pointer" onClick={closeModal}>Cancel</button>
+              <button className="mt-4 w-full bg-orange-600 shadow-animation text-white py-2 cursor-pointer" onClick={handleUpdate}>Update</button>
             </div>
           </div>
           <style>

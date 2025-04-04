@@ -203,13 +203,13 @@ const ManageTeam = () => {
                         <div className="flex justify-between mt-4">
                             <button
                                 onClick={() => setEditModal(false)}
-                                className="bg-gray-500 text-white px-4 py-2"
+                                className="bg-gray-500 text-white px-4 py-2 cursor-pointer"
                             >
                                 Cancel
                             </button>
                             <button
                                 onClick={handleUpdate}
-                                className="bg-orange-600 text-white px-4 py-2"
+                                className="bg-orange-600 text-white px-4 py-2 cursor-pointer"
                             >
                                 Update
                             </button>

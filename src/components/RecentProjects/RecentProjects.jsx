@@ -99,7 +99,7 @@ const RecentProjects = () => {
 
       {/* View All Projects Button */}
       <div className="mt-10">
-        <button className="shadow-animation bg-orange-600 px-4 md:px-6 py-2 md:py-4 text-white lg:font-semibold flex items-center gap-2 shadow-animation mt-4 md:mt-0 mx-auto">
+        <button className="shadow-animation bg-orange-600 px-4 md:px-6 py-2 md:py-4 text-white lg:font-semibold flex items-center gap-2 shadow-animation mt-4 md:mt-0 mx-auto cursor-pointer">
           <Link to="/gallery">All Projects </Link>
           <FaArrowRightLong />
         </button>

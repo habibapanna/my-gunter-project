@@ -36,7 +36,7 @@ const HeroSection = () => {
       {/* Left Arrow */}
       <button
         onClick={() => changeSlide("prev")}
-        className="shadow-animation absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 mt-90 lg:mt-0"
+        className="shadow-animation absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 mt-90 lg:mt-0 cursor-pointer"
       >
         <FaArrowLeftLong />
       </button>
@@ -71,7 +71,7 @@ const HeroSection = () => {
           </p>
 
           <div className="flex gap-5 lg:justify-start">
-            <button className="shadow-animation bg-orange-600 py-2 px-4 lg:px-6 lg:py-3 text-white lg:font-semibold transition duration-300 shadow-animation">
+            <button className="shadow-animation bg-orange-600 py-2 px-4 lg:px-6 lg:py-3 text-white lg:font-semibold transition duration-300 shadow-animation cursor-pointer">
               Get Started
             </button>
           </div>
@@ -81,7 +81,7 @@ const HeroSection = () => {
       {/* Right Arrow */}
       <button
         onClick={() => changeSlide("next")}
-        className="shadow-animation absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 mt-90 lg:mt-0"
+        className="shadow-animation absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 mt-90 lg:mt-0 cursor-pointer"
       >
         <FaArrowRightLong />
       </button>

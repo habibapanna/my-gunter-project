@@ -67,7 +67,7 @@ const AllUsers = () => {
                                     <AiOutlineDelete />
                                 </button>
                                 {user.role !== "admin" && (
-                                    <button className="shadow-animation text-sm bg-orange-600 g:px-3 px-1 py-1" onClick={() => handleMakeAdmin(user._id)}>
+                                    <button className="shadow-animation text-sm bg-orange-600 g:px-3 px-1 py-1 cursor-pointer" onClick={() => handleMakeAdmin(user._id)}>
                                         Make Admin
                                     </button>
                                 )}

@@ -41,7 +41,7 @@ const ContactForm = () => {
       <h2 className="text-center font-semibold text-lg md:text-xl mb-3 text-orange-600 mt-5">
         LET'S TALK
       </h2>
-      <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">
+      <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center ">
         Get in Touch
       </h2>
 
@@ -91,7 +91,7 @@ const ContactForm = () => {
             </div>
             <button
               type="submit"
-              className="w-full md:w-auto bg-orange-600 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation"
+              className="w-full md:w-auto bg-orange-600 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation cursor-pointer"
             >
               Submit Message
             </button>

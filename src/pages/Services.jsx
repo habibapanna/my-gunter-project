@@ -65,7 +65,7 @@ const Services = () => {
                 <div className="lg:col-span-4 bg-black p-4 transition-all duration-300"> 
                     {/* ✅ Search Bar */}
                     <div className="relative mb-4">
-                        <MdOutlineSearch className="absolute left-3 top-3 text-orange-600 text-xl" />
+                        <MdOutlineSearch className="absolute left-3 top-3 text-orange-600 text-xl cursor-pointer" />
                         <input
                             type="text"
                             placeholder="Search Services..."
@@ -80,7 +80,7 @@ const Services = () => {
                         {services.filter(service => service.title.toLowerCase().includes(search.toLowerCase())).map((service, index) => (
                             <button
                                 key={index}
-                                className={`flex justify-between items-center p-3 border-b border-gray-800 transition-all duration-300
+                                className={`flex justify-between items-center p-3 border-b border-gray-800 transition-all duration-300 cursor-pointer
                                     ${location.pathname === service.path 
                                         ? "bg-orange-600 text-white" 
                                         : "bg-black text-gray-400 hover:bg-orange-600 hover:text-white"

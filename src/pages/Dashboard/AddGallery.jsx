@@ -90,7 +90,7 @@ const AddGallery = () => {
                     </select>
                 </div>
 
-                <button type="submit" className="mt-4 w-full bg-orange-600 shadow-animation text-white py-2">
+                <button type="submit" className="mt-4 w-full bg-orange-600 shadow-animation text-white py-2 cursor-pointer">
                     Add Image
                 </button>
             </form>

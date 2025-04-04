@@ -94,13 +94,13 @@ const Testimonials = () => {
             className="absolute left-0 -bottom-16 text-white hover:text-orange-600 p-2"
             onClick={() => sliderRef.current.slickPrev()}
           >
-            <FaArrowLeftLong className='text-lg lg:text-2xl' />
+            <FaArrowLeftLong className='text-lg lg:text-2xl cursor-pointer' />
           </button>
           <button 
             className="absolute right-0 -bottom-16 text-white hover:text-orange-600 p-2"
             onClick={() => sliderRef.current.slickNext()}
           >
-            <FaArrowRightLong className='text-lg lg:text-2xl' />
+            <FaArrowRightLong className='text-lg lg:text-2xl cursor-pointer' />
           </button>
         </div>
       </div>

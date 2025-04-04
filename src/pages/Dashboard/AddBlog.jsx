@@ -61,7 +61,7 @@ const AddBlog = () => {
                 <textarea name="details" value={blogData.details} onChange={handleChange} placeholder="Details" rows="4" className="w-full p-2 border border-gray-500"></textarea>
                 <input type="text" name="category" value={blogData.category} onChange={handleChange} placeholder="Category" className="w-full p-2 border border-gray-500" />
                 <input type="text" name="author" value={blogData.author} onChange={handleChange} placeholder="Author" className="w-full p-2 border border-gray-500" />
-                <button type="submit" className="bg-orange-600 px-6 py-3 text-white font-semibold w-full">Submit Blog</button>
+                <button type="submit" className="bg-orange-600 px-6 py-3 text-white font-semibold w-full cursor-pointer">Submit Blog</button>
             </form>
             <style>
                 {`

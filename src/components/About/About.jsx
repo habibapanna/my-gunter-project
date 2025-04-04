@@ -41,7 +41,7 @@ const About = () => {
                             <h1 className='text-lg lg:text-xl font-semibold mb-5 text-white'>{aboutData.title}</h1>
                             <p>{aboutData.description}</p>
                             <div className='right-20 mt-5 lg:mt-10'>
-                                <button onClick={scrollToContact} className="shadow-animation bg-orange-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation">
+                                <button onClick={scrollToContact} className="shadow-animation bg-orange-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation cursor-pointer">
                                     <Link>More About Us</Link> <FaArrowRightLong />
                                 </button>
                             </div>

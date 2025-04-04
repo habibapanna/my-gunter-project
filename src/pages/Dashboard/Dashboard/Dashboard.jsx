@@ -42,7 +42,7 @@ const Dashboard = () => {
       >
         {/* Close Button (Only in Mobile) */}
         <button
-          className="absolute top-4 right-4 text-white md:hidden"
+          className="absolute top-4 right-4 text-white md:hidden cursor-pointer"
           onClick={() => setIsOpen(false)}
         >
           <FaTimes className="hover:text-orange-600" size={24} />
@@ -76,7 +76,7 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/manage-service"
             className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
                 isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
               }`
             }
@@ -88,7 +88,7 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/add-blog"
             className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
                 isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
               }`
             }
@@ -100,7 +100,7 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/manage-blog"
             className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
                 isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
               }`
             }
@@ -112,7 +112,7 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/add-gallery"
             className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+              `flex items-center space-x-2 p-2 cursor-pointer transition-all duration-200 ${
                 isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
               }`
             }
@@ -124,7 +124,7 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/manage-gallery"
             className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
                 isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
               }`
             }
@@ -135,7 +135,7 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/add-announcements"
             className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
                 isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
               }`
             }
@@ -146,7 +146,7 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/manage-announcements"
             className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
                 isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
               }`
             }
@@ -157,7 +157,7 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/add-team"
             className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
                 isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
               }`
             }
@@ -168,7 +168,7 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/manage-team"
             className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
                 isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
               }`
             }
@@ -179,7 +179,7 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/add-testimonial"
             className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
                 isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
               }`
             }
@@ -190,7 +190,7 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/manage-testimonial"
             className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
                 isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
               }`
             }
@@ -201,7 +201,7 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/add-hero"
             className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
                 isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
               }`
             }
@@ -212,7 +212,7 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/manage-hero"
             className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
                 isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
               }`
             }
@@ -223,7 +223,7 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/add-about"
             className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
                 isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
               }`
             }
@@ -234,7 +234,7 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/manage-about"
             className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
                 isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
               }`
             }
@@ -245,7 +245,7 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/all-user"
             className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
                 isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
               }`
             }
@@ -257,7 +257,7 @@ const Dashboard = () => {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `flex items-center space-x-2 p-2 transition-all duration-200 ${
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
                 isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
               }`
             }
@@ -288,7 +288,7 @@ const Dashboard = () => {
             setIsOpen(true);
           }}
         >
-          <FaBars className="text-orange-600 hover:text-orange-500" size={24} />
+          <FaBars className="text-orange-600 hover:text-orange-500 cursor-pointer" size={24} />
         </button>
 
         <Outlet /> {/* Loads the selected route content */}

@@ -134,7 +134,7 @@ image} alt="" />
                         <h2 className="text-lg font-bold mt-3 text-white">{announcement.title}</h2>
                         <p className="text-gray-500 mt-2">{announcement.description}</p>
                         <button
-                          className="text-orange-600 mt-2 hover:underline"
+                          className="text-orange-600 mt-2 hover:underline cursor-pointer"
                           onClick={() => handleReadMore(announcement)}
                         >
                           Read More
@@ -149,7 +149,7 @@ image} alt="" />
 {/* Search bar */}
         <div className="col-span-12 md:col-span-4 bg-black p-4">
           <div className="relative mb-4">
-            <MdOutlineSearch className="absolute left-3 top-3 text-orange-600 text-xl" />
+            <MdOutlineSearch className="absolute left-3 top-3 text-orange-600 text-xl cursor-pointer" />
             <input
               type="text"
               placeholder="Search Services..."
@@ -221,7 +221,7 @@ image} alt="" />
         >
           &times;
         </button>
-        <h2 className="text-xl font-semibold mb-4 text-center text-orange-600 mt-2">
+        <h2 className="text-xl font-semibold mb-4 text-center text-orange-600 mt-2 cursor-pointer">
           Apply Now
         </h2>
 
@@ -301,7 +301,7 @@ image} alt="" />
         <div className="text-center mt-5">
           <button
             onClick={handleSubmit}
-            className="bg-orange-600 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation mt-3"
+            className="bg-orange-600 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation mt-3 cursor-pointer"
           >
             Submit Application
           </button>

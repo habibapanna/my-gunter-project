@@ -121,13 +121,13 @@ const ManageTestimonial = () => {
               <td className="p-2 border border-gray-300">{testimonial.position}</td>
               <td className="p-2 border border-gray-300">
                 <button
-                  className="text-orange-600 hover:text-orange-700"
+                  className="text-orange-600 hover:text-orange-700 cursor-pointer"
                   onClick={() => handleEdit(testimonial)}
                 >
                   <TiEdit />
                 </button>
                 <button
-                  className="text-red-500 hover:text-red-700 ml-4"
+                  className="text-red-500 hover:text-red-700 ml-4 cursor-pointer"
                   onClick={() => handleDelete(testimonial._id)}
                 >
                   <AiOutlineDelete />

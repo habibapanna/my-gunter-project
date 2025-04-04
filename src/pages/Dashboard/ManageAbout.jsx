@@ -135,7 +135,7 @@ const ManageAbout = () => {
               ></textarea>
               <div className="flex justify-between">
                 <button type="submit" className="bg-orange-600 text-white px-4 py-2">Update</button>
-                <button type="button" onClick={() => setModalOpen(false)} className="bg-gray-500 text-white px-4 py-2">Cancel</button>
+                <button type="button" onClick={() => setModalOpen(false)} className="bg-gray-500 text-white px-4 py-2 cursor-pointer">Cancel</button>
               </div>
             </form>
           </div>

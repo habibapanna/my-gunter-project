@@ -99,7 +99,7 @@ const ManageHero = () => {
         <input type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image URL" className="w-full mb-3 p-2 bg-gray-700 text-white" />
         <div className="flex justify-between">
           <button onClick={() => document.getElementById("edit-modal").close()} className="bg-gray-600 text-white px-4 py-2">Cancel</button>
-          <button onClick={handleUpdate} className="bg-orange-600 text-white px-4 py-2">Update</button>
+          <button onClick={handleUpdate} className="bg-orange-600 text-white px-4 py-2 cursor-pointer">Update</button>
         </div>
       </dialog>
     </div>

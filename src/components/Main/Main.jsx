@@ -64,7 +64,6 @@ const Main = () => {
                     <FaWhatsapp size={20} />
                 </a>
             )}
-
             
         </div>
     );

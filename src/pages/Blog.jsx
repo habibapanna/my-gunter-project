@@ -118,7 +118,7 @@ const Blog = () => {
                             <p className="text-sm text-gray-400 mb-5">{selectedBlog.description}</p>
                             <p className="text-sm text-gray-400">{selectedBlog.details}</p>
                             <button
-                                className="mt-4 px-4 py-2 bg-orange-600 text-white font-semibold hover:bg-orange-700"
+                                className="mt-4 px-4 py-2 bg-orange-600 text-white font-semibold hover:bg-orange-700 cursor-pointer"
                                 onClick={() => {
                                     setContentLoading(true);
                                     setTimeout(() => {
@@ -146,7 +146,7 @@ const Blog = () => {
                                     <h2 className="text-lg font-bold mb-2">{blog.title}</h2>
                                     <p className="text-sm text-gray-400">{blog.description}</p>
                                     <button
-                                        className="text-orange-600 font-semibold hover:underline mt-2"
+                                        className="text-orange-600 font-semibold hover:underline mt-2 cursor-pointer"
                                         onClick={() => {
                                             setContentLoading(true);
                                             setTimeout(() => {

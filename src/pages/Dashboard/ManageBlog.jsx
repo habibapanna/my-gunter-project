@@ -99,15 +99,15 @@ const ManageBlog = () => {
                 <td className="border border-stone-600 p-2 text-sm">
                   {blog.author}
                 </td>
-                <td className="borde border-stone-600 p-2 flex flex-col md:flex-row md:items-center gap-2">
+                <td className="border border-stone-600 p-2 flex flex-col md:flex-row md:items-center gap-2">
                   <button
-                    className="text-orange-600 transition"
+                    className="text-orange-600 cursor-pointer transition"
                     onClick={() => openModal(blog)}
                   >
                     <TiEdit size={18} />
                   </button>
                   <button
-                    className="text-red-600  transition"
+                    className="text-red-600 transition cursor-pointer"
                     onClick={() => handleDelete(blog._id)}
                   >
                     <AiOutlineDelete size={18} />
@@ -187,13 +187,13 @@ const ManageBlog = () => {
       ></textarea>
       <div className="flex justify-between">
         <button
-          className="bg-gray-400 px-4 py-2"
+          className="bg-gray-400 px-4 py-2 cursor-pointer"
           onClick={() => setIsModalOpen(false)}
         >
           Cancel
         </button>
         <button
-          className="bg-orange-600 text-white px-4 py-2"
+          className="bg-orange-600 text-white px-4 py-2 cursor-pointer"
           onClick={handleUpdate}
         >
           Update

@@ -114,7 +114,7 @@ const AddAnnouncements = () => {
                 </div>
                 <button
                     type="submit"
-                    className="mt-4 w-full bg-orange-600 shadow-animation text-white py-2"
+                    className="mt-4 w-full bg-orange-600 shadow-animation text-white py-2 cursor-pointer"
                 >
                     Add Announcement
                 </button>

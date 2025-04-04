@@ -84,7 +84,7 @@ const LatestNews = () => {
               <div className="h-[130px] absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[110%] bg-stone-900 backdrop-blur-md text-white p-6 flex flex-col gap-3 z-10">
                 <span className="bg-orange-600 px-3 py-1 w-max text-sm ml-3">{formatDate(news.date)}</span>
                 <h3 className="text-sm  lg:text-[16px] lg:font-semibold text-left text-white px-1 ml-3">{news.title}</h3>
-                <button className="text-orange-600 hover:underline lg:font-semibold text-left text-sm ml-3">
+                <button className="text-orange-600 hover:underline lg:font-semibold text-left text-sm ml-3 cursor-pointer">
                   <Link to="/announcements">READ MORE</Link>
                 </button>
               </div>
@@ -104,7 +104,7 @@ const LatestNews = () => {
           ></span>
         ))}
       </div>
-      <div className="mt-10"><button className="bg-orange-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg;font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto">
+      <div className="mt-10"><button className="bg-orange-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg;font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto cursor-pointer">
           <Link to="/announcements">View All</Link>
           <FaArrowRightLong />
         </button></div>

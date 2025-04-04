@@ -61,15 +61,15 @@ const Navbar = () => {
                 </NavLink>
               </li>
             ))}
-            <button className="text-sm bg-orange-600 px-2 shadow-animation"><Link to="/dashboard">Go to Dashboard</Link></button>
+            <button className="text-sm bg-orange-600 px-2 shadow-animation cursor-pointer"><Link to="/dashboard">Go to Dashboard</Link></button>
 
             {/* ✅ Show Login/Logout Button */}
             {user ? (
-              <button onClick={handleLogout} className="bg-red-600 px-2 text-sm border-none shadow-animation">
+              <button onClick={handleLogout} className="bg-red-600 px-2 text-sm border-none shadow-animation cursor-pointer">
                 Logout
               </button>
             ) : (
-              <button className="bg-orange-600 px-2 text-sm border-none shadow-animation">
+              <button className="bg-orange-600 px-2 text-sm border-none shadow-animation cursor-pointer">
                 <Link to="/login">Login</Link>
               </button>
             )}
