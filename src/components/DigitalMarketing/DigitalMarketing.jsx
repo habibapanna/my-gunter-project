@@ -20,7 +20,7 @@ function DigitalMarketing() {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/digital-marketing")
+    fetch("https://my-gunter-project-server.vercel.app/digital-marketing")
       .then((res) => res.json())
       .then((data) => {
         setImages(data); // Make sure the API returns an array of objects with `imageUrl`

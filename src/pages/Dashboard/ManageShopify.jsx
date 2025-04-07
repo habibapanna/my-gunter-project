@@ -9,7 +9,7 @@ const ManageShopify = () => {
 
   const fetchShopify = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/shopify");
+      const res = await axios.get("https://my-gunter-project-server.vercel.app/shopify");
       setShopify(res.data);
     } catch (error) {
       console.error("Error fetching shopify:", error);
@@ -34,7 +34,7 @@ const ManageShopify = () => {
 
     if (imageUrl) {
       try {
-        await axios.put(`http://localhost:5000/shopify/${id}`, { imageUrl });
+        await axios.put(`https://my-gunter-project-server.vercel.app/shopify/${id}`, { imageUrl });
         Swal.fire("Updated!", "The image URL has been updated.", "success");
         fetchShopify();
       } catch (error) {
@@ -54,7 +54,7 @@ const ManageShopify = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`http://localhost:5000/shopify/${id}`);
+          await axios.delete(`https://my-gunter-project-server.vercel.app/shopify/${id}`);
           Swal.fire("Deleted!", "Shopify has been deleted.", "success");
           fetchShopify();
         } catch (error) {

@@ -9,7 +9,7 @@ const ManageWFS = () => {
 
   const fetchWFS = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/wfs");
+      const res = await axios.get("https://my-gunter-project-server.vercel.app/wfs");
       setWFS(res.data);
     } catch (error) {
       console.error("Error fetching wfs:", error);
@@ -34,7 +34,7 @@ const ManageWFS = () => {
 
     if (imageUrl) {
       try {
-        await axios.put(`http://localhost:5000/wfs/${id}`, { imageUrl });
+        await axios.put(`https://my-gunter-project-server.vercel.app/wfs/${id}`, { imageUrl });
         Swal.fire("Updated!", "The image URL has been updated.", "success");
         fetchWFS();
       } catch (error) {
@@ -54,7 +54,7 @@ const ManageWFS = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`http://localhost:5000/wfs/${id}`);
+          await axios.delete(`https://my-gunter-project-server.vercel.app/wfs/${id}`);
           Swal.fire("Deleted!", "WFS has been deleted.", "success");
           fetchWFS();
         } catch (error) {

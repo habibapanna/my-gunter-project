@@ -9,7 +9,7 @@ const ManageFCommerceService = () => {
 
   const fetchMarketings = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/f-commerce-service");
+      const res = await axios.get("https://my-gunter-project-server.vercel.app/f-commerce-service");
       setServices(res.data);
     } catch (error) {
       console.error("Error fetching service:", error);
@@ -34,7 +34,7 @@ const ManageFCommerceService = () => {
 
     if (imageUrl) {
       try {
-        await axios.put(`http://localhost:5000/f-commerce-service/${id}`, { imageUrl });
+        await axios.put(`https://my-gunter-project-server.vercel.app/f-commerce-service/${id}`, { imageUrl });
         Swal.fire("Updated!", "The image URL has been updated.", "success");
         fetchMarketings();
       } catch (error) {
@@ -54,7 +54,7 @@ const ManageFCommerceService = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`http://localhost:5000/f-commerce-service/${id}`);
+          await axios.delete(`https://my-gunter-project-server.vercel.app/f-commerce-service/${id}`);
           Swal.fire("Deleted!", "service has been deleted.", "success");
           fetchMarketings();
         } catch (error) {

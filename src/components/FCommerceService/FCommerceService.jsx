@@ -10,7 +10,7 @@ function FCommerceService() {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/f-commerce-service")
+    fetch("https://my-gunter-project-server.vercel.app/f-commerce-service")
       .then((res) => res.json())
       .then((data) => {
         setImages(data); // Ensure your backend returns an array of objects with `image` or `imageUrl`

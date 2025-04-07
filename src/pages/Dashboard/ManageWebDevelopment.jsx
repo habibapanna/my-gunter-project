@@ -9,7 +9,7 @@ const ManageWebDevelopment = () => {
 
   const fetchDevelopments = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/web-development");
+      const res = await axios.get("https://my-gunter-project-server.vercel.app/web-development");
       setDevelopments(res.data);
     } catch (error) {
       console.error("Error fetching development:", error);
@@ -34,7 +34,7 @@ const ManageWebDevelopment = () => {
 
     if (imageUrl) {
       try {
-        await axios.put(`http://localhost:5000/web-development/${id}`, { imageUrl });
+        await axios.put(`https://my-gunter-project-server.vercel.app/web-development/${id}`, { imageUrl });
         Swal.fire("Updated!", "The image URL has been updated.", "success");
         fetchDevelopments();
       } catch (error) {

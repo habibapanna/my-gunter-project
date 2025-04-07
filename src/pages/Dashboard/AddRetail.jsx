@@ -22,7 +22,7 @@ const AddRetail = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/retails", {
+      const res = await fetch("https://my-gunter-project-server.vercel.app/retails", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(retailData),

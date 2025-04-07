@@ -5,25 +5,39 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 import { FaCheck } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
-const images = [
-  { image: "https://i.ibb.co.com/ZzRLCy7h/pexels-divinetechygirl-1181467.jpg" },
-  { image: "https://i.ibb.co.com/G3Jgk8bp/pexels-designecologist-1779487.jpg" },
-  { image: "https://i.ibb.co.com/pvqsDkWX/pexels-tranmautritam-326503.jpg" },
-  { image: "https://i.ibb.co.com/JWbcFmhX/pexels-djordje-petrovic-590080-2102416.jpg" },
-  { image: "https://i.ibb.co.com/cc70sbfJ/pexels-shoper-pl-550490863-17485349.jpg" },
-];
-
-const services = [
-  "Custom Website Design & Development – Modern, mobile-friendly & high-speed websites.",
-  "E-Commerce Website Development – Shopify, WooCommerce, Magento & more.",
-  "SEO & Speed Optimization – Improve ranking and performance on Google.",
-  "UI/UX Design & Branding – Engaging, visually appealing layouts.",
-  "Web App Development – Scalable solutions for startups & enterprises.",
-  "Website Maintenance & Security – Regular updates & protection against cyber threats."
-];
+// const images = [
+//   { image: "https://i.ibb.co.com/ZzRLCy7h/pexels-divinetechygirl-1181467.jpg" },
+//   { image: "https://i.ibb.co.com/G3Jgk8bp/pexels-designecologist-1779487.jpg" },
+//   { image: "https://i.ibb.co.com/pvqsDkWX/pexels-tranmautritam-326503.jpg" },
+//   { image: "https://i.ibb.co.com/JWbcFmhX/pexels-djordje-petrovic-590080-2102416.jpg" },
+//   { image: "https://i.ibb.co.com/cc70sbfJ/pexels-shoper-pl-550490863-17485349.jpg" },
+// ];
 
 function WebDevelopment() {
+  const [images, setImages] = useState([]);
+
+  const services = [
+    "Custom Website Design & Development – Modern, mobile-friendly & high-speed websites.",
+    "E-Commerce Website Development – Shopify, WooCommerce, Magento & more.",
+    "SEO & Speed Optimization – Improve ranking and performance on Google.",
+    "UI/UX Design & Branding – Engaging, visually appealing layouts.",
+    "Web App Development – Scalable solutions for startups & enterprises.",
+    "Website Maintenance & Security – Regular updates & protection against cyber threats.",
+  ];
+
+    // Fetch images from API
+    useEffect(() => {
+      fetch("https://my-gunter-project-server.vercel.app/web-development")
+        .then((res) => res.json())
+        .then((data) => {
+          // Assuming the response is an array of objects with imageUrl
+          setImages(data);
+        })
+        .catch((err) => console.error("Error fetching images:", err));
+    }, []);
+
   return (
     <div className="bg-black min-h-screen pt-10 text-white">
       {/* Carousel Section */}
@@ -37,7 +51,11 @@ function WebDevelopment() {
         >
           {images.map((img, index) => (
             <SwiperSlide key={index}>
-              <img src={img.image} alt={`Slide ${index}`} className="w-full shadow-md h-[300px] lg:h-[400px] object-cover" />
+              <img
+                src={img.imageUrl}
+                alt={`Slide ${index}`}
+                className="w-full shadow-md h-[300px] lg:h-[400px] object-cover"
+              />
             </SwiperSlide>
           ))}
         </Swiper>

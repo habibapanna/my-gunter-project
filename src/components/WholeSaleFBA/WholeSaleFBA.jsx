@@ -10,7 +10,7 @@ function WholeSaleFBA() {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/wfs")
+    fetch("https://my-gunter-project-server.vercel.app/wfs")
       .then((res) => res.json())
       .then((data) => {
         // Assuming your API returns an array of objects with an "imageUrl" property

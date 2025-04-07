@@ -9,7 +9,7 @@ const ManagePrivateLabel = () => {
 
   const fetchLabels = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/private-labels");
+      const res = await axios.get("https://my-gunter-project-server.vercel.app/private-labels");
       setLabels(res.data);
     } catch (error) {
       console.error("Error fetching labels:", error);
@@ -34,7 +34,7 @@ const ManagePrivateLabel = () => {
 
     if (imageUrl) {
       try {
-        await axios.put(`http://localhost:5000/private-labels/${id}`, { imageUrl });
+        await axios.put(`https://my-gunter-project-server.vercel.app/private-labels/${id}`, { imageUrl });
         Swal.fire("Updated!", "The image URL has been updated.", "success");
         fetchLabels();
       } catch (error) {
@@ -54,7 +54,7 @@ const ManagePrivateLabel = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`http://localhost:5000/private-labels/${id}`);
+          await axios.delete(`https://my-gunter-project-server.vercel.app/private-labels/${id}`);
           Swal.fire("Deleted!", "Label has been deleted.", "success");
           fetchLabels();
         } catch (error) {

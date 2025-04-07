@@ -22,7 +22,7 @@ function RetailArbitragePage() {
 
   // Fetch data from backend
   useEffect(() => {
-    fetch("http://localhost:5000/retails")
+    fetch("https://my-gunter-project-server.vercel.app/retails")
       .then((res) => res.json())
       .then((data) => setRetailImages(data))
       .catch((err) => console.error("Error fetching images:", err));

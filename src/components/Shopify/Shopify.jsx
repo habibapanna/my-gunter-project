@@ -20,7 +20,7 @@ function Shopify() {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const res = await fetch("http://localhost:5000/shopify");
+        const res = await fetch("https://my-gunter-project-server.vercel.app/shopify");
         const data = await res.json();
         setShopifyImages(data); // data should be an array of objects with imageUrl
       } catch (error) {

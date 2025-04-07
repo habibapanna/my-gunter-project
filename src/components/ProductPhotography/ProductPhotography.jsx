@@ -9,7 +9,7 @@ function ProductPhotography() {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/product-photography")
+    fetch("https://my-gunter-project-server.vercel.app/product-photography")
       .then((res) => res.json())
       .then((data) => setImages(data))
       .catch((err) => console.error("Error fetching images:", err));

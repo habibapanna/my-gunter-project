@@ -9,7 +9,7 @@ const ManageProductPhotography = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/product-photography");
+      const res = await axios.get("https://my-gunter-project-server.vercel.app/product-photography");
       setProducts(res.data);
     } catch (error) {
       console.error("Error fetching marketing:", error);
@@ -34,7 +34,7 @@ const ManageProductPhotography = () => {
 
     if (imageUrl) {
       try {
-        await axios.put(`http://localhost:5000/product-photography/${id}`, { imageUrl });
+        await axios.put(`https://my-gunter-project-server.vercel.app/product-photography/${id}`, { imageUrl });
         Swal.fire("Updated!", "The image URL has been updated.", "success");
         fetchProducts();
       } catch (error) {
@@ -54,7 +54,7 @@ const ManageProductPhotography = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`http://localhost:5000/product-photography/${id}`);
+          await axios.delete(`https://my-gunter-project-server.vercel.app/product-photography/${id}`);
           Swal.fire("Deleted!", "Product photography has been deleted.", "success");
           fetchProducts();
         } catch (error) {

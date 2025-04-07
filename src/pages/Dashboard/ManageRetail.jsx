@@ -9,7 +9,7 @@ const ManageRetail = () => {
 
   const fetchRetails = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/retails");
+      const res = await axios.get("https://my-gunter-project-server.vercel.app/retails");
       setRetails(res.data);
     } catch (error) {
       console.error("Error fetching retails:", error);
@@ -34,7 +34,7 @@ const ManageRetail = () => {
 
     if (imageUrl) {
       try {
-        await axios.put(`http://localhost:5000/retails/${id}`, { imageUrl });
+        await axios.put(`https://my-gunter-project-server.vercel.app/retails/${id}`, { imageUrl });
         Swal.fire("Updated!", "The image URL has been updated.", "success");
         fetchRetails();
       } catch (error) {
@@ -54,7 +54,7 @@ const ManageRetail = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`http://localhost:5000/retails/${id}`);
+          await axios.delete(`https://my-gunter-project-server.vercel.app/retails/${id}`);
           Swal.fire("Deleted!", "Label has been deleted.", "success");
           fetchRetails();
         } catch (error) {

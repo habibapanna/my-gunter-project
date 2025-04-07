@@ -9,7 +9,7 @@ const ManageDigitalMarketing = () => {
 
   const fetchMarketings = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/digital-marketing");
+      const res = await axios.get("https://my-gunter-project-server.vercel.app/digital-marketing");
       setMarketings(res.data);
     } catch (error) {
       console.error("Error fetching marketing:", error);
@@ -34,7 +34,7 @@ const ManageDigitalMarketing = () => {
 
     if (imageUrl) {
       try {
-        await axios.put(`http://localhost:5000/digital-marketing/${id}`, { imageUrl });
+        await axios.put(`https://my-gunter-project-server.vercel.app/digital-marketing/${id}`, { imageUrl });
         Swal.fire("Updated!", "The image URL has been updated.", "success");
         fetchMarketings();
       } catch (error) {
@@ -54,7 +54,7 @@ const ManageDigitalMarketing = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`http://localhost:5000/digital-marketing/${id}`);
+          await axios.delete(`https://my-gunter-project-server.vercel.app/digital-marketing/${id}`);
           Swal.fire("Deleted!", "Digital marketing has been deleted.", "success");
           fetchMarketings();
         } catch (error) {

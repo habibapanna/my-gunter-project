@@ -22,7 +22,7 @@ const AddDigitalMarketing = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/digital-marketing", {
+      const res = await fetch("https://my-gunter-project-server.vercel.app/digital-marketing", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(shopifyData),

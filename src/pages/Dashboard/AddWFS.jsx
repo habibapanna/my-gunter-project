@@ -22,7 +22,7 @@ const AddWFS = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/wfs", {
+      const res = await fetch("https://my-gunter-project-server.vercel.app/wfs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(WFSData),

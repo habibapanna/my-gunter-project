@@ -27,7 +27,7 @@ function PrivateLabelPage() {
 
   useEffect(() => {
     // Fetch data from the backend
-    fetch('http://localhost:5000/private-labels')
+    fetch('https://my-gunter-project-server.vercel.app/private-labels')
       .then((response) => response.json())
       .then((data) => {
         setImages(data); // Store the fetched images in the state

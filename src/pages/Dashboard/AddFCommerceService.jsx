@@ -22,7 +22,7 @@ const AddFCommerceService = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/f-commerce-service", {
+      const res = await fetch("https://my-gunter-project-server.vercel.app/f-commerce-service", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(fCommerceServiceData),

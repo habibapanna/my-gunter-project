@@ -12,7 +12,7 @@ function CreativeDesign() {
 
   // Fetch images from the backend
   useEffect(() => {
-    fetch("http://localhost:5000/creative-designs")
+    fetch("https://my-gunter-project-server.vercel.app/creative-designs")
       .then((res) => res.json())
       .then((data) => setImages(data))
       .catch((error) => console.error("Error fetching images:", error));

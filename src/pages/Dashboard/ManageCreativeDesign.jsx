@@ -9,7 +9,7 @@ const ManageCreativeDesign = () => {
 
   const fetchDesigns = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/creative-designs");
+      const res = await axios.get("https://my-gunter-project-server.vercel.app/creative-designs");
       setDesigns(res.data);
     } catch (error) {
       console.error("Error fetching design:", error);
@@ -34,7 +34,7 @@ const ManageCreativeDesign = () => {
 
     if (imageUrl) {
       try {
-        await axios.put(`http://localhost:5000/creative-designs/${id}`, { imageUrl });
+        await axios.put(`https://my-gunter-project-server.vercel.app/creative-designs/${id}`, { imageUrl });
         Swal.fire("Updated!", "The image URL has been updated.", "success");
         fetchDesigns();
       } catch (error) {
@@ -54,7 +54,7 @@ const ManageCreativeDesign = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`http://localhost:5000/creative-designs/${id}`);
+          await axios.delete(`https://my-gunter-project-server.vercel.app/creative-designs/${id}`);
           Swal.fire("Deleted!", "Design has been deleted.", "success");
           fetchDesigns();
         } catch (error) {
