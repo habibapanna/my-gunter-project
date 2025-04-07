@@ -20,21 +20,42 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted: ", formData);
-    setSuccessMessage("Your message has been successfully sent!");
-
-    // Reset form fields after submission
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
-
-    // Hide success message after 3 seconds
-    setTimeout(() => setSuccessMessage(""), 3000);
+  
+    fetch("http://localhost:5000/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to send email");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data.message);
+        setSuccessMessage("Your message has been successfully sent!");
+  
+        // Reset form fields
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+  
+        // Hide success message after 3 seconds
+        setTimeout(() => setSuccessMessage(""), 3000);
+      })
+      .catch((err) => {
+        console.error("Error:", err);
+        alert("Something went wrong. Please try again later.");
+      });
   };
+  
 
   return (
     <div className="bg-black p-6 md:p-10">
