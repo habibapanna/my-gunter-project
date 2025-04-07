@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -7,15 +7,17 @@ import { Pagination, Autoplay } from "swiper/modules";
 import { FaCheck } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
-const images = [
-  { image: "https://i.ibb.co.com/xKQ9c4V1/pexels-tima-miroshnichenko-6913241.jpg" },
-  { image: "https://i.ibb.co.com/9jTZcz6/pexels-ketut-subiyanto-4623471.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2020/07/project4-380x350.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/project-details2-1-1-380x350.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/woman-bed-1-1-380x350.jpg" },
-];
-
 function CreativeDesign() {
+  const [images, setImages] = useState([]);
+
+  // Fetch images from the backend
+  useEffect(() => {
+    fetch("http://localhost:5000/creative-designs")
+      .then((res) => res.json())
+      .then((data) => setImages(data))
+      .catch((error) => console.error("Error fetching images:", error));
+  }, []);
+
   return (
     <div className="bg-black min-h-screen pt-10 text-white">
       {/* Carousel Section */}
@@ -29,15 +31,21 @@ function CreativeDesign() {
         >
           {images.map((img, index) => (
             <SwiperSlide key={index}>
-              <img src={img.image} alt={`Slide ${index}`} className="w-full shadow-md h-[300px] lg:h-[400px] object-cover" />
+              <img
+                src={img.imageUrl}
+                alt={`Slide ${index}`}
+                className="w-full shadow-md h-[300px] lg:h-[400px] object-cover"
+              />
             </SwiperSlide>
           ))}
         </Swiper>
       </section>
 
       {/* Hero Section */}
-      <section className=" px-5">
-        <h1 className="text-2xl lg:text-4xl font-bold mb-4">Creative Design Services – Elevate Your Brand with Stunning Visuals!</h1>
+      <section className="px-5">
+        <h1 className="text-2xl lg:text-4xl font-bold mb-4">
+          Creative Design Services – Elevate Your Brand with Stunning Visuals!
+        </h1>
         <p className="max-w-3xl mx-auto text-gray-400 font-normal text-[16px]">
           Looking for eye-catching designs that make your brand stand out? Our creative design services help businesses create visually appealing and high-converting graphics for digital and print marketing.
         </p>
@@ -63,12 +71,13 @@ function CreativeDesign() {
 
         <div className="text-center mt-8">
           <button className="relative bg-orange-600 px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[16px] lg:text-[18px] cursor-pointer">
-            <Link to='/contact'>Contact us today for custom design solutions!</Link>
+            <Link to="/contact">Contact us today for custom design solutions!</Link>
           </button>
         </div>
       </section>
-            {/* Tailwind Keyframe Styles */}
-            <style>
+
+      {/* Tailwind Keyframe Styles */}
+      <style>
         {`
           .shadow-animation {
               position: relative;

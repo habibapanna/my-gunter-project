@@ -114,7 +114,7 @@ const Register = () => {
                     <div className="bg-black w-full max-w-sm shrink-0 shadow-2xl">
                         <div className="card-body">
                             <form onSubmit={handleRegister}>
-                                <label className="fieldset-label">Name</label>
+                                <label className="fieldset-label text-white">Name</label>
                                 <input 
                                     value={userData.name}
                                     onChange={handleChange} 
@@ -123,7 +123,7 @@ const Register = () => {
                                     className="py-3 border px-2 border-gray-400" 
                                     required 
                                 />
-                                <label className="fieldset-label">Email</label>
+                                <label className="fieldset-label text-white">Email</label>
                                 <input 
                                     value={userData.email}
                                     onChange={handleChange} 
@@ -132,7 +132,7 @@ const Register = () => {
                                     className="py-3 border px-2 border-gray-400" 
                                     required 
                                 />
-                                <label className="fieldset-label">Password</label>
+                                <label className="fieldset-label text-white">Password</label>
                                 <div className="relative">
                                     <input 
                                         value={userData.password}
@@ -145,7 +145,7 @@ const Register = () => {
                                     <button 
                                         type="button" 
                                         onClick={() => setShowPassword(!showPassword)}
-                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600"
+                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white"
                                     >
                                         {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
                                     </button>
@@ -157,7 +157,7 @@ const Register = () => {
                                     Sign Up
                                 </button>
                             </form>
-                            <p>Already have an account? <Link className="text-orange-600 hover:underline cursor-pointer" to="/login ">Sign In</Link></p>
+                            <p>Already have an account? <Link  to="/login" className="text-orange-600 hover:underline cursor-pointer">Sign In</Link></p>
                         </div>
                     </div>
                 </div>

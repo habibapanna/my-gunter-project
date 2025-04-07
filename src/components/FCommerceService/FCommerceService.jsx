@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -5,15 +6,20 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 import { FaCheck } from "react-icons/fa6";
 
-const images = [
-  { image: "https://i.ibb.co.com/LX55CzsT/pexels-ivan-samkov-7621136.jpg" },
-  { image: "https://i.ibb.co.com/n81KPgP6/pexels-ivan-samkov-7621131.jpg" },
-  { image: "https://i.ibb.co.com/JWn064XP/pexels-mikhail-nilov-6969962.jpg" },
-  { image: "https://i.ibb.co.com/8DKXsfP2/pexels-ivan-samkov-7621020.jpg" },
-  { image: "https://i.ibb.co.com/LDT38Nd5/pexels-pixabay-50987.jpg" },
-];
-
 function FCommerceService() {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/f-commerce-service")
+      .then((res) => res.json())
+      .then((data) => {
+        setImages(data); // Ensure your backend returns an array of objects with `image` or `imageUrl`
+      })
+      .catch((error) => {
+        console.error("Error fetching images:", error);
+      });
+  }, []);
+
   const services = [
     "Facebook Shop & Marketplace Setup – Build a professional storefront.",
     "Winning Product Research – Find trending & high-converting products.",
@@ -36,7 +42,11 @@ function FCommerceService() {
         >
           {images.map((img, index) => (
             <SwiperSlide key={index}>
-              <img src={img.image} alt={`Slide ${index}`} className="w-full shadow-md h-[300px] lg:h-[400px] object-cover" />
+              <img
+                src={img.image || img.imageUrl} // Adjust according to your API structure
+                alt={`Slide ${index}`}
+                className="w-full shadow-md h-[300px] lg:h-[400px] object-cover"
+              />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -44,7 +54,9 @@ function FCommerceService() {
 
       {/* Hero Section */}
       <section className="px-5">
-        <h1 className="text-2xl lg:text-4xl font-bold mb-4">F-Commerce Services – Grow & Scale Your Business on Facebook!</h1>
+        <h1 className="text-2xl lg:text-4xl font-bold mb-4">
+          F-Commerce Services – Grow & Scale Your Business on Facebook!
+        </h1>
         <p className="text-[16px] text-gray-400 font-normal max-w-3xl mx-auto">
           Want to sell more on Facebook & Instagram? Our F-Commerce services help you set up, manage, and scale your business using Facebook Shops, Marketplace, and Ads, ensuring high engagement, more sales, and brand growth.
         </p>
@@ -67,8 +79,9 @@ function FCommerceService() {
           </button>
         </div>
       </section>
-              {/* Tailwind Keyframe Styles */}
-              <style>
+
+      {/* Tailwind Keyframe Styles */}
+      <style>
         {`
           .shadow-animation {
               position: relative;

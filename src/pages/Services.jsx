@@ -49,7 +49,7 @@ const Services = () => {
                     {currentService ? currentService.title : "Services"} 
                 </h1> 
                 <p className="text-white"> 
-                    <Link to="/" className="mr-2 text-orange-500 hover:underline"> 
+                    <Link to="/" className="mr-2 hover:text-orange-500 hover:underline"> 
                         Home 
                     </Link> 
                     / 

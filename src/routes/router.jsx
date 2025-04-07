@@ -46,6 +46,24 @@ import ManageHero from "../pages/Dashboard/ManageHero";
 import AddAbout from "../pages/Dashboard/AddAbout";
 import ManageAbout from "../pages/Dashboard/ManageAbout";
 import AdminRoute from "./AdminRoute";
+import AddPrivateLabel from "../pages/Dashboard/AddPrivateLabel";
+import AddRetail from "../pages/Dashboard/AddRetail";
+import ManagePrivateLabel from "../pages/Dashboard/ManagePrivateLabel";
+import ManageRetail from "../pages/Dashboard/ManageRetail";
+import AddWFS from "../pages/Dashboard/AddWFS";
+import AddWebDevelopment from "../pages/Dashboard/AddWebDevelopment";
+import ManageWebDevelopment from "../pages/Dashboard/ManageWebDevelopment";
+import AddShopify from "../pages/Dashboard/AddShopify";
+import ManageShopify from "../pages/Dashboard/ManageShopify";
+import AddCreativeDesign from "../pages/Dashboard/AddCreativeDesign";
+import ManageCreativeDesign from "../pages/Dashboard/ManageCreativeDesign";
+import AddDigitalMarketing from "../pages/Dashboard/AddDigitalMarketing";
+import AddProductPhotography from "../pages/Dashboard/AddProductPhotography";
+import AddFCommerceService from "../pages/Dashboard/AddFCommerceService";
+import ManageDigitalMarketing from "../pages/Dashboard/ManageDigitalMarketing";
+import ManageProductPhotography from "../pages/Dashboard/ManageProductPhotography";
+import ManageFCommerceService from "../pages/Dashboard/ManageFCommerceService";
+import ManageWFS from "../pages/Dashboard/ManageWFS";
 
 
 const router = createBrowserRouter([
@@ -134,10 +152,83 @@ const router = createBrowserRouter([
         {
             path: "add-service",
             element: <AddService></AddService>
+            
+        },
+        {
+            path: "add-private-label",
+            element: <AddPrivateLabel></AddPrivateLabel>
+        },
+        {
+            path: "add-retail",
+            element: <AddRetail></AddRetail>
+        },      
+        {
+            path: "add-wfs",
+            element: <AddWFS></AddWFS>
+        },
+        {
+            path: "add-web-development",
+            element: <AddWebDevelopment></AddWebDevelopment>
+        },
+        {
+            path: "add-shopify",
+            element: <AddShopify></AddShopify>
+        }, 
+        {
+            path: "add-creative-design",
+            element: <AddCreativeDesign></AddCreativeDesign>
+        },
+        {
+            path: "add-digital-marketing",
+            element: <AddDigitalMarketing></AddDigitalMarketing>
+        },
+        {
+            path: "add-product-photography",
+            element: <AddProductPhotography></AddProductPhotography>
+        },
+        {
+            path: "add-f-commerce-service",
+            element: <AddFCommerceService></AddFCommerceService>
         },
         {
             path: "manage-service",
             element: <ManageService></ManageService>
+        },
+        {
+            path: "manage-private-label",
+            element: <ManagePrivateLabel></ManagePrivateLabel>
+        },
+        {
+            path: "manage-retail",
+            element: <ManageRetail></ManageRetail>
+        },
+        {
+            path: "manage-wfs",
+            element: <ManageWFS></ManageWFS>
+        },
+        {
+            path: "manage-web-development",
+            element: <ManageWebDevelopment></ManageWebDevelopment>
+        },
+        {
+            path: "manage-shopify",
+            element: <ManageShopify></ManageShopify>
+        },
+        {
+            path: "manage-creative-design",
+            element: <ManageCreativeDesign></ManageCreativeDesign>
+        },
+        {
+            path: "manage-digital-marketing",
+            element: <ManageDigitalMarketing></ManageDigitalMarketing>
+        },
+        {
+            path: "manage-product-photography",
+            element: <ManageProductPhotography></ManageProductPhotography>
+        },
+        {
+            path: "manage-f-commerce-service",
+            element: <ManageFCommerceService></ManageFCommerceService>
         },
         {
             path: "add-blog",

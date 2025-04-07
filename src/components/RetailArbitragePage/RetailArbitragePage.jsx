@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -18,6 +18,15 @@ const images = [
 
 function RetailArbitragePage() {
   const [openIndex, setOpenIndex] = useState(0);
+  const [retailImages, setRetailImages] = useState([]);
+
+  // Fetch data from backend
+  useEffect(() => {
+    fetch("http://localhost:5000/retails")
+      .then((res) => res.json())
+      .then((data) => setRetailImages(data))
+      .catch((err) => console.error("Error fetching images:", err));
+  }, []);
 
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -50,14 +59,17 @@ function RetailArbitragePage() {
           loop={true}
           className="w-full"
         >
-          {images.map((img, index) => (
+          {retailImages.map((img, index) => (
             <SwiperSlide key={index}>
-              <img src={img.image} alt={`Slide ${index}`} className="w-full shadow-md h-[300px] lg:h-[400px] object-cover" />
+              <img
+                src={img.imageUrl} // Make sure your backend returns `imageUrl` property
+                alt={`Slide ${index}`}
+                className="w-full shadow-md h-[300px] lg:h-[400px] object-cover"
+              />
             </SwiperSlide>
           ))}
         </Swiper>
       </section>
-
       {/* Hero Section */}
       <section className="px-5">
         <h1 className="text-2xl lg:text-4xl font-semibold mb-4">Retail & Online Arbitrage + Walmart & Amazon Dropshipping – Maximize Profits with Expert Strategies!</h1>

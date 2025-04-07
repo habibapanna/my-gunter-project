@@ -1,18 +1,10 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
-import { FaCheckCircle } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa6";
-
-const images = [
-  { image: "https://i.ibb.co.com/cc70sbfJ/pexels-shoper-pl-550490863-17485349.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/blog2-1-1-1-380x350.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2020/07/project4-380x350.jpg" },
-  { image: "https://themes.envytheme.com/gunter/wp-content/uploads/2019/04/project-details2-1-1-380x350.jpg" },
-  { image: "https://i.ibb.co.com/TBBywqhy/pexels-shoper-pl-550490863-17485353.jpg" },
-];
 
 const services = [
   "Custom Shopify Store Design – Mobile-friendly, fast-loading, and optimized for sales.",
@@ -23,6 +15,21 @@ const services = [
 ];
 
 function Shopify() {
+  const [shopifyImages, setShopifyImages] = useState([]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/shopify");
+        const data = await res.json();
+        setShopifyImages(data); // data should be an array of objects with imageUrl
+      } catch (error) {
+        console.error("Error fetching Shopify images:", error);
+      }
+    };
+    fetchImages();
+  }, []);
+
   return (
     <div className="bg-black min-h-screen pt-10 text-white">
       {/* Carousel Section */}
@@ -34,9 +41,13 @@ function Shopify() {
           loop={true}
           className="w-full"
         >
-          {images.map((img, index) => (
+          {shopifyImages.map((img, index) => (
             <SwiperSlide key={index}>
-              <img src={img.image} alt={`Slide ${index}`} className="w-full shadow-md h-[300px] lg:h-[400px] object-cover" />
+              <img
+                src={img.imageUrl}
+                alt={`Shopify Slide ${index}`}
+                className="w-full shadow-md h-[300px] lg:h-[400px] object-cover"
+              />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -44,7 +55,9 @@ function Shopify() {
 
       {/* Hero Section */}
       <section className="px-5">
-        <h1 className="text-2xl lg:text-4xl font-bold mb-4">Shopify Store Setup & Management – Build & Scale Your Online Business!</h1>
+        <h1 className="text-2xl lg:text-4xl font-bold mb-4">
+          Shopify Store Setup & Management – Build & Scale Your Online Business!
+        </h1>
         <p className="text-[16px] font-normal text-gray-400 max-w-3xl mx-auto">
           Want to launch a professional, high-converting Shopify store? We provide end-to-end Shopify solutions, from store design and branding to SEO, product listings, and marketing, ensuring your success in eCommerce & dropshipping.
         </p>
@@ -64,7 +77,7 @@ function Shopify() {
 
         <div className="text-center mt-8">
           <button className="relative bg-orange-600 text-[16px] px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation lg:text-[18px] cursor-pointer">
-            <Link to='/contact'>Get in touch for expert Shopify solutions!</Link>
+            <Link to="/contact">Get in touch for expert Shopify solutions!</Link>
           </button>
         </div>
       </section>

@@ -81,7 +81,7 @@ const Dashboard = () => {
             }
           >
             <FiPlusCircle size={20} />
-            <span>Add Service</span>
+            <span>Add Services</span>
           </NavLink>
 
           <NavLink
@@ -93,7 +93,7 @@ const Dashboard = () => {
             }
           >
             <FiList size={20} />
-            <span>Manage Service</span>
+            <span>Manage Services</span>
           </NavLink>
 
           <NavLink

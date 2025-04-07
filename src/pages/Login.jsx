@@ -133,7 +133,7 @@ const Login = () => {
                         </form>
 
                         <p className="text-white mt-3">
-                            Don't have an account? <Link className="text-orange-600 hover:underline cursor-pointer" to="/register">Create Account</Link>
+                            Don't have an account? <Link to="/register" className="text-orange-600 hover:underline cursor-pointer">Create Account</Link>
                         </p>
 
                         {/* Google Sign-In Button */}
