@@ -65,12 +65,48 @@ const Announcements = () => {
     setSelectedAnnouncement(announcement);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setModalIsOpen(false);
-    // Submit form data and send email notification
-    Swal.fire("Success!", "Application successfully sent!", "success");
+  
+    const form = new FormData();
+    form.append("name", `${formData.firstName} ${formData.lastName}`);
+    form.append("email", formData.email);
+    form.append("phone", formData.whatsapp);
+    form.append("topic", formData.topic);
+    form.append("preferredDate", formData.preferredDate);
+    form.append("cvFile", formData.cvFile);
+  
+    try {
+      const response = await fetch("https://my-gunter-project-server.vercel.app/submit-form", {
+        method: "POST",
+        body: form,
+      });
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+        Swal.fire("Success!", result.message, "success");
+        
+        // ✅ Reset form after successful submission
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          whatsapp: "",
+          topic: "",
+          preferredDate: "",
+          cvFile: null,
+        });
+  
+      } else {
+        Swal.fire("Error", result.message || "Submission failed", "error");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      Swal.fire("Error", "Something went wrong. Please try again later.", "error");
+    }
   };
-
   // Handle input changes for form fields
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -212,7 +248,7 @@ image} alt="" />
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
-        className="w-full max-w-xl bg-white p-5 shadow-lg mx-auto border mt-15 h-auto max-h-[80vh] relative"
+        className="w-full max-w-xl bg-white p-5 shadow-lg mx-auto border mt-15 h-auto max-h-[80vh] relative overflow-y-scroll"
         overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
       >
         <button
