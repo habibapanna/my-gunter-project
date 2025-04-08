@@ -130,47 +130,47 @@ const Announcements = () => {
   );
 
   return (
-    <div className="bg-black">
+    <div className="bg-purple-600">
       <div className="bg-black py-20">
         <h1 className="text-4xl font-bold mb-5 text-center text-white">
           {currentAnnouncement ? currentAnnouncement.title : "Announcements"}
         </h1>
         <p className="text-center text-white">
-          <Link to="/" className="mr-3 transition-colors duration-300 hover:text-orange-600">
+          <Link to="/" className="mr-3 transition-colors duration-300 hover:text-amber-500">
             Home
           </Link>
           /
-          <span className="ml-3 text-orange-600 font-semibold">
+          <span className="ml-3 text-amber-500 font-semibold">
             {currentAnnouncement ? currentAnnouncement.title : "Announcements"}
           </span>
         </p>
       </div>
 
       <div className="p-10 grid grid-cols-12 gap-6">
-        <div className="col-span-12 md:col-span-8">
+        <div className="col-span-12 md:col-span-8 order-1">
           {loading ? (
             <Spinner />
           ) : (
             <>
               {selectedAnnouncement ? (
-                <div className="bg-black p-4 shadow-md">
+                <div className="bg-purple-600 p-4 shadow-md">
                   <img className="w-full h-[400px] object-cover" src={selectedAnnouncement.
 image} alt="" />
                   <h2 className="text-white text-xl font-bold mt-5">{selectedAnnouncement.title}</h2>
-                  <p className="text-gray-500 mt-2">{selectedAnnouncement.description}</p>
-                  <p className="text-gray-400 mt-2">{selectedAnnouncement.details}</p>
+                  <p className="text-gray-200 mt-2">{selectedAnnouncement.description}</p>
+                  <p className="text-gray-200 mt-2">{selectedAnnouncement.details}</p>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {announcements
                     .filter((announcement) => !selectedCategory || announcement.category === selectedCategory)
                     .map((announcement) => (
-                      <div key={announcement.id} className="bg-black shadow-orange-600 shadow-md p-4">
+                      <div key={announcement.id} className="bg-purple-600 shadow-md p-4">
                         <img src={announcement.image} alt={announcement.title} className="w-full h-40 object-cover" />
                         <h2 className="text-lg font-bold mt-3 text-white">{announcement.title}</h2>
-                        <p className="text-gray-500 mt-2">{announcement.description}</p>
+                        <p className="text-gray-200 mt-2">{announcement.description}</p>
                         <button
-                          className="text-orange-600 mt-2 hover:underline cursor-pointer"
+                          className="text-amber-500 mt-2 hover:underline cursor-pointer"
                           onClick={() => handleReadMore(announcement)}
                         >
                           Read More
@@ -183,28 +183,28 @@ image} alt="" />
           )}
         </div>
 {/* Search bar */}
-        <div className="col-span-12 md:col-span-4 bg-black p-4">
+        <div className="col-span-12 md:col-span-4 bg-purple-600 p-4">
           <div className="relative mb-4">
-            <MdOutlineSearch className="absolute left-3 top-3 text-orange-600 text-xl cursor-pointer" />
+            <MdOutlineSearch className="absolute left-3 top-3 text-amber-500 text-xl cursor-pointer" />
             <input
               type="text"
               placeholder="Search Services..."
-              className="w-full pl-10 pr-4 py-3 shadow-orange-600 shadow-md text-white focus:outline-none focus:ring-2 focus:ring-orange-600"
+              className="w-full pl-10 pr-4 py-3 bg-purple-500 shadow-md text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
 {/* Title */}
-          <div className="shadow-orange-600 shadow-md">
+          <div className="bg-purple-500 shadow-md">
             <h1 className="text-white text-lg font-bold p-3">Recent Announcements</h1>
-            <div className="border-1 border-gray-800 w-80 mx-auto"></div>
-            <div className="flex flex-col">
+            <div className="border-1 border-white mb-5 w-80 mx-auto"></div>
+            <div className="flex flex-col ">
               {announcements
                 .filter((announcement) => announcement.title.toLowerCase().includes(search.toLowerCase()))
                 .map((announcement) => (
                   <button
                     key={announcement.id}
-                    className={`p-3 text-left items-center flex ${selectedAnnouncement === announcement ? "bg-orange-600 text-white" : "bg-black text-white hover:text-orange-600 hover:scale-95"}`}
+                    className={`p-3 text-left items-center flex ${selectedAnnouncement === announcement ? "bg-amber-500 text-white" : "bg-purple-500 text-white hover:text-amber-500 hover:scale-95"}`}
                     onClick={() => handleAnnouncementClick(announcement)}
                   >
                     <FaSquareFull className="text-sm mr-2" />
@@ -214,14 +214,14 @@ image} alt="" />
             </div>
           </div>
 {/* Category */}
-          <div className="shadow-orange-600 shadow-md mt-4">
+          <div className="bg-purple-500 shadow-md mt-4">
   <h1 className="text-white font-bold p-3">Categories</h1>
-  <div className="border-1 border-gray-800 w-80 mx-auto"></div>
+  <div className="border-1 border-white w-80 mx-auto"></div>
   <div className="flex flex-col mt-2">
     {categories.map((category, index) => (
       <button
         key={index}
-        className={`text-white p-2 items-center flex hover:bg-orange-600  text-left ${selectedCategory === category ? 'bg-orange-600' : ''}`}
+        className={`text-white p-2 items-center flex hover:bg-amber-500  text-left ${selectedCategory === category ? 'bg-amber-500' : ''}`}
         onClick={() => handleCategoryClick(category)}
       >
         <GoDotFill className="text-sm mr-2" />
@@ -236,7 +236,7 @@ image} alt="" />
           <div className="text-center mt-6">
             <button
               onClick={() => setModalIsOpen(true)}
-              className="bg-orange-600 px-6 py-3 text-white font-semibold transition duration-300 mt-3 shadow-animation cursor-pointer"
+              className="bg-amber-500 px-6 py-3 text-white font-semibold transition duration-300 mt-3 shadow-animation cursor-pointer"
             >
               Apply Now
             </button>
@@ -253,11 +253,11 @@ image} alt="" />
       >
         <button
           onClick={() => setModalIsOpen(false)}
-          className="absolute top-3 right-3 text-orange-600 text-2xl"
+          className="absolute top-3 right-3 text-amber-500 text-2xl"
         >
           &times;
         </button>
-        <h2 className="text-xl font-semibold mb-4 text-center text-orange-600 mt-2 cursor-pointer">
+        <h2 className="text-xl font-semibold mb-4 text-center text-amber-500 mt-2 cursor-pointer">
           Apply Now
         </h2>
 
@@ -337,7 +337,7 @@ image} alt="" />
         <div className="text-center mt-5">
           <button
             onClick={handleSubmit}
-            className="bg-orange-600 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation mt-3 cursor-pointer"
+            className="bg-amber-500 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation mt-3 cursor-pointer"
           >
             Submit Application
           </button>

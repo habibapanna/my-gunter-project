@@ -152,12 +152,12 @@ const Register = () => {
                                 </div>
                                 <button
                                     type="submit"
-                                    className="w-full md:w-auto bg-orange-600 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation mt-3 cursor-pointer"
+                                    className="w-full md:w-auto bg-amber-500 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation mt-3 cursor-pointer"
                                 >
                                     Sign Up
                                 </button>
                             </form>
-                            <p>Already have an account? <Link  to="/login" className="text-orange-600 hover:underline cursor-pointer">Sign In</Link></p>
+                            <p>Already have an account? <Link  to="/login" className="text-amber-500 hover:underline cursor-pointer">Sign In</Link></p>
                         </div>
                     </div>
                 </div>

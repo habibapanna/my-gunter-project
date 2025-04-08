@@ -35,7 +35,7 @@ const Main = () => {
     return (
         <div className="relative min-h-screen max-w-7xl mx-auto flex flex-col">
             {/* Smooth Fade In/Out Effect */}
-            <div className={`fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 transition-opacity duration-700 ${loading ? "opacity-100 z-50" : "opacity-0 -z-50"}`}>
+            <div className={`fixed inset-0 flex justify-center items-center bg-purple-600 bg-opacity-50 transition-opacity duration-700 ${loading ? "opacity-100 z-50" : "opacity-0 -z-50"}`}>
                 <Spinner />
             </div>
 
@@ -47,7 +47,7 @@ const Main = () => {
 
             <div 
     onClick={scrollToTop} 
-    className="fixed bottom-8 lg:bottom-5 left-6 w-10 h-10 flex items-center justify-center rounded-full text-orange-600 bg-white  cursor-pointer shadow-lg transition-all z-50"
+    className="fixed bottom-8 lg:bottom-5 left-6 w-10 h-10 flex items-center justify-center rounded-full hover:text-amber-500 hover:bg-white bg-amber-500 text-white cursor-pointer shadow-lg transition-all z-50"
 >
     <MdKeyboardArrowUp className=" text-2xl" />
 </div>
@@ -56,7 +56,7 @@ const Main = () => {
             {/* WhatsApp Floating Button - Show only in light mode */}
             {theme === "light" && (
                 <a
-                    href="https://wa.me/yourwhatsappnumber"
+                    href="https://wa.me/+8801946127204"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="fixed bottom-8 lg:bottom-5 right-6 bg-green-500 text-white p-3 rounded-full shadow- hover:bg-green-600 transition-all z-60"

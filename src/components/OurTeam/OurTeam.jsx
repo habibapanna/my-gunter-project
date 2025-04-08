@@ -37,18 +37,18 @@ const OurTeam = () => {
   if (error) return <p className="text-red-500 text-center">{error}</p>;
 
   return (
-    <div className="bg-black p-5 md:p-10">
+    <div className="bg-purple-600 p-5 md:p-10">
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between mb-6">
         <div className="text-left">
-          <h3 className="text-orange-600 font-semibold">Meet our experts</h3>
+          <h3 className="text-amber-500 font-semibold">Meet our experts</h3>
           <h2 className="text-3xl md:text-4xl font-bold mt-3 text-white">
             Our Team
           </h2>
           <div className="flex gap-1 justify-start mt-6 mb-5">
-            <span className="border-2 w-8 border-orange-600"></span>
-            <span className="border-2 w-2 border-orange-600"></span>
-            <span className="border-2 w-3 border-orange-600"></span>
+            <span className="border-2 w-8 border-amber-500"></span>
+            <span className="border-2 w-2 border-amber-500"></span>
+            <span className="border-2 w-3 border-amber-500"></span>
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@ const OurTeam = () => {
               {/* Overlay Text */}
               <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-70 text-white p-3 text-center">
                 <h3 className="font-bold text-lg">{member.name}</h3>
-                <p className="text-orange-600 text-sm">{member.title}</p>
+                <p className="text-amber-500 text-sm">{member.title}</p>
               </div>
 
               {/* Social Links on Hover */}
@@ -97,7 +97,7 @@ const OurTeam = () => {
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-orange-600 hover:bg-orange-600 hover:text-white p-2 rounded-full border border-orange-500 text-sm"
+                    className="text-amber-500 hover:bg-amber-500 hover:text-white p-2 rounded-full border border-amber-500 text-sm"
                   >
                     <Icon size={16} />
                   </a>
@@ -115,7 +115,7 @@ const OurTeam = () => {
             key={index}
             className={`h-[3px] w-10 transition-all duration-500 ${
               activeIndex % teamMembers.length === index
-                ? "bg-orange-600"
+                ? "bg-amber-500"
                 : "bg-white"
             }`}
           ></span>
@@ -124,7 +124,7 @@ const OurTeam = () => {
 
       {/* View All Button */}
       <div className="mt-10">
-        <button className="shadow-animation bg-orange-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto cursor-pointer">
+        <button className="shadow-animation bg-amber-500 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto cursor-pointer">
           <Link to="/contact"> View All</Link>
           <FaArrowRightLong />
         </button>

@@ -24,12 +24,12 @@ const OurServices = () => {
     return (
         <div>
             {/* Header Section */}
-            <div className='bg-black p-10'>
+            <div id='our-services' className='bg-purple-600 p-10'>
                 <div className='flex justify-between items-center'>
                     <div>
-                        <h3 className='text-orange-600 font-semibold'>WHAT WE DO</h3>
+                        <h3 className='text-amber-500 font-semibold'>WHAT WE DO</h3>
                         <h2 className='text-2xl lg:text-4xl font-bold mt-3 text-white'>Our Services</h2>
-                        <div className='flex gap-1 mt-8 lg:mb-5 text-orange-600'>
+                        <div className='flex gap-1 mt-8 lg:mb-5 text-amber-500'>
                             <span className='border-2 w-8'></span>
                             <span className='border-2 w-2'></span>
                             <span className='border-2 w-3'></span>
@@ -39,17 +39,17 @@ const OurServices = () => {
             </div>
 
             {/* Services Cards Section */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-5 lg:p-10 bg-black">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-5 lg:p-10 bg-purple-600">
                 {services.map((service, index) => (
                     <Link to={`/services/${service.path}`} key={index} className="no-underline">
                         <div 
-                            className="relative flex items-center justify-between bg-stone-900 text-white px-5 py-4 rounded-l-full shadow-md group cursor-pointer overflow-hidden transition-all duration-500 hover:bg-orange-600"
+                            className="relative flex items-center justify-between bg-black text-white px-5 py-4 rounded-l-full shadow-md group cursor-pointer overflow-hidden transition-all duration-500 hover:bg-amber-500"
                         >
                             {/* Animated Background Overlay */}
                             <div className="absolute inset-0 bg-gradient-to-b from-orange-600 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
                             {/* Left Icon */}
-                            <div className="lg:text-2xl text-orange-600 p-4 bg-black group-hover:bg-white rounded-full transition-all duration-500  z-10">
+                            <div className="lg:text-2xl text-amber-500 p-4 bg-purple-600 group-hover:bg-white rounded-full transition-all duration-500  z-10">
                                 {service.icon}
                             </div>
 
@@ -59,7 +59,7 @@ const OurServices = () => {
                             </h3>
 
                             {/* Right Arrow Icon (Moves to Right on Hover) */}
-                            <FaArrowRightLong className="text-orange-600 text-xl transition-transform duration-500 group-hover:translate-x-2 group-hover:text-white z-10" />
+                            <FaArrowRightLong className="text-amber-500 text-xl transition-transform duration-500 group-hover:translate-x-2 group-hover:text-white z-10" />
                         </div>
                     </Link>
                 ))}
@@ -67,7 +67,7 @@ const OurServices = () => {
 
             <div className='mt-10'>
                 {/* "All Services" Button */}
-                <button className="shadow-animation bg-orange-600 px-4 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto cursor-pointer">
+                <button className="shadow-animation bg-amber-500 px-4 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto cursor-pointer">
                     <Link to='/services' className="no-underline text-white">All Services</Link>
                     <FaArrowRightLong />
                 </button>

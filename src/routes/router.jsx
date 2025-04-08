@@ -73,7 +73,7 @@ const router = createBrowserRouter([
         errorElement: <h1 className="text-5xl font-bold text-red-500">Page not found</h1>,
         children: [
             { path: "/", element: <Home /> },
-            { path: "blog", element:<PrivateRoute> <Blog /></PrivateRoute>,
+            { path: "blog", element: <Blog />,
                 children: [
                     {
                     path: "blog-1",
@@ -89,7 +89,7 @@ const router = createBrowserRouter([
                     },
                 ]
              },
-            { path: "announcements", element: <PrivateRoute><Announcements /></PrivateRoute>,
+            { path: "announcements", element: <Announcements />,
                 children: [
                     {
                         path: "announcement-1",
@@ -106,7 +106,7 @@ const router = createBrowserRouter([
                     
                 ]
              },
-            { path: "gallery", element: <PrivateRoute><Gallery></Gallery></PrivateRoute>,
+            { path: "gallery", element: <Gallery></Gallery>,
                 children: [
                     {
                         path: "gallery-1",
@@ -127,7 +127,7 @@ const router = createBrowserRouter([
             { path: "register", element: <Register></Register> },
             { 
                 path: "services", // ✅ Services is now inside Main
-                element: <PrivateRoute><Services /></PrivateRoute>,
+                element: <Services />,
                 children: [
                     { path: "private-label", element: <PrivateLabelPage /> },
                     { path: "retail-arbitrage", element: <RetailArbitragePage /> },

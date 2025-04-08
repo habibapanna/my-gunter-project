@@ -27,9 +27,9 @@ const AnimatedStick = () => {
                 }
                 `}
             </style>
-            <div className="relative w-[2px] h-16 bg-orange-600 overflow-hidden mx-auto mt-2">
-                <div className="falling absolute left-0 top-0 w-[2px] h-8 bg-black"></div>
-                <div className="falling absolute left-0 top-0 w-[2px] h-4 bg-black"></div>
+            <div className="relative w-[2px] h-16 bg-amber-500 overflow-hidden mx-auto mt-2">
+                <div className="falling absolute left-0 top-0 w-[2px] h-8 bg-purple-600"></div>
+                <div className="falling absolute left-0 top-0 w-[2px] h-4 bg-purple-600"></div>
             </div>
         </>
     );
@@ -118,7 +118,7 @@ const Home = () => {
                 `}
             </style>
 
-            <div className="bg-black overflow-x-hidden">
+            <div className="bg-purple-600 overflow-x-hidden">
                 <HeroSection />
                 <Section>
                     <ServiceCards />
@@ -142,14 +142,14 @@ const Home = () => {
                     <LatestNews />
                 </Section>
                 <Section>
-                    <div id="contact" className="bg-black contact-form-container px-5 lg:px-10 md:pl-5">
-                        <h2 className="text-left font-semibold mb-5 mt-20 lg:mt-10 text-orange-600">LET'S TALK</h2>
+                    <div id="contact" className="bg-purple-600 contact-form-container px-5 lg:px-10 md:pl-5">
+                        <h2 className="text-left font-semibold mb-5 mt-20 lg:mt-10 text-amber-500">LET'S TALK</h2>
                         <h2 className="text-2xl lg;text-3xl font-bold mb-5 lg:mb-10 text-white text-left">Get in Touch</h2>
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                             <div className="">
-                                <form onSubmit={handleSubmit} className="space-y-6 bg-black py-6 shadow-lg">
+                                <form onSubmit={handleSubmit} className="space-y-6 bg-purple-600 py-6 shadow-lg">
                                     {successMessage && (
-                                        <div className="success-message bg-orange-600 text-white text-center py-2">
+                                        <div className="success-message bg-amber-500 text-white text-center py-2">
                                             Message sent successfully!
                                         </div>
                                     )}
@@ -232,7 +232,7 @@ const Home = () => {
 
                                     <button
                                         type="submit"
-                                        className="bg-orange-600 px-5 py-2 lg:px-10 lg:py-4 text-white lg:font-semibold transition duration-300 shadow-animation cursor-pointer"
+                                        className="bg-amber-500 px-5 py-2 lg:px-10 lg:py-4 text-white lg:font-semibold transition duration-300 shadow-animation cursor-pointer"
                                     >
                                         Submit Message
                                     </button>
@@ -242,10 +242,10 @@ const Home = () => {
                             <div className="w-full aspect-video md:pr-10">
                                 <iframe
                                     className="w-full h-full shadow-lg"
-                                    src="https://www.google.com/maps/embed?pb=!1m16..."
-                                    allowFullScreen=""
-                                    style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
-                                    loading="lazy"
+                                    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14607.996596886385!2d90.36290812581547!3d23.747409749772967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sHouse%20No%3A%20137%2F24%2FA%2C%20Dhanmondi%2C%20Dhaka-1209%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1742632275655!5m2!1sen!2sbd"
+  style={{ border: 0, filter: "invert(100%) hue-rotate(180deg)" }} // This inverts the colors to create a dark mode effect
+  allowFullScreen
+  loading="lazy"
                                 ></iframe>
                             </div>
                         </div>

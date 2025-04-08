@@ -20,7 +20,7 @@ function WholeSaleFBA() {
   }, []);
 
   return (
-    <div className="bg-black min-h-screen py-10 text-gray-500">
+    <div className="bg-purple-600 min-h-screen py-10 text-gray-200">
       {/* Carousel Section */}
       <section className="md:w-full md:max-w-3xl max-w-sm w-[350px] mx-auto mb-10 px-5">
         <Swiper
@@ -47,13 +47,13 @@ function WholeSaleFBA() {
         <h1 className="tex-2xl lg:text-4xl font-bold mb-4 text-white">
           Wholesale FBA & WFS – Scale Your Amazon & Walmart Business!
         </h1>
-        <p className="text-[16px] max-w-3xl mx-auto mb-8 font-normal text-gray-400">
+        <p className="text-[16px] max-w-3xl mx-auto mb-8 font-normal text-gray-200">
           Looking to grow a sustainable and profitable eCommerce business? Our Wholesale FBA (Fulfillment by Amazon) & WFS (Walmart Fulfillment Services) solutions help you source high-demand, brand-approved products and streamline fulfillment for maximum scalability and profit.
         </p>
       </section>
 
       {/* Services Section */}
-      <section className="bg-black px-5 md:px-20 mt-10">
+      <section className="bg-purple-600 px-5 md:px-20 mt-10">
         <h2 className="text-xl lg:text-2xl font-semibold text-white mb-6">Our Wholesale FBA & WFS Services</h2>
 
         <ul className="space-y-4">
@@ -65,18 +65,18 @@ function WholeSaleFBA() {
             "Advertising & Sales Growth Strategy – Boost visibility with Amazon PPC & Walmart Ads.",
           ].map((service, index) => (
             <li key={index} className="flex items-start gap-3 text-lg">
-              <FaCheck className="text-orange-600 text-2xl" />
-              <span className="text-[16px] font-normal lg:font-semibold text-gray-400">{service}</span>
+              <FaCheck className="text-amber-500 text-2xl" />
+              <span className="text-[16px] font-normal lg:font-semibold text-gray-200">{service}</span>
             </li>
           ))}
         </ul>
 
-        <p className="text-orange-600 mt-10">
+        <p className="text-amber-500 mt-10">
           Start and scale your Wholesale FBA & WFS business today with expert guidance!
         </p>
 
         <div className="text-center mt-5">
-          <button className="relative bg-orange-600 px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[16px] lg:text-[18px] cursor-pointer">
+          <button className="relative bg-amber-500 px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[16px] lg:text-[18px] cursor-pointer">
             <Link to="/contact">Contact us today for expert guidance!</Link>
           </button>
         </div>

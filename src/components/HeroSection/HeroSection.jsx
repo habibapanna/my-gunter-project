@@ -1,5 +1,15 @@
 import { useState, useEffect } from "react";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+import { HiOutlineShoppingCart } from "react-icons/hi";
+import { IoGlobeOutline, IoRocketOutline } from "react-icons/io5";
+import { MdOutlineWarehouse } from "react-icons/md";
+
+const services = [
+  { title: "Private Label", icon: <IoRocketOutline />, path: "private-label" },
+  { title: "Retail / Online Arbitrage", icon: <HiOutlineShoppingCart />, path: "retail-arbitrage" },
+  { title: "Wholesale FBA / WFS", icon: <MdOutlineWarehouse />, path: "wholesale-fba" },
+  { title: "Web Development", icon: <IoGlobeOutline />, path: "web-development" },
+];
 
 const HeroSection = () => {
   const [heroes, setHeroes] = useState([]);
@@ -14,17 +24,22 @@ const HeroSection = () => {
   }, []);
 
   const changeSlide = (direction) => {
-    setIsExiting(true); // Start exit animation
+    setIsExiting(true);
     setTimeout(() => {
-      setCurrentIndex((prevIndex) => {
-        if (direction === "next") {
-          return (prevIndex + 1) % heroes.length;
-        } else {
-          return prevIndex === 0 ? heroes.length - 1 : prevIndex - 1;
-        }
-      });
-      setIsExiting(false); // Start enter animation
-    }, 300); // Halfway through exit animation
+      setCurrentIndex((prevIndex) =>
+        direction === "next"
+          ? (prevIndex + 1) % heroes.length
+          : prevIndex === 0
+          ? heroes.length - 1
+          : prevIndex - 1
+      );
+      setIsExiting(false);
+    }, 300);
+  };
+
+  const scrollToServices = () => {
+    const section = document.getElementById("our-services");
+    section?.scrollIntoView({ behavior: "smooth" });
   };
 
   if (heroes.length === 0) {
@@ -32,11 +47,11 @@ const HeroSection = () => {
   }
 
   return (
-    <div className="relative bg-black min-h-screen flex justify-center items-center overflow-hidden mx-auto">
+    <div className="relative bg-purple-600 min-h-screen flex justify-center items-center overflow-hidden mx-auto">
       {/* Left Arrow */}
       <button
         onClick={() => changeSlide("prev")}
-        className="shadow-animation absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 mt-90 lg:mt-0 cursor-pointer"
+        className="shadow-animation absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-amber-500 bg-opacity-50 hover:bg-opacity-80 transition z-40 cursor-pointer"
       >
         <FaArrowLeftLong />
       </button>
@@ -44,15 +59,41 @@ const HeroSection = () => {
       {/* Hero Content */}
       <div className="hero-content flex flex-col-reverse lg:flex-row-reverse items-center w-full px-10">
         {/* Image Section */}
-        <div className="lg:w-1/2 flex justify-center lg:justify-end">
+        <div className="lg:w-1/2 relative flex justify-center lg:justify-end">
           <img
             key={currentIndex}
             src={heroes[currentIndex]?.image || ""}
-            className={`w-2/3 lg:max-w-md shadow-2xl transition-transform duration-700 ${
+            className={`w-2/3 lg:max-w-md shadow-2xl transition-transform duration-700 z-10 ${
               isExiting ? "animate-slide-down" : "animate-slide-up"
             }`}
             alt="Hero"
           />
+
+          {/* Service Cards - Continuous Marquee */}
+{/* Service Cards - Continuous Marquee */}
+<div className="absolute bottom-5 w-full overflow-hidden px-4 z-30">
+  <div className="marquee flex gap-6">
+    {[...services, ...services].map((service, idx) => (
+      <div
+        key={idx}
+        className="min-w-[140px] h-15 backdrop-blur-md bg-white/10 border border-white/30 text-white  flex flex-col justify-center items-center p-2 text-sm shadow-md"
+      >
+        <div className="text-xl">{service.icon}</div>
+        <div className="mt-1">{service.title}</div>
+      </div>
+    ))}
+  </div>
+
+  {/* See More Button - moved here BELOW marquee */}
+  <div className="mt-4 text-center">
+    <button
+      onClick={scrollToServices}
+      className="text-white bg-amber-500 rounded-full px-4 py-1 text-sm hover:bg-white hover:text-purple-600 transition"
+    >
+      See More
+    </button>
+  </div>
+</div>
         </div>
 
         {/* Text Section */}
@@ -62,16 +103,15 @@ const HeroSection = () => {
             isExiting ? "animate-slide-down" : "animate-slide-up"
           } mb-10 mt-10 lg:mt-1 lg:mb-0`}
         >
-          <span className="border-8 w-8 h-20 border-orange-600 bg-orange-600"></span>
+          <span className="border-8 w-8 h-20 border-amber-500 bg-amber-500"></span>
           <h1 className="text-2xl lg:text-6xl font-bold text-white lg:mb-5">
             {heroes[currentIndex]?.title || "Default Title"}
           </h1>
           <p className="py-6 text-white lg:mb-5">
             {heroes[currentIndex]?.description || "Default description."}
           </p>
-
           <div className="flex gap-5 lg:justify-start">
-            <button className="shadow-animation bg-orange-600 py-2 px-4 lg:px-6 lg:py-3 text-white lg:font-semibold transition duration-300 shadow-animation cursor-pointer">
+            <button className="shadow-animation bg-amber-500 py-2 px-4 lg:px-6 lg:py-3 text-white lg:font-semibold transition duration-300 cursor-pointer">
               Get Started
             </button>
           </div>
@@ -81,34 +121,22 @@ const HeroSection = () => {
       {/* Right Arrow */}
       <button
         onClick={() => changeSlide("next")}
-        className="shadow-animation absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-orange-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 mt-90 lg:mt-0 cursor-pointer"
+        className="shadow-animation absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-amber-500 bg-opacity-50 hover:bg-opacity-80 transition z-40 cursor-pointer"
       >
         <FaArrowRightLong />
       </button>
 
-      {/* Animations */}
+      {/* CSS Animations */}
       <style>
         {`
           @keyframes slideUp {
-            from {
-              transform: translateY(50px);
-              opacity: 0;
-            }
-            to {
-              transform: translateY(0);
-              opacity: 1;
-            }
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
           }
 
           @keyframes slideDown {
-            from {
-              transform: translateY(0);
-              opacity: 1;
-            }
-            to {
-              transform: translateY(50px);
-              opacity: 0;
-            }
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(50px); opacity: 0; }
           }
 
           .animate-slide-up {
@@ -118,55 +146,15 @@ const HeroSection = () => {
           .animate-slide-down {
             animation: slideDown 0.3s ease-out;
           }
-        `}
-      </style>
-      <style>
-        {`
-          .shadow-animation {
-              position: relative;
-              overflow: hidden;
+
+          .marquee {
+            animation: marqueeScroll 12s linear infinite;
+            width: max-content;
           }
 
-          .shadow-animation::before,
-          .shadow-animation::after {
-              content: '';
-              position: absolute;
-              width: 50%;
-              height: 100%;
-              background: rgba(0, 0, 0, 0.9);
-              transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-              opacity: 0;
-          }
-
-          .shadow-animation::before {
-              left: 0;
-              bottom: -100%;
-          }
-
-          .shadow-animation::after {
-              right: 0;
-              top: -100%;
-          }
-
-          .shadow-animation:hover::before {
-              transform: translateY(-100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::after {
-              transform: translateY(100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::before,
-          .shadow-animation:hover::after {
-              animation: panelDisappear 1s ease-in-out forwards;
-          }
-
-          @keyframes panelDisappear {
-              0% { opacity: 1; }
-              70% { opacity: 1; }
-              100% { opacity: 0; transform: translateY(0); }
+          @keyframes marqueeScroll {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
           }
         `}
       </style>
