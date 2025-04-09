@@ -149,7 +149,7 @@ const filteredImages = selectedCategory
                             filteredSearchImages.map((item, index) => (
                                 <motion.div 
                                     key={index} 
-                                    className="overflow-hidden shadow-lg"
+                                    className="overflow-hidden shadow-md shadow-gray-900"
                                     initial={{ opacity: 0, y: 100 }} // Start below the viewport (y: 100px)
                                     animate={{ opacity: 1, y: 0 }} // Move to final position (y: 0)
                                     transition={{ duration: 0.6, delay: index * 0.1 }} // Delay for staggered effect

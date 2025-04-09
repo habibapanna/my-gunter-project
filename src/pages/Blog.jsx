@@ -190,7 +190,7 @@ const Blog = () => {
                             {searchedBlogs.map((blog, index) => (
                                 <motion.div
                                     key={blog._id}
-                                    className="bg-black text-white p-4 shadow-md"
+                                    className="bg-black text-white p-4 shadow-md shadow-gray-900"
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.6, delay: index * 0.2 }}

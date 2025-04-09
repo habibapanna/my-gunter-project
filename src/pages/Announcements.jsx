@@ -184,7 +184,7 @@ image} alt="" />
                   {announcements
                     .filter((announcement) => !selectedCategory || announcement.category === selectedCategory)
                     .map((announcement) => (
-                      <div key={announcement.id} className="bg-black shadow-md p-4">
+                      <div key={announcement.id} className="bg-black shadow-md shadow-gray-900 p-4">
                         <img src={announcement.image} alt={announcement.title} className="w-full h-40 object-cover" />
                         <h2 className="text-lg font-bold mt-3 text-white">{announcement.title}</h2>
                         <p className="text-gray-400 mt-2">{announcement.description}</p>
