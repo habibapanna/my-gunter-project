@@ -5,7 +5,7 @@ const OurClients = () => {
   const [clients, setClients] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/clients")
+    fetch("https://my-gunter-project-server.vercel.app/clients")
       .then((res) => res.json())
       .then((data) => setClients(data))
       .catch((error) => console.error("Error fetching clients:", error));

@@ -9,7 +9,7 @@ const ManageOurClients = () => {
 
   const fetchClients = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/clients");
+      const res = await axios.get("https://my-gunter-project-server.vercel.app/clients");
       setClients(res.data);
     } catch (error) {
       console.error("Error fetching clients:", error);
@@ -34,7 +34,7 @@ const ManageOurClients = () => {
 
     if (imageUrl) {
       try {
-        await axios.put(`http://localhost:5000/clients/${id}`, { imageUrl });
+        await axios.put(`https://my-gunter-project-server.vercel.app/clients/${id}`, { imageUrl });
         Swal.fire("Updated!", "The image URL has been updated.", "success");
         fetchClients();
       } catch (error) {
@@ -54,7 +54,7 @@ const ManageOurClients = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`http://localhost:5000/clients/${id}`);
+          await axios.delete(`https://my-gunter-project-server.vercel.app/clients/${id}`);
           Swal.fire("Deleted!", "Label has been deleted.", "success");
           fetchClients();
         } catch (error) {
