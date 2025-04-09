@@ -57,10 +57,11 @@ const Gallery = () => {
         }
     }, [selectedCategory]); // Re-run when selectedCategory changes
 
-    // Filter gallery items by category
-    const filteredImages = selectedCategory
-        ? galleryItems.filter(item => item.category && item.category.toLowerCase() === selectedCategory.toLowerCase())
-        : galleryItems;
+// Filter gallery items by category
+const filteredImages = selectedCategory
+    ? galleryItems.filter(item => item.category && item.category.toLowerCase() === selectedCategory.toLowerCase())
+    : galleryItems; // Show all items when "All Categories" is selected
+
 
     // Apply search filter
     const filteredSearchImages = search
@@ -115,18 +116,27 @@ const Gallery = () => {
 
                         {/* ✅ Category List */}
                         <div className="flex flex-col mb-4">
-                            {categories.map((category, index) => (
-                                <button
-                                    key={index}
-                                    className={`flex justify-between items-center p-3 shadow-md transition-all duration-300 relative transform text-left 
-                                    ${selectedCategory === category ? "bg-amber-500 text-white" : "bg-purple-500 text-white hover:text-amber-500 hover:scale-95"}`}
-                                    onClick={() => setSelectedCategory(category)} // Update category on click
-                                >
-                                    <FaSquareFull className="text-sm mr-5" />
-                                    <span className="text-sm">{category}</span>
-                                </button>
-                            ))}
-                        </div>
+    <button
+        className={`flex justify-between items-center p-3 shadow-md transition-all duration-300 relative transform text-left 
+        ${!selectedCategory ? "bg-amber-500 text-white" : "bg-purple-500 text-white hover:text-amber-500 hover:scale-95"}`}
+        onClick={() => setSelectedCategory("")} // Set selected category to empty string for "All Categories"
+    >
+        <FaSquareFull className="text-sm mr-5" />
+        <span className="text-sm">All Categories</span>
+    </button>
+    {categories.map((category, index) => (
+        <button
+            key={index}
+            className={`flex justify-between items-center p-3 shadow-md transition-all duration-300 relative transform text-left 
+            ${selectedCategory === category ? "bg-amber-500 text-white" : "bg-purple-500 text-white hover:text-amber-500 hover:scale-95"}`}
+            onClick={() => setSelectedCategory(category)} // Update category on click
+        >
+            <FaSquareFull className="text-sm mr-5" />
+            <span className="text-sm">{category}</span>
+        </button>
+    ))}
+</div>
+
                     </div>
                 </div>
 

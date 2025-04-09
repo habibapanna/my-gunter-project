@@ -52,18 +52,44 @@ const Announcements = () => {
     setSelectedCategory(category);
     setSelectedAnnouncement(null);
     setLoading(false);
-  };
+    
+    // Scroll to the details section after selecting a category
+    window.scrollTo({
+      top: document.getElementById("announcement-details").offsetTop,
+      behavior: "smooth",
+    });
+};
 
-  const handleAnnouncementClick = (announcement) => {
+const handleAnnouncementClick = (announcement) => {
     setLoading(true);
     setSelectedAnnouncement(announcement);
     setSelectedCategory(null);
     setLoading(false);
+
+    // Scroll to the details section after selecting an announcement
+    window.scrollTo({
+      top: document.getElementById("announcement-details").offsetTop,
+      behavior: "smooth",
+    });
+};
+
+
+  const handleAllAnnouncements = () => {
+    setSelectedAnnouncement(null);
+    setSelectedCategory(null);
   };
+  
 
   const handleReadMore = (announcement) => {
     setSelectedAnnouncement(announcement);
-  };
+    // Scroll to the top of the details section
+    window.scrollTo({
+      top: document.getElementById("announcement-details").offsetTop,
+      behavior: "smooth",
+    });
+};
+
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -107,6 +133,7 @@ const Announcements = () => {
       Swal.fire("Error", "Something went wrong. Please try again later.", "error");
     }
   };
+
   // Handle input changes for form fields
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -153,7 +180,7 @@ const Announcements = () => {
           ) : (
             <>
               {selectedAnnouncement ? (
-                <div className="bg-purple-600 p-4 shadow-md">
+                <div id="announcement-details" className="bg-purple-600 p-4 shadow-md">
                   <img className="w-full h-[400px] object-cover" src={selectedAnnouncement.
 image} alt="" />
                   <h2 className="text-white text-xl font-bold mt-5">{selectedAnnouncement.title}</h2>
@@ -214,14 +241,22 @@ image} alt="" />
             </div>
           </div>
 {/* Category */}
-          <div className="bg-purple-500 shadow-md mt-4">
+<div className="bg-purple-500 shadow-md mt-4">
   <h1 className="text-white font-bold p-3">Categories</h1>
-  <div className="border-1 border-white w-80 mx-auto"></div>
+  
+  <div className="border-1 border-white w-86 mx-auto"></div>
+  <button
+      className="bg-amber-500 px-2 py-3 text-white w-full mt-4 text-left shadow-animation flex items-center"
+      onClick={handleAllAnnouncements}
+    >
+      <GoDotFill className="text-sm mr-2" />
+      All Announcements
+    </button>
   <div className="flex flex-col mt-2">
     {categories.map((category, index) => (
       <button
         key={index}
-        className={`text-white p-2 items-center flex hover:bg-amber-500  text-left ${selectedCategory === category ? 'bg-amber-500' : ''}`}
+        className={`text-white p-2 items-center flex hover:bg-amber-500 text-left ${selectedCategory === category ? 'bg-amber-500' : ''}`}
         onClick={() => handleCategoryClick(category)}
       >
         <GoDotFill className="text-sm mr-2" />
@@ -230,6 +265,7 @@ image} alt="" />
     ))}
   </div>
 </div>
+
 
 
           {/* Apply Now Button */}
