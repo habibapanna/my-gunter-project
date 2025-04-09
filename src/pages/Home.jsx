@@ -151,7 +151,7 @@ const Home = () => {
                         <h2 className="text-2xl lg;text-3xl font-bold mb-5 lg:mb-10 text-white text-left">Get in Touch</h2>
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                             <div className="">
-                                <form onSubmit={handleSubmit} className="space-y-6 bg-purple-600 py-6 shadow-lg">
+                                <form onSubmit={handleSubmit} className="space-y-6 bg-purple-600 py-6">
                                     {successMessage && (
                                         <div className="success-message bg-amber-500 text-white text-center py-2">
                                             Message sent successfully!
