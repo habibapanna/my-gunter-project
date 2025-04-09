@@ -29,7 +29,7 @@ function DigitalMarketing() {
   }, []);
 
   return (
-    <div className="bg-purple-600 min-h-screen pt-10 text-white">
+    <div className="bg-black min-h-screen pt-10 text-white">
       {/* Carousel Section */}
       <section className="md:w-full md:max-w-3xl max-w-sm w-[350px] mx-auto mb-10 px-5">
         <Swiper
@@ -54,15 +54,15 @@ function DigitalMarketing() {
       {/* Hero Section */}
       <section className="px-5">
         <h1 className="text-2xl lg:text-4xl font-bold mb-4">Digital Marketing Services – Grow Your Brand & Boost Sales!</h1>
-        <p className="text-[16px] text-gray-200 max-w-3xl mx-auto font-normal">
+        <p className="text-[16px] text-gray-400 max-w-3xl mx-auto font-normal">
           Want to scale your business and reach the right audience? Our expert digital marketing services help you increase brand visibility, website traffic, and conversions through SEO, social media, PPC, and content marketing.
         </p>
       </section>
 
       {/* Services Section */}
-      <section className="services bg-purple-600 px-5 md:px-20 mt-10">
+      <section className="services bg-black px-5 md:px-20 mt-10">
         <h2 className="text-xl lg:text-2xl font-semibold mb-6">Our Digital Marketing Services:</h2>
-        <ul className="space-y-4 text-[16px] text-gray-200">
+        <ul className="space-y-4 text-[16px] text-gray-400">
           {services.map((service, index) => (
             <motion.li 
               key={index} 
@@ -71,13 +71,13 @@ function DigitalMarketing() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <FaDiamond className="text-amber-500" /> {service}
+              <FaDiamond className="text-purple-600" /> {service}
             </motion.li>
           ))}
         </ul>
 
         <div className="text-center mt-8">
-          <button className="relative bg-amber-500 px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[16px] lg:text-[18px] cursor-pointer">
+          <button className="relative bg-purple-600 px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[16px] lg:text-[18px] cursor-pointer">
             <Link to='/contact'>Contact us today for expert guidance!</Link>
           </button>
         </div>

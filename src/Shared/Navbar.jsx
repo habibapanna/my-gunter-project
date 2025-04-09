@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { SiDreamstime } from "react-icons/si";
 import AuthContext from "../Context/AuthContext/AuthContext";
-import Logo from "../assets/Logow.svg";
+import Logo from "../assets/Logoh.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,8 +54,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="border border-stone-400 sticky top-0 backdrop-blur-md z-50">
-      <nav className={`${isBlackBg ? "bg-purple-600" : "bg-purple-600"} bg-opacity-80 text-white px-4 py-2 transition duration-300`}>
+    <div className="border border-stone-800 sticky top-0 backdrop-blur-md z-50">
+      <nav className={`${isBlackBg ? "bg-black" : "bg-black"} bg-opacity-80 text-white px-4 py-2 transition duration-300`}>
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center justify-center gap-1">
@@ -71,11 +71,11 @@ const Navbar = () => {
                 <NavLink
                   to={path}
                   className={({ isActive }) =>
-                    `relative transition duration-300 hover:text-amber-500 pb-1 font-semibold ${
+                    `relative transition duration-300 hover:text-purple-600 pb-1 font-semibold ${
                       isActive
-                        ? "text-amber-500 border-b-2 border-amber-500"
+                        ? "text-purple-600 border-b-2 border-purple-600"
                         : `text-${isBlackBg ? "white" : "black"} border-b-2 border-transparent`
-                    } hover:border-amber-500`
+                    } hover:border-purple-600`
                   }
                 >
                   {name}
@@ -87,7 +87,7 @@ const Navbar = () => {
             {adminChecked && isAdmin && (
               <li>
                 <Link to="/dashboard/all-user">
-                  <button className="text-sm bg-amber-500 px-2 shadow-animation cursor-pointer font-bold">Go to Dashboard</button>
+                  <button className="text-sm bg-purple-600 px-2 shadow-animation cursor-pointer font-bold">Go to Dashboard</button>
                 </Link>
               </li>
             )}
@@ -98,7 +98,7 @@ const Navbar = () => {
                 Logout
               </button>
             ) : (
-              <button className="bg-amber-500 px-2 text-sm border-none shadow-animation cursor-pointer">
+              <button className="bg-purple-600 px-2 text-sm border-none shadow-animation cursor-pointer">
                 <Link to="/login">Login</Link>
               </button>
             )}
@@ -106,7 +106,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Toggle */}
           <button className="text-white md:hidden text-2xl" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <FiX className="hover:text-gray-200" /> : <FiMenu className="hover:text-gray-200" />}
+            {isOpen ? <FiX className="hover:text-gray-400" /> : <FiMenu className="hover:text-gray-400" />}
           </button>
         </div>
 
@@ -119,11 +119,11 @@ const Navbar = () => {
                   <NavLink
                     to={path}
                     className={({ isActive }) =>
-                      `block py-2 transition duration-300 hover:text-amber-500 pb-1 ${
+                      `block py-2 transition duration-300 hover:text-purple-600 pb-1 ${
                         isActive
-                          ? "text-amber-500 underline border-amber-500"
+                          ? "text-purple-600 underline border-purple-600"
                           : `text-white hover:underline border-transparent`
-                      } hover:border-amber-500`
+                      } hover:border-purple-600`
                     }
                     onClick={() => setIsOpen(false)}
                   >
@@ -136,7 +136,7 @@ const Navbar = () => {
               {adminChecked && isAdmin && (
                 <li>
                   <Link to="/dashboard/all-user">
-                    <button className="bg-amber-500 px-2 text-sm border-none shadow-animation">Go to Dashboard</button>
+                    <button className="bg-purple-600 px-2 text-sm border-none shadow-animation">Go to Dashboard</button>
                   </Link>
                 </li>
               )}
@@ -148,7 +148,7 @@ const Navbar = () => {
                     Logout
                   </button>
                 ) : (
-                  <button className="bg-amber-500 px-2 text-sm border-none shadow-animation">
+                  <button className="bg-purple-600 px-2 text-sm border-none shadow-animation">
                     <Link to="/login">Login</Link>
                   </button>
                 )}

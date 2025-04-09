@@ -45,15 +45,15 @@ const LatestNews = () => {
   };
 
   return (
-    <div className="bg-purple-600 p-5 lg:p-10">
+    <div className="bg-black p-5 lg:p-10">
       <div className="flex flex-col md:flex-row justify-between mb-6">
         <div>
-          <h3 className="text-amber-500 font-semibold">OUR COMPANY BLOG</h3>
+          <h3 className="text-purple-600 font-semibold">OUR COMPANY BLOG</h3>
           <h2 className="text-2xl lg:text-4xl font-bold mt-3 text-white">Latest News</h2>
           <div className="flex gap-1 mt-8 mb-5">
-            <span className="border-2 w-8 border-amber-500"></span>
-            <span className="border-2 w-2 border-amber-500"></span>
-            <span className="border-2 w-3 border-amber-500"></span>
+            <span className="border-2 w-8 border-purple-600"></span>
+            <span className="border-2 w-2 border-purple-600"></span>
+            <span className="border-2 w-3 border-purple-600"></span>
           </div>
         </div>
       </div>
@@ -82,9 +82,9 @@ const LatestNews = () => {
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
               />
               <div className="h-[130px] absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[110%] bg-black backdrop-blur-md text-white p-6 flex flex-col gap-3 z-10">
-                <span className="bg-amber-500 px-3 py-1 w-max text-sm ml-3">{formatDate(news.date)}</span>
+                <span className="bg-purple-600 px-3 py-1 w-max text-sm ml-3">{formatDate(news.date)}</span>
                 <h3 className="text-sm  lg:text-[16px] lg:font-semibold text-left text-white px-1 ml-3">{news.title}</h3>
-                <button className="text-amber-500 hover:underline lg:font-semibold text-left text-sm ml-3 cursor-pointer">
+                <button className="text-purple-600 hover:underline lg:font-semibold text-left text-sm ml-3 cursor-pointer">
                   <Link to="/announcements">READ MORE</Link>
                 </button>
               </div>
@@ -99,12 +99,12 @@ const LatestNews = () => {
           <span
             key={index}
             className={`h-[3px] w-10 transition-all duration-500 ${
-              activeIndex % announcements.length === index ? "bg-amber-500" : "bg-white"
+              activeIndex % announcements.length === index ? "bg-purple-600" : "bg-white"
             }`}
           ></span>
         ))}
       </div>
-      <div className="mt-10"><button className="bg-amber-500 px-4 py-2 lg:px-6 lg:py-4 text-white lg;font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto cursor-pointer">
+      <div className="mt-10"><button className="bg-purple-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg;font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto cursor-pointer">
           <Link to="/announcements">View All</Link>
           <FaArrowRightLong />
         </button></div>

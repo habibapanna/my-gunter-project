@@ -27,16 +27,16 @@ const RecentProjects = () => {
   }, []);
 
   return (
-    <div className="bg-purple-600 p-6 md:p-10">
+    <div className="bg-black p-6 md:p-10">
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between text-left mb-6">
         <div>
-          <h3 className="text-amber-500 font-semibold">OUR COMPLETED PROJECTS</h3>
+          <h3 className="text-purple-600 font-semibold">OUR COMPLETED PROJECTS</h3>
           <h2 className="text-2xl md:text-4xl font-bold mt-3 text-white">Recent Projects</h2>
           <div className="flex gap-1 mt-6 mb-5 justify-start">
-            <span className="border-2 w-8 border-amber-500"></span>
-            <span className="border-2 w-2 border-amber-500"></span>
-            <span className="border-2 w-3 border-amber-500"></span>
+            <span className="border-2 w-8 border-purple-600"></span>
+            <span className="border-2 w-2 border-purple-600"></span>
+            <span className="border-2 w-3 border-purple-600"></span>
           </div>
         </div>
       </div>
@@ -74,7 +74,7 @@ const RecentProjects = () => {
 
                 {/* Text Card */}
                 <div className="relative bg-black text-white text-lg py-10 px-2 w-full text-center transition-all duration-500 h-[100px]">
-                  <div className="absolute bottom-0 left-0 w-full h-full bg-amber-500 transform scale-y-0 group-hover:scale-y-100 origin-bottom transition-all duration-500"></div>
+                  <div className="absolute bottom-0 left-0 w-full h-full bg-purple-600 transform scale-y-0 group-hover:scale-y-100 origin-bottom transition-all duration-500"></div>
                   <span className="relative z-10 text-sm lg:text-lg">{project.title}</span>
                 </div>
               </div>
@@ -90,7 +90,7 @@ const RecentProjects = () => {
             <span
               key={index}
               className={`h-[3px] w-10 transition-all duration-500 ${
-                activeIndex % projects.length === index ? "bg-amber-500" : "bg-white"
+                activeIndex % projects.length === index ? "bg-purple-600" : "bg-white"
               }`}
             ></span>
           ))}
@@ -99,7 +99,7 @@ const RecentProjects = () => {
 
       {/* View All Projects Button */}
       <div className="mt-10">
-        <button className="shadow-animation bg-amber-500 px-4 md:px-6 py-2 md:py-4 text-white lg:font-semibold flex items-center gap-2 shadow-animation mt-4 md:mt-0 mx-auto cursor-pointer">
+        <button className="shadow-animation bg-purple-600 px-4 md:px-6 py-2 md:py-4 text-white lg:font-semibold flex items-center gap-2 shadow-animation mt-4 md:mt-0 mx-auto cursor-pointer">
           <Link to="/gallery">All Projects </Link>
           <FaArrowRightLong />
         </button>

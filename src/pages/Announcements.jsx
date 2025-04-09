@@ -49,16 +49,17 @@ const Announcements = () => {
 
   const handleCategoryClick = (category) => {
     setLoading(true);
-    setSelectedCategory(category);
+    setSelectedCategory(category); // This will set the category to 'null' for All Announcements
     setSelectedAnnouncement(null);
     setLoading(false);
     
     // Scroll to the details section after selecting a category
     window.scrollTo({
-      top: document.getElementById("announcement-details").offsetTop,
+      top: document.getElementById("announcement-details")?.offsetTop,
       behavior: "smooth",
     });
-};
+  };
+  
 
 const handleAnnouncementClick = (announcement) => {
     setLoading(true);
@@ -73,13 +74,6 @@ const handleAnnouncementClick = (announcement) => {
     });
 };
 
-
-  const handleAllAnnouncements = () => {
-    setSelectedAnnouncement(null);
-    setSelectedCategory(null);
-  };
-  
-
   const handleReadMore = (announcement) => {
     setSelectedAnnouncement(announcement);
     // Scroll to the top of the details section
@@ -88,8 +82,6 @@ const handleAnnouncementClick = (announcement) => {
       behavior: "smooth",
     });
 };
-
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -157,17 +149,17 @@ const handleAnnouncementClick = (announcement) => {
   );
 
   return (
-    <div className="bg-purple-600">
+    <div className="bg-black">
       <div className="bg-black py-20">
         <h1 className="text-4xl font-bold mb-5 text-center text-white">
           {currentAnnouncement ? currentAnnouncement.title : "Announcements"}
         </h1>
         <p className="text-center text-white">
-          <Link to="/" className="mr-3 transition-colors duration-300 hover:text-amber-500">
+          <Link to="/" className="mr-3 transition-colors duration-300 hover:text-purple-600">
             Home
           </Link>
           /
-          <span className="ml-3 text-amber-500 font-semibold">
+          <span className="ml-3 text-purple-600 font-semibold">
             {currentAnnouncement ? currentAnnouncement.title : "Announcements"}
           </span>
         </p>
@@ -180,24 +172,24 @@ const handleAnnouncementClick = (announcement) => {
           ) : (
             <>
               {selectedAnnouncement ? (
-                <div id="announcement-details" className="bg-purple-600 p-4 shadow-md">
+                <div id="announcement-details" className="bg-black p-4 shadow-md">
                   <img className="w-full h-[400px] object-cover" src={selectedAnnouncement.
 image} alt="" />
                   <h2 className="text-white text-xl font-bold mt-5">{selectedAnnouncement.title}</h2>
-                  <p className="text-gray-200 mt-2">{selectedAnnouncement.description}</p>
-                  <p className="text-gray-200 mt-2">{selectedAnnouncement.details}</p>
+                  <p className="text-gray-400 mt-2">{selectedAnnouncement.description}</p>
+                  <p className="text-gray-400 mt-2">{selectedAnnouncement.details}</p>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {announcements
                     .filter((announcement) => !selectedCategory || announcement.category === selectedCategory)
                     .map((announcement) => (
-                      <div key={announcement.id} className="bg-purple-600 shadow-md p-4">
+                      <div key={announcement.id} className="bg-black shadow-md p-4">
                         <img src={announcement.image} alt={announcement.title} className="w-full h-40 object-cover" />
                         <h2 className="text-lg font-bold mt-3 text-white">{announcement.title}</h2>
-                        <p className="text-gray-200 mt-2">{announcement.description}</p>
+                        <p className="text-gray-400 mt-2">{announcement.description}</p>
                         <button
-                          className="text-amber-500 mt-2 hover:underline cursor-pointer"
+                          className="text-purple-600 mt-2 hover:underline cursor-pointer"
                           onClick={() => handleReadMore(announcement)}
                         >
                           Read More
@@ -210,19 +202,19 @@ image} alt="" />
           )}
         </div>
 {/* Search bar */}
-        <div className="col-span-12 md:col-span-4 bg-purple-600 p-4">
+        <div className="col-span-12 md:col-span-4 bg-black p-4">
           <div className="relative mb-4">
-            <MdOutlineSearch className="absolute left-3 top-3 text-amber-500 text-xl cursor-pointer" />
+            <MdOutlineSearch className="absolute left-3 top-3 text-purple-600 text-xl cursor-pointer" />
             <input
               type="text"
               placeholder="Search Services..."
-              className="w-full pl-10 pr-4 py-3 bg-purple-500 shadow-md text-white focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full pl-10 pr-4 py-3 bg-black shadow-md text-white focus:outline-none focus:ring-2 focus:ring-white"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
 {/* Title */}
-          <div className="bg-purple-500 shadow-md">
+          <div className="bg-black shadow-md">
             <h1 className="text-white text-lg font-bold p-3">Recent Announcements</h1>
             <div className="border-1 border-white mb-5 w-80 mx-auto"></div>
             <div className="flex flex-col ">
@@ -231,7 +223,7 @@ image} alt="" />
                 .map((announcement) => (
                   <button
                     key={announcement.id}
-                    className={`p-3 text-left items-center flex ${selectedAnnouncement === announcement ? "bg-amber-500 text-white" : "bg-purple-500 text-white hover:text-amber-500 hover:scale-95"}`}
+                    className={`p-3 text-left items-center flex ${selectedAnnouncement === announcement ? "bg-purple-600 text-white" : "bg-black text-white hover:text-purple-600 hover:scale-95"}`}
                     onClick={() => handleAnnouncementClick(announcement)}
                   >
                     <FaSquareFull className="text-sm mr-2" />
@@ -241,38 +233,35 @@ image} alt="" />
             </div>
           </div>
 {/* Category */}
-<div className="bg-purple-500 shadow-md mt-4">
+<div className="bg-black shadow-md mt-4">
   <h1 className="text-white font-bold p-3">Categories</h1>
-  
   <div className="border-1 border-white w-86 mx-auto"></div>
+  <div className="flex flex-col mt-2">
   <button
-      className="bg-amber-500 px-2 py-3 text-white w-full mt-4 text-left shadow-animation flex items-center"
-      onClick={handleAllAnnouncements}
+    className={`text-white p-2 items-center flex hover:bg-purple-600 text-left ${selectedCategory === null ? 'bg-purple-600' : ''}`}
+    onClick={() => handleCategoryClick(null)}
+  >
+    <GoDotFill className="text-sm mr-2" />
+    All Announcements
+  </button>
+  {categories.map((category, index) => (
+    <button
+      key={index}
+      className={`text-white p-2 items-center flex hover:bg-purple-600 text-left ${selectedCategory === category ? 'bg-purple-600' : ''}`}
+      onClick={() => handleCategoryClick(category)}
     >
       <GoDotFill className="text-sm mr-2" />
-      All Announcements
+      {category}
     </button>
-  <div className="flex flex-col mt-2">
-    {categories.map((category, index) => (
-      <button
-        key={index}
-        className={`text-white p-2 items-center flex hover:bg-amber-500 text-left ${selectedCategory === category ? 'bg-amber-500' : ''}`}
-        onClick={() => handleCategoryClick(category)}
-      >
-        <GoDotFill className="text-sm mr-2" />
-        {category}
-      </button>
-    ))}
-  </div>
+  ))}
 </div>
 
-
-
+</div>
           {/* Apply Now Button */}
           <div className="text-center mt-6">
             <button
               onClick={() => setModalIsOpen(true)}
-              className="bg-amber-500 px-6 py-3 text-white font-semibold transition duration-300 mt-3 shadow-animation cursor-pointer"
+              className="bg-purple-600 px-6 py-3 text-white font-semibold transition duration-300 mt-3 shadow-animation cursor-pointer"
             >
               Apply Now
             </button>
@@ -289,11 +278,11 @@ image} alt="" />
       >
         <button
           onClick={() => setModalIsOpen(false)}
-          className="absolute top-3 right-3 text-amber-500 text-2xl"
+          className="absolute top-3 right-3 text-purple-600 text-2xl"
         >
           &times;
         </button>
-        <h2 className="text-xl font-semibold mb-4 text-center text-amber-500 mt-2 cursor-pointer">
+        <h2 className="text-xl font-semibold mb-4 text-center text-purple-600 mt-2 cursor-pointer">
           Apply Now
         </h2>
 
@@ -373,7 +362,7 @@ image} alt="" />
         <div className="text-center mt-5">
           <button
             onClick={handleSubmit}
-            className="bg-amber-500 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation mt-3 cursor-pointer"
+            className="bg-purple-600 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation mt-3 cursor-pointer"
           >
             Submit Application
           </button>

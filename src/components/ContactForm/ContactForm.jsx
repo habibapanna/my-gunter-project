@@ -58,8 +58,8 @@ const ContactForm = () => {
   
 
   return (
-    <div className="bg-purple-600 p-6 md:p-10">
-      <h2 className="text-center font-semibold text-lg md:text-xl mb-3 text-amber-500 mt-5">
+    <div className="bg-black p-6 md:p-10">
+      <h2 className="text-center font-semibold text-lg md:text-xl mb-3 text-purple-600 mt-5">
         LET'S TALK
       </h2>
       <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center ">
@@ -67,7 +67,7 @@ const ContactForm = () => {
       </h2>
 
       {successMessage && (
-        <div className="mb-6 text-center text-amber-500 text-lg font-semibold animate-fade">
+        <div className="mb-6 text-center text-purple-600 text-lg font-semibold animate-fade">
           {successMessage}
         </div>
       )}
@@ -112,7 +112,7 @@ const ContactForm = () => {
             </div>
             <button
               type="submit"
-              className="w-full md:w-auto bg-amber-500 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation cursor-pointer"
+              className="w-full md:w-auto bg-purple-600 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation cursor-pointer"
             >
               Submit Message
             </button>

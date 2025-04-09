@@ -28,9 +28,9 @@ const AnimatedStick = () => {
                 }
                 `}
             </style>
-            <div className="relative w-[2px] h-16 bg-amber-500 overflow-hidden mx-auto mt-2">
-                <div className="falling absolute left-0 top-0 w-[2px] h-8 bg-purple-600"></div>
-                <div className="falling absolute left-0 top-0 w-[2px] h-4 bg-purple-600"></div>
+            <div className="relative w-[2px] h-16 bg-purple-600 overflow-hidden mx-auto mt-2">
+                <div className="falling absolute left-0 top-0 w-[2px] h-8 bg-black"></div>
+                <div className="falling absolute left-0 top-0 w-[2px] h-4 bg-black"></div>
             </div>
         </>
     );
@@ -119,7 +119,7 @@ const Home = () => {
                 `}
             </style>
 
-            <div className="bg-purple-600 overflow-x-hidden">
+            <div className="bg-black overflow-x-hidden">
                 <HeroSection />
                 <Section>
                     <OurClients></OurClients>
@@ -146,14 +146,14 @@ const Home = () => {
                     <LatestNews />
                 </Section>
                 <Section>
-                    <div id="contact" className="bg-purple-600 contact-form-container px-5 lg:px-10 md:pl-5">
-                        <h2 className="text-left font-semibold mb-5 mt-20 lg:mt-10 text-amber-500">LET'S TALK</h2>
+                    <div id="contact" className="bg-black contact-form-container px-5 lg:px-10 md:pl-5">
+                        <h2 className="text-left font-semibold mb-5 mt-20 lg:mt-10 text-purple-600">LET'S TALK</h2>
                         <h2 className="text-2xl lg;text-3xl font-bold mb-5 lg:mb-10 text-white text-left">Get in Touch</h2>
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                             <div className="">
-                                <form onSubmit={handleSubmit} className="space-y-6 bg-purple-600 py-6">
+                                <form onSubmit={handleSubmit} className="space-y-6 bg-black py-6">
                                     {successMessage && (
-                                        <div className="success-message bg-amber-500 text-white text-center py-2">
+                                        <div className="success-message bg-purple-600 text-white text-center py-2">
                                             Message sent successfully!
                                         </div>
                                     )}
@@ -236,7 +236,7 @@ const Home = () => {
 
                                     <button
                                         type="submit"
-                                        className="bg-amber-500 px-5 py-2 lg:px-10 lg:py-4 text-white lg:font-semibold transition duration-300 shadow-animation cursor-pointer"
+                                        className="bg-purple-600 px-5 py-2 lg:px-10 lg:py-4 text-white lg:font-semibold transition duration-300 shadow-animation cursor-pointer"
                                     >
                                         Submit Message
                                     </button>

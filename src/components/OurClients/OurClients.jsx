@@ -13,14 +13,20 @@ const OurClients = () => {
 
   return (
     <div className="mb-10 px-5 lg:px-10 py-10">
-      <h2 className="text-2xl lg:text-4xl font-semibold mb-6 text-amber-500">Our Clients</h2>
+      <h3 className="text-purple-600 text-xl font-semibold mb-3">Meet Our Clients</h3>
+      <h2 className="text-2xl lg:text-4xl font-semibold mb-8 text-white">Our Clients</h2>
+      <div className='flex gap-1 mb-5 text-purple-600 group-hover:text-white transition-colors duration-500'>
+                        <span className='border-2 w-8'></span>
+                        <span className='border-2 w-2'></span>
+                        <span className='border-2 w-3'></span>
+                    </div>
       <Marquee direction="left" pauseOnHover speed={50}>
         {clients.map((client) => (
           <img
             key={client._id}
             src={client.imageUrl}
             alt="client-logo"
-            className="w-32 px-2 h-20 bg-white object-contain mx-6"
+            className="w-32 h-20 object-contain mx-6"
           />
         ))}
       </Marquee>

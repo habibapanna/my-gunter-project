@@ -42,18 +42,18 @@ const Services = () => {
     }, [location, navigate]); // This ensures the redirect occurs only on page load or URL change
 
     return ( 
-        <div className="bg-purple-600"> 
+        <div className="bg-black"> 
             {/* ✅ Banner Section */}
             <div className="bg-black py-16 text-center"> 
                 <h1 className="text-2xl lg:text-4xl font-bold mb-3 text-white"> 
                     {currentService ? currentService.title : "Services"} 
                 </h1> 
                 <p className="text-white"> 
-                    <Link to="/" className="mr-2 hover:text-amber-500 hover:underline"> 
+                    <Link to="/" className="mr-2 hover:text-purple-600 hover:underline"> 
                         Home 
                     </Link> 
                     / 
-                    <span className="ml-2 text-amber-500 font-semibold"> 
+                    <span className="ml-2 text-purple-600 font-semibold"> 
                         {currentService ? currentService.title : "Services"} 
                     </span> 
                 </p> 
@@ -62,14 +62,14 @@ const Services = () => {
             <div className="p-6 lg:p-10 grid grid-cols-1 lg:grid-cols-12 lg:gap-6">  
 
                 {/* ✅ Sidebar */} 
-                <div className="lg:col-span-4 bg-purple-600 p-4 transition-all duration-300"> 
+                <div className="lg:col-span-4 bg-black p-4 transition-all duration-300"> 
                     {/* ✅ Search Bar */}
                     <div className="relative mb-4">
-                        <MdOutlineSearch className="absolute left-3 top-3 text-amber-500 text-xl cursor-pointer" />
+                        <MdOutlineSearch className="absolute left-3 top-3 text-purple-600 text-xl cursor-pointer" />
                         <input
                             type="text"
                             placeholder="Search Services..."
-                            className="w-full pl-10 pr-4 py-3 shadow-md text-white focus:outline-none focus:ring-2 bg-purple-500 focus:ring-white"
+                            className="w-full pl-10 pr-4 py-3 shadow-md text-white focus:outline-none focus:ring-2 bg-black focus:ring-white"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
@@ -82,8 +82,8 @@ const Services = () => {
                                 key={index}
                                 className={`flex justify-between items-center p-3 border-b border-stone-500 shadow-md  transition-all duration-300 cursor-pointer
                                     ${location.pathname === service.path 
-                                        ? "bg-amber-500 text-white" 
-                                        : "bg-purple-500 text-gray-200 hover:bg-amber-500 hover:text-white"
+                                        ? "bg-purple-600 text-white" 
+                                        : "bg-black text-gray-400 hover:bg-purple-600 hover:text-white"
                                     }`}
                                 onClick={() => {
                                     navigate(service.path);
@@ -98,7 +98,7 @@ const Services = () => {
                 </div>
 
                 {/* ✅ Right Content Area */}
-                <div className="lg:col-span-8 flex justify-center items-center text-gray-200 text-xl font-semibold">
+                <div className="lg:col-span-8 flex justify-center items-center text-gray-400 text-xl font-semibold">
                     {currentService ? (
                         <Outlet />
                     ) : (

@@ -54,11 +54,11 @@ const HeroSection = () => {
   }
 
   return (
-    <div className="relative bg-purple-600 min-h-screen flex justify-center items-center overflow-hidden mx-auto">
+    <div className="relative bg-black min-h-screen flex justify-center items-center overflow-hidden mx-auto">
       {/* Left Arrow */}
       <button
         onClick={() => changeSlide("prev")}
-        className="shadow-animation absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-amber-500 bg-opacity-50 hover:bg-opacity-80 transition z-40 cursor-pointer"
+        className="shadow-animation absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-purple-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 cursor-pointer"
       >
         <FaArrowLeftLong />
       </button>
@@ -83,7 +83,7 @@ const HeroSection = () => {
     {[...services, ...services].map((service, idx) => (
       <div
         key={idx}
-        className="min-w-[140px] h-15 backdrop-blur-md bg-white/10 border border-white/30 text-white  flex flex-col justify-center items-center p-2 text-sm shadow-md rounded-full"
+        className="min-w-[140px] h-15 backdrop-blur-md bg-white/10 border border-white/10 text-white  flex flex-col justify-center items-center p-2 text-sm shadow-md rounded-full"
       >
         <div className="mt-1">{service.title}</div>
       </div>
@@ -109,16 +109,16 @@ const HeroSection = () => {
             isExiting ? "animate-slide-down" : "animate-slide-up"
           } mb-10 mt-10 lg:mt-1 lg:mb-0`}
         >
-          <span className="border-8 w-8 h-20 border-amber-500 bg-amber-500"></span>
+          <span className="border-8 w-8 h-20 border-purple-600 bg-purple-600"></span>
           <h1 className="text-2xl lg:text-6xl font-bold text-white lg:mb-5">
             {heroes[currentIndex]?.title || "Default Title"}
           </h1>
-          <p><span className="text-amber-500">★★★★★</span> Rated 5/5 | Based on 20+ Happy Clients</p>
+          <p><span className="text-purple-600">★★★★★</span> Rated 5/5 | Based on 20+ Happy Clients</p>
           <p className="py-6 text-white lg:mb-5">
             {heroes[currentIndex]?.description || "Default description."}
           </p>
           <div className="flex gap-5 lg:justify-start">
-            <button onClick={scrollToContact} className="flex items-center shadow-animation bg-amber-500 py-2 px-4 lg:px-6 lg:py-3 text-white lg:font-semibold transition duration-300 cursor-pointer">
+            <button onClick={scrollToContact} className="flex items-center shadow-animation bg-purple-600 py-2 px-4 lg:px-6 lg:py-3 text-white lg:font-semibold transition duration-300 cursor-pointer">
             <GrContact className="text-xl mr-2" />
               Contact Us
             </button>
@@ -129,7 +129,7 @@ const HeroSection = () => {
       {/* Right Arrow */}
       <button
         onClick={() => changeSlide("next")}
-        className="shadow-animation absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-amber-500 bg-opacity-50 hover:bg-opacity-80 transition z-40 cursor-pointer"
+        className="shadow-animation absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-purple-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 cursor-pointer"
       >
         <FaArrowRightLong />
       </button>

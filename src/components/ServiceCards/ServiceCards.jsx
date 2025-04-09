@@ -6,13 +6,13 @@ import { TbTargetArrow } from 'react-icons/tb';
 
 const ServiceCards = () => {
     return (
-        <div className='bg-purple-600 py-10'>
+        <div className='bg-black py-10'>
            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8 px-5 lg:px-10'>
                 {/* Card 1 */}
-                <div className='relative p-5 lg:p-10 bg-black backdrop-blur-md opacity-95 transition-colors duration-500 group hover:bg-amber-500'>
-                    <SiAmazonsimpleemailservice className='text-amber-500 text-3xl lg:text-5xl mb-5 transition-colors duration-500 group-hover:text-white' />
+                <div className='relative p-5 lg:p-10 bg-stone-900 backdrop-blur-md opacity-95 transition-colors duration-500 group hover:bg-purple-600'>
+                    <SiAmazonsimpleemailservice className='text-purple-600 text-3xl lg:text-5xl mb-5 transition-colors duration-500 group-hover:text-white' />
                     <h1 className='text-xl lg:text-2xl font-bold mb-3 text-white group-hover:text-white transition-colors duration-500'>E-Commerce Business Management</h1>
-                    <div className='flex gap-1 mb-5 text-amber-500 group-hover:text-white transition-colors duration-500'>
+                    <div className='flex gap-1 mb-5 text-purple-600 group-hover:text-white transition-colors duration-500'>
                         <span className='border-2 w-8'></span>
                         <span className='border-2 w-2'></span>
                         <span className='border-2 w-3'></span>
@@ -25,7 +25,7 @@ const ServiceCards = () => {
                 </div>
 
                 {/* Card 2 */}
-                <div className='relative p-5 lg:p-10 bg-amber-500 backdrop-blur-xl opacity-95 transition-colors duration-500'>
+                <div className='relative p-5 lg:p-10 bg-purple-600 backdrop-blur-xl opacity-95 transition-colors duration-500'>
                     <TbTargetArrow className='text-white text-3xl lg:text-5xl mb-5' />
                     <h1 className='text-xl lg:text-2xl font-bold mb-3 text-white'>Marketing Services</h1>
                     <div className='flex gap-1 mb-5 text-white'>
@@ -40,10 +40,10 @@ const ServiceCards = () => {
                 </div>
 
                 {/* Card 3 */}
-                <div className='relative p-5 lg:p-10 bg-black backdrop-blur-md opacity-95 transition-colors duration-500 group hover:bg-amber-500'>
-                    <GiMagnifyingGlass className='text-amber-500 text-3xl lg:text-5xl mb-5 transition-colors duration-500 group-hover:text-white' />
+                <div className='relative p-5 lg:p-10 bg-stone-900 backdrop-blur-md opacity-95 transition-colors duration-500 group hover:bg-purple-600'>
+                    <GiMagnifyingGlass className='text-purple-600 text-3xl lg:text-5xl mb-5 transition-colors duration-500 group-hover:text-white' />
                     <h1 className='text-xl lg:text-2xl font-bold mb-3 text-white group-hover:text-white transition-colors duration-500'>Product Photography & Videography</h1>
-                    <div className='flex gap-1 mb-5 text-amber-500 group-hover:text-white transition-colors duration-500'>
+                    <div className='flex gap-1 mb-5 text-purple-600 group-hover:text-white transition-colors duration-500'>
                         <span className='border-2 w-8'></span>
                         <span className='border-2 w-2'></span>
                         <span className='border-2 w-3'></span>

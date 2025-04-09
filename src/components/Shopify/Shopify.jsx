@@ -31,7 +31,7 @@ function Shopify() {
   }, []);
 
   return (
-    <div className="bg-purple-600 min-h-screen pt-10 text-white">
+    <div className="bg-black min-h-screen pt-10 text-white">
       {/* Carousel Section */}
       <section className="md:w-full md:max-w-3xl max-w-sm w-[350px] mx-auto mb-10 px-5">
         <Swiper
@@ -58,25 +58,25 @@ function Shopify() {
         <h1 className="text-2xl lg:text-4xl font-bold mb-4">
           Shopify Store Setup & Management – Build & Scale Your Online Business!
         </h1>
-        <p className="text-[16px] font-normal text-gray-200 max-w-3xl mx-auto">
+        <p className="text-[16px] font-normal text-gray-400 max-w-3xl mx-auto">
           Want to launch a professional, high-converting Shopify store? We provide end-to-end Shopify solutions, from store design and branding to SEO, product listings, and marketing, ensuring your success in eCommerce & dropshipping.
         </p>
       </section>
 
       {/* Services Section */}
-      <section className="services bg-purple-600 px-5 md:px-20 mt-10">
+      <section className="services bg-black px-5 md:px-20 mt-10">
         <h2 className="text-xl lg:text-2xl font-semibold mb-6">Our Shopify Services:</h2>
         <ul className="space-y-4">
           {services.map((service, index) => (
-            <li key={index} className="flex items-start gap-3 text-gray-200 text-[16px]">
-              <FaCheck className="text-amber-500 text-xl" />
+            <li key={index} className="flex items-start gap-3 text-gray-400 text-[16px]">
+              <FaCheck className="text-purple-600 text-xl" />
               {service}
             </li>
           ))}
         </ul>
 
         <div className="text-center mt-8">
-          <button className="relative bg-amber-500 text-[16px] px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation lg:text-[18px] cursor-pointer">
+          <button className="relative bg-purple-600 text-[16px] px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation lg:text-[18px] cursor-pointer">
             <Link to="/contact">Get in touch for expert Shopify solutions!</Link>
           </button>
         </div>

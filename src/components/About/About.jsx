@@ -26,22 +26,22 @@ const About = () => {
 
     return (
         <div>
-            <div className='bg-purple-600 p-5 lg:p-10 flex flex-col lg:flex-row gap-10 lg:gap-20'>
+            <div className='bg-black p-5 lg:p-10 flex flex-col lg:flex-row gap-10 lg:gap-20'>
                 <div className='lg:w-1/2'>
-                    <h3 className='text-amber-500 font-semibold mb-3'>ABOUT US</h3>
+                    <h3 className='text-purple-600 font-semibold mb-3'>ABOUT US</h3>
                     <h1 className='text-white text-2xl lg:text-4xl font-bold'>{aboutData.title}</h1>
-                    <div className='flex gap-1 mt-8 mb-5 text-amber-500'>
+                    <div className='flex gap-1 mt-8 mb-5 text-purple-600'>
                         <span className='border-2 w-8'></span>
                         <span className='border-2 w-2'></span>
                         <span className='border-2 w-3'></span>
                     </div>
                     <div className='flex gap-3'>
-                        <span><FaRegStar className='text-2xl lg:text-4xl text-amber-500' /></span>
+                        <span><FaRegStar className='text-2xl lg:text-4xl text-purple-600' /></span>
                         <div>
                             <h1 className='text-lg lg:text-xl font-semibold mb-5 text-white'>{aboutData.title}</h1>
                             <p>{aboutData.description}</p>
                             <div className='right-20 mt-5 lg:mt-10'>
-                                <button onClick={scrollToContact} className="shadow-animation bg-amber-500 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation cursor-pointer">
+                                <button onClick={scrollToContact} className="shadow-animation bg-purple-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation cursor-pointer">
                                     <Link>More About Us</Link> <FaArrowRightLong />
                                 </button>
                             </div>

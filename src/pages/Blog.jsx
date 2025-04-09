@@ -90,32 +90,32 @@ const Blog = () => {
                 <h1 className="text-4xl font-bold text-white mb-3">
                     {selectedBlog ? selectedBlog.title : "Blog"}
                 </h1>
-                <h1 className="text-amber-500">
+                <h1 className="text-purple-600">
                     <Link className="text-white" to="/">Home</Link> / Blog
                 </h1>
             </div>
 
-            <div className="py-6 grid grid-cols-1 md:grid-cols-12 gap-6 bg-purple-600">
-                <div className="md:col-span-4 bg-purple-600 p-4">
+            <div className="py-6 grid grid-cols-1 md:grid-cols-12 gap-6 bg-black">
+                <div className="md:col-span-4 bg-black p-4">
                     <div className="relative mb-4">
-                        <MdOutlineSearch className="absolute left-3 top-3 text-amber-500 text-xl" />
+                        <MdOutlineSearch className="absolute left-3 top-3 text-purple-600 text-xl" />
                         <input
                             type="text"
                             placeholder="Search Blogs..."
-                            className="w-full pl-10 pr-4 py-3 focus:ring-white text-white bg-purple-500 shadow-md"
+                            className="w-full pl-10 pr-4 py-3 focus:ring-white text-white bg-black shadow-md"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
                     </div>
 
-                    <div className="shadow-md p-3 text-white bg-purple-500">
+                    <div className="shadow-md p-3 text-white bg-black">
                         <h1 className="text-lg font-bold">Recent Posts</h1>
                         <div className="my-2"></div>
                         {searchedBlogs.map((blog) => (
                             <button
                                 key={blog._id}
                                 className={`flex items-center p-2 text-left transition ${
-                                    selectedBlog?._id === blog._id ? "text-amber-500 font-bold" : "hover:text-amber-500"
+                                    selectedBlog?._id === blog._id ? "text-purple-600 font-bold" : "hover:text-purple-600"
                                 }`}
                                 onClick={() => {
                                     setContentLoading(true);
@@ -131,13 +131,13 @@ const Blog = () => {
                         ))}
                     </div>
 
-                    <div className="shadow-md p-3 mt-4 text-white bg-purple-500">
+                    <div className="shadow-md p-3 mt-4 text-white bg-black">
                         <h1 className="text-lg font-bold">Categories</h1>
                         <div className="border-b my-2"></div>
                         {categories.map((category, index) => (
                             <button
                                 key={index}
-                                className={`p-2 block w-full text-left transition ${selectedCategory === category ? "bg-amber-500 text-white" : "hover:text-amber-500"}`}
+                                className={`p-2 block w-full text-left transition ${selectedCategory === category ? "bg-purple-600 text-white" : "hover:text-purple-600"}`}
                                 onClick={() => {
                                     setContentLoading(true);
                                     setTimeout(() => {
@@ -155,25 +155,25 @@ const Blog = () => {
                     <div className="text-center mt-5">
                         <button
                             onClick={() => setShowModal(true)}
-                            className="bg-amber-500 px-6 py-3 text-white font-semibold transition duration-300 mt-3 shadow-animation cursor-pointer"
+                            className="bg-purple-600 px-6 py-3 text-white font-semibold transition duration-300 mt-3 shadow-animation cursor-pointer"
                         >
                             Post a New Blog
                         </button>
                     </div>
                 </div>
 
-                <div className="md:col-span-8 bg-purple-600">
+                <div className="md:col-span-8 bg-black">
                     {contentLoading ? (
                         <Spinner />
                     ) : selectedBlog ? (
-                        <div className="bg-purple-600 text-white p-6  shadow-md">
+                        <div className="bg-black text-white p-6  shadow-md">
                             <img src={selectedBlog.image} alt={selectedBlog.title} className="w-full h-64 object-cover mb-4" />
                             <h1 className="mb-2 text-white">{formatDate(selectedBlog.createdAt)}</h1>
                             <h2 className="text-2xl lg:text-4xl font-bold mb-3">{selectedBlog.title}</h2>
-                            <p className="text-sm text-gray-200 mb-5">{selectedBlog.description}</p>
-                            <p className="text-sm text-gray-200">{selectedBlog.details}</p>
+                            <p className="text-sm text-gray-400 mb-5">{selectedBlog.description}</p>
+                            <p className="text-sm text-gray-400">{selectedBlog.details}</p>
                             <button
-                                className="mt-4 px-4 py-2 bg-amber-500 text-white font-semibold hover:bg-amber-500 cursor-pointer"
+                                className="mt-4 px-4 py-2 bg-purple-600 text-white font-semibold hover:bg-purple-600 cursor-pointer"
                                 onClick={() => {
                                     setContentLoading(true);
                                     setTimeout(() => {
@@ -190,17 +190,17 @@ const Blog = () => {
                             {searchedBlogs.map((blog, index) => (
                                 <motion.div
                                     key={blog._id}
-                                    className="bg-purple-600 text-white p-4 shadow-md"
+                                    className="bg-black text-white p-4 shadow-md"
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.6, delay: index * 0.2 }}
                                 >
-                                    <h1 className="absolute bg-amber-500 text-white text-sm px-2">{formatDate(blog.createdAt)}</h1>
+                                    <h1 className="absolute bg-purple-600 text-white text-sm px-2">{formatDate(blog.createdAt)}</h1>
                                     <img src={blog.image} alt={blog.title} className="w-full h-40 object-cover mb-3" />
                                     <h2 className="text-lg font-bold mb-2">{blog.title}</h2>
-                                    <p className="text-sm text-gray-200">{blog.description}</p>
+                                    <p className="text-sm text-gray-400">{blog.description}</p>
                                     <button
-                                        className="text-amber-500 font-semibold hover:underline mt-2 cursor-pointer"
+                                        className="text-purple-600 font-semibold hover:underline mt-2 cursor-pointer"
                                         onClick={() => {
                                             setContentLoading(true);
                                             setTimeout(() => {
@@ -246,7 +246,7 @@ const Blog = () => {
                                 </button>
                                 <button
                                     type="submit"
-                                    className="px-4 py-2 bg-amber-500 text-white hover:bg-amber-600 shadow-animation"
+                                    className="px-4 py-2 bg-purple-600 text-white hover:bg-amber-600 shadow-animation"
                                 >
                                     Post Blog
                                 </button>

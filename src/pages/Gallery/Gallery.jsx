@@ -72,7 +72,7 @@ const filteredImages = selectedCategory
     const currentGallery = location.pathname.split("/")[2]; // Extract category from the URL path
 
     return (
-        <div className="bg-purple-600">
+        <div className="bg-black">
             {/* ✅ Banner Section (Dynamically Updates Title with Animation) */}
             <motion.div 
                 className="bg-black py-20"
@@ -84,11 +84,11 @@ const filteredImages = selectedCategory
                     {currentGallery ? currentGallery : "Gallery"}
                 </h1>
                 <p className="text-center text-white">
-                    <Link to="/" className={`mr-3 transition-colors duration-300 ${location.pathname === "/" ? "text-amber-500 font-semibold" : "hover:text-amber-500"}`}>
+                    <Link to="/" className={`mr-3 transition-colors duration-300 ${location.pathname === "/" ? "text-purple-600 font-semibold" : "hover:text-purple-600"}`}>
                         Home
                     </Link>
                     /
-                    <span className="ml-3 text-amber-500 font-semibold">
+                    <span className="ml-3 text-purple-600 font-semibold">
                         {currentGallery ? currentGallery : "Gallery"}
                     </span>
                 </p>
@@ -96,21 +96,21 @@ const filteredImages = selectedCategory
 
             <div className="p-10 grid grid-cols-1 md:grid-cols-12 gap-6">
                 {/* ✅ Sidebar for Service List (Moved to the top on mobile) */}
-                <div className="col-span-12 md:col-span-4 bg-purple-600 p-4 mb-6 md:mb-0">
+                <div className="col-span-12 md:col-span-4 bg-black p-4 mb-6 md:mb-0">
                     {/* ✅ Search Bar */}
                     <div className="relative mb-4">
-                        <MdOutlineSearch className="absolute left-3 top-3 text-amber-500 text-xl" />
+                        <MdOutlineSearch className="absolute left-3 top-3 text-purple-600 text-xl" />
                         <input
                             type="text"
                             placeholder="Search Services..."
-                            className="w-full pl-10 pr-4 py-3 shadow-md text-white bg-purple-500 focus:outline-none focus:ring-2 focus:ring-white"
+                            className="w-full pl-10 pr-4 py-3 shadow-md text-white bg-black focus:outline-none focus:ring-2 focus:ring-white"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
                     </div>
 
                     {/* ✅ Recent Post Section */}
-                    <div className="shadow-md mb-4 bg-purple-500">
+                    <div className="shadow-md mb-4 bg-black">
                         <h1 className="text-white text-lg font-bold p-3">Category</h1>
                         <div className="border-1 mx-5 mb-4"></div>
 
@@ -118,7 +118,7 @@ const filteredImages = selectedCategory
                         <div className="flex flex-col mb-4">
     <button
         className={`flex justify-between items-center p-3 shadow-md transition-all duration-300 relative transform text-left 
-        ${!selectedCategory ? "bg-amber-500 text-white" : "bg-purple-500 text-white hover:text-amber-500 hover:scale-95"}`}
+        ${!selectedCategory ? "bg-purple-600 text-white" : "bg-black text-white hover:text-purple-600 hover:scale-95"}`}
         onClick={() => setSelectedCategory("")} // Set selected category to empty string for "All Categories"
     >
         <FaSquareFull className="text-sm mr-5" />
@@ -128,7 +128,7 @@ const filteredImages = selectedCategory
         <button
             key={index}
             className={`flex justify-between items-center p-3 shadow-md transition-all duration-300 relative transform text-left 
-            ${selectedCategory === category ? "bg-amber-500 text-white" : "bg-purple-500 text-white hover:text-amber-500 hover:scale-95"}`}
+            ${selectedCategory === category ? "bg-purple-600 text-white" : "bg-black text-white hover:text-purple-600 hover:scale-95"}`}
             onClick={() => setSelectedCategory(category)} // Update category on click
         >
             <FaSquareFull className="text-sm mr-5" />
@@ -141,7 +141,7 @@ const filteredImages = selectedCategory
                 </div>
 
                 {/* ✅ Left Content Area - Shows Service Component with Image Animation */}
-                <div className="col-span-12 md:col-span-8 flex justify-center items-center text-gray-200">
+                <div className="col-span-12 md:col-span-8 flex justify-center items-center text-gray-400">
                     <div className="col-span-12 md:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                         {loading ? ( // Display spinner while loading
                             <Spinner />
@@ -159,7 +159,7 @@ const filteredImages = selectedCategory
                                         alt={item.title} 
                                         className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105" 
                                     />
-                                    <div className="p-3 bg-purple-600text-amber-500 text-center">{item.title}</div>
+                                    <div className="p-3 bg-blacktext-purple-600 text-center">{item.title}</div>
                                 </motion.div>
                             ))
                         )}
