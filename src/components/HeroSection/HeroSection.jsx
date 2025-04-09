@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+import { AiOutlineBoxPlot } from "react-icons/ai";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+import { GrContact } from "react-icons/gr";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { IoGlobeOutline, IoRocketOutline } from "react-icons/io5";
 import { MdOutlineWarehouse } from "react-icons/md";
@@ -9,6 +11,7 @@ const services = [
   { title: "Retail / Online Arbitrage", icon: <HiOutlineShoppingCart />, path: "retail-arbitrage" },
   { title: "Wholesale FBA / WFS", icon: <MdOutlineWarehouse />, path: "wholesale-fba" },
   { title: "Web Development", icon: <IoGlobeOutline />, path: "web-development" },
+  { title: "Shopify", icon: <AiOutlineBoxPlot />, path: "shopify" },
 ];
 
 const HeroSection = () => {
@@ -41,6 +44,10 @@ const HeroSection = () => {
     const section = document.getElementById("our-services");
     section?.scrollIntoView({ behavior: "smooth" });
   };
+  const scrollToContact = () => {
+    const section = document.getElementById("contact");
+    section?.scrollIntoView({ behavior: "smooth" });
+  };
 
   if (heroes.length === 0) {
     return <p className="text-white text-center mt-10">Loading...</p>;
@@ -63,7 +70,7 @@ const HeroSection = () => {
           <img
             key={currentIndex}
             src={heroes[currentIndex]?.image || ""}
-            className={`w-2/3 lg:max-w-md shadow-2xl transition-transform duration-700 z-10 ${
+            className={`w-2/3 lg:max-w-md transition-transform duration-700 z-10 ${
               isExiting ? "animate-slide-down" : "animate-slide-up"
             }`}
             alt="Hero"
@@ -71,26 +78,25 @@ const HeroSection = () => {
 
           {/* Service Cards - Continuous Marquee */}
 {/* Service Cards - Continuous Marquee */}
-<div className="absolute bottom-5 w-full overflow-hidden px-4 z-30">
-  <div className="marquee flex gap-6">
+<div className="absolute bottom-10 w-full overflow-hidden px-4 z-30">
+  <div className="marquee flex lg:flex-col gap-6">
     {[...services, ...services].map((service, idx) => (
       <div
         key={idx}
-        className="min-w-[140px] h-15 backdrop-blur-md bg-white/10 border border-white/30 text-white  flex flex-col justify-center items-center p-2 text-sm shadow-md"
+        className="min-w-[140px] h-15 backdrop-blur-md bg-white/10 border border-white/30 text-white  flex flex-col justify-center items-center p-2 text-sm shadow-md rounded-full"
       >
-        <div className="text-xl">{service.icon}</div>
         <div className="mt-1">{service.title}</div>
       </div>
     ))}
   </div>
 
   {/* See More Button - moved here BELOW marquee */}
-  <div className="mt-4 text-center">
+  <div className="mt-4 text-center lg:mr-90">
     <button
       onClick={scrollToServices}
-      className="text-white bg-amber-500 rounded-full px-4 py-1 text-sm hover:bg-white hover:text-purple-600 transition"
+      className="hover:text-white hover:bg-white/10 rounded-full px-4 py-1 text-sm bg-white text-purple-600 transition"
     >
-      See More
+      See More Services
     </button>
   </div>
 </div>
@@ -107,12 +113,14 @@ const HeroSection = () => {
           <h1 className="text-2xl lg:text-6xl font-bold text-white lg:mb-5">
             {heroes[currentIndex]?.title || "Default Title"}
           </h1>
+          <p><span className="text-amber-500">★★★★★</span> Rated 5/5 | Based on 20+ Happy Clients</p>
           <p className="py-6 text-white lg:mb-5">
             {heroes[currentIndex]?.description || "Default description."}
           </p>
           <div className="flex gap-5 lg:justify-start">
-            <button className="shadow-animation bg-amber-500 py-2 px-4 lg:px-6 lg:py-3 text-white lg:font-semibold transition duration-300 cursor-pointer">
-              Get Started
+            <button onClick={scrollToContact} className="flex items-center shadow-animation bg-amber-500 py-2 px-4 lg:px-6 lg:py-3 text-white lg:font-semibold transition duration-300 cursor-pointer">
+            <GrContact className="text-xl mr-2" />
+              Contact Us
             </button>
           </div>
         </div>

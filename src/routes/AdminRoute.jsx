@@ -33,7 +33,7 @@ const AdminRoute = ({ children }) => {
 
     // Delay spinner visibility for 1 second
     if (loading || adminLoading) {
-        setTimeout(() => {}, 100); // 1-second delay before showing spinner
+        setTimeout(() => {}, 1000); // 1-second delay before showing spinner
         return <Spinner />;
     }
 

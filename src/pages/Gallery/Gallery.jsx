@@ -102,7 +102,7 @@ const Gallery = () => {
                         <input
                             type="text"
                             placeholder="Search Services..."
-                            className="w-full pl-10 pr-4 py-3 shadow-md text-white bg-purple-500 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                            className="w-full pl-10 pr-4 py-3 shadow-md text-white bg-purple-500 focus:outline-none focus:ring-2 focus:ring-white"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />

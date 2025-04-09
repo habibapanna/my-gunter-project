@@ -102,7 +102,7 @@ const Blog = () => {
                         <input
                             type="text"
                             placeholder="Search Blogs..."
-                            className="w-full pl-10 pr-4 py-3 focus:ring-amber-500 text-white placeholder-gray-200 bg-purple-500 shadow-md"
+                            className="w-full pl-10 pr-4 py-3 focus:ring-white text-white bg-purple-500 shadow-md"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />

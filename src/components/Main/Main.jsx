@@ -47,7 +47,7 @@ const Main = () => {
 
             <div 
     onClick={scrollToTop} 
-    className="fixed bottom-8 lg:bottom-5 left-6 w-10 h-10 flex items-center justify-center rounded-full hover:text-amber-500 hover:bg-white bg-amber-500 text-white cursor-pointer shadow-lg transition-all z-50"
+    className="fixed bottom-8 lg:bottom-5 left-6 w-10 h-10 flex items-center justify-center rounded-full text-amber-500 bg-white hover:bg-amber-500 hover:text-white cursor-pointer shadow-lg transition-all z-50"
 >
     <MdKeyboardArrowUp className=" text-2xl" />
 </div>

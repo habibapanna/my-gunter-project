@@ -64,13 +64,16 @@ import ManageDigitalMarketing from "../pages/Dashboard/ManageDigitalMarketing";
 import ManageProductPhotography from "../pages/Dashboard/ManageProductPhotography";
 import ManageFCommerceService from "../pages/Dashboard/ManageFCommerceService";
 import ManageWFS from "../pages/Dashboard/ManageWFS";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
+import AddOurClients from "../pages/Dashboard/AddOurClients";
+import ManageOurClients from "../pages/Dashboard/ManageOurClients";
 
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main />, // ✅ Navbar & Footer are inside Main
-        errorElement: <h1 className="text-5xl font-bold text-red-500">Page not found</h1>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             { path: "/", element: <Home /> },
             { path: "blog", element: <Blog />,
@@ -283,8 +286,16 @@ const router = createBrowserRouter([
             element: <AddAbout></AddAbout>
         },
         {
+            path: "add-our-clients",
+            element: <AddOurClients></AddOurClients>
+        },
+        {
             path: "manage-about",
             element: <ManageAbout></ManageAbout>
+        },
+        {
+            path: "manage-our-clients",
+            element: <ManageOurClients></ManageOurClients>
         },
         {
             path: "all-user",

@@ -9,9 +9,10 @@ import { PiMicrosoftTeamsLogo, PiUsersThree } from "react-icons/pi";
 import { VscHome } from "react-icons/vsc";
 import { LiaUsersSolid } from "react-icons/lia";
 import { SlLike } from "react-icons/sl";
-import { AiOutlineTeam } from "react-icons/ai";
+import { AiOutlineMan, AiOutlineTeam } from "react-icons/ai";
 import { SiApacherocketmq } from "react-icons/si";
 import { DiHeroku } from "react-icons/di";
+import { FcBusinessman } from "react-icons/fc";
 
 const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -252,6 +253,28 @@ const Dashboard = () => {
           >
             <MdOutlineRoundaboutLeft size={20} />
             <span>Manage About Section</span>
+          </NavLink>
+          <NavLink
+            to="/dashboard/add-our-clients"
+            className={({ isActive }) =>
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
+                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+              }`
+            }
+          >
+            <FcBusinessman size={20} />
+            <span>Add Our Clients</span>
+          </NavLink>
+          <NavLink
+            to="/dashboard/manage-our-clients"
+            className={({ isActive }) =>
+              `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
+                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+              }`
+            }
+          >
+            <AiOutlineMan size={20} />
+            <span>Manage Our Clients</span>
           </NavLink>
           <div className="border text-orange-600 mx-4 mt-5"></div>
           <NavLink

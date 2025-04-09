@@ -7,6 +7,7 @@ import OurTeam from "../components/OurTeam/OurTeam";
 import RecentProjects from "../components/RecentProjects/RecentProjects";
 import ServiceCards from "../components/ServiceCards/ServiceCards";
 import Testimonials from "../components/Testimonials/Testimonials";
+import OurClients from "../components/OurClients/OurClients";
 
 const AnimatedStick = () => {
     return (
@@ -120,6 +121,9 @@ const Home = () => {
 
             <div className="bg-purple-600 overflow-x-hidden">
                 <HeroSection />
+                <Section>
+                    <OurClients></OurClients>
+                </Section>
                 <Section>
                     <ServiceCards />
                 </Section>

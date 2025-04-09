@@ -81,7 +81,7 @@ const Footer = () => {
                     alt="footer-shape2" 
                     className="absolute bottom-0 right-10 transform translate-x-1/4 -translate-y-1/4 w-32"
                 />
-                <div className="relative mt-5 bg-stone-800 text-sm text-center text-stone-400 py-4 flex items-center justify-center">
+                <div className="relative mt-5 bg-black text-sm text-center text-stone-400 py-4 flex items-center justify-center">
                     <p>&copy; 2025 Imagine Dream World. All Rights Reserved.</p>
                 </div>
             </footer>
