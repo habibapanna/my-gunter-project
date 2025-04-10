@@ -94,7 +94,7 @@ const HeroSection = () => {
   <div className="mt-4 text-center lg:mr-90">
     <button
       onClick={scrollToServices}
-      className="hover:text-white hover:bg-white/10 rounded-full px-4 py-1 text-sm bg-white text-purple-600 transition cursor-pointer"
+      className="hover:text-white hover:bg-white/10 rounded-full px-4 py-1 text-sm bg-amber-500 text-white transition cursor-pointer"
     >
       See More Services
     </button>

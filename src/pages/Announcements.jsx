@@ -96,7 +96,7 @@ const handleAnnouncementClick = (announcement) => {
     form.append("cvFile", formData.cvFile);
   
     try {
-      const response = await fetch("https://my-gunter-project-server.vercel.app/submit-form", {
+      const response = await fetch("http://localhost:5000/submit-form", {
         method: "POST",
         body: form,
       });
@@ -135,14 +135,14 @@ const handleAnnouncementClick = (announcement) => {
     });
   };
 
-  // Handle file input changes
   const handleFileChange = (e) => {
-    const { name, files } = e.target;
-    setFormData({
-      ...formData,
-      [name]: files[0],
-    });
+    setFormData((prev) => ({
+      ...prev,
+      cvFile: e.target.files[0] // Ensure the file is being captured correctly
+    }));
   };
+  
+  
 
   const currentAnnouncement = announcements.find(
     (announcement) => announcement.path === location.pathname
@@ -268,7 +268,6 @@ image} alt="" />
           </div>
         </div>
       </div>
-
       {/* Modal */}
       <Modal
         isOpen={modalIsOpen}
