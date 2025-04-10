@@ -44,26 +44,27 @@ const Main = () => {
                 <Outlet />
             </div>
             <Footer />
+             {/* WhatsApp Floating Button - Show only in light mode */}
+             {theme === "light" && (
+                <a
+                    href="https://wa.me/+8801946127204"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="fixed bottom-8 lg:bottom-5 left-6 bg-green-500 text-white p-3 rounded-full shadow- hover:bg-green-600 transition-all z-60"
+                >
+                    <FaWhatsapp size={20} />
+                </a>
+            )}
 
             <div 
     onClick={scrollToTop} 
-    className="fixed bottom-8 lg:bottom-5 left-6 w-10 h-10 flex items-center justify-center rounded-full text-amber-500 bg-white hover:bg-amber-600 hover:text-white cursor-pointer shadow-lg transition-all z-50"
+    className="fixed bottom-8 lg:bottom-5 right-6 w-10 h-10 flex items-center justify-center rounded-full text-amber-500 bg-white hover:bg-amber-400 hover:text-white cursor-pointer shadow-lg transition-all z-50"
 >
     <MdKeyboardArrowUp className=" text-2xl" />
 </div>
 
 
-            {/* WhatsApp Floating Button - Show only in light mode */}
-            {theme === "light" && (
-                <a
-                    href="https://wa.me/+8801946127204"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="fixed bottom-8 lg:bottom-5 right-6 bg-green-500 text-white p-3 rounded-full shadow- hover:bg-green-600 transition-all z-60"
-                >
-                    <FaWhatsapp size={20} />
-                </a>
-            )}
+           
             
         </div>
     );

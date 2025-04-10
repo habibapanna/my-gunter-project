@@ -286,10 +286,10 @@ image} alt="" />
   .map((announcement) => (
     <button
       key={announcement.id}
-      className={`p-3 text-left items-center flex ${selectedAnnouncement === announcement ? "bg-purple-600 text-white" : "bg-black text-white hover:bg-purple-600"}`}
+      className={`p-3 text-left items-center flex group ${selectedAnnouncement === announcement ? "bg-purple-600 text-white" : "bg-black text-white hover:bg-purple-600"}`}
       onClick={() => handleAnnouncementClick(announcement)}
     >
-      <FaSquareFull className="text-sm mr-2" />
+      <FaSquareFull className="text-sm mr-2 text-amber-500 group-hover:text-white" />
       <span className="text-sm">{announcement.title}</span>
     </button>
 ))}
@@ -311,10 +311,10 @@ image} alt="" />
   {categories.map((category, index) => (
     <button
       key={index}
-      className={`text-white p-2 items-center flex hover:bg-purple-600 text-left ${selectedCategory === category ? 'bg-purple-600' : ''}`}
+      className={`text-white p-2 items-center flex group hover:bg-purple-600 text-left ${selectedCategory === category ? 'bg-purple-600' : ''}`}
       onClick={() => handleCategoryClick(category)}
     >
-      <GoDotFill className="text-sm mr-2" />
+      <GoDotFill className="text-sm mr-2  text-amber-500 group-hover:text-white" />
       {category}
     </button>
   ))}

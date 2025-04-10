@@ -4,13 +4,15 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { SiDreamstime } from "react-icons/si";
 import AuthContext from "../Context/AuthContext/AuthContext";
 import Logo from "../assets/Logoh.svg";
+import { MdBookOnline } from "react-icons/md";
+import ScheduleModal from "../components/ScheduleModal/ScheduleModal";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const { user, logoutUser } = useContext(AuthContext);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [adminChecked, setAdminChecked] = useState(false); // ✅ new state
+  const [adminChecked, setAdminChecked] = useState(false); // 
 
   useEffect(() => {
     const token = localStorage.getItem("access-token");
@@ -82,22 +84,28 @@ const Navbar = () => {
                 </NavLink>
               </li>
             ))}
-
-            {/* ✅ Show Go to Dashboard only if adminChecked and isAdmin */}
-            {adminChecked && isAdmin && (
+            
               <li>
-                <Link to="/dashboard/all-user">
-                  <button className="text-sm bg-purple-600 px-2 shadow-animation cursor-pointer font-bold">Go to Dashboard</button>
-                </Link>
-              </li>
-            )}
+             <button>
+             <a
+  href="https://calendly.com/habibapanna49"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-amber-500 py-2 px-4 font-bold border-none shadow-animation rounded-full flex gap-1 items-center cursor-pointer"
+>
+  <MdBookOnline className="text-white text-2xl" />
+  Make an Appointment
+</a>
+             </button>
 
+              </li>
+              
             {/* ✅ Login/Logout Button */}
           </ul>
 
           {/* Mobile Menu Toggle */}
-          <button className="text-white md:hidden text-2xl" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <FiX className="hover:text-gray-400" /> : <FiMenu className="hover:text-gray-400" />}
+          <button className="text-amber-400 md:hidden text-2xl" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <FiX className="hover:text-purple-600" /> : <FiMenu className="hover:text-purple-600" />}
           </button>
         </div>
 
@@ -122,15 +130,21 @@ const Navbar = () => {
                   </NavLink>
                 </li>
               ))}
+              <li>
+              <button>
+              <a
+  href="https://calendly.com/habibapanna49"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-amber-500 py-1 mx-auto text-sm px-2 border-none shadow-animation rounded-full flex gap-1 items-center cursor-pointer text-center "
+>
+  <MdBookOnline className="text-white" />
+  Appointment
+</a>
+              </button>
 
-              {/* ✅ Go to Dashboard button for mobile */}
-              {adminChecked && isAdmin && (
-                <li>
-                  <Link to="/dashboard/all-user">
-                    <button className="bg-purple-600 px-2 text-sm border-none shadow-animation">Go to Dashboard</button>
-                  </Link>
-                </li>
-              )}
+              </li>
+              
 
               {/* ✅ Mobile Login/Logout Button */}
               <li>

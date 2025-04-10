@@ -114,8 +114,8 @@ const Blog = () => {
                         {searchedBlogs.map((blog) => (
                             <button
                                 key={blog._id}
-                                className={`flex items-center p-2 text-left transition ${
-                                    selectedBlog?._id === blog._id ? "bg-purple-600 font-bold" : "hover:bg-purple-600"
+                                className={`flex items-center p-2 text-left transition group ${
+                                    selectedBlog?._id === blog._id ? "bg-purple-600 font-bold" : "hover:bg-purple-600 "
                                 }`}
                                 onClick={() => {
                                     setContentLoading(true);
@@ -125,7 +125,7 @@ const Blog = () => {
                                     }, 500);
                                 }}
                             >
-                                <FaSquareFull className="text-sm mr-3" />
+                                <FaSquareFull className="text-sm mr-3 text-amber-500 group-hover:text-white" />
                                 <span className="text-sm">{blog.title}</span>
                             </button>
                         ))}
@@ -159,10 +159,7 @@ const Blog = () => {
                     ) : selectedBlog ? (
                         <div className="bg-black text-white p-6  shadow-md">
                             <img src={selectedBlog.image} alt={selectedBlog.title} className="w-full h-64 object-cover mb-4" />
-                            <div className="flex items-center gap-5">
                             <h1 className="mb-2 text-white">{formatDate(selectedBlog.createdAt)}</h1>
-                            <h1 className="text-white  bg-amber-500 pl-1">Posted by : <span className="bg-purple-800 py-1 px-1">{selectedBlog.author}</span></h1>
-                            </div>
                             <h2 className="text-2xl lg:text-4xl font-bold mb-3">{selectedBlog.title}</h2>
                             <p className="text-sm text-gray-400 mb-5">{selectedBlog.description}</p>
                             <p className="text-sm text-gray-400">{selectedBlog.details}</p>

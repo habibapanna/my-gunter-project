@@ -51,14 +51,14 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="bg-black p-6 md:p-10">
+    <div className="bg-black p-6 md:py-20 md:px-10">
       {successMessage && (
         <div className="mb-6 text-center text-amber-500 text-lg font-semibold animate-fade">
           {successMessage}
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center justify-center">
         {/* LEFT SIDE - TEXT + INFO */}
         <div className="text-white space-y-6">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
@@ -99,7 +99,7 @@ const ContactForm = () => {
         </div>
 
         {/* RIGHT SIDE - FORM */}
-        <form onSubmit={handleSubmit} className="space-y-6 w-full bg-stone-950 p-10">
+        <form onSubmit={handleSubmit} className="space-y-8 w-full bg-stone-950 py-10 px-16">
           <div className="grid grid-cols-1 gap-4">
             {["Name", "Email", "Phone", "Subject"].map((field) => (
               <div className="form-group" key={field}>
@@ -129,7 +129,7 @@ const ContactForm = () => {
           </div>
           <button
             type="submit"
-            className="text-white font-semibold cursor-pointer text-xl text-left"
+            className="text-white font-semibold cursor-pointer text-xl text-left hover:text-purple-600"
           >
             SUBMIT
           </button>

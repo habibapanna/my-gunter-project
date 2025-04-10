@@ -43,7 +43,7 @@ const OurServices = () => {
                 {services.map((service, index) => (
                     <Link to={`/services/${service.path}`} key={index} className="no-underline">
                         <div 
-                            className="relative flex items-center border border-amber-500 justify-between bg-stone-900 text-white px-5 py-4 rounded-l-full shadow-md group cursor-pointer overflow-hidden transition-all duration-500 hover:bg-purple-600 hover:border-none"
+                            className="relative flex items-center border border-amber-900 justify-between bg-stone-900 text-white px-5 py-4 rounded-l-full shadow-md group cursor-pointer overflow-hidden transition-all duration-500 hover:bg-purple-600 hover:border-none"
                         >
                             {/* Animated Background Overlay */}
                             <div className="absolute transition-all duration-500"></div>

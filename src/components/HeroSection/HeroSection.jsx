@@ -74,7 +74,7 @@ const HeroSection = () => {
           <h1 className="text-2xl lg:text-6xl font-bold text-white lg:mb-5">
             {heroes[currentIndex]?.title || "Default Title"}
           </h1>
-          <p><span className="text-amber-500">★★★★★</span> Rated 5/5 | Based on 20+ Happy Clients</p>
+          <p><span className="text-amber-400">★★★★★</span> Rated 5/5 | Based on 20+ Happy Clients</p>
           <p className="py-6 text-white lg:mb-5">
             {heroes[currentIndex]?.description || "Default description."}
           </p>

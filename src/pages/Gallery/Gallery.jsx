@@ -132,14 +132,14 @@ const Gallery = () => {
                             {categories.map((category, index) => (
                                 <button
                                     key={index}
-                                    className={`flex justify-between items-center p-3 shadow-md transition-all duration-300 text-left 
+                                    className={`flex justify-between items-center p-3 shadow-md transition-all duration-300 text-left group 
                                     ${selectedCategory === category ? "bg-purple-600 text-white" : "bg-black text-white hover:bg-purple-600"}`}
                                     onClick={() => {
                                         setSelectedCategory(category);
                                         setCurrentPage(1); // reset page
                                     }}
                                 >
-                                    <FaSquareFull className="text-sm mr-5" />
+                                    <FaSquareFull className="text-sm mr-5 text-amber-500 group-hover:text-white" />
                                     <span className="text-sm">{category}</span>
                                 </button>
                             ))}
