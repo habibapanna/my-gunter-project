@@ -184,17 +184,20 @@ image} alt="" />
                   {announcements
                     .filter((announcement) => !selectedCategory || announcement.category === selectedCategory)
                     .map((announcement) => (
-                      <div key={announcement.id} className="bg-black shadow-md shadow-gray-900 p-4">
-                        <img src={announcement.image} alt={announcement.title} className="w-full h-40 object-cover" />
-                        <h2 className="text-lg font-bold mt-3 text-white">{announcement.title}</h2>
-                        <p className="text-gray-400 mt-2">{announcement.description}</p>
-                        <button
-                          className="text-amber-500 mt-2 hover:underline cursor-pointer"
-                          onClick={() => handleReadMore(announcement)}
-                        >
-                          Read More
-                        </button>
-                      </div>
+                      <div key={announcement.id} className="bg-black shadow-md shadow-gray-900 p-4 flex flex-col justify-between h-[400px]">
+  <div>
+    <img src={announcement.image} alt={announcement.title} className="w-full h-50 object-cover" />
+    <h2 className="text-lg font-bold mt-3 text-white">{announcement.title}</h2>
+    <p className="text-gray-400 text-sm mt-2">{announcement.description}</p>
+  </div>
+  <button
+    className="text-amber-500 mt-2 hover:underline cursor-pointer text-left"
+    onClick={() => handleReadMore(announcement)}
+  >
+    Read More
+  </button>
+</div>
+
                     ))}
                 </div>
               )}
