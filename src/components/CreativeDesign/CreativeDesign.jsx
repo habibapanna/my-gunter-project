@@ -64,7 +64,7 @@ function CreativeDesign() {
             "Video & Motion Graphics – Professional animations and promotional videos.",
           ].map((service, index) => (
             <li key={index} className="flex items-center gap-2 text-gray-400">
-              <FaCheck className="text-purple-600 text-2xl" /> {service}
+              <FaCheck className="text-amber-500 text-2xl" /> {service}
             </li>
           ))}
         </ul>

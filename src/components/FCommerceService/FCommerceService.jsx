@@ -68,11 +68,11 @@ function FCommerceService() {
         <ul className="space-y-3">
           {services.map((service, index) => (
             <li key={index} className="flex items-center text-gray-400 text-[16px]">
-              <FaCheck className="text-purple-600 mr-3 text-2xl" /> {service}
+              <FaCheck className="text-amber-500 mr-3 text-2xl" /> {service}
             </li>
           ))}
         </ul>
-        <p className="mt-10 text-amber-600"> Start and grow your F-Commerce business with expert strategies!</p>
+        <p className="mt-10 text-amber-500"> Start and grow your F-Commerce business with expert strategies!</p>
         <div className="text-center mt-8">
           <button className="relative bg-purple-600 px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold transition-all duration-300 shadow-animation text-[16px] lg:text-[18px] cursor-pointer">
             <Link to='/contact'>Contact us today for expert guidance!</Link>

@@ -75,7 +75,7 @@ function WebDevelopment() {
         <div className="space-y-4">
           {services.map((service, index) => (
             <div key={index} className="flex items-center gap-4 font-normal lg:font-semibold text-[16px] text-gray-400">
-              <FaCheck className="text-purple-600 text-2xl" />
+              <FaCheck className="text-amber-500 text-2xl" />
               {service}
             </div>
           ))}

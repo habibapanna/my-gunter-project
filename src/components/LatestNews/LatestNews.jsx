@@ -48,12 +48,12 @@ const LatestNews = () => {
     <div className="bg-black p-5 lg:p-10">
       <div className="flex flex-col md:flex-row justify-between mb-6">
         <div>
-          <h3 className="text-purple-600 font-semibold">OUR COMPANY BLOG</h3>
+          <h3 className="text-amber-500 font-semibold">OUR COMPANY BLOG</h3>
           <h2 className="text-2xl lg:text-4xl font-bold mt-3 text-white">Latest News</h2>
           <div className="flex gap-1 mt-8 mb-5">
-            <span className="border-2 w-8 border-purple-600"></span>
-            <span className="border-2 w-2 border-purple-600"></span>
-            <span className="border-2 w-3 border-purple-600"></span>
+            <span className="border-2 w-8 border-amber-500"></span>
+            <span className="border-2 w-2 border-amber-500"></span>
+            <span className="border-2 w-3 border-amber-500"></span>
           </div>
         </div>
       </div>
@@ -84,7 +84,7 @@ const LatestNews = () => {
               <div className="h-[130px] absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[110%] bg-black backdrop-blur-md text-white p-6 flex flex-col gap-3 z-10">
                 <span className="bg-purple-600 px-3 py-1 w-max text-sm ml-3">{formatDate(news.date)}</span>
                 <h3 className="text-sm  lg:text-[16px] lg:font-semibold text-left text-white px-1 ml-3">{news.title}</h3>
-                <button className="text-purple-600 hover:underline lg:font-semibold text-left text-sm ml-3 cursor-pointer">
+                <button className="text-amber-500 hover:underline lg:font-semibold text-left text-sm ml-3 cursor-pointer">
                   <Link to="/announcements">READ MORE</Link>
                 </button>
               </div>

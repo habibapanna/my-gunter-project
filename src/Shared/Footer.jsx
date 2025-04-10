@@ -19,7 +19,7 @@ const Footer = () => {
     return (
         <div>
             <footer className="bg-black text-white relative">
-                <div className="border w-[2px] h-16 border-purple-600 bg-purple-600 mx-auto relative">
+                <div className="border w-[2px] h-16 border-amber-500 bg-purple-600 mx-auto relative">
                     <div className="falling absolute -left-1 w-2 h-8 bg-black animate-falling"></div>
                     <div className="falling absolute -left-1 w-2 h-4 bg-black animate-falling" style={{ animationDelay: "0.5s" }}></div>
                 </div>
@@ -36,14 +36,14 @@ const Footer = () => {
                     </div>
                     <div className="flex flex-col">
                         <h3 className="text-xl font-semibold text-white mb-3">Office Address</h3>
-                        <span className='border-2 w-10 border-purple-600 mb-4'></span>
+                        <span className='border-2 w-10 border-amber-500 mb-4'></span>
                         <p>House No: 137/24/A</p>
                         <p>Dhanmondi, Dhaka-1209</p>
                         <p>Bangladesh</p>
                     </div>
                     <div className="flex flex-col">
                         <h3 className="text-xl font-semibold text-white mb-3">Announcements & Notices</h3>
-                        <span className='border-2 w-10 border-purple-600 mb-4'></span>
+                        <span className='border-2 w-10 border-amber-500 mb-4'></span>
                         <ul className="space-y-2 text-sm">
                             {announcements.length > 0 ? (
                                 announcements.map((announcement, index) => (
@@ -56,11 +56,11 @@ const Footer = () => {
                     </div>
                     <div className="flex flex-col">
                         <h3 className="text-xl font-semibold text-white mb-3">Contact Us</h3>
-                        <span className='border-2 w-10 border-purple-600 mb-4'></span>
+                        <span className='border-2 w-10 border-amber-500 mb-4'></span>
                         <div className="mt-4">
                             <p className="flex items-center gap-2 text-sm">
                                 <BsEnvelope />
-                                <a href="mailto:Contact@Imaginedreamworld.com" className="hover:text-purple-600 transition">
+                                <a href="mailto:Contact@Imaginedreamworld.com" className="hover:text-amber-500 transition">
                                     Contact@Imaginedreamworld.com
                                 </a>
                             </p>
@@ -69,7 +69,7 @@ const Footer = () => {
                             </p>
                             <p className="flex items-center gap-2 text-sm">
                                 <AiOutlineGlobal />
-                                <a href="https://imaginedreamworld.com" target="_blank" rel="noopener noreferrer" className="hover:text-purple-600 transition">
+                                <a href="https://imaginedreamworld.com" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 transition">
                                     imaginedreamworld.com
                                 </a>
                             </p>

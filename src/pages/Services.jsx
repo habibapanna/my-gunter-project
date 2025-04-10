@@ -49,11 +49,11 @@ const Services = () => {
                     {currentService ? currentService.title : "Services"} 
                 </h1> 
                 <p className="text-white"> 
-                    <Link to="/" className="mr-2 hover:text-purple-600 hover:underline"> 
+                    <Link to="/" className="mr-2 hover:text-amber-500 hover:underline"> 
                         Home 
                     </Link> 
                     / 
-                    <span className="ml-2 text-purple-600 font-semibold"> 
+                    <span className="ml-2 text-amber-500 font-semibold"> 
                         {currentService ? currentService.title : "Services"} 
                     </span> 
                 </p> 
@@ -65,7 +65,7 @@ const Services = () => {
                 <div className="lg:col-span-4 bg-black p-4 transition-all duration-300"> 
                     {/* ✅ Search Bar */}
                     <div className="relative mb-4">
-                        <MdOutlineSearch className="absolute left-3 top-3 text-purple-600 text-xl cursor-pointer" />
+                        <MdOutlineSearch className="absolute left-3 top-3 text-amber-500 text-xl cursor-pointer" />
                         <input
                             type="text"
                             placeholder="Search Services..."

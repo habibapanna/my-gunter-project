@@ -28,15 +28,15 @@ const About = () => {
         <div>
             <div className='bg-black p-5 lg:p-10 flex flex-col lg:flex-row gap-10 lg:gap-20'>
                 <div className='lg:w-1/2'>
-                    <h3 className='text-purple-600 font-semibold mb-3'>ABOUT US</h3>
+                    <h3 className='text-amber-500 font-semibold mb-3'>ABOUT US</h3>
                     <h1 className='text-white text-2xl lg:text-4xl font-bold'>{aboutData.title}</h1>
-                    <div className='flex gap-1 mt-8 mb-5 text-purple-600'>
+                    <div className='flex gap-1 mt-8 mb-5 text-amber-500'>
                         <span className='border-2 w-8'></span>
                         <span className='border-2 w-2'></span>
                         <span className='border-2 w-3'></span>
                     </div>
                     <div className='flex gap-3'>
-                        <span><FaRegStar className='text-2xl lg:text-4xl text-purple-600' /></span>
+                        <span><FaRegStar className='text-2xl lg:text-4xl text-amber-500' /></span>
                         <div>
                             <h1 className='text-lg lg:text-xl font-semibold mb-5 text-white'>{aboutData.title}</h1>
                             <p>{aboutData.description}</p>

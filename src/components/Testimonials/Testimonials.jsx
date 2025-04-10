@@ -70,11 +70,11 @@ const Testimonials = () => {
         </div>
 
         <div className='w-full lg:w-1/2 relative text-left'>
-          <h3 className="text-purple-600 font-semibold">WHAT CLIENT SAYS ABOUT US</h3>
+          <h3 className="text-amber-500 font-semibold">WHAT CLIENT SAYS ABOUT US</h3>
           <h2 className="text-2xl lg:text-4xl font-bold mt-3 text-white">Our Testimonials</h2>
           <div className="flex gap-1 mt-8 mb-5">
             {[...Array(testimonials.length)].map((_, index) => (
-              <span key={index} className={`border-2 w-5 transition-all duration-500 ${currentIndex >= index ? 'border-purple-600' : 'border-white'}`}></span>
+              <span key={index} className={`border-2 w-5 transition-all duration-500 ${currentIndex >= index ? 'border-amber-500' : 'border-white'}`}></span>
             ))}
           </div>
 
@@ -84,20 +84,20 @@ const Testimonials = () => {
                 <BiSolidQuoteAltLeft className='text-2xl lg:text-7xl mt-5 mb-5 text-white' />
                 <p className='text-lg lg:text-xl italic'>{item.text}</p>
                 <h3 className='font-bold mt-5 text-lg lg:text-xl'>{item.author}</h3>
-                <h3 className='text-purple-600'>{item.position}</h3>
+                <h3 className='text-amber-500'>{item.position}</h3>
               </div>
             ))}
           </Slider>
 
           {/* Custom Arrows */}
           <button 
-            className="absolute left-0 -bottom-16 text-white hover:text-purple-600 p-2"
+            className="absolute left-0 -bottom-16 text-white hover:text-amber-500 p-2"
             onClick={() => sliderRef.current.slickPrev()}
           >
             <FaArrowLeftLong className='text-lg lg:text-2xl cursor-pointer' />
           </button>
           <button 
-            className="absolute right-0 -bottom-16 text-white hover:text-purple-600 p-2"
+            className="absolute right-0 -bottom-16 text-white hover:text-amber-500 p-2"
             onClick={() => sliderRef.current.slickNext()}
           >
             <FaArrowRightLong className='text-lg lg:text-2xl cursor-pointer' />

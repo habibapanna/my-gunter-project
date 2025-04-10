@@ -27,9 +27,9 @@ const OurServices = () => {
             <div id='our-services' className='bg-black p-10'>
                 <div className='flex justify-between items-center'>
                     <div>
-                        <h3 className='text-purple-600 font-semibold'>WHAT WE DO</h3>
+                        <h3 className='text-amber-500 font-semibold'>WHAT WE DO</h3>
                         <h2 className='text-2xl lg:text-4xl font-bold mt-3 text-white'>Our Services</h2>
-                        <div className='flex gap-1 mt-8 lg:mb-5 text-purple-600'>
+                        <div className='flex gap-1 mt-8 lg:mb-5 text-amber-500'>
                             <span className='border-2 w-8'></span>
                             <span className='border-2 w-2'></span>
                             <span className='border-2 w-3'></span>
@@ -49,7 +49,7 @@ const OurServices = () => {
                             <div className="absolute inset-0 bg-gradient-to-b from-orange-600 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
                             {/* Left Icon */}
-                            <div className="lg:text-2xl text-purple-600 p-4 bg-black group-hover:bg-white rounded-full transition-all duration-500  z-10">
+                            <div className="lg:text-2xl text-amber-500 p-4 bg-black group-hover:bg-white rounded-full transition-all duration-500  z-10">
                                 {service.icon}
                             </div>
 
@@ -59,7 +59,7 @@ const OurServices = () => {
                             </h3>
 
                             {/* Right Arrow Icon (Moves to Right on Hover) */}
-                            <FaArrowRightLong className="text-purple-600 text-xl transition-transform duration-500 group-hover:translate-x-2 group-hover:text-white z-10" />
+                            <FaArrowRightLong className="text-amber-500 text-xl transition-transform duration-500 group-hover:translate-x-2 group-hover:text-white z-10" />
                         </div>
                     </Link>
                 ))}

@@ -13,9 +13,9 @@ const OurClients = () => {
 
   return (
     <div className="mb-10 px-5 lg:px-10 py-10">
-      <h3 className="text-purple-600 text-xl font-semibold mb-3">Meet Our Clients</h3>
+      <h3 className="text-amber-500 text-xl font-semibold mb-3">Meet Our Clients</h3>
       <h2 className="text-2xl lg:text-4xl font-semibold mb-8 text-white">Our Clients</h2>
-      <div className='flex gap-1 mb-5 text-purple-600 group-hover:text-white transition-colors duration-500'>
+      <div className='flex gap-1 mb-5 text-amber-500 group-hover:text-white transition-colors duration-500'>
                         <span className='border-2 w-8'></span>
                         <span className='border-2 w-2'></span>
                         <span className='border-2 w-3'></span>

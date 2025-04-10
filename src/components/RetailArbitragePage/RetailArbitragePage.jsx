@@ -114,7 +114,7 @@ function RetailArbitragePage() {
           <ul className="list-none pl-4 mt-5 text-[16px] text-gray-4200">
             {steps.map((step, index) => (
               <li key={index} className="flex items-start gap-2 mb-3">
-                <FaCheck className="text-purple-600 text-xl lg:text-2xl" />
+                <FaCheck className="text-amber-500 text-xl lg:text-2xl" />
                 <span className="text-sm lg:text-[16px] font-normal">
                   <span className="text-lg font-bold text-gray-400">{step.step}</span> – {step.details}
                 </span>
@@ -131,25 +131,25 @@ function RetailArbitragePage() {
   <h2 className="text-xl mt-10">Amazon Dropshipping Services</h2>
   <ul className="text-gray-400 font-normal text-[16px] mt-5 list-none space-y-3">
     <li className="flex items-start">
-      <FaDiamond className="text-purple-600 text-xl mr-3 mt-1" />
+      <FaDiamond className="text-amber-500 text-xl mr-3 mt-1" />
       Amazon TOS-Compliant Dropshipping – Work with legit suppliers to avoid account suspension.
     </li>
     <li className="flex items-start">
-      <FaDiamond className="text-purple-600 text-xl mr-3 mt-1" />
+      <FaDiamond className="text-amber-500 text-xl mr-3 mt-1" />
       Automated Order Fulfillment – Seamlessly process orders without manual effort.
     </li>
     <li className="flex items-start">
-      <FaDiamond className="text-purple-600 text-xl mr-3 mt-1" />
+      <FaDiamond className="text-amber-500 text-xl mr-3 mt-1" />
       Winning Product Research – Find high-demand, low-competition products.
     </li>
     <li className="flex items-start">
-      <FaDiamond className="text-purple-600 text-xl mr-3 mt-1" />
+      <FaDiamond className="text-amber-500 text-xl mr-3 mt-1" />
       Amazon Account Management – Handle listing optimization, inventory, and customer service.
     </li>
   </ul>
 </div>
 
-<p className="mt-10 text-amber-600"> Want to start or scale your Amazon & Walmart business?</p>
+<p className="mt-10 text-amber-500"> Want to start or scale your Amazon & Walmart business?</p>
         <div className="text-center mt-5">
           <button className="relative bg-purple-600 px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center overflow-hidden transition-all duration-300 shadow-animation text-[16px] lg:text-[18px] cursor-pointer">
             <Link to='/contact'>Contact us today for expert guidance!</Link>

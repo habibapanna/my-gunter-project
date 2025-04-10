@@ -94,7 +94,7 @@ function PrivateLabelPage() {
           ))}
         </div>
 
-        <p className="mt-10 text-amber-600 text-lg lg:text-xl">Create a successful Private Label brand on Amazon & scale your business effortlessly!</p>
+        <p className="mt-10 text-amber-500 text-lg lg:text-xl">Create a successful Private Label brand on Amazon & scale your business effortlessly!</p>
 
         <div className="text-center mt-5">
           <button className="relative bg-purple-600 px-2 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-sm lg:text-[18px] cursor-pointer">

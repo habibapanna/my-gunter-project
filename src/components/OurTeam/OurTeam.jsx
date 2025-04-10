@@ -41,14 +41,14 @@ const OurTeam = () => {
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between mb-6">
         <div className="text-left">
-          <h3 className="text-purple-600 font-semibold">Meet our experts</h3>
+          <h3 className="text-amber-500 font-semibold">Meet our experts</h3>
           <h2 className="text-3xl md:text-4xl font-bold mt-3 text-white">
             Our Team
           </h2>
           <div className="flex gap-1 justify-start mt-6 mb-5">
-            <span className="border-2 w-8 border-purple-600"></span>
-            <span className="border-2 w-2 border-purple-600"></span>
-            <span className="border-2 w-3 border-purple-600"></span>
+            <span className="border-2 w-8 border-amber-500"></span>
+            <span className="border-2 w-2 border-amber-500"></span>
+            <span className="border-2 w-3 border-amber-500"></span>
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@ const OurTeam = () => {
               {/* Overlay Text */}
               <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-70 text-white p-3 text-center">
                 <h3 className="font-bold text-lg">{member.name}</h3>
-                <p className="text-purple-600 text-sm">{member.title}</p>
+                <p className="text-amber-500 text-sm">{member.title}</p>
               </div>
 
               {/* Social Links on Hover */}
@@ -97,7 +97,7 @@ const OurTeam = () => {
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-purple-600 hover:bg-purple-600 hover:text-white p-2 rounded-full border border-purple-600 text-sm"
+                    className="text-amber-500 hover:bg-purple-600 hover:text-white p-2 rounded-full border border-amber-500 text-sm"
                   >
                     <Icon size={16} />
                   </a>

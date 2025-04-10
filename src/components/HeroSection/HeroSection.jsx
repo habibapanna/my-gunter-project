@@ -109,7 +109,7 @@ const HeroSection = () => {
             isExiting ? "animate-slide-down" : "animate-slide-up"
           } mb-10 mt-10 lg:mt-1 lg:mb-0`}
         >
-          <span className="border-8 w-8 h-20 border-purple-600 bg-purple-600"></span>
+          <span className="border-8 w-8 h-20 border-amber-500 bg-purple-600"></span>
           <h1 className="text-2xl lg:text-6xl font-bold text-white lg:mb-5">
             {heroes[currentIndex]?.title || "Default Title"}
           </h1>

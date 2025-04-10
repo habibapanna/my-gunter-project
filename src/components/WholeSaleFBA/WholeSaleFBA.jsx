@@ -65,13 +65,13 @@ function WholeSaleFBA() {
             "Advertising & Sales Growth Strategy – Boost visibility with Amazon PPC & Walmart Ads.",
           ].map((service, index) => (
             <li key={index} className="flex items-start gap-3 text-lg">
-              <FaCheck className="text-purple-600 text-2xl" />
+              <FaCheck className="text-amber-500 text-2xl" />
               <span className="text-[16px] font-normal lg:font-semibold text-gray-400">{service}</span>
             </li>
           ))}
         </ul>
 
-        <p className="text-amber-600 mt-10">
+        <p className="text-amber-500 mt-10">
           Start and scale your Wholesale FBA & WFS business today with expert guidance!
         </p>
 

@@ -155,11 +155,11 @@ const handleAnnouncementClick = (announcement) => {
           {currentAnnouncement ? currentAnnouncement.title : "Announcements"}
         </h1>
         <p className="text-center text-white">
-          <Link to="/" className="mr-3 transition-colors duration-300 hover:text-purple-600">
+          <Link to="/" className="mr-3 transition-colors duration-300 hover:text-amber-500">
             Home
           </Link>
           /
-          <span className="ml-3 text-purple-600 font-semibold">
+          <span className="ml-3 text-amber-500 font-semibold">
             {currentAnnouncement ? currentAnnouncement.title : "Announcements"}
           </span>
         </p>
@@ -189,7 +189,7 @@ image} alt="" />
                         <h2 className="text-lg font-bold mt-3 text-white">{announcement.title}</h2>
                         <p className="text-gray-400 mt-2">{announcement.description}</p>
                         <button
-                          className="text-purple-600 mt-2 hover:underline cursor-pointer"
+                          className="text-amber-500 mt-2 hover:underline cursor-pointer"
                           onClick={() => handleReadMore(announcement)}
                         >
                           Read More
@@ -204,7 +204,7 @@ image} alt="" />
 {/* Search bar */}
         <div className="col-span-12 md:col-span-4 bg-black p-4">
           <div className="relative mb-4">
-            <MdOutlineSearch className="absolute left-3 top-3 text-purple-600 text-xl cursor-pointer" />
+            <MdOutlineSearch className="absolute left-3 top-3 text-amber-500 text-xl cursor-pointer" />
             <input
               type="text"
               placeholder="Search Services..."
@@ -223,7 +223,7 @@ image} alt="" />
                 .map((announcement) => (
                   <button
                     key={announcement.id}
-                    className={`p-3 text-left items-center flex ${selectedAnnouncement === announcement ? "bg-purple-600 text-white" : "bg-black text-white hover:text-purple-600 hover:scale-95"}`}
+                    className={`p-3 text-left items-center flex ${selectedAnnouncement === announcement ? "bg-purple-600 text-white" : "bg-black text-white hover:text-amber-500 hover:scale-95"}`}
                     onClick={() => handleAnnouncementClick(announcement)}
                   >
                     <FaSquareFull className="text-sm mr-2" />
@@ -277,11 +277,11 @@ image} alt="" />
       >
         <button
           onClick={() => setModalIsOpen(false)}
-          className="absolute top-3 right-3 text-purple-600 text-2xl"
+          className="absolute top-3 right-3 text-amber-500 text-2xl"
         >
           &times;
         </button>
-        <h2 className="text-xl font-semibold mb-4 text-center text-purple-600 mt-2 cursor-pointer">
+        <h2 className="text-xl font-semibold mb-4 text-center text-amber-500 mt-2 cursor-pointer">
           Apply Now
         </h2>
 

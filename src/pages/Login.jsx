@@ -133,13 +133,13 @@ const Login = () => {
                         </form>
 
                         <p className="text-white mt-3">
-                            Don't have an account? <Link to="/register" className="text-purple-600 hover:underline cursor-pointer">Create Account</Link>
+                            Don't have an account? <Link to="/register" className="text-amber-500 hover:underline cursor-pointer">Create Account</Link>
                         </p>
 
                         {/* Google Sign-In Button */}
                         <button
                             onClick={handleGoogleLogin}
-                            className="w-full px-6 py-3 text-white font-semibold transition duration-300 shadow-animation mt-3 border border-purple-600 flex items-center gap-5 justify-center hover:border-gray-400 hover:text-purple-600 cursor-pointer"
+                            className="w-full px-6 py-3 text-white font-semibold transition duration-300 shadow-animation mt-3 border border-amber-500 flex items-center gap-5 justify-center hover:border-gray-400 hover:text-amber-500 cursor-pointer"
                         >
                             <FcGoogle className="text-2xl" /> Sign In with Google
                         </button>

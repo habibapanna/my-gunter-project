@@ -71,7 +71,7 @@ function DigitalMarketing() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <FaDiamond className="text-purple-600" /> {service}
+              <FaDiamond className="text-amber-500" /> {service}
             </motion.li>
           ))}
         </ul>

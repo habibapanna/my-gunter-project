@@ -147,7 +147,7 @@ const Home = () => {
                 </Section>
                 <Section>
                     <div id="contact" className="bg-black contact-form-container px-5 lg:px-10 md:pl-5">
-                        <h2 className="text-left font-semibold mb-5 mt-20 lg:mt-10 text-purple-600">LET'S TALK</h2>
+                        <h2 className="text-left font-semibold mb-5 mt-20 lg:mt-10 text-amber-500">LET'S TALK</h2>
                         <h2 className="text-2xl lg;text-3xl font-bold mb-5 lg:mb-10 text-white text-left">Get in Touch</h2>
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                             <div className="">

@@ -90,7 +90,7 @@ const Blog = () => {
                 <h1 className="text-4xl font-bold text-white mb-3">
                     {selectedBlog ? selectedBlog.title : "Blog"}
                 </h1>
-                <h1 className="text-purple-600">
+                <h1 className="text-amber-500">
                     <Link className="text-white" to="/">Home</Link> / Blog
                 </h1>
             </div>
@@ -98,7 +98,7 @@ const Blog = () => {
             <div className="py-6 grid grid-cols-1 md:grid-cols-12 gap-6 bg-black">
                 <div className="md:col-span-4 bg-black p-4">
                     <div className="relative mb-4">
-                        <MdOutlineSearch className="absolute left-3 top-3 text-purple-600 text-xl" />
+                        <MdOutlineSearch className="absolute left-3 top-3 text-amber-500 text-xl" />
                         <input
                             type="text"
                             placeholder="Search Blogs..."
@@ -115,7 +115,7 @@ const Blog = () => {
                             <button
                                 key={blog._id}
                                 className={`flex items-center p-2 text-left transition ${
-                                    selectedBlog?._id === blog._id ? "text-purple-600 font-bold" : "hover:text-purple-600"
+                                    selectedBlog?._id === blog._id ? "text-amber-500 font-bold" : "hover:text-amber-500"
                                 }`}
                                 onClick={() => {
                                     setContentLoading(true);
@@ -137,7 +137,7 @@ const Blog = () => {
                         {categories.map((category, index) => (
                             <button
                                 key={index}
-                                className={`p-2 block w-full text-left transition ${selectedCategory === category ? "bg-purple-600 text-white" : "hover:text-purple-600"}`}
+                                className={`p-2 block w-full text-left transition ${selectedCategory === category ? "bg-purple-600 text-white" : "hover:text-amber-500"}`}
                                 onClick={() => {
                                     setContentLoading(true);
                                     setTimeout(() => {
@@ -200,7 +200,7 @@ const Blog = () => {
                                     <h2 className="text-lg font-bold mb-2">{blog.title}</h2>
                                     <p className="text-sm text-gray-400">{blog.description}</p>
                                     <button
-                                        className="text-purple-600 font-semibold hover:underline mt-2 cursor-pointer"
+                                        className="text-amber-500 font-semibold hover:underline mt-2 cursor-pointer"
                                         onClick={() => {
                                             setContentLoading(true);
                                             setTimeout(() => {
@@ -222,7 +222,7 @@ const Blog = () => {
             {showModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
                     <div className="bg-white p-6 w-full max-w-2xl relative">
-                        <h2 className="text-2xl font-bold mb-4 text-purple-600">Post a New Blog</h2>
+                        <h2 className="text-2xl font-bold mb-4 text-amber-500">Post a New Blog</h2>
                         <form onSubmit={handlePostBlog} className="grid grid-cols-1 gap-3 text-black">
                             {["image", "title", "description", "details", "category", "author"].map((field) => (
                                 <input

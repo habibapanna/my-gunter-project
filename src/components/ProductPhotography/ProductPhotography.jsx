@@ -65,7 +65,7 @@ function ProductPhotography() {
         <div className="space-y-3">
           {services.map((service, index) => (
             <div key={index} className="flex items-center gap-3">
-              <span className="text-purple-600 text-lg">◆</span>
+              <span className="text-amber-500 text-lg">◆</span>
               <p className="text-[16px] text-gray-400">{service}</p>
             </div>
           ))}

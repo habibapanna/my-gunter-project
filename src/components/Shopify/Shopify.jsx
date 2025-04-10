@@ -69,7 +69,7 @@ function Shopify() {
         <ul className="space-y-4">
           {services.map((service, index) => (
             <li key={index} className="flex items-start gap-3 text-gray-400 text-[16px]">
-              <FaCheck className="text-purple-600 text-xl" />
+              <FaCheck className="text-amber-500 text-xl" />
               {service}
             </li>
           ))}

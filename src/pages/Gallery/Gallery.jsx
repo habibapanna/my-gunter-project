@@ -84,11 +84,11 @@ const filteredImages = selectedCategory
                     {currentGallery ? currentGallery : "Gallery"}
                 </h1>
                 <p className="text-center text-white">
-                    <Link to="/" className={`mr-3 transition-colors duration-300 ${location.pathname === "/" ? "text-purple-600 font-semibold" : "hover:text-purple-600"}`}>
+                    <Link to="/" className={`mr-3 transition-colors duration-300 ${location.pathname === "/" ? "text-amber-500 font-semibold" : "hover:text-amber-500"}`}>
                         Home
                     </Link>
                     /
-                    <span className="ml-3 text-purple-600 font-semibold">
+                    <span className="ml-3 text-amber-500 font-semibold">
                         {currentGallery ? currentGallery : "Gallery"}
                     </span>
                 </p>
@@ -99,7 +99,7 @@ const filteredImages = selectedCategory
                 <div className="col-span-12 md:col-span-4 bg-black p-4 mb-6 md:mb-0">
                     {/* ✅ Search Bar */}
                     <div className="relative mb-4">
-                        <MdOutlineSearch className="absolute left-3 top-3 text-purple-600 text-xl" />
+                        <MdOutlineSearch className="absolute left-3 top-3 text-amber-500 text-xl" />
                         <input
                             type="text"
                             placeholder="Search Services..."
@@ -118,7 +118,7 @@ const filteredImages = selectedCategory
                         <div className="flex flex-col mb-4">
     <button
         className={`flex justify-between items-center p-3 shadow-md transition-all duration-300 relative transform text-left 
-        ${!selectedCategory ? "bg-purple-600 text-white" : "bg-black text-white hover:text-purple-600 hover:scale-95"}`}
+        ${!selectedCategory ? "bg-purple-600 text-white" : "bg-black text-white hover:text-amber-500 hover:scale-95"}`}
         onClick={() => setSelectedCategory("")} // Set selected category to empty string for "All Categories"
     >
         <FaSquareFull className="text-sm mr-5" />
@@ -128,7 +128,7 @@ const filteredImages = selectedCategory
         <button
             key={index}
             className={`flex justify-between items-center p-3 shadow-md transition-all duration-300 relative transform text-left 
-            ${selectedCategory === category ? "bg-purple-600 text-white" : "bg-black text-white hover:text-purple-600 hover:scale-95"}`}
+            ${selectedCategory === category ? "bg-purple-600 text-white" : "bg-black text-white hover:text-amber-500 hover:scale-95"}`}
             onClick={() => setSelectedCategory(category)} // Update category on click
         >
             <FaSquareFull className="text-sm mr-5" />
@@ -159,7 +159,7 @@ const filteredImages = selectedCategory
                                         alt={item.title} 
                                         className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105" 
                                     />
-                                    <div className="p-3 bg-blacktext-purple-600 text-center">{item.title}</div>
+                                    <div className="p-3 bg-blacktext-amber-500 text-center">{item.title}</div>
                                 </motion.div>
                             ))
                         )}

@@ -71,11 +71,11 @@ const Navbar = () => {
                 <NavLink
                   to={path}
                   className={({ isActive }) =>
-                    `relative transition duration-300 hover:text-purple-600 pb-1 font-semibold ${
+                    `relative transition duration-300 hover:text-amber-500 pb-1 font-semibold ${
                       isActive
-                        ? "text-purple-600 border-b-2 border-purple-600"
+                        ? "text-amber-500 border-b-2 border-amber-500"
                         : `text-${isBlackBg ? "white" : "black"} border-b-2 border-transparent`
-                    } hover:border-purple-600`
+                    } hover:border-amber-500`
                   }
                 >
                   {name}
@@ -94,7 +94,7 @@ const Navbar = () => {
 
             {/* ✅ Login/Logout Button */}
             {user ? (
-              <button onClick={handleLogout} className="bg-white px-2 text-sm border-none text-purple-600 shadow-animation cursor-pointer">
+              <button onClick={handleLogout} className="bg-white px-2 text-sm border-none text-purple-600 shadow-animation cursor-pointer font-bold">
                 Logout
               </button>
             ) : (
@@ -119,11 +119,11 @@ const Navbar = () => {
                   <NavLink
                     to={path}
                     className={({ isActive }) =>
-                      `block py-2 transition duration-300 hover:text-purple-600 pb-1 ${
+                      `block py-2 transition duration-300 hover:text-amber-500 pb-1 ${
                         isActive
-                          ? "text-purple-600 underline border-purple-600"
+                          ? "text-amber-500 underline border-amber-500"
                           : `text-white hover:underline border-transparent`
-                      } hover:border-purple-600`
+                      } hover:border-amber-500`
                     }
                     onClick={() => setIsOpen(false)}
                   >
