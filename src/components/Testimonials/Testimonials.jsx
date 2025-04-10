@@ -48,7 +48,7 @@ const Testimonials = () => {
           {/* Dynamically load the image from the latest testimonial */}
           {testimonials.length > 0 && testimonials[0].image ? (
   <img 
-    className='relative transition-all duration-500 grayscale hover:grayscale-0 w-full lg:h-full h-[400px] object-cover' 
+    className='relative transition-all duration-500 grayscale hover:grayscale-0 w-full lg:h-[500px] h-[400px] object-cover' 
     src={testimonials[0].image}  // Use the first testimonial image
     alt="Testimonial Image" 
   />

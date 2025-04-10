@@ -28,7 +28,7 @@ const Login = () => {
                 showConfirmButton: false,
             });
 
-            navigate("/");
+            navigate("/dashboard/all-user");
         } catch (error) {
             Swal.fire({
                 icon: "error",

@@ -8,6 +8,10 @@ import RecentProjects from "../components/RecentProjects/RecentProjects";
 import ServiceCards from "../components/ServiceCards/ServiceCards";
 import Testimonials from "../components/Testimonials/Testimonials";
 import OurClients from "../components/OurClients/OurClients";
+import { HiOutlineShoppingCart } from "react-icons/hi";
+import { IoGlobeOutline, IoRocketOutline } from "react-icons/io5";
+import { MdOutlineWarehouse } from "react-icons/md";
+import { AiOutlineBoxPlot } from "react-icons/ai";
 
 const AnimatedStick = () => {
     return (
@@ -103,6 +107,19 @@ const Home = () => {
             alert("Something went wrong. Please try again later.");
           });
       };
+
+      const services = [
+        { title: "Private Label", icon: <IoRocketOutline />, path: "private-label" },
+        { title: "Retail / Online Arbitrage", icon: <HiOutlineShoppingCart />, path: "retail-arbitrage" },
+        { title: "Wholesale FBA / WFS", icon: <MdOutlineWarehouse />, path: "wholesale-fba" },
+        { title: "Web Development", icon: <IoGlobeOutline />, path: "web-development" },
+        { title: "Shopify", icon: <AiOutlineBoxPlot />, path: "shopify" },
+      ];
+
+      const scrollToServices = () => {
+        const section = document.getElementById("our-services");
+        section?.scrollIntoView({ behavior: "smooth" });
+      };
       
 
     return (
@@ -121,6 +138,30 @@ const Home = () => {
 
             <div className="bg-black overflow-x-hidden">
                 <HeroSection />
+                          {/* Service Cards - Continuous Marquee */}
+{/* Service Cards - Continuous Marquee */}
+<div className="w-full overflow-hidden mt-5">
+  <div className="marquee flex gap-6">
+    {[...services, ...services].map((service, idx) => (
+      <div
+        key={idx}
+        className="w-[300px] text-lg h-15 backdrop-blur-md bg-white/10 border border-white/10 text-white  flex flex-col justify-center items-center px-8 shadow-md rounded-full"
+      >
+        <div className="mt-1">{service.title}</div>
+      </div>
+    ))}
+  </div>
+
+  {/* See More Button - moved here BELOW marquee */}
+  <div className="mt-8 text-center">
+    <button
+      onClick={scrollToServices}
+      className="hover:text-white hover:bg-purple-600  rounded-full px-4 py-1 text-sm bg-amber-500 text-white transition cursor-pointer"
+    >
+      See More Services
+    </button>
+  </div>
+</div>
                 <Section>
                     <OurClients></OurClients>
                 </Section>

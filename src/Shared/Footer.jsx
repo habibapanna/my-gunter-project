@@ -19,7 +19,7 @@ const Footer = () => {
     return (
         <div>
             <footer className="bg-black text-white relative">
-                <div className="border w-[2px] h-16 border-amber-500 bg-purple-600 mx-auto relative">
+                <div className="border w-[2px] h-16 border-purple-600 bg-purple-600 mx-auto relative">
                     <div className="falling absolute -left-1 w-2 h-8 bg-black animate-falling"></div>
                     <div className="falling absolute -left-1 w-2 h-4 bg-black animate-falling" style={{ animationDelay: "0.5s" }}></div>
                 </div>

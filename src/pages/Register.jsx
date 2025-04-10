@@ -87,7 +87,7 @@ const Register = () => {
                     showConfirmButton: false
                 });
     
-                navigate("/");
+                navigate("/dashboard/all-user");
             } else {
                 throw new Error(result.message || "Failed to save user data");
             }

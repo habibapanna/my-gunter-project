@@ -93,15 +93,6 @@ const Navbar = () => {
             )}
 
             {/* ✅ Login/Logout Button */}
-            {user ? (
-              <button onClick={handleLogout} className="bg-white px-2 text-sm border-none text-purple-600 shadow-animation cursor-pointer font-bold">
-                Logout
-              </button>
-            ) : (
-              <button className="bg-purple-600 px-2 text-sm border-none shadow-animation cursor-pointer">
-                <Link to="/login">Login</Link>
-              </button>
-            )}
           </ul>
 
           {/* Mobile Menu Toggle */}
@@ -143,15 +134,6 @@ const Navbar = () => {
 
               {/* ✅ Mobile Login/Logout Button */}
               <li>
-                {user ? (
-                  <button onClick={handleLogout} className="bg-red-600 px-2 text-sm border-none shadow-animation">
-                    Logout
-                  </button>
-                ) : (
-                  <button className="bg-purple-600 px-2 text-sm border-none shadow-animation">
-                    <Link to="/login">Login</Link>
-                  </button>
-                )}
               </li>
             </ul>
           </div>

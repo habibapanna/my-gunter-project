@@ -2,17 +2,7 @@ import { useState, useEffect } from "react";
 import { AiOutlineBoxPlot } from "react-icons/ai";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import { GrContact } from "react-icons/gr";
-import { HiOutlineShoppingCart } from "react-icons/hi";
-import { IoGlobeOutline, IoRocketOutline } from "react-icons/io5";
-import { MdOutlineWarehouse } from "react-icons/md";
 
-const services = [
-  { title: "Private Label", icon: <IoRocketOutline />, path: "private-label" },
-  { title: "Retail / Online Arbitrage", icon: <HiOutlineShoppingCart />, path: "retail-arbitrage" },
-  { title: "Wholesale FBA / WFS", icon: <MdOutlineWarehouse />, path: "wholesale-fba" },
-  { title: "Web Development", icon: <IoGlobeOutline />, path: "web-development" },
-  { title: "Shopify", icon: <AiOutlineBoxPlot />, path: "shopify" },
-];
 
 const HeroSection = () => {
   const [heroes, setHeroes] = useState([]);
@@ -40,10 +30,6 @@ const HeroSection = () => {
     }, 300);
   };
 
-  const scrollToServices = () => {
-    const section = document.getElementById("our-services");
-    section?.scrollIntoView({ behavior: "smooth" });
-  };
   const scrollToContact = () => {
     const section = document.getElementById("contact");
     section?.scrollIntoView({ behavior: "smooth" });
@@ -70,36 +56,11 @@ const HeroSection = () => {
           <img
             key={currentIndex}
             src={heroes[currentIndex]?.image || ""}
-            className={`w-2/3 lg:max-w-md transition-transform duration-700 z-10 ${
+            className={`h-[300px] lg:h-full object-cover lg:max-w-md transition-transform duration-700 z-10 ${
               isExiting ? "animate-slide-down" : "animate-slide-up"
             }`}
             alt="Hero"
           />
-
-          {/* Service Cards - Continuous Marquee */}
-{/* Service Cards - Continuous Marquee */}
-<div className="absolute bottom-10 w-full overflow-hidden px-4 z-30">
-  <div className="marquee flex lg:flex-col gap-6">
-    {[...services, ...services].map((service, idx) => (
-      <div
-        key={idx}
-        className="min-w-[140px] h-15 backdrop-blur-md bg-white/10 border border-white/10 text-white  flex flex-col justify-center items-center p-2 text-sm shadow-md rounded-full"
-      >
-        <div className="mt-1">{service.title}</div>
-      </div>
-    ))}
-  </div>
-
-  {/* See More Button - moved here BELOW marquee */}
-  <div className="mt-4 text-center lg:mr-90">
-    <button
-      onClick={scrollToServices}
-      className="hover:text-white hover:bg-white/10 rounded-full px-4 py-1 text-sm bg-amber-500 text-white transition cursor-pointer"
-    >
-      See More Services
-    </button>
-  </div>
-</div>
         </div>
 
         {/* Text Section */}

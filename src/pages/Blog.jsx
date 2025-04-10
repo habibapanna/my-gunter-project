@@ -102,7 +102,7 @@ const Blog = () => {
                         <input
                             type="text"
                             placeholder="Search Blogs..."
-                            className="w-full pl-10 pr-4 py-3 focus:ring-white text-white bg-black shadow-md"
+                            className="w-full pl-10 pr-4 py-3 focus:ring-white text-white bg-black shadow-md border"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
@@ -115,7 +115,7 @@ const Blog = () => {
                             <button
                                 key={blog._id}
                                 className={`flex items-center p-2 text-left transition ${
-                                    selectedBlog?._id === blog._id ? "text-amber-500 font-bold" : "hover:text-amber-500"
+                                    selectedBlog?._id === blog._id ? "bg-purple-600 font-bold" : "hover:bg-purple-600"
                                 }`}
                                 onClick={() => {
                                     setContentLoading(true);
@@ -137,7 +137,7 @@ const Blog = () => {
                         {categories.map((category, index) => (
                             <button
                                 key={index}
-                                className={`p-2 block w-full text-left transition ${selectedCategory === category ? "bg-purple-600 text-white" : "hover:text-amber-500"}`}
+                                className={`p-2 block w-full text-left transition ${selectedCategory === category ? "bg-purple-600 text-white" : "hover:bg-purple-600"}`}
                                 onClick={() => {
                                     setContentLoading(true);
                                     setTimeout(() => {
@@ -151,15 +151,6 @@ const Blog = () => {
                             </button>
                         ))}
                     </div>
-
-                    <div className="text-center mt-5">
-                        <button
-                            onClick={() => setShowModal(true)}
-                            className="bg-purple-600 px-6 py-3 text-white font-semibold transition duration-300 mt-3 shadow-animation cursor-pointer"
-                        >
-                            Post a New Blog
-                        </button>
-                    </div>
                 </div>
 
                 <div className="md:col-span-8 bg-black">
@@ -168,12 +159,15 @@ const Blog = () => {
                     ) : selectedBlog ? (
                         <div className="bg-black text-white p-6  shadow-md">
                             <img src={selectedBlog.image} alt={selectedBlog.title} className="w-full h-64 object-cover mb-4" />
+                            <div className="flex items-center gap-5">
                             <h1 className="mb-2 text-white">{formatDate(selectedBlog.createdAt)}</h1>
+                            <h1 className="text-white  bg-amber-500 pl-1">Posted by : <span className="bg-purple-800 py-1 px-1">{selectedBlog.author}</span></h1>
+                            </div>
                             <h2 className="text-2xl lg:text-4xl font-bold mb-3">{selectedBlog.title}</h2>
                             <p className="text-sm text-gray-400 mb-5">{selectedBlog.description}</p>
                             <p className="text-sm text-gray-400">{selectedBlog.details}</p>
                             <button
-                                className="mt-4 px-4 py-2 bg-purple-600 text-white font-semibold hover:bg-purple-600 cursor-pointer"
+                                className="mt-4 px-4 py-2 bg-purple-600 text-white font-semibold hover:bg-purple-600 cursor-pointer shadow-animation"
                                 onClick={() => {
                                     setContentLoading(true);
                                     setTimeout(() => {
@@ -190,12 +184,19 @@ const Blog = () => {
                             {searchedBlogs.map((blog, index) => (
                                 <motion.div
                                     key={blog._id}
-                                    className="bg-black text-white p-4 shadow-md shadow-gray-900"
+                                    onClick={() => {
+                                        setContentLoading(true);
+                                        setTimeout(() => {
+                                            setSelectedBlog(blog);
+                                            setContentLoading(false);
+                                        }, 500);
+                                    }}
+                                    className="bg-black text-white p-4 shadow-md shadow-gray-900 cursor-pointer"
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.6, delay: index * 0.2 }}
                                 >
-                                    <h1 className="absolute bg-purple-600 text-white text-sm px-2">{formatDate(blog.createdAt)}</h1>
+                                    <h1 className="absolute bg-amber-500 text-white text-sm px-2">{formatDate(blog.createdAt)}</h1>
                                     <img src={blog.image} alt={blog.title} className="w-full h-40 object-cover mb-3" />
                                     <h2 className="text-lg font-bold mb-2">{blog.title}</h2>
                                     <p className="text-sm text-gray-400">{blog.description}</p>
@@ -217,78 +218,57 @@ const Blog = () => {
                     )}
                 </div>
             </div>
-
-            {/* MODAL */}
-            {showModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
-                    <div className="bg-white p-6 w-full max-w-2xl relative">
-                        <h2 className="text-2xl font-bold mb-4 text-amber-500">Post a New Blog</h2>
-                        <form onSubmit={handlePostBlog} className="grid grid-cols-1 gap-3 text-black">
-                            {["image", "title", "description", "details", "category", "author"].map((field) => (
-                                <input
-                                    key={field}
-                                    name={field}
-                                    type="text"
-                                    placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-                                    value={formData[field]}
-                                    onChange={handleFormChange}
-                                    className="border border-purple-300 px-3 py-2 focus:outline-none focus:ring focus:ring-amber-500"
-                                    required
-                                />
-                            ))}
-                            <div className="flex justify-end gap-4 mt-4">
-                                <button
-                                    type="button"
-                                    className="px-4 py-2 bg-gray-300 text-gray-700 hover:bg-gray-500 hover:text-white"
-                                    onClick={() => setShowModal(false)}
-                                >
-                                    Cancel
-                                </button>
-                                <button
-                                    type="submit"
-                                    className="px-4 py-2 bg-purple-600 text-white hover:bg-amber-600 shadow-animation"
-                                >
-                                    Post Blog
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            )}
-
             {/* STYLES */}
-            <style>{`
-                .shadow-animation {
-                    position: relative;
-                    overflow: hidden;
-                }
-                .shadow-animation::before,
-                .shadow-animation::after {
-                    content: '';
-                    position: absolute;
-                    width: 50%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, 0.9);
-                    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-                    opacity: 0;
-                }
-                .shadow-animation::before {
-                    left: 0;
-                    bottom: -100%;
-                }
-                .shadow-animation::after {
-                    right: 0;
-                    top: -100%;
-                }
-                .shadow-animation:hover::before {
-                    transform: translateY(-100%);
-                    opacity: 1;
-                }
-                .shadow-animation:hover::after {
-                    transform: translateY(100%);
-                    opacity: 1;
-                }
-            `}</style>
+            <style>
+        {`
+          .shadow-animation {
+              position: relative;
+              overflow: hidden;
+          }
+
+          .shadow-animation::before,
+          .shadow-animation::after {
+              content: '';
+              position: absolute;
+              width: 50%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.9);
+              transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+              opacity: 0;
+          }
+
+          .shadow-animation::before {
+              left: 0;
+              bottom: -100%;
+          }
+
+          .shadow-animation::after {
+              right: 0;
+              top: -100%;
+          }
+
+          .shadow-animation:hover::before {
+              transform: translateY(-100%);
+              opacity: 1;
+          }
+
+          .shadow-animation:hover::after {
+              transform: translateY(100%);
+              opacity: 1;
+          }
+
+          .shadow-animation:hover::before,
+          .shadow-animation:hover::after {
+              animation: panelDisappear 1s ease-in-out forwards;
+          }
+
+          @keyframes panelDisappear {
+              0% { opacity: 1; }
+              70% { opacity: 1; }
+              100% { opacity: 0; transform: translateY(0); }
+          }
+        `}
+      </style>
         </div>
     );
 };

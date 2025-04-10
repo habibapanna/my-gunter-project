@@ -2,45 +2,43 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaSquareFull } from "react-icons/fa6";
 import { MdOutlineSearch } from "react-icons/md";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion"; // Import motion from Framer Motion
+import { motion } from "framer-motion";
 import Spinner from "../../components/Spinner/Spinner";
- // Import Spinner component
 
 const Gallery = () => {
     const [search, setSearch] = useState("");
     const [galleryItems, setGalleryItems] = useState([]);
     const [categories, setCategories] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState(""); // Track the selected category
-    const [loading, setLoading] = useState(true); // Add loading state
+    const [selectedCategory, setSelectedCategory] = useState("");
+    const [loading, setLoading] = useState(true);
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 9;
+
     const location = useLocation();
     const navigate = useNavigate();
 
-    // Fetch gallery data from the backend
     useEffect(() => {
         const fetchGalleryData = async () => {
-            setLoading(true); // Set loading to true when fetching data
+            setLoading(true);
             try {
                 const response = await fetch('https://my-gunter-project-server.vercel.app/gallery');
                 const data = await response.json();
                 setGalleryItems(data);
-
-                // Extract unique categories from the gallery data
                 const uniqueCategories = [...new Set(data.map(item => item.category))];
                 setCategories(uniqueCategories);
             } catch (error) {
                 console.error("Error fetching gallery data:", error);
             } finally {
-                setLoading(false); // Set loading to false after data is fetched
+                setLoading(false);
             }
         };
-
         fetchGalleryData();
-    }, []); // Run only once on mount
+    }, []);
 
-    // Fetch filtered gallery items based on selected category
     useEffect(() => {
         if (selectedCategory) {
-            setLoading(true); // Set loading to true when category is clicked
+            setLoading(true);
             const fetchFilteredData = async () => {
                 try {
                     const response = await fetch(`https://my-gunter-project-server.vercel.app/gallery?category=${selectedCategory}`);
@@ -49,35 +47,36 @@ const Gallery = () => {
                 } catch (error) {
                     console.error("Error fetching filtered gallery data:", error);
                 } finally {
-                    setLoading(false); // Set loading to false after data is fetched
+                    setLoading(false);
                 }
             };
-
             fetchFilteredData();
         }
-    }, [selectedCategory]); // Re-run when selectedCategory changes
+    }, [selectedCategory]);
 
-// Filter gallery items by category
-const filteredImages = selectedCategory
-    ? galleryItems.filter(item => item.category && item.category.toLowerCase() === selectedCategory.toLowerCase())
-    : galleryItems; // Show all items when "All Categories" is selected
+    const filteredImages = selectedCategory
+        ? galleryItems.filter(item => item.category && item.category.toLowerCase() === selectedCategory.toLowerCase())
+        : galleryItems;
 
-
-    // Apply search filter
     const filteredSearchImages = search
         ? filteredImages.filter(item => item.title && item.title.toLowerCase().includes(search.toLowerCase()))
         : filteredImages;
 
-    // Get the current gallery title based on the URL path
-    const currentGallery = location.pathname.split("/")[2]; // Extract category from the URL path
+    // Pagination logic
+    const totalPages = Math.ceil(filteredSearchImages.length / itemsPerPage);
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentImages = filteredSearchImages.slice(indexOfFirstItem, indexOfLastItem);
+
+    const currentGallery = location.pathname.split("/")[2];
 
     return (
         <div className="bg-black">
-            {/* ✅ Banner Section (Dynamically Updates Title with Animation) */}
+            {/* ✅ Banner */}
             <motion.div 
                 className="bg-black py-20"
-                initial={{ opacity: 0, y: -50 }} // Initial state
-                animate={{ opacity: 1, y: 0 }} // Final state
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
                 <h1 className="text-4xl font-bold mb-5 text-center text-white">
@@ -95,7 +94,7 @@ const filteredImages = selectedCategory
             </motion.div>
 
             <div className="p-10 grid grid-cols-1 md:grid-cols-12 gap-6">
-                {/* ✅ Sidebar for Service List (Moved to the top on mobile) */}
+                {/* ✅ Sidebar */}
                 <div className="col-span-12 md:col-span-4 bg-black p-4 mb-6 md:mb-0">
                     {/* ✅ Search Bar */}
                     <div className="relative mb-4">
@@ -103,67 +102,97 @@ const filteredImages = selectedCategory
                         <input
                             type="text"
                             placeholder="Search Services..."
-                            className="w-full pl-10 pr-4 py-3 shadow-md text-white bg-black focus:outline-none focus:ring-2 focus:ring-white"
+                            className="w-full pl-10 pr-4 py-3 shadow-md text-white bg-black focus:outline-none focus:ring-2 focus:ring-white border"
                             value={search}
-                            onChange={(e) => setSearch(e.target.value)}
+                            onChange={(e) => {
+                                setSearch(e.target.value);
+                                setCurrentPage(1); // reset page
+                            }}
                         />
                     </div>
 
-                    {/* ✅ Recent Post Section */}
+                    {/* ✅ Category List */}
                     <div className="shadow-md mb-4 bg-black">
                         <h1 className="text-white text-lg font-bold p-3">Category</h1>
                         <div className="border-1 mx-5 mb-4"></div>
 
-                        {/* ✅ Category List */}
                         <div className="flex flex-col mb-4">
-    <button
-        className={`flex justify-between items-center p-3 shadow-md transition-all duration-300 relative transform text-left 
-        ${!selectedCategory ? "bg-purple-600 text-white" : "bg-black text-white hover:text-amber-500 hover:scale-95"}`}
-        onClick={() => setSelectedCategory("")} // Set selected category to empty string for "All Categories"
-    >
-        <FaSquareFull className="text-sm mr-5" />
-        <span className="text-sm">All Categories</span>
-    </button>
-    {categories.map((category, index) => (
-        <button
-            key={index}
-            className={`flex justify-between items-center p-3 shadow-md transition-all duration-300 relative transform text-left 
-            ${selectedCategory === category ? "bg-purple-600 text-white" : "bg-black text-white hover:text-amber-500 hover:scale-95"}`}
-            onClick={() => setSelectedCategory(category)} // Update category on click
-        >
-            <FaSquareFull className="text-sm mr-5" />
-            <span className="text-sm">{category}</span>
-        </button>
-    ))}
-</div>
+                            <button
+                                className={`flex justify-between items-center p-3 shadow-md transition-all duration-300 text-left 
+                                ${!selectedCategory ? "bg-purple-600 text-white" : "bg-black text-white hover:bg-purple-600"}`}
+                                onClick={() => {
+                                    setSelectedCategory("");
+                                    setCurrentPage(1); // reset page
+                                }}
+                            >
+                                <FaSquareFull className="text-sm mr-5" />
+                                <span className="text-sm">All Categories</span>
+                            </button>
 
+                            {categories.map((category, index) => (
+                                <button
+                                    key={index}
+                                    className={`flex justify-between items-center p-3 shadow-md transition-all duration-300 text-left 
+                                    ${selectedCategory === category ? "bg-purple-600 text-white" : "bg-black text-white hover:bg-purple-600"}`}
+                                    onClick={() => {
+                                        setSelectedCategory(category);
+                                        setCurrentPage(1); // reset page
+                                    }}
+                                >
+                                    <FaSquareFull className="text-sm mr-5" />
+                                    <span className="text-sm">{category}</span>
+                                </button>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
-                {/* ✅ Left Content Area - Shows Service Component with Image Animation */}
-                <div className="col-span-12 md:col-span-8 flex justify-center items-center text-gray-400">
-                    <div className="col-span-12 md:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                        {loading ? ( // Display spinner while loading
+                {/* ✅ Main Gallery Area */}
+                <div className="col-span-12 md:col-span-8 text-gray-400">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        {loading ? (
                             <Spinner />
+                        ) : currentImages.length === 0 ? (
+                            <p className="text-white col-span-3 text-center">No images found.</p>
                         ) : (
-                            filteredSearchImages.map((item, index) => (
+                            currentImages.map((item, index) => (
                                 <motion.div 
                                     key={index} 
                                     className="overflow-hidden shadow-md shadow-gray-900"
-                                    initial={{ opacity: 0, y: 100 }} // Start below the viewport (y: 100px)
-                                    animate={{ opacity: 1, y: 0 }} // Move to final position (y: 0)
-                                    transition={{ duration: 0.6, delay: index * 0.1 }} // Delay for staggered effect
+                                    initial={{ opacity: 0, y: 100 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: index * 0.1 }}
                                 >
                                     <img 
                                         src={item.image} 
                                         alt={item.title} 
                                         className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105" 
                                     />
-                                    <div className="p-3 bg-blacktext-amber-500 text-center">{item.title}</div>
+                                    <div className="p-3 bg-black text-amber-500 text-center">{item.title}</div>
                                 </motion.div>
                             ))
                         )}
                     </div>
+
+                    {/* ✅ Pagination Controls */}
+                    {!loading && filteredSearchImages.length > 9 && (
+                        <div className="flex justify-end mt-6 space-x-2">
+                            <button
+                                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                                disabled={currentPage === 1}
+                                className="px-4 py-2 bg-amber-500 text-white hover:bg-amber-600 disabled:bg-gray-700"
+                            >
+                                Previous
+                            </button>
+                            <button
+                                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                                disabled={currentPage === totalPages}
+                                className="px-4 py-2 bg-purple-600 text-white hover:bg-purple-700 disabled:bg-gray-700"
+                            >
+                                Next
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

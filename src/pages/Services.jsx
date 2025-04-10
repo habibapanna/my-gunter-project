@@ -69,7 +69,7 @@ const Services = () => {
                         <input
                             type="text"
                             placeholder="Search Services..."
-                            className="w-full pl-10 pr-4 py-3 shadow-md text-white focus:outline-none focus:ring-2 bg-black focus:ring-white"
+                            className="w-full pl-10 pr-4 py-3 shadow-md text-white focus:outline-none focus:ring-2 bg-black focus:ring-white border"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />

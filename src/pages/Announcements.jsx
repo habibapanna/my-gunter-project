@@ -14,7 +14,20 @@ const Announcements = () => {
   const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+  
+  const filteredAnnouncements = announcements.filter(
+    (announcement) =>
+      !selectedCategory || announcement.category === selectedCategory
+  );
+  
+  const totalPages = Math.ceil(filteredAnnouncements.length / itemsPerPage);
+  const paginatedAnnouncements = filteredAnnouncements.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+  
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -96,7 +109,7 @@ const handleAnnouncementClick = (announcement) => {
     form.append("cvFile", formData.cvFile);
   
     try {
-      const response = await fetch("http://localhost:5000/submit-form", {
+      const response = await fetch("https://my-gunter-project-server.vercel.app/submit-form", {
         method: "POST",
         body: form,
       });
@@ -178,61 +191,101 @@ image} alt="" />
                   <h2 className="text-white text-xl font-bold mt-5">{selectedAnnouncement.title}</h2>
                   <p className="text-gray-400 mt-2">{selectedAnnouncement.description}</p>
                   <p className="text-gray-400 mt-2">{selectedAnnouncement.details}</p>
+                            {/* Apply Now Button */}
+          <div className="text-center mt-6">
+            <button
+              onClick={() => setModalIsOpen(true)}
+              className="bg-purple-600 px-6 py-3 text-white font-semibold transition duration-300 mt-3 shadow-animation cursor-pointer"
+            >
+              Apply Now
+            </button>
+          </div>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {announcements
-                    .filter((announcement) => !selectedCategory || announcement.category === selectedCategory)
-                    .map((announcement) => (
-                      <div key={announcement.id} className="bg-black shadow-md shadow-gray-900 p-4 flex flex-col justify-between h-[400px]">
-  <div>
-    <img src={announcement.image} alt={announcement.title} className="w-full h-50 object-cover" />
-    <h2 className="text-lg font-bold mt-3 text-white">{announcement.title}</h2>
-    <p className="text-gray-400 text-sm mt-2">{announcement.description}</p>
+                  {paginatedAnnouncements.map((announcement) => (
+  <div key={announcement.id} className="bg-black shadow-md shadow-gray-900 p-4 flex flex-col justify-between h-[400px]">
+    <div onClick={() => handleReadMore(announcement)} className="cursor-pointer">
+      <img src={announcement.image} alt={announcement.title} className="w-full h-50 object-cover" />
+      <h2 className="text-lg font-bold mt-3 text-white">{announcement.title}</h2>
+      <p className="text-gray-400 mt-2">{announcement.description}</p>
+    </div>
+    <button
+      className="text-amber-500 hover:underline cursor-pointer text-left font-semibold"
+      onClick={() => handleReadMore(announcement)}
+    >
+      Read More
+    </button>
   </div>
-  <button
-    className="text-amber-500 mt-2 hover:underline cursor-pointer text-left"
-    onClick={() => handleReadMore(announcement)}
-  >
-    Read More
-  </button>
-</div>
-
-                    ))}
+))}
                 </div>
               )}
             </>
+            
           )}
+          <div className="flex justify-end gap-4 mt-6">
+  <button
+    onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+    disabled={currentPage === 1}
+    className={`px-4 py-2 bg-amber-500 text-white shadow ${
+      currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-amber-600"
+    }`}
+  >
+    Previous
+  </button>
+  <button
+    onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+    disabled={currentPage === totalPages}
+    className={`px-4 py-2 bg-purple-600 text-white shadow ${
+      currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:bg-purple-700"
+    }`}
+  >
+    Next
+  </button>
+</div>
+
         </div>
+        
 {/* Search bar */}
-        <div className="col-span-12 md:col-span-4 bg-black p-4">
+        <div className="col-span-12 md:col-span-4 bg-black px-4">
+                    {/* Apply Now Button */}
+                    <div className="text-center mt-6">
+            <button
+              onClick={() => setModalIsOpen(true)}
+              className="bg-purple-600 px-6 py-3 text-white font-semibold transition duration-300 mt-3 shadow-animation cursor-pointer mb-5"
+            >
+              Apply Now
+            </button>
+          </div>
           <div className="relative mb-4">
             <MdOutlineSearch className="absolute left-3 top-3 text-amber-500 text-xl cursor-pointer" />
             <input
               type="text"
               placeholder="Search Services..."
-              className="w-full pl-10 pr-4 py-3 bg-black shadow-md text-white focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full pl-10 pr-4 py-3 bg-black shadow-md text-white focus:outline-none focus:ring-2 focus:ring-white border"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
 {/* Title */}
           <div className="bg-black shadow-md">
-            <h1 className="text-white text-lg font-bold p-3">Recent Announcements</h1>
-            <div className="border-1 border-white mb-5 w-80 mx-auto"></div>
+          <h1 className="text-white text-lg font-bold p-3">Recent Announcements</h1>
+            <div className="border-1 border-white mb-5 w- mx-auto"></div>
             <div className="flex flex-col ">
-              {announcements
-                .filter((announcement) => announcement.title.toLowerCase().includes(search.toLowerCase()))
-                .map((announcement) => (
-                  <button
-                    key={announcement.id}
-                    className={`p-3 text-left items-center flex ${selectedAnnouncement === announcement ? "bg-purple-600 text-white" : "bg-black text-white hover:text-amber-500 hover:scale-95"}`}
-                    onClick={() => handleAnnouncementClick(announcement)}
-                  >
-                    <FaSquareFull className="text-sm mr-2" />
-                    <span className="text-sm">{announcement.title}</span>
-                  </button>
-                ))}
+            {announcements
+  .filter((announcement) => announcement.title.toLowerCase().includes(search.toLowerCase()))
+  .slice(0, 9) // ➜ Limit to 9 items
+  .map((announcement) => (
+    <button
+      key={announcement.id}
+      className={`p-3 text-left items-center flex ${selectedAnnouncement === announcement ? "bg-purple-600 text-white" : "bg-black text-white hover:bg-purple-600"}`}
+      onClick={() => handleAnnouncementClick(announcement)}
+    >
+      <FaSquareFull className="text-sm mr-2" />
+      <span className="text-sm">{announcement.title}</span>
+    </button>
+))}
+
             </div>
           </div>
 {/* Category */}
@@ -260,15 +313,7 @@ image} alt="" />
 </div>
 
 </div>
-          {/* Apply Now Button */}
-          <div className="text-center mt-6">
-            <button
-              onClick={() => setModalIsOpen(true)}
-              className="bg-purple-600 px-6 py-3 text-white font-semibold transition duration-300 mt-3 shadow-animation cursor-pointer"
-            >
-              Apply Now
-            </button>
-          </div>
+
         </div>
       </div>
       {/* Modal */}
@@ -284,7 +329,7 @@ image} alt="" />
         >
           &times;
         </button>
-        <h2 className="text-xl font-semibold mb-4 text-center text-amber-500 mt-2 cursor-pointer">
+        <h2 className="text-xl font-semibold mb-4 text-center text-purple-600 mt-2 cursor-pointer">
           Apply Now
         </h2>
 
@@ -420,7 +465,6 @@ image} alt="" />
           }
         `}
       </style>
-
     </div>
   );
 };

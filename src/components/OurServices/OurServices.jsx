@@ -43,10 +43,10 @@ const OurServices = () => {
                 {services.map((service, index) => (
                     <Link to={`/services/${service.path}`} key={index} className="no-underline">
                         <div 
-                            className="relative flex items-center justify-between bg-stone-900 text-white px-5 py-4 rounded-l-full shadow-md group cursor-pointer overflow-hidden transition-all duration-500 hover:bg-purple-600"
+                            className="relative flex items-center border border-amber-500 justify-between bg-stone-900 text-white px-5 py-4 rounded-l-full shadow-md group cursor-pointer overflow-hidden transition-all duration-500 hover:bg-purple-600 hover:border-none"
                         >
                             {/* Animated Background Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-b from-orange-600 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                            <div className="absolute transition-all duration-500"></div>
 
                             {/* Left Icon */}
                             <div className="lg:text-2xl text-amber-500 p-4 bg-black group-hover:bg-white rounded-full transition-all duration-500  z-10">
