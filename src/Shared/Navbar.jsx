@@ -37,10 +37,10 @@ const Navbar = () => {
   const menuItems = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
-    { name: "Blog", path: "/blog" },
     { name: "Announcements", path: "/announcements" },
     { name: "Gallery", path: "/gallery" },
-    { name: "Contact", path: "/contact" },
+    { name: "Blog", path: "/blog" },
+    { name: "Contact", path: "/contact" },  
   ];
 
   const isBlackBg = menuItems.some((item) => location.pathname.startsWith(item.path)) || location.pathname.startsWith("/services");

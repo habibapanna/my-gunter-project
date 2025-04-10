@@ -1,4 +1,15 @@
 import React, { useState } from "react";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaXTwitter,
+  FaLinkedin,
+  FaWhatsapp,
+  FaSkype,
+} from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
+import { FaPhone } from "react-icons/fa";
+import { SiTelegram, SiWechat } from "react-icons/si";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -12,15 +23,11 @@ const ContactForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
     fetch("https://my-gunter-project-server.vercel.app/send-email", {
       method: "POST",
       headers: {
@@ -29,25 +36,12 @@ const ContactForm = () => {
       body: JSON.stringify(formData),
     })
       .then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to send email");
-        }
+        if (!res.ok) throw new Error("Failed to send email");
         return res.json();
       })
-      .then((data) => {
-        console.log(data.message);
+      .then(() => {
         setSuccessMessage("Your message has been successfully sent!");
-  
-        // Reset form fields
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          subject: "",
-          message: "",
-        });
-  
-        // Hide success message after 3 seconds
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
         setTimeout(() => setSuccessMessage(""), 3000);
       })
       .catch((err) => {
@@ -55,132 +49,92 @@ const ContactForm = () => {
         alert("Something went wrong. Please try again later.");
       });
   };
-  
 
   return (
     <div className="bg-black p-6 md:p-10">
-      <h2 className="text-center font-semibold text-lg md:text-xl mb-3 text-amber-500 mt-5">
-        LET'S TALK
-      </h2>
-      <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center ">
-        Get in Touch
-      </h2>
-
       {successMessage && (
         <div className="mb-6 text-center text-amber-500 text-lg font-semibold animate-fade">
           {successMessage}
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {["name", "email", "phone", "subject"].map((field) => (
-                <div className="form-group" key={field}>
-                  <label
-                    htmlFor={field}
-                    className="block text-white capitalize"
-                  >
-                    {field} <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type={field === "email" ? "email" : "text"}
-                    id={field}
-                    name={field}
-                    value={formData[field]}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 bg-stone-800 focus:outline-none focus:bg-gray-700 transition-all text-white"
-                    required
-                    
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="form-group">
-              <label htmlFor="message" className="block text-white">
-                Message <span className="text-red-500">*</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full px-4 py-5 bg-stone-800  focus:outline-none focus:bg-gray-700 transition-all text-white"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full md:w-auto bg-purple-600 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation cursor-pointer"
-            >
-              Submit Message
-            </button>
-          </form>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        {/* LEFT SIDE - TEXT + INFO */}
+        <div className="text-white space-y-6">
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+            Let's Discuss Your Project!
+          </h1>
+          <p className="text-gray-400 mt-8 mb-8 leading-loose">
+            I'm excited to hear about your project idea. Whether you're just
+            starting out or ready to launch, let's make it something amazing
+            together.
+          </p>
+
+          {/* Contact Info */}
+          <div className="space-y-2">
+            <p className="flex items-center gap-2 text-gray-300">
+              <MdEmail className="text-xl text-white" />
+              your@email.com
+            </p>
+            <p className="flex items-center gap-2 text-gray-300 mt-3">
+              <FaPhone className="text-lg text-white" />
+              +880 1234-567890
+            </p>
+          </div>
+
+          {/* Social Media Links */}
+          <div className="flex gap-4 mt-10">
+            {[FaWhatsapp, FaFacebook, FaLinkedin, SiTelegram, FaSkype, SiWechat].map((Icon, i) => (
+              <a
+                key={i}
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-stone-800 hover:bg-purple-600 p-3 rounded-full text-white transition duration-300"
+              >
+                <Icon size={20} />
+              </a>
+            ))}
+          </div>
         </div>
 
-        {/* Dark Themed Google Map */}
-        <div className="w-full h-[300px] md:h-[400px] flex items-center justify-center">
-        <iframe
-  className="w-full h-full"
-  src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14607.996596886385!2d90.36290812581547!3d23.747409749772967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sHouse%20No%3A%20137%2F24%2FA%2C%20Dhanmondi%2C%20Dhaka-1209%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1742632275655!5m2!1sen!2sbd"
-  style={{ border: 0, filter: "invert(100%) hue-rotate(180deg)" }} // This inverts the colors to create a dark mode effect
-  allowFullScreen
-  loading="lazy"
-></iframe>
-
-        </div>
+        {/* RIGHT SIDE - FORM */}
+        <form onSubmit={handleSubmit} className="space-y-6 w-full bg-stone-950 p-10">
+          <div className="grid grid-cols-1 gap-4">
+            {["Name", "Email", "Phone", "Subject"].map((field) => (
+              <div className="form-group" key={field}>
+                <input
+                  type={field === "email" ? "email" : "text"}
+                  id={field}
+                  name={field}
+                  value={formData[field]}
+                  onChange={handleChange}
+                  className="w-full px-4 border-b border-gray-600 py-2 focus:outline-none transition-all placeholder:text-gray-400 text-white"
+                  placeholder={field}
+                  required
+                />
+              </div>
+            ))}
+          </div>
+          <div className="form-group">
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full px-4 py-2 focus:outline-none transition-all text-white border-b border-gray-600"
+              placeholder="Message"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="text-white font-semibold cursor-pointer text-xl text-left"
+          >
+            SUBMIT
+          </button>
+        </form>
       </div>
-      <style>
-        {`
-          .shadow-animation {
-              position: relative;
-              overflow: hidden;
-          }
-
-          .shadow-animation::before,
-          .shadow-animation::after {
-              content: '';
-              position: absolute;
-              width: 50%;
-              height: 100%;
-              background: rgba(0, 0, 0, 0.9);
-              transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-              opacity: 0;
-          }
-
-          .shadow-animation::before {
-              left: 0;
-              bottom: -100%;
-          }
-
-          .shadow-animation::after {
-              right: 0;
-              top: -100%;
-          }
-
-          .shadow-animation:hover::before {
-              transform: translateY(-100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::after {
-              transform: translateY(100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::before,
-          .shadow-animation:hover::after {
-              animation: panelDisappear 1s ease-in-out forwards;
-          }
-
-          @keyframes panelDisappear {
-              0% { opacity: 1; }
-              70% { opacity: 1; }
-              100% { opacity: 0; transform: translateY(0); }
-          }
-        `}
-      </style>
     </div>
   );
 };

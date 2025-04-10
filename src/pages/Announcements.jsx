@@ -246,17 +246,25 @@ image} alt="" />
 
         </div>
         
+        
 {/* Search bar */}
         <div className="col-span-12 md:col-span-4 bg-black px-4">
-                    {/* Apply Now Button */}
-                    <div className="text-center mt-6">
-            <button
-              onClick={() => setModalIsOpen(true)}
-              className="bg-purple-600 px-6 py-3 text-white font-semibold transition duration-300 mt-3 shadow-animation cursor-pointer mb-5"
-            >
-              Apply Now
-            </button>
-          </div>
+{/* Apply Now Button */}
+<div className="relative w-full h-42 bg-cover mb-5" style={{ backgroundImage: 'url(https://i.ibb.co/d4v88Lsq/nordwood-themes-k-RNZi-GKtz48-unsplash.jpg)' }}>
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black opacity-40"></div>
+
+  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+    {/* Apply Now Button */}
+    <button
+      onClick={() => setModalIsOpen(true)}
+      className="bg-amber-500 px-6 py-3 text-white font-semibold transition duration-300 mt-3 shadow-animation cursor-pointer mb-5 shadow-md"
+    >
+      Apply Now
+    </button>
+  </div>
+</div>
+
           <div className="relative mb-4">
             <MdOutlineSearch className="absolute left-3 top-3 text-amber-500 text-xl cursor-pointer" />
             <input
@@ -318,103 +326,64 @@ image} alt="" />
       </div>
       {/* Modal */}
       <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={() => setModalIsOpen(false)}
-        className="w-full max-w-xl bg-white p-5 shadow-lg mx-auto border mt-15 h-auto max-h-[80vh] relative overflow-y-scroll"
-        overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
-      >
-        <button
-          onClick={() => setModalIsOpen(false)}
-          className="absolute top-3 right-3 text-amber-500 text-2xl"
-        >
-          &times;
-        </button>
-        <h2 className="text-xl font-semibold mb-4 text-center text-purple-600 mt-2 cursor-pointer">
-          Apply Now
-        </h2>
+  isOpen={modalIsOpen}
+  onRequestClose={() => setModalIsOpen(false)}
+  className="w-full max-w-xl p-6 rounded-xl mx-auto mt-10 max-h-[90vh] overflow-y-auto bg-gradient-to-br from-purple-500 via-purple-600 to-indigo-700 shadow-2xl animate-fadeIn"
+  overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+>
+  <button
+    onClick={() => setModalIsOpen(false)}
+    className="absolute top-15 right-90 text-white text-3xl hover:scale-110 transition-transform duration-200"
+  >
+    &times;
+  </button>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-          <div>
-            <label className="block text-gray-700">First Name</label>
-            <input
-              type="text"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Last Name</label>
-            <input
-              type="text"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Whatsapp</label>
-            <input
-              type="text"
-              name="whatsapp"
-              value={formData.whatsapp}
-              onChange={handleChange}
-              className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Topic</label>
-            <input
-              type="text"
-              name="topic"
-              value={formData.topic}
-              onChange={handleChange}
-              className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Preferred Date</label>
-            <input
-              type="date"
-              name="preferredDate"
-              value={formData.preferredDate}
-              onChange={handleChange}
-              className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
-            />
-          </div>
-          
-        </div>
-        <div>
-            <label className="block text-gray-700">Upload CV</label>
-            <input
-              type="file"
-              name="cvFile"
-              onChange={handleFileChange}
-              className="w-full p-1.5 border border-gray-300 mt-1 text-black text-sm"
-            />
-          </div>
+  <h2 className="text-2xl font-bold text-white text-center mb-6 tracking-wide animate-slideDown">
+ Apply Now
+  </h2>
 
-        <div className="text-center mt-5">
-          <button
-            onClick={handleSubmit}
-            className="bg-purple-600 px-6 py-3 text-white font-semibold transition duration-300 shadow-animation mt-3 cursor-pointer"
-          >
-            Submit Application
-          </button>
-        </div>
-      </Modal>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm animate-fadeIn delay-200">
+    {[
+      { label: "First Name", name: "firstName" },
+      { label: "Last Name", name: "lastName" },
+      { label: "Email", name: "email", type: "email" },
+      { label: "Whatsapp", name: "whatsapp" },
+      { label: "Topic", name: "topic" },
+      { label: "Preferred Date", name: "preferredDate", type: "date" },
+    ].map((field, i) => (
+      <div key={i}>
+        <label className="block text-white mb-1">{field.label}</label>
+        <input
+          type={field.type || "text"}
+          name={field.name}
+          value={formData[field.name]}
+          onChange={handleChange}
+          className="w-full p-2 rounded-md border border-purple-200 bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/80 transition-all duration-200 text-black"
+        />
+      </div>
+    ))}
+  </div>
+
+  <div className="mt-4">
+    <label className="block text-white mb-1">Upload CV</label>
+    <input
+      type="file"
+      name="cvFile"
+      onChange={handleFileChange}
+      className="w-full p-2 rounded-md border border-purple-200 bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/80 transition-all duration-200 text-black"
+    />
+  </div>
+
+  <div className="text-center mt-6">
+    <button
+      onClick={handleSubmit}
+      className="bg-white text-purple-700 px-6 py-3 rounded-full font-bold shadow-lg hover:shadow-purple-400 hover:bg-purple-100 transition-all duration-300 transform hover:-translate-y-1"
+    >
+      Submit Application
+    </button>
+  </div>
+</Modal>
+
       <style>
         {`
           .shadow-animation {
