@@ -49,7 +49,7 @@ function RetailArbitragePage() {
   ];
 
   return (
-    <div className="bg-black min-h-screen pt-10 text-white max-w-3xl mx-auto">
+    <div className="bg-black min-h-screen py-10 text-white max-w-3xl mx-auto">
       {/* Carousel Section */}
       <section className="md:w-full md:max-w-3xl max-w-sm w-[350px] mx-auto mb-10 px-5">
         <Swiper

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Spinner from "../components/Spinner/Spinner";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import NewSection from "../components/NewSection/NewSection";
 
 const Blog = () => {
     const [blogs, setBlogs] = useState([]);
@@ -13,15 +14,6 @@ const Blog = () => {
     const [search, setSearch] = useState("");
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [selectedBlog, setSelectedBlog] = useState(null);
-    const [showModal, setShowModal] = useState(false);
-    const [formData, setFormData] = useState({
-        image: "",
-        title: "",
-        description: "",
-        details: "",
-        category: "",
-        author: "",
-    });
 
     useEffect(() => {
         fetchBlogs();
@@ -50,39 +42,9 @@ const Blog = () => {
         return new Date(dateString).toLocaleDateString("en-US", options);
     };
 
-    const handleFormChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
-    };
 
-    const handlePostBlog = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await fetch("https://my-gunter-project-server.vercel.app/blogs", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData),
-            });
 
-            if (response.ok) {
-                Swal.fire("Success!", "Blog posted successfully", "success");
-                setShowModal(false);
-                setFormData({
-                    image: "",
-                    title: "",
-                    description: "",
-                    details: "",
-                    category: "",
-                    author: "",
-                });
-                fetchBlogs(); // refresh blog list
-            } else {
-                Swal.fire("Error", "Something went wrong", "error");
-            }
-        } catch (error) {
-            Swal.fire("Error", "Server error", "error");
-        }
-    };
+
 
     return (
         <div>
@@ -95,7 +57,7 @@ const Blog = () => {
                 </h1>
             </div>
 
-            <div className="py-6 grid grid-cols-1 md:grid-cols-12 gap-6 bg-black">
+            <div className="py-6 grid grid-cols-1 md:grid-cols-12 gap-2 bg-black">
                 <div className="md:col-span-4 bg-black p-4">
                     <div className="relative mb-4">
                         <MdOutlineSearch className="absolute left-3 top-3 text-amber-500 text-xl" />
@@ -108,30 +70,45 @@ const Blog = () => {
                         />
                     </div>
 
-                    <div className="shadow-md p-3 text-white bg-black">
-                        <h1 className="text-lg font-bold">Recent Posts</h1>
-                        <div className="my-2"></div>
-                        {searchedBlogs.map((blog) => (
-                            <button
-                                key={blog._id}
-                                className={`flex items-center p-2 text-left transition group ${
-                                    selectedBlog?._id === blog._id ? "bg-purple-600 font-bold" : "hover:bg-purple-600 "
-                                }`}
-                                onClick={() => {
-                                    setContentLoading(true);
-                                    setTimeout(() => {
-                                        setSelectedBlog(blog);
-                                        setContentLoading(false);
-                                    }, 500);
-                                }}
-                            >
-                                <FaSquareFull className="text-sm mr-3 text-amber-500 group-hover:text-white" />
-                                <span className="text-sm">{blog.title}</span>
-                            </button>
-                        ))}
-                    </div>
+                    <div className="shadow-md p-3 text-white bg-black border border-gray-900 shadow-gray-900">
+  <h1 className="text-lg font-bold">Recent Posts</h1>
+  <div className="border border-stone-400 mt-3"></div>
+  <div className="my-2"></div>
+  {searchedBlogs.map((blog) => {
+    const isSelected = selectedBlog?._id === blog._id;
+    return (
+      <button
+        key={blog._id}
+        className={`flex items-center p-2 text-left transition group ${
+          isSelected ? "bg-purple-600 font-bold" : "hover:bg-purple-600"
+        }`}
+        onClick={() => {
+          setContentLoading(true);
+          setTimeout(() => {
+            setSelectedBlog(blog);
+            setContentLoading(false);
+          }, 500);
+        }}
+      >
+        <FaSquareFull
+          className={`text-sm mr-3 ${
+            isSelected ? "text-white" : "text-purple-500 group-hover:text-white"
+          }`}
+        />
+        <span
+          className={`text-sm ${
+            isSelected ? "text-white" : "group-hover:text-white"
+          }`}
+        >
+          {blog.title}
+        </span>
+      </button>
+    );
+  })}
+</div>
 
-                    <div className="shadow-md p-3 mt-4 text-white bg-black">
+
+                    <div className="shadow-md p-3 mt-4 text-white bg-black border border-gray-900 shadow-gray-900">
                         <h1 className="text-lg font-bold">Categories</h1>
                         <div className="border-b my-2"></div>
                         {categories.map((category, index) => (
@@ -178,43 +155,45 @@ const Blog = () => {
                         </div>
                     ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-5">
-                            {searchedBlogs.map((blog, index) => (
-                                <motion.div
-                                    key={blog._id}
-                                    onClick={() => {
-                                        setContentLoading(true);
-                                        setTimeout(() => {
-                                            setSelectedBlog(blog);
-                                            setContentLoading(false);
-                                        }, 500);
-                                    }}
-                                    className="bg-black text-white p-4 shadow-md shadow-gray-900 cursor-pointer"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6, delay: index * 0.2 }}
-                                >
-                                    <h1 className="absolute bg-amber-500 text-white text-sm px-2">{formatDate(blog.createdAt)}</h1>
-                                    <img src={blog.image} alt={blog.title} className="w-full h-40 object-cover mb-3" />
-                                    <h2 className="text-lg font-bold mb-2">{blog.title}</h2>
-                                    <p className="text-sm text-gray-400">{blog.description}</p>
-                                    <button
-                                        className="text-amber-500 font-semibold hover:underline mt-2 cursor-pointer"
-                                        onClick={() => {
-                                            setContentLoading(true);
-                                            setTimeout(() => {
-                                                setSelectedBlog(blog);
-                                                setContentLoading(false);
-                                            }, 500);
-                                        }}
-                                    >
-                                        Read More
-                                    </button>
-                                </motion.div>
-                            ))}
-                        </div>
+  {searchedBlogs.map((blog, index) => (
+    <motion.div
+      key={blog._id}
+      className="bg-black text-white p-4 shadow-md border border-gray-900 shadow-gray-900 cursor-pointer flex flex-col justify-between min-h-[400px]"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.2 }}
+    >
+      <div>
+        <h1 className="absolute bg-amber-500 text-white text-sm px-2">{formatDate(blog.createdAt)}</h1>
+        <img src={blog.image} alt={blog.title} className="w-full h-50 object-cover mb-3" />
+        <h2 className="text-lg font-bold mb-2">{blog.title}</h2>
+        <p className="text-sm text-gray-400">
+          {blog.description.length > 100
+            ? blog.description.slice(0, 100) + "..."
+            : blog.description}
+        </p>
+      </div>
+      <button
+        className="text-amber-500 font-semibold hover:underline mt-3 w-fit"
+        onClick={() => {
+          setContentLoading(true);
+          setTimeout(() => {
+            setSelectedBlog(blog);
+            setContentLoading(false);
+          }, 500);
+        }}
+      >
+        Read More
+      </button>
+    </motion.div>
+  ))}
+</div>
+
                     )}
                 </div>
+                
             </div>
+           <section className="mt-8"> <NewSection></NewSection></section>
             {/* STYLES */}
             <style>
         {`

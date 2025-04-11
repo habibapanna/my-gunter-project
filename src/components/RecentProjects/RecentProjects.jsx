@@ -62,6 +62,7 @@ const RecentProjects = () => {
         >
           {projects.map((project, index) => (
             <SwiperSlide key={index}>
+              <Link to="/gallery">
               <div className="group relative h-[350px] md:h-[400px] shadow-lg overflow-hidden">
                 {/* Image with Hover Effect */}
                 <div className="relative w-full h-[250px] overflow-hidden">
@@ -77,7 +78,7 @@ const RecentProjects = () => {
                   <div className="absolute bottom-0 left-0 w-full h-full bg-purple-600 transform scale-y-0 group-hover:scale-y-100 origin-bottom transition-all duration-500"></div>
                   <span className="relative z-10 text-sm lg:text-lg">{project.title}</span>
                 </div>
-              </div>
+              </div></Link>
             </SwiperSlide>
           ))}
         </Swiper>

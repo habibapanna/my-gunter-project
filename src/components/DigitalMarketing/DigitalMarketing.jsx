@@ -29,7 +29,7 @@ function DigitalMarketing() {
   }, []);
 
   return (
-    <div className="bg-black min-h-screen pt-10 text-white">
+    <div className="bg-black min-h-screen py-10 text-white">
       {/* Carousel Section */}
       <section className="md:w-full md:max-w-3xl max-w-sm w-[350px] mx-auto mb-10 px-5">
         <Swiper

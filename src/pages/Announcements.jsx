@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Spinner from "../components/Spinner/Spinner";
 import { GoDotFill } from "react-icons/go";
+import NewSection from "../components/NewSection/NewSection";
 
 const Announcements = () => {
   const [announcements, setAnnouncements] = useState([]);
@@ -15,7 +16,7 @@ const Announcements = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
+  const itemsPerPage = 9;
   
   const filteredAnnouncements = announcements.filter(
     (announcement) =>
@@ -202,13 +203,13 @@ image} alt="" />
           </div>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {paginatedAnnouncements.map((announcement) => (
-  <div key={announcement.id} className="bg-black shadow-md shadow-gray-900 p-4 flex flex-col justify-between h-[400px]">
+  <div key={announcement.id} className="bg-black shadow-md border border-gray-900 shadow-gray-900 p-4 flex flex-col justify-between h-[400px]">
     <div onClick={() => handleReadMore(announcement)} className="cursor-pointer">
-      <img src={announcement.image} alt={announcement.title} className="w-full h-50 object-cover" />
+      <img src={announcement.image} alt={announcement.title} className="w-full h-40 object-cover" />
       <h2 className="text-lg font-bold mt-3 text-white">{announcement.title}</h2>
-      <p className="text-gray-400 mt-2">{announcement.description}</p>
+      <p className="text-gray-400 text-sm mt-2">{announcement.description}</p>
     </div>
     <button
       className="text-amber-500 hover:underline cursor-pointer text-left font-semibold"
@@ -227,7 +228,7 @@ image} alt="" />
   <button
     onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
     disabled={currentPage === 1}
-    className={`px-4 py-2 bg-amber-500 text-white shadow ${
+    className={`px-4 py-2 bg-amber-500 text-white cursor-pointer shadow ${
       currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-amber-600"
     }`}
   >
@@ -236,7 +237,7 @@ image} alt="" />
   <button
     onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
     disabled={currentPage === totalPages}
-    className={`px-4 py-2 bg-purple-600 text-white shadow ${
+    className={`px-4 py-2 bg-purple-600 text-white shadow cursor-pointer ${
       currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:bg-purple-700"
     }`}
   >
@@ -276,51 +277,92 @@ image} alt="" />
             />
           </div>
 {/* Title */}
-          <div className="bg-black shadow-md">
-          <h1 className="text-white text-lg font-bold p-3">Recent Announcements</h1>
-            <div className="border-1 border-white mb-5 w- mx-auto"></div>
-            <div className="flex flex-col ">
-            {announcements
-  .filter((announcement) => announcement.title.toLowerCase().includes(search.toLowerCase()))
-  .slice(0, 9) // ➜ Limit to 9 items
-  .map((announcement) => (
-    <button
-      key={announcement.id}
-      className={`p-3 text-left items-center flex group ${selectedAnnouncement === announcement ? "bg-purple-600 text-white" : "bg-black text-white hover:bg-purple-600"}`}
-      onClick={() => handleAnnouncementClick(announcement)}
-    >
-      <FaSquareFull className="text-sm mr-2 text-amber-500 group-hover:text-white" />
-      <span className="text-sm">{announcement.title}</span>
-    </button>
-))}
+<div className="bg-black shadow-md border border-gray-900 shadow-gray-900">
+  <h1 className="text-white text-lg font-bold p-3">Recent Announcements</h1>
+  <div className="border-1 border-white mb-5 w-full mx-auto"></div>
+  <div className="flex flex-col">
+    {announcements
+      .filter((announcement) =>
+        announcement.title.toLowerCase().includes(search.toLowerCase())
+      )
+      .slice(0, 9)
+      .map((announcement) => {
+        const isSelected = selectedAnnouncement === announcement;
+        return (
+          <button
+            key={announcement.id}
+            className={`p-3 text-left items-center flex group transition ${
+              isSelected
+                ? "bg-purple-600 text-white font-bold"
+                : "bg-black text-white hover:bg-purple-600"
+            }`}
+            onClick={() => handleAnnouncementClick(announcement)}
+          >
+            <FaSquareFull
+              className={`text-sm mr-2 transition ${
+                isSelected ? "text-white" : "text-purple-600 group-hover:text-white"
+              }`}
+            />
+            <span
+              className={`text-sm transition ${
+                isSelected ? "text-white" : "group-hover:text-white"
+              }`}
+            >
+              {announcement.title}
+            </span>
+          </button>
+        );
+      })}
+  </div>
+</div>
 
-            </div>
-          </div>
 {/* Category */}
-<div className="bg-black shadow-md mt-4">
+<div className="bg-black shadow-md mt-4 border border-gray-900 shadow-gray-900">
   <h1 className="text-white font-bold p-3">Categories</h1>
   <div className="border-1 border-white w-86 mx-auto"></div>
   <div className="flex flex-col mt-2">
-  <button
-    className={`text-white p-2 items-center flex hover:bg-purple-600 text-left ${selectedCategory === null ? 'bg-purple-600' : ''}`}
-    onClick={() => handleCategoryClick(null)}
-  >
-    <GoDotFill className="text-sm mr-2" />
-    All Announcements
-  </button>
-  {categories.map((category, index) => (
+    {/* All Announcements button */}
     <button
-      key={index}
-      className={`text-white p-2 items-center flex group hover:bg-purple-600 text-left ${selectedCategory === category ? 'bg-purple-600' : ''}`}
-      onClick={() => handleCategoryClick(category)}
+      className={`p-2 items-center flex text-left group transition ${
+        selectedCategory === null ? "bg-purple-600 text-white font-bold" : "text-white hover:bg-purple-600"
+      }`}
+      onClick={() => handleCategoryClick(null)}
     >
-      <GoDotFill className="text-sm mr-2  text-amber-500 group-hover:text-white" />
-      {category}
+      <GoDotFill
+        className={`text-sm mr-2 transition ${
+          selectedCategory === null ? "text-white" : "text-purple-600 group-hover:text-white"
+        }`}
+      />
+      <span className={`text-sm ${selectedCategory === null ? "text-white" : "group-hover:text-white"}`}>
+        All Announcements
+      </span>
     </button>
-  ))}
+
+    {/* Categories List */}
+    {categories.map((category, index) => {
+      const isSelected = selectedCategory === category;
+      return (
+        <button
+          key={index}
+          className={`p-2 items-center flex text-left group transition ${
+            isSelected ? "bg-purple-600 text-white font-bold" : "text-white hover:bg-purple-600"
+          }`}
+          onClick={() => handleCategoryClick(category)}
+        >
+          <GoDotFill
+            className={`text-sm mr-2 transition ${
+              isSelected ? "text-white" : "text-purple-600 group-hover:text-white"
+            }`}
+          />
+          <span className={`text-sm ${isSelected ? "text-white" : "group-hover:text-white"}`}>
+            {category}
+          </span>
+        </button>
+      );
+    })}
+  </div>
 </div>
 
-</div>
 
         </div>
       </div>
@@ -383,6 +425,7 @@ image} alt="" />
     </button>
   </div>
 </Modal>
+<NewSection></NewSection>
 
       <style>
         {`

@@ -30,7 +30,7 @@ function FCommerceService() {
   ];
 
   return (
-    <div className="bg-black min-h-screen pt-10 text-white">
+    <div className="bg-black min-h-screen py-10 text-white">
       {/* Carousel Section */}
       <section className="md:w-full md:max-w-3xl max-w-sm w-[350px] mx-auto mb-10 px-5">
         <Swiper
@@ -73,7 +73,7 @@ function FCommerceService() {
           ))}
         </ul>
         <p className="mt-10 text-amber-500"> Start and grow your F-Commerce business with expert strategies!</p>
-        <div className="text-center mt-8">
+        <div className="mt-8">
           <button className="relative bg-purple-600 px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold transition-all duration-300 shadow-animation text-[16px] lg:text-[18px] cursor-pointer">
             <Link to='/contact'>Contact us today for expert guidance!</Link>
           </button>

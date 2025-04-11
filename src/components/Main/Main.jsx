@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Spinner from "../Spinner/Spinner";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdKeyboardArrowUp } from "react-icons/md";
+import CalendlyPopup from "../CalendlyPopup/CalendlyPopup";
 
 const Main = () => {
     const location = useLocation();
@@ -41,6 +42,7 @@ const Main = () => {
 
             <Navbar />
             <div className={`flex-grow transition-opacity duration-700 ${loading ? "opacity-50" : "opacity-100"}`}>
+
                 <Outlet />
             </div>
             <Footer />
@@ -58,7 +60,7 @@ const Main = () => {
 
             <div 
     onClick={scrollToTop} 
-    className="fixed bottom-8 lg:bottom-5 right-6 w-10 h-10 flex items-center justify-center rounded-full text-amber-500 bg-white hover:bg-amber-400 hover:text-white cursor-pointer shadow-lg transition-all z-50"
+    className="fixed bottom-8 lg:bottom-5 right-6 w-10 h-10 flex items-center justify-center rounded-full bg-purple-600 hover:bg-amber-400 text-white cursor-pointer shadow-lg transition-all z-50"
 >
     <MdKeyboardArrowUp className=" text-2xl" />
 </div>

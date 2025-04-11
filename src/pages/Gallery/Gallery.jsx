@@ -4,6 +4,7 @@ import { MdOutlineSearch } from "react-icons/md";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Spinner from "../../components/Spinner/Spinner";
+import NewSection from "../../components/NewSection/NewSection";
 
 const Gallery = () => {
     const [search, setSearch] = useState("");
@@ -58,9 +59,10 @@ const Gallery = () => {
         ? galleryItems.filter(item => item.category && item.category.toLowerCase() === selectedCategory.toLowerCase())
         : galleryItems;
 
-    const filteredSearchImages = search
-        ? filteredImages.filter(item => item.title && item.title.toLowerCase().includes(search.toLowerCase()))
-        : filteredImages;
+   const filteredSearchImages = search
+  ? galleryItems.filter(item => item.title?.toLowerCase().includes(search.toLowerCase()))
+  : galleryItems;
+
 
     // Pagination logic
     const totalPages = Math.ceil(filteredSearchImages.length / itemsPerPage);
@@ -112,39 +114,53 @@ const Gallery = () => {
                     </div>
 
                     {/* ✅ Category List */}
-                    <div className="shadow-md mb-4 bg-black">
-                        <h1 className="text-white text-lg font-bold p-3">Category</h1>
-                        <div className="border-1 mx-5 mb-4"></div>
+                    <div className="shadow-md mb-4 bg-black border border-gray-900 shadow-gray-900">
+  <h1 className="text-white text-lg font-bold p-3">Category</h1>
+  <div className="border-1 mx-5 mb-4"></div>
 
-                        <div className="flex flex-col mb-4">
-                            <button
-                                className={`flex justify-between items-center p-3 shadow-md transition-all duration-300 text-left 
-                                ${!selectedCategory ? "bg-purple-600 text-white" : "bg-black text-white hover:bg-purple-600"}`}
-                                onClick={() => {
-                                    setSelectedCategory("");
-                                    setCurrentPage(1); // reset page
-                                }}
-                            >
-                                <FaSquareFull className="text-sm mr-5" />
-                                <span className="text-sm">All Categories</span>
-                            </button>
+  <div className="flex flex-col mb-4">
+    {/* All Categories Button */}
+    <button
+      className={`flex justify-between items-center p-3 shadow-md transition-all duration-300 text-left 
+      ${!selectedCategory ? "bg-purple-600 text-white font-bold" : "bg-black text-white hover:bg-purple-600"}`}
+      onClick={() => {
+        setSelectedCategory("");
+        setCurrentPage(1); // reset page
+      }}
+    >
+      <FaSquareFull
+        className={`text-sm mr-5 transition ${
+          !selectedCategory ? "text-white" : "text-purple-600 hover:text-white"
+        }`}
+      />
+      <span className="text-sm">All Categories</span>
+    </button>
 
-                            {categories.map((category, index) => (
-                                <button
-                                    key={index}
-                                    className={`flex justify-between items-center p-3 shadow-md transition-all duration-300 text-left group 
-                                    ${selectedCategory === category ? "bg-purple-600 text-white" : "bg-black text-white hover:bg-purple-600"}`}
-                                    onClick={() => {
-                                        setSelectedCategory(category);
-                                        setCurrentPage(1); // reset page
-                                    }}
-                                >
-                                    <FaSquareFull className="text-sm mr-5 text-amber-500 group-hover:text-white" />
-                                    <span className="text-sm">{category}</span>
-                                </button>
-                            ))}
-                        </div>
-                    </div>
+    {/* Individual Category Buttons */}
+    {categories.map((category, index) => {
+      const isSelected = selectedCategory === category;
+      return (
+        <button
+          key={index}
+          className={`flex justify-between items-center p-3 shadow-md transition-all duration-300 text-left group 
+          ${isSelected ? "bg-purple-600 text-white font-bold" : "bg-black text-white hover:bg-purple-600"}`}
+          onClick={() => {
+            setSelectedCategory(category);
+            setCurrentPage(1); // reset page
+          }}
+        >
+          <FaSquareFull
+            className={`text-sm mr-5 transition ${
+              isSelected ? "text-white" : "text-purple-600 group-hover:text-white"
+            }`}
+          />
+          <span className="text-sm">{category}</span>
+        </button>
+      );
+    })}
+  </div>
+</div>
+
                 </div>
 
                 {/* ✅ Main Gallery Area */}
@@ -180,14 +196,14 @@ const Gallery = () => {
                             <button
                                 onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                                 disabled={currentPage === 1}
-                                className="px-4 py-2 bg-amber-500 text-white hover:bg-amber-600 disabled:bg-gray-700"
+                                className="px-4 py-2 bg-amber-500 text-white hover:bg-amber-600 disabled:bg-gray-700 cursor-pointer"
                             >
                                 Previous
                             </button>
                             <button
                                 onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                                 disabled={currentPage === totalPages}
-                                className="px-4 py-2 bg-purple-600 text-white hover:bg-purple-700 disabled:bg-gray-700"
+                                className="px-4 py-2 bg-purple-600 text-white hover:bg-purple-700 disabled:bg-gray-700 cursor-pointer"
                             >
                                 Next
                             </button>
@@ -195,6 +211,7 @@ const Gallery = () => {
                     )}
                 </div>
             </div>
+            <NewSection></NewSection>
         </div>
     );
 };
