@@ -400,7 +400,7 @@ image} alt="" />
           name={field.name}
           value={formData[field.name]}
           onChange={handleChange}
-          className="w-full p-2 rounded-md border border-purple-200 bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/80 transition-all duration-200 text-black"
+          className="w-full p-2 rounded-md border border-purple-200 bg-white/40 focus:outline-none focus:ring-2 focus:ring-white/80 transition-all duration-200 text-black"
         />
       </div>
     ))}

@@ -94,13 +94,13 @@ const HeroSection = () => {
       {/* Left Arrow */}
       <button
         onClick={() => changeSlide("prev")}
-        className="shadow-animation absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-purple-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 cursor-pointer"
+        className="shadow-animation absolute left-2 top-90 lg:top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-purple-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 cursor-pointer"
       >
         <FaArrowLeftLong />
       </button>
 
       {/* Hero Content */}
-      <div className="hero-content flex flex-col-reverse lg:flex-row-reverse items-center w-full px-10">
+      <div className="lg:hero-content flex flex-col-reverse lg:flex-row-reverse items-center w-full lg:px-10">
         {/* Image Section */}
         <div className="lg:w-1/2 relative flex justify-center lg:justify-end">
           <img
@@ -116,7 +116,7 @@ const HeroSection = () => {
         {/* Text Section */}
         <div
           key={currentIndex}
-          className={`lg:w-1/2 text-left transition-opacity duration-700 ${
+          className={` lg:w-1/2 text-left transition-opacity duration-700 ${
             isExiting ? "animate-slide-down" : "animate-slide-up"
           } mb-10 mt-10 lg:mt-0 lg:mb-0`}
         >
@@ -150,7 +150,7 @@ const HeroSection = () => {
       {/* Right Arrow */}
       <button
         onClick={() => changeSlide("next")}
-        className="shadow-animation absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-purple-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 cursor-pointer"
+        className="shadow-animation absolute right-2 top-90 lg:top-1/2 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-purple-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 cursor-pointer"
       >
         <FaArrowRightLong />
       </button>
