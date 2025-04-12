@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import {
   FaFacebook,
-  FaInstagram,
-  FaXTwitter,
   FaLinkedin,
   FaWhatsapp,
   FaSkype,
@@ -141,7 +139,7 @@ const ContactForm = () => {
       {/* ✅ HORIZONTAL MAP SECTION */}
       <div className="w-full my-8">
         <h2 className="text-center text-white text-lg lg:text-2xl font-semibold mb-5">
-          <span className="text-amber-400">Visit Us:</span> House No: 137/24/A, Dhanmondi, Dhaka-1209, Bangladesh
+          <span className="text-amber-500">Visit Us:</span> House No: 137/24/A, Dhanmondi, Dhaka-1209, Bangladesh
         </h2>
         <div className="w-full h-[300px] px-5">
           <iframe

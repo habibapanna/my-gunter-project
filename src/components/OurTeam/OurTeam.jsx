@@ -83,26 +83,6 @@ const OurTeam = () => {
                 <h3 className="font-bold text-lg">{member.name}</h3>
                 <p className="text-amber-500 text-sm">{member.title}</p>
               </div>
-
-              {/* Social Links on Hover */}
-              <div className="absolute top-0 left-0 w-full bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-all duration-300 flex justify-center gap-2 p-2">
-                {[
-                  { icon: FaFacebook, link: member.facebook },
-                  { icon: FaInstagram, link: member.instagram },
-                  { icon: FaXTwitter, link: member.x },
-                  { icon: FaLinkedin, link: member.linkedin },
-                ].map(({ icon: Icon, link }, i) => (
-                  <a
-                    key={i}
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-amber-500 hover:bg-purple-600 hover:text-white p-2 rounded-full border border-amber-500 text-sm"
-                  >
-                    <Icon size={16} />
-                  </a>
-                ))}
-              </div>
             </div>
           </SwiperSlide>
         ))}

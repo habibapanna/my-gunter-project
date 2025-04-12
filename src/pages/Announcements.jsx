@@ -224,26 +224,29 @@ image} alt="" />
             </>
             
           )}
-          <div className="flex justify-end gap-4 mt-6">
-  <button
-    onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-    disabled={currentPage === 1}
-    className={`px-4 py-2 bg-amber-500 text-white cursor-pointer shadow ${
-      currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-amber-600"
-    }`}
-  >
-    Previous
-  </button>
-  <button
-    onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-    disabled={currentPage === totalPages}
-    className={`px-4 py-2 bg-purple-600 text-white shadow cursor-pointer ${
-      currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:bg-purple-700"
-    }`}
-  >
-    Next
-  </button>
-</div>
+{!selectedAnnouncement && (
+  <div className="flex justify-center gap-4 mt-6">
+    <button
+      onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+      disabled={currentPage === 1}
+      className={`px-4 py-2 bg-amber-500 text-white cursor-pointer shadow ${
+        currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-amber-600"
+      }`}
+    >
+      Previous
+    </button>
+    <button
+      onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+      disabled={currentPage === totalPages}
+      className={`px-4 py-2 bg-purple-600 text-white shadow cursor-pointer ${
+        currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:bg-purple-700"
+      }`}
+    >
+      Next
+    </button>
+  </div>
+)}
+
 
         </div>
         
@@ -370,61 +373,75 @@ image} alt="" />
       <Modal
   isOpen={modalIsOpen}
   onRequestClose={() => setModalIsOpen(false)}
-  className="w-full max-w-xl p-6 rounded-xl mx-auto mt-10 max-h-[90vh] overflow-y-auto bg-gradient-to-br from-purple-500 via-purple-600 to-indigo-700 shadow-2xl animate-fadeIn"
+  className="relative w-[300px] lg:w-full lg:max-w-xl p-6 rounded-xl mx-auto mt-16 max-h-[90vh] overflow-y-auto shadow-2xl animate-fadeIn bg-cover bg-center bg-no-repeat"
   overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+  style={{
+    content: {
+      backgroundImage: `url('https://i.ibb.co.com/3YC9pHnn/algoleague-u-A2-Ayx3mw-Io-unsplash.jpg')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }
+  }}
 >
-  <button
-    onClick={() => setModalIsOpen(false)}
-    className="absolute top-15 right-90 text-white text-3xl hover:scale-110 transition-transform duration-200"
-  >
-    &times;
-  </button>
+  {/* Dark overlay */}
+  <div className="absolute inset-0 bg-black opacity-70 rounded-xl z-0"></div>
 
-  <h2 className="text-2xl font-bold text-white text-center mb-6 tracking-wide animate-slideDown">
- Apply Now
-  </h2>
-
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm animate-fadeIn delay-200">
-    {[
-      { label: "First Name", name: "firstName" },
-      { label: "Last Name", name: "lastName" },
-      { label: "Email", name: "email", type: "email" },
-      { label: "Whatsapp", name: "whatsapp" },
-      { label: "Topic", name: "topic" },
-      { label: "Preferred Date", name: "preferredDate", type: "date" },
-    ].map((field, i) => (
-      <div key={i}>
-        <label className="block text-white mb-1">{field.label}</label>
-        <input
-          type={field.type || "text"}
-          name={field.name}
-          value={formData[field.name]}
-          onChange={handleChange}
-          className="w-full p-2 rounded-md border border-purple-200 bg-white/40 focus:outline-none focus:ring-2 focus:ring-white/80 transition-all duration-200 text-black"
-        />
-      </div>
-    ))}
-  </div>
-
-  <div className="mt-4">
-    <label className="block text-white mb-1">Upload CV</label>
-    <input
-      type="file"
-      name="cvFile"
-      onChange={handleFileChange}
-      className="w-full p-2 rounded-md border border-purple-200 bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/80 transition-all duration-200 text-black"
-    />
-  </div>
-
-  <div className="text-center mt-6">
+  {/* Modal Content */}
+  <div className="relative z-10">
     <button
-      onClick={handleSubmit}
-      className="bg-white text-purple-700 px-6 py-3 rounded-full font-bold shadow-lg hover:shadow-purple-400 hover:bg-purple-100 transition-all duration-300 transform hover:-translate-y-1"
+      onClick={() => setModalIsOpen(false)}
+      className="absolute top-0 right-0 text-white text-3xl hover:scale-110 transition-transform duration-200 z-20"
     >
-      Submit Application
+      &times;
     </button>
+
+    <h2 className="text-2xl font-bold text-center mb-6 tracking-wide animate-slideDown text-purple-500">
+      Apply Now
+    </h2>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm animate-fadeIn delay-200">
+      {[
+        { label: "First Name", name: "firstName" },
+        { label: "Last Name", name: "lastName" },
+        { label: "Email", name: "email", type: "email" },
+        { label: "Whatsapp", name: "whatsapp" },
+        { label: "Topic", name: "topic" },
+        { label: "Preferred Date", name: "preferredDate", type: "date" },
+      ].map((field, i) => (
+        <div key={i}>
+          <label className="block text-white mb-1">{field.label}</label>
+          <input
+            type={field.type || "text"}
+            name={field.name}
+            value={formData[field.name]}
+            onChange={handleChange}
+            className="w-full p-2 rounded-md border border-purple-200 bg-white/40 focus:outline-none focus:ring-2 focus:ring-white/80 transition-all duration-200 text-white"
+          />
+        </div>
+      ))}
+    </div>
+
+    <div className="mt-4">
+      <label className="block text-white mb-1">Upload CV</label>
+      <input
+        type="file"
+        name="cvFile"
+        onChange={handleFileChange}
+        className="w-full p-2 rounded-md border border-purple-200 bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/80 transition-all duration-200 text-black"
+      />
+    </div>
+
+    <div className="text-center mt-6">
+      <button
+        onClick={handleSubmit}
+        className="bg-white text-purple-700 px-5 py-2 rounded font-bold shadow shadow-purple-400 hover:bg-purple-100 transition-all duration-300 transform hover:-translate-y-1"
+      >
+        Submit Application
+      </button>
+    </div>
   </div>
 </Modal>
+
 <NewSection></NewSection>
 
       <style>

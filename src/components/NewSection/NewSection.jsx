@@ -4,21 +4,21 @@ import CalendlyPopup from "../CalendlyPopup/CalendlyPopup";
 
 const NewSection = () => {
     return (
-        <div>
+        <div id="contact">
                             <div
       className="mx-auto max-w-5xl flex flex-col gap-10 bg-black bg-cover bg-center rounded px-5 py-10 lg:p-10 items-center justify-between shadow-lg mb-5"
       style={{
         backgroundImage:
-          "url('https://i.ibb.co.com/gXF5DSp/pexels-pavel-danilyuk-8112172.jpg')",
+          "url('https://i.ibb.co.com/cKXvftPN/Get-In-Touch.png')",
         backgroundBlendMode: "multiply",
         backgroundColor: "rgba(0, 0, 0, 0.6)",
       }}
     >
       <div className="md:w-2/3 text-center md:text-left">
-        <h3 className="text-2xl md:text-3xl text-amber-500 font-bold mb-5">
+        <h3 className="text-2xl md:text-3xl text-amber-500 font-bold mb-5 text-center">
           Would you like to start a project with us?
         </h3>
-        <p className="text-white leading-relaxed text-sm md:text-[16px]">
+        <p className="text-white leading-relaxed text-sm md:text-[16px] text-center">
           Etiam erat lectus, finibus eget commodo quis, tincidunt eget leo.
           Nullam quis vulputate orci, ac accumsan quam. Morbi fringilla congue
           libero. 1-800-1234-567
