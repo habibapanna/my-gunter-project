@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import Logo from "../assets/Logoh.svg";
-import CalendlyPopup from "../components/CalendlyPopup/CalendlyPopup";
 import { FiMenu, FiX } from "react-icons/fi";
 import CalendlyModal from "../components/CalendlyModal/CalendlyModal";
 
@@ -56,8 +55,6 @@ const Navbar = () => {
               </li>
             ))}
             
-              
-            {/* ✅ Login/Logout Button */}
           </ul>
           <div className="flex items-center gap-3">
   {/* Calendly Button */}
@@ -78,9 +75,7 @@ const Navbar = () => {
 </div>
 
 </div>
-
-
-         
+      
         </div>
 
         {/* Mobile Menu */}
@@ -92,10 +87,10 @@ const Navbar = () => {
                   <NavLink
                     to={path}
                     className={({ isActive }) =>
-                      `block py-3 transition duration-300 border-b border-stone-600 hover:bg-purple-600 px-5 ${
+                      `block py-3 transition duration-300 border-b border-stone-600 text-amber-500 hover:bg-purple-600 hover:text-white px-5 ${
                         isActive
-                          ? "text-white bg-purple-600"
-                          : `text-white`
+                          ? "text-white bg-purple-600 font-semibold"
+                          : ``
                       }`
                     }
                     onClick={() => setIsOpen(false)}
