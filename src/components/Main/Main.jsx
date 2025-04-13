@@ -8,6 +8,7 @@ import { MdKeyboardArrowUp, MdLiveHelp, MdChatBubble } from "react-icons/md"; //
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import { FaSkype } from "react-icons/fa6";
 
 const Main = () => {
     const location = useLocation();
@@ -70,11 +71,16 @@ const Main = () => {
           className="w-full h-full"
         >
           <SwiperSlide>
-            <div className="w-full h-full flex items-center justify-center text-white">
-              <a href="#" title="Live Chat">
-                <MdLiveHelp size={22} />
-              </a>
-            </div>
+          <div className="w-full h-full flex items-center justify-center text-white">
+    <a
+      href="skype:live:.cid.1234567890abcdef?chat"
+      title="Skype"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <FaSkype size={22} />
+    </a>
+  </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="w-full h-full flex items-center justify-center text-white">

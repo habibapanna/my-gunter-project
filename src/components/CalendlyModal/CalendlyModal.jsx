@@ -42,7 +42,7 @@ const CalendlyModal = () => {
             {/* Calendly iframe */}
             <div className="w-full h-full overflow-y-auto pt-8">
               <InlineWidget
-                url="https://calendly.com/habibapanna49"
+                url="https://calendly.com/habibapanna49/30min"
                 styles={{ height: "100%", width: "100%" }}
               />
             </div>

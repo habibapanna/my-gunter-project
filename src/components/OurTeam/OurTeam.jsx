@@ -79,7 +79,7 @@ const OurTeam = () => {
               />
 
               {/* Overlay Text */}
-              <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-70 text-white p-3 text-center">
+              <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-70 text-white py-4 px-10 text-center">
                 <h3 className="font-bold text-lg">{member.name}</h3>
                 <p className="text-amber-500 text-sm">{member.title}</p>
               </div>

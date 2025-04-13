@@ -47,7 +47,7 @@ const Footer = () => {
                         <ul className="space-y-2 text-sm">
                             {announcements.length > 0 ? (
                                 announcements.map((announcement, index) => (
-                                    <li key={index}><Link to="/announcements">{announcement.title}</Link></li>
+                                    <li className='hover:text-amber-500' key={index}><Link to="/announcements">{announcement.title}</Link></li>
                                 ))
                             ) : (
                                 <li>Loading announcements...</li>
