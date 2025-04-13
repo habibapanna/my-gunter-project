@@ -3,6 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import Logo from "../assets/Logoh.svg";
 import CalendlyPopup from "../components/CalendlyPopup/CalendlyPopup";
 import { FiMenu, FiX } from "react-icons/fi";
+import CalendlyModal from "../components/CalendlyModal/CalendlyModal";
 
 
 const Navbar = () => {
@@ -59,7 +60,7 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
   {/* Calendly Button */}
   <div className="absolute left-1/2 transform -translate-x-5 lg:-translate-0 md:static md:transform-none">
-    <CalendlyPopup />
+    <CalendlyModal />
   </div>
 
   {/* Mobile Menu Icon */}

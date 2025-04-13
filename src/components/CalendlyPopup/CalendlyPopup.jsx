@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FcCalendar } from "react-icons/fc";
 
 const CalendlyPopup = () => {
+  useEffect(() => {
+    const scriptId = "calendly-widget-script";
+
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement("script");
+      script.id = scriptId;
+      script.src = "https://assets.calendly.com/assets/external/widget.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   const openCalendly = () => {
-    window.Calendly.initPopupWidget({
-      url: "https://calendly.com/habibapanna49",
-    });
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({
+        url: "https://calendly.com/habibapanna49",
+      });
+    } else {
+      alert("Calendly is not loaded yet. Please wait a moment and try again.");
+    }
   };
 
   return (
@@ -16,7 +32,6 @@ const CalendlyPopup = () => {
       <FcCalendar className="text-lg md:text-xl" />
       Make a Schedule
 
-      {/* 👇 Custom Shadow Animation Styling */}
       <style>
         {`
           .shadow-animation {
