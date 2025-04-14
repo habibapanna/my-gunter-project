@@ -19,6 +19,7 @@
     "lottie-react": "^2.4.1",
     "match-sorter": "^8.0.0",
     "react": "^19.0.0",
+    "react-awesome-reveal": "^4.3.1",
     "react-calendly": "^4.3.1",
     "react-datepicker": "^8.3.0",
     "react-dom": "^19.0.0",

@@ -3,13 +3,11 @@ import About from "../components/About/About";
 import HeroSection from "../components/HeroSection/HeroSection";
 import LatestNews from "../components/LatestNews/LatestNews";
 import OurServices from "../components/OurServices/OurServices";
-import OurTeam from "../components/OurTeam/OurTeam";
 import RecentProjects from "../components/RecentProjects/RecentProjects";
 import ServiceCards from "../components/ServiceCards/ServiceCards";
 import Testimonials from "../components/Testimonials/Testimonials";
 import OurClients from "../components/OurClients/OurClients";
-import { Link } from "react-router-dom";
-import NewSection from "../components/NewSection/NewSection";
+import ContactForm from "../components/ContactForm/ContactForm";
 
 const AnimatedStick = () => {
     return (
@@ -77,22 +75,16 @@ const Home = () => {
                     <About />
                 </Section>
                 <Section>
-                    <OurServices />
-                </Section>
-                <Section>
                     <RecentProjects />
                 </Section>
                 <Section>
                     <Testimonials />
                 </Section>
                 <Section>
-                    <OurTeam />
-                </Section>
-                <Section>
                     <LatestNews />
                 </Section>
                 <Section>
-               <NewSection></NewSection>
+               <ContactForm></ContactForm>
                 </Section>
 
             </div>

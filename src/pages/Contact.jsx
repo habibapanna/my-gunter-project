@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Banner2 from "../components/Banner2/Banner2";
 import ContactForm from "../components/ContactForm/ContactForm";
+import Map from "../components/Map/Map";
 
 const Contact = () => {
     return (
@@ -12,6 +13,7 @@ const Contact = () => {
         >
             <Banner2 />
             <ContactForm />
+            <Map></Map>
         </motion.div>
     );
 };

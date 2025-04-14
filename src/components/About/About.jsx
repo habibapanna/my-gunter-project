@@ -21,7 +21,7 @@ const About = () => {
     };
 
     if (!aboutData) {
-        return <div className='text-white text-center py-10'>Loading...</div>;
+        return <div className='text-white text-center py-5'>Loading...</div>;
     }
 
     return (

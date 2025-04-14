@@ -49,9 +49,9 @@ const Main = () => {
             <Footer />
 
             {theme === "light" && (
-  <div className="fixed bottom-8 left-6 z-50 group">
+  <div className="fixed bottom-8 right-6 z-50 group">
     {/* Chat Box */}
-    <div className="relative w-12 h-12 bg-purple-600 rounded-full shadow-lg cursor-pointer overflow-hidden group transition-all duration-500">
+    <div className="relative w-12 h-12 bg-amber-500 rounded-full shadow-lg cursor-pointer overflow-hidden group transition-all duration-500">
       
       {/* Chat Icon (Only visible when NOT hovered) */}
       <div className="w-full h-full flex items-center justify-center text-white transition-opacity duration-300 group-hover:opacity-0">
@@ -106,7 +106,7 @@ const Main = () => {
             {/* Scroll to Top */}
             <div 
                 onClick={scrollToTop} 
-                className="fixed bottom-8 right-6 w-12 h-12 flex items-center justify-center rounded-full hover:bg-purple-600 bg-amber-500 text-white cursor-pointer shadow-lg transition-all z-50"
+                className="fixed bottom-8 left-6 w-12 h-12 flex items-center justify-center rounded-full bg-purple-600 hover:bg-amber-500 text-white cursor-pointer shadow-lg transition-all z-50"
             >
                 <MdKeyboardArrowUp className="text-2xl" />
             </div>

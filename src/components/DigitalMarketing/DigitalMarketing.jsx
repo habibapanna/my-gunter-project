@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
-import { motion } from "framer-motion";
+import { Slide, Fade } from "react-awesome-reveal";
 import { FaDiamond } from "react-icons/fa6";
 
 const services = [
@@ -31,7 +31,7 @@ function DigitalMarketing() {
   return (
     <div className="bg-black min-h-screen py-10 text-white">
       {/* Carousel Section */}
-      <section className="md:w-full md:max-w-3xl max-w-sm w-[350px] mx-auto mb-10 px-5">
+      <section className="w-full mx-auto mb-14 px-5">
         <Swiper
           modules={[Pagination, Autoplay]}
           pagination={{ clickable: true }}
@@ -44,7 +44,7 @@ function DigitalMarketing() {
               <img
                 src={img.imageUrl}
                 alt={`Slide ${index}`}
-                className="w-full shadow-md h-[300px] lg:h-[400px] object-cover"
+                className="w-full shadow-md h-[300px] lg:h-[400px] object-cover rounded-xl"
               />
             </SwiperSlide>
           ))}
@@ -52,38 +52,55 @@ function DigitalMarketing() {
       </section>
 
       {/* Hero Section */}
-      <section className="px-5">
-        <h1 className="text-2xl lg:text-4xl font-bold mb-4">Digital Marketing Services – Grow Your Brand & Boost Sales!</h1>
-        <p className="text-[16px] text-gray-400 max-w-3xl mx-auto font-normal">
-          Want to scale your business and reach the right audience? Our expert digital marketing services help you increase brand visibility, website traffic, and conversions through SEO, social media, PPC, and content marketing.
-        </p>
+      <section className="px-5 max-w-5xl mx-auto text-center mb-10">
+        <Slide direction="down" triggerOnce>
+          <h1 className="text-2xl lg:text-4xl font-bold mb-4 text-purple-600">
+            Digital Marketing Services – Grow Your Brand & Boost Sales!
+          </h1>
+        </Slide>
+        <Fade cascade damping={0.2} triggerOnce>
+          <p className="text-[16px] text-gray-300 font-normal">
+            Want to scale your business and reach the right audience? Our expert digital marketing services help you increase brand visibility, website traffic, and conversions through SEO, social media, PPC, and content marketing.
+          </p>
+        </Fade>
       </section>
 
       {/* Services Section */}
-      <section className="services bg-black px-5 md:px-20 mt-10">
-        <h2 className="text-xl lg:text-2xl font-semibold mb-6">Our Digital Marketing Services:</h2>
-        <ul className="space-y-4 text-[16px] text-gray-400">
-          {services.map((service, index) => (
-            <motion.li 
-              key={index} 
-              className="flex items-center gap-3"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <FaDiamond className="text-amber-500" /> {service}
-            </motion.li>
-          ))}
-        </ul>
+      <section className="bg-black px-5 md:px-20 max-w-7xl mx-auto">
+        <Slide direction="left" triggerOnce>
+          <h2 className="text-xl lg:text-2xl font-bold mb-8 text-center text-amber-500">Our Digital Marketing Services:</h2>
+        </Slide>
 
-        <div className="text-center mt-8">
-          <button className="relative bg-purple-600 px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[16px] lg:text-[18px] cursor-pointer">
-            <Link to='/contact'>Contact us today for expert guidance!</Link>
-          </button>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {services.map((service, index) => (
+            <Fade
+              key={index}
+              direction="up"
+              delay={index * 100}
+              triggerOnce
+              className="w-full"
+            >
+              <div className="bg-zinc-900 hover:bg-zinc-800 transition duration-300 p-6 shadow-lg border border-zinc-700">
+                <div className="flex items-start gap-3 text-gray-300 text-[16px]">
+                  <FaDiamond className="text-amber-500 text-xl mt-1" />
+                  <span>{service}</span>
+                </div>
+              </div>
+            </Fade>
+          ))}
         </div>
+
+        {/* Call To Action Button */}
+        <Fade delay={500} triggerOnce>
+          <div className="text-center mt-12">
+            <button className="relative bg-purple-600 px-4 py-3 lg:px-6 lg:py-4 text-white font-semibold flex items-center justify-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[16px] lg:text-[18px] cursor-pointer hover:bg-purple-700 mx-auto">
+              <Link to="/contact">Contact us today for expert guidance!</Link>
+            </button>
+          </div>
+        </Fade>
       </section>
 
-      {/* Tailwind Keyframe Styles */}
+      {/* Shadow Button Animation */}
       <style>
         {`
           .shadow-animation {

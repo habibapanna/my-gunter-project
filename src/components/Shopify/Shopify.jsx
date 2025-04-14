@@ -6,6 +6,9 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 import { FaCheck } from "react-icons/fa6";
 
+// Awesome Reveal
+import { Fade, Zoom, Slide } from "react-awesome-reveal";
+
 const services = [
   "Custom Shopify Store Design – Mobile-friendly, fast-loading, and optimized for sales.",
   "Winning Product Research – Find high-demand products for dropshipping & private label.",
@@ -22,7 +25,7 @@ function Shopify() {
       try {
         const res = await fetch("https://my-gunter-project-server.vercel.app/shopify");
         const data = await res.json();
-        setShopifyImages(data); // data should be an array of objects with imageUrl
+        setShopifyImages(data);
       } catch (error) {
         console.error("Error fetching Shopify images:", error);
       }
@@ -31,56 +34,73 @@ function Shopify() {
   }, []);
 
   return (
-    <div className="bg-black min-h-screen py-10 text-white">
+    <div className="bg-black min-h-screen py-5 text-white">
       {/* Carousel Section */}
-      <section className="md:w-full md:max-w-3xl max-w-sm w-[350px] mx-auto mb-10 px-5">
-        <Swiper
-          modules={[Pagination, Autoplay]}
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          loop={true}
-          className="w-full"
-        >
-          {shopifyImages.map((img, index) => (
-            <SwiperSlide key={index}>
-              <img
-                src={img.imageUrl}
-                alt={`Shopify Slide ${index}`}
-                className="w-full shadow-md h-[300px] lg:h-[400px] object-cover"
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      <section className="w-full mx-auto mb-10 px-5">
+        <Zoom triggerOnce>
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            loop={true}
+            className="w-full"
+          >
+            {shopifyImages.map((img, index) => (
+              <SwiperSlide key={index}>
+                <img
+                  src={img.imageUrl}
+                  alt={`Shopify Slide ${index}`}
+                  className="w-full shadow-md h-[300px] lg:h-[400px] object-cover rounded-xl"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </Zoom>
       </section>
 
       {/* Hero Section */}
-      <section className="px-5">
-        <h1 className="text-2xl lg:text-4xl font-bold mb-4">
-          Shopify Store Setup & Management – Build & Scale Your Online Business!
-        </h1>
-        <p className="text-[16px] font-normal text-gray-400 max-w-3xl mx-auto">
-          Want to launch a professional, high-converting Shopify store? We provide end-to-end Shopify solutions, from store design and branding to SEO, product listings, and marketing, ensuring your success in eCommerce & dropshipping.
-        </p>
+      <section className="px-5 text-center text-purple-600">
+        <Slide direction="up" triggerOnce>
+          <h1 className="text-2xl lg:text-4xl font-bold mb-4">
+            Shopify Store Setup & Management – Build & Scale Your Online Business!
+          </h1>
+        </Slide>
+        <Fade cascade damping={0.1} triggerOnce>
+          <p className="text-[16px] font-normal text-gray-300 max-w-3xl mx-auto">
+            Want to launch a professional, high-converting Shopify store? We provide end-to-end Shopify solutions, from store design and branding to SEO, product listings, and marketing, ensuring your success in eCommerce & dropshipping.
+          </p>
+        </Fade>
       </section>
+{/* Services Section */}
+<section className="services bg-black px-5 md:px-20 mt-10">
+  <Slide direction="left" triggerOnce>
+    <h2 className="text-xl lg:text-2xl font-bold mb-6 text-amber-500 text-center">Our Shopify Services:</h2>
+  </Slide>
 
-      {/* Services Section */}
-      <section className="services bg-black px-5 md:px-20 mt-10">
-        <h2 className="text-xl lg:text-2xl font-semibold mb-6">Our Shopify Services:</h2>
-        <ul className="space-y-4">
-          {services.map((service, index) => (
-            <li key={index} className="flex items-start gap-3 text-gray-400 text-[16px]">
-              <FaCheck className="text-amber-500 text-xl" />
-              {service}
-            </li>
-          ))}
-        </ul>
-
-        <div className="text-center mt-8">
-          <button className="relative bg-purple-600 text-[16px] px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation lg:text-[18px] cursor-pointer">
-            <Link to="/contact">Get in touch for expert Shopify solutions!</Link>
-          </button>
+  <Fade cascade direction="up" triggerOnce damping={0.2}>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {services.map((service, index) => (
+        <div
+          key={index}
+          className="bg-zinc-900 hover:bg-zinc-800 transition duration-300 p-5 shadow-lg border border-zinc-700"
+        >
+          <div className="flex items-start gap-3 text-gray-300 text-[16px]">
+            <FaCheck className="text-amber-500 text-xl mt-1" />
+            <p>{service}</p>
+          </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </Fade>
+
+  <Zoom delay={500} triggerOnce>
+    <div className="text-center mt-10">
+      <button className="relative bg-purple-600 text-[16px] px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation lg:text-[18px] cursor-pointer text-center mx-auto">
+        <Link to="/contact">Get in touch for expert Shopify solutions!</Link>
+      </button>
+    </div>
+  </Zoom>
+</section>
 
       {/* Tailwind Keyframe Styles */}
       <style>

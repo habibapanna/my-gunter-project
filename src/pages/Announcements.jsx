@@ -7,6 +7,8 @@ import Swal from "sweetalert2";
 import Spinner from "../components/Spinner/Spinner";
 import { GoDotFill } from "react-icons/go";
 import NewSection from "../components/NewSection/NewSection";
+import { Fade, Slide, Zoom } from "react-awesome-reveal";
+
 
 const Announcements = () => {
   const [announcements, setAnnouncements] = useState([]);
@@ -165,18 +167,21 @@ const handleAnnouncementClick = (announcement) => {
   return (
     <div className="bg-black">
       <div className="bg-black py-20">
-        <h1 className="text-4xl font-bold mb-5 text-center text-white">
-          {currentAnnouncement ? currentAnnouncement.title : "Announcements"}
-        </h1>
-        <p className="text-center text-white">
-          <Link to="/" className="mr-3 transition-colors duration-300 hover:text-amber-500">
-            Home
-          </Link>
-          /
-          <span className="ml-3 text-amber-500 font-semibold">
-            {currentAnnouncement ? currentAnnouncement.title : "Announcements"}
-          </span>
-        </p>
+      <Fade cascade>
+  <h1 className="text-4xl font-bold mb-5 text-center text-white">
+    {currentAnnouncement ? currentAnnouncement.title : "Announcements"}
+  </h1>
+  <p className="text-center text-white">
+    <Link to="/" className="mr-3 transition-colors duration-300 hover:text-amber-500">
+      Home
+    </Link>
+    /
+    <span className="ml-3 text-amber-500 font-semibold">
+      {currentAnnouncement ? currentAnnouncement.title : "Announcements"}
+    </span>
+  </p>
+</Fade>
+
       </div>
 
       <div className="p-10 grid grid-cols-12 gap-6">
@@ -186,40 +191,51 @@ const handleAnnouncementClick = (announcement) => {
           ) : (
             <>
               {selectedAnnouncement ? (
-                <div id="announcement-details" className="bg-black p-4 shadow-md">
-                  <img className="w-full h-[400px] object-cover" src={selectedAnnouncement.
-image} alt="" />
-                  <h2 className="text-white text-xl font-bold mt-5">{selectedAnnouncement.title}</h2>
-                  <p className="text-gray-400 mt-2">{selectedAnnouncement.description}</p>
-                  <p className="text-gray-400 mt-2">{selectedAnnouncement.details}</p>
-                            {/* Apply Now Button */}
-          <div className="text-center mt-6">
-            <button
-              onClick={() => setModalIsOpen(true)}
-              className="bg-purple-600 px-6 py-3 text-white font-semibold transition duration-300 mt-3 shadow-animation cursor-pointer"
-            >
-              Apply Now
-            </button>
-          </div>
-                </div>
+               <Zoom triggerOnce>
+               <div id="announcement-details" className="bg-black p-4 shadow-md">
+                 <img
+                   className="w-full h-[400px] object-cover"
+                   src={selectedAnnouncement.image}
+                   alt=""
+                 />
+                 <h2 className="text-white text-xl font-bold mt-5">{selectedAnnouncement.title}</h2>
+                 <p className="text-gray-400 mt-2">{selectedAnnouncement.description}</p>
+                 <p className="text-gray-400 mt-2">{selectedAnnouncement.details}</p>
+                 <div className="text-center mt-6">
+                   <button
+                     onClick={() => setModalIsOpen(true)}
+                     className="bg-purple-600 px-6 py-3 text-white font-semibold transition duration-300 mt-3 shadow-animation cursor-pointer"
+                   >
+                     Apply Now
+                   </button>
+                 </div>
+               </div>
+             </Zoom>
+             
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {paginatedAnnouncements.map((announcement) => (
-  <div key={announcement.id} className="bg-black shadow-md border border-gray-900 shadow-gray-900 p-4 flex flex-col justify-between h-[400px]">
-    <div onClick={() => handleReadMore(announcement)} className="cursor-pointer">
-      <img src={announcement.image} alt={announcement.title} className="w-full h-40 object-cover" />
-      <h2 className="text-lg font-bold mt-3 text-white">{announcement.title}</h2>
-      <p className="text-gray-400 text-sm mt-2">{announcement.description}</p>
-    </div>
-    <button
-      className="text-amber-500 hover:underline cursor-pointer text-left font-semibold"
-      onClick={() => handleReadMore(announcement)}
-    >
-      Read More
-    </button>
+<Fade cascade damping={0.1}>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {paginatedAnnouncements.map((announcement) => (
+      <div
+        key={announcement.id}
+        className="bg-black shadow-md border border-gray-900 shadow-gray-900 p-4 flex flex-col justify-between h-[400px]"
+      >
+        <div onClick={() => handleReadMore(announcement)} className="cursor-pointer">
+          <img src={announcement.image} alt={announcement.title} className="w-full h-40 object-cover" />
+          <h2 className="text-lg font-bold mt-3 text-white">{announcement.title}</h2>
+          <p className="text-gray-400 text-sm mt-2">{announcement.description}</p>
+        </div>
+        <button
+          className="text-amber-500 hover:underline cursor-pointer text-left font-semibold"
+          onClick={() => handleReadMore(announcement)}
+        >
+          Read More
+        </button>
+      </div>
+    ))}
   </div>
-))}
-                </div>
+</Fade>
+
               )}
             </>
             

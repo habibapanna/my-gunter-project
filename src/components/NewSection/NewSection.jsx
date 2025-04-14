@@ -6,7 +6,7 @@ const NewSection = () => {
     return (
         <div id="contact">
                             <div
-      className="mx-auto max-w-5xl flex flex-col gap-10 bg-black bg-cover bg-center rounded px-5 py-10 lg:p-10 items-center justify-between shadow-lg mb-5"
+      className="mx-auto max-w-5xl flex flex-col gap-10 bg-black bg-cover bg-center rounded px-5 py-5 lg:p-10 items-center justify-between shadow-lg mb-5"
       style={{
         backgroundImage:
           "url('https://i.ibb.co.com/cKXvftPN/Get-In-Touch.png')",

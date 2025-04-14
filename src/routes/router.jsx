@@ -132,7 +132,10 @@ const router = createBrowserRouter([
                 path: "services", // ✅ Services is now inside Main
                 element: <Services />,
                 children: [
-                    { path: "private-label", element: <PrivateLabelPage /> },
+                    
+                ],
+            },
+            { path: "private-label", element: <PrivateLabelPage /> },
                     { path: "retail-arbitrage", element: <RetailArbitragePage /> },
                     { path: "wholesale-fba", element: <WholeSaleFBA /> },
                     { path: "web-development", element: <WebDevelopment /> },
@@ -141,8 +144,6 @@ const router = createBrowserRouter([
                     { path: "digital-marketing", element: <DigitalMarketing /> },
                     { path: "product-photography", element: <ProductPhotography /> },
                     { path: "f-commerce-service", element: <FCommerceService /> },
-                ],
-            },
         ],
     },
  {

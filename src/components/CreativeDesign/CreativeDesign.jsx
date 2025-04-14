@@ -5,12 +5,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 import { FaCheck } from "react-icons/fa6";
-import { motion } from "framer-motion";
+import { Fade, Slide, Zoom } from "react-awesome-reveal";
 
 function CreativeDesign() {
   const [images, setImages] = useState([]);
 
-  // Fetch images from the backend
   useEffect(() => {
     fetch("https://my-gunter-project-server.vercel.app/creative-designs")
       .then((res) => res.json())
@@ -19,64 +18,86 @@ function CreativeDesign() {
   }, []);
 
   return (
-    <div className="bg-black min-h-screen py-10 text-white">
+    <div className="bg-black min-h-screen py-5 text-white">
       {/* Carousel Section */}
-      <section className="md:w-full md:max-w-3xl max-w-sm w-[350px] mx-auto mb-10 px-5">
-        <Swiper
-          modules={[Pagination, Autoplay]}
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          loop={true}
-          className="w-full"
-        >
-          {images.map((img, index) => (
-            <SwiperSlide key={index}>
-              <img
-                src={img.imageUrl}
-                alt={`Slide ${index}`}
-                className="w-full shadow-md h-[300px] lg:h-[400px] object-cover"
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      <section className="mx-auto mb-10 px-5">
+        <Zoom triggerOnce>
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            loop={true}
+            className="w-full"
+          >
+            {images.map((img, index) => (
+              <SwiperSlide key={index}>
+                <img
+                  src={img.imageUrl}
+                  alt={`Slide ${index}`}
+                  className="w-full shadow-md h-[300px] lg:h-[400px] object-cover rounded-lg"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </Zoom>
       </section>
 
       {/* Hero Section */}
-      <section className="px-5">
-        <h1 className="text-2xl lg:text-4xl font-bold mb-4">
-          Creative Design Services – Elevate Your Brand with Stunning Visuals!
-        </h1>
-        <p className="max-w-3xl mx-auto text-gray-400 font-normal text-[16px]">
-          Looking for eye-catching designs that make your brand stand out? Our creative design services help businesses create visually appealing and high-converting graphics for digital and print marketing.
-        </p>
+      <section className="px-5 md:px-20 ">
+        <Fade direction="down" triggerOnce>
+          <h1 className="text-2xl lg:text-4xl font-bold mb-4 text-center text-purple-600">
+            Creative Design Services – Elevate Your Brand with Stunning Visuals!
+          </h1>
+        </Fade>
+        <Fade direction="up" delay={200} triggerOnce>
+          <p className="mx-auto text-gray-300 text-[16px] text-center">
+            Looking for eye-catching designs that make your brand stand out? Our creative design services help businesses create visually appealing and high-converting graphics for digital and print marketing.
+          </p>
+        </Fade>
       </section>
 
       {/* Services Section */}
       <section className="services bg-black px-5 md:px-20 mt-10">
-        <h2 className="text-xl lg:text-2xl font-semibold mb-6">Our Creative Design Services:</h2>
-        <ul className="space-y-3 text-[16px]">
-          {[
-            "Logo & Brand Identity Design – Unique, professional branding for businesses.",
-            "Social Media Graphics – Engaging posts, ads, and banners for Facebook, Instagram & more.",
-            "Website & UI/UX Design – Stunning, user-friendly website layouts.",
-            "Product Packaging & Label Design – Attractive designs for private-label products.",
-            "Infographics & Marketing Materials – High-quality visuals for presentations & promotions.",
-            "Video & Motion Graphics – Professional animations and promotional videos.",
-          ].map((service, index) => (
-            <li key={index} className="flex items-center gap-2 text-gray-400">
-              <FaCheck className="text-amber-500 text-2xl" /> {service}
-            </li>
-          ))}
-        </ul>
+        <section className="bg-black px-5 md:px-20 mt-14">
+  <Slide direction="left" triggerOnce>
+  <h2 className="text-xl lg:text-2xl font-bold mb-6 text-amber-500 text-center">
+            Our Creative Design Services:
+          </h2>
+  </Slide>
 
-        <div className="text-center mt-8">
-          <button className="relative bg-purple-600 px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[16px] lg:text-[18px] cursor-pointer">
-            <Link to="/contact">Contact us today for custom design solutions!</Link>
-          </button>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    {[
+      "Logo & Brand Identity Design – Unique, professional branding for businesses.",
+      "Social Media Graphics – Engaging posts, ads, and banners for Facebook, Instagram & more.",
+      "Website & UI/UX Design – Stunning, user-friendly website layouts.",
+      "Product Packaging & Label Design – Attractive designs for private-label products.",
+      "Infographics & Marketing Materials – High-quality visuals for presentations & promotions.",
+      "Video & Motion Graphics – Professional animations and promotional videos.",
+    ].map((service, index) => (
+      <Slide key={index} direction="up" delay={index * 100} triggerOnce>
+        <div className="bg-zinc-900 hover:bg-zinc-800 transition duration-300 p-5 shadow-lg border border-zinc-700">
+          <div className="flex items-start gap-3 text-gray-300 text-[16px]">
+            <FaCheck className="text-amber-500 text-xl mt-1" />
+            <p>{service}</p>
+          </div>
         </div>
+      </Slide>
+    ))}
+  </div>
+</section>
+
+
+        {/* CTA Button */}
+        <Fade direction="up" delay={500} triggerOnce>
+          <div className="text-center mt-8">
+            <button className="relative bg-purple-600 px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[16px] lg:text-[18px] cursor-pointer mx-auto">
+              <Link to="/contact">Contact us today for custom design solutions!</Link>
+            </button>
+          </div>
+        </Fade>
       </section>
 
-      {/* Tailwind Keyframe Styles */}
+      {/* Custom Button Hover Effects */}
       <style>
         {`
           .shadow-animation {
