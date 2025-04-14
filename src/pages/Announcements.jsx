@@ -241,7 +241,7 @@ const handleAnnouncementClick = (announcement) => {
             
           )}
 {!selectedAnnouncement && (
-  <div className="flex justify-center gap-4 mt-6">
+  <div className="flex justify-end gap-4 mt-6">
     <button
       onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
       disabled={currentPage === 1}
@@ -389,24 +389,24 @@ const handleAnnouncementClick = (announcement) => {
       <Modal
   isOpen={modalIsOpen}
   onRequestClose={() => setModalIsOpen(false)}
-  className="relative w-[300px] lg:w-full lg:max-w-xl p-6 rounded-xl mx-auto mt-16 max-h-[90vh] overflow-y-auto shadow-2xl animate-fadeIn bg-cover bg-center bg-no-repeat"
+  className="relative w-[300px] lg:w-full lg:max-w-xl p-6 mx-auto mt-16 max-h-[90vh] overflow-y-auto shadow-2xl animate-fadeIn bg-cover bg-center bg-no-repeat"
   overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
   style={{
     content: {
-      backgroundImage: `url('https://i.ibb.co.com/3YC9pHnn/algoleague-u-A2-Ayx3mw-Io-unsplash.jpg')`,
+      backgroundImage: `url('https://i.postimg.cc/rsP6DKD6/kkkapusha-rwt-Y4h-U5k3k-unsplash.jpg')`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
     }
   }}
 >
   {/* Dark overlay */}
-  <div className="absolute inset-0 bg-black opacity-70 rounded-xl z-0"></div>
+  <div className="absolute inset-0 bg-black opacity-85 z-0"></div>
 
   {/* Modal Content */}
   <div className="relative z-10">
     <button
       onClick={() => setModalIsOpen(false)}
-      className="absolute top-0 right-0 text-white text-3xl hover:scale-110 transition-transform duration-200 z-20"
+      className="absolute cursor-pointer top-0 right-0 text-white text-3xl hover:scale-110 transition-transform duration-200 z-20"
     >
       &times;
     </button>

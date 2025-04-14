@@ -101,11 +101,10 @@ const HeroSection = () => {
       >
         <FaArrowLeftLong />
       </button>
-
       {/* Hero Content */}
       <div className="lg:hero-content flex flex-col-reverse lg:flex-row-reverse items-center w-full lg:px-10">
         {/* Image / Video Section */}
-        <div className="lg:w-1/2 relative flex justify-center lg:justify-end">
+        <div className="lg:w-1/2 relative flex justify-center items-center">
           {!isVideoPlaying ? (
             <div className="relative">
               <img
@@ -117,9 +116,9 @@ const HeroSection = () => {
               />
               <button
                 onClick={() => setIsVideoPlaying(true)}
-                className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 hover:bg-opacity-60 transition rounded"
+                className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 hover:bg-opacity-60 transition rounded mx-auto"
               >
-                <FaPlayCircle className="text-white text-6xl" />
+                <FaPlayCircle className="text-purple-600 text-5xl hover:text-amber-500" />
               </button>
             </div>
           ) : (
@@ -181,7 +180,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-
       {/* Right Arrow */}
       <button
         onClick={() => changeSlide("next")}

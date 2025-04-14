@@ -238,11 +238,11 @@ const Blog = () => {
               </div>
 
               {/* Pagination Buttons */}
-              <div className="flex justify-center items-center gap-4 mt-6 text-white">
+              <div className="flex justify-end gap-4 mt-6 text-white px-5">
                 <button
                   onClick={() => handlePageChange("prev")}
                   disabled={currentPage === 1}
-                  className={`px-4 py-2 rounded shadow-md ${
+                  className={`px-4 py-2 shadow-md ${
                     currentPage === 1
                       ? "bg-gray-700 cursor-not-allowed"
                       : "bg-purple-600 hover:bg-purple-700"
@@ -256,7 +256,7 @@ const Blog = () => {
                 <button
                   onClick={() => handlePageChange("next")}
                   disabled={currentPage === totalPages}
-                  className={`px-4 py-2 rounded shadow-md ${
+                  className={`px-4 py-2 shadow-md ${
                     currentPage === totalPages
                       ? "bg-gray-700 cursor-not-allowed"
                       : "bg-purple-600 hover:bg-purple-700"

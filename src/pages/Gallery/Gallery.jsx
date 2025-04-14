@@ -94,7 +94,7 @@ const Gallery = () => {
 
             {/* ✅ Pagination Controls */}
             {!loading && filteredSearchImages.length > 9 && (
-                <div className="flex justify-center mt-10 px-4 max-w-6xl mx-auto space-x-2">
+                <div className="flex justify-end mt-10 px-4 max-w-6xl mx-auto space-x-2">
                     <button
                         onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                         disabled={currentPage === 1}
