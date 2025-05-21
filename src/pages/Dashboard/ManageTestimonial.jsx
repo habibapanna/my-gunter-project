@@ -102,7 +102,7 @@ const ManageTestimonial = () => {
 
   return (
     <div className="container mx-auto py-4">
-      <h2 className="text-orange-600 mt-5 text-center lg:text-2xl font-bold mb-4">Manage Testimonials</h2>
+      <h2 className="text-purple-600 mt-5 text-center lg:text-2xl font-bold mb-4">Manage Testimonials</h2>
 
       <table className="min-w-full table-auto border-collapse">
         <thead>
@@ -121,7 +121,7 @@ const ManageTestimonial = () => {
               <td className="p-2 border border-gray-300">{testimonial.position}</td>
               <td className="p-2 border border-gray-300">
                 <button
-                  className="text-orange-600 hover:text-orange-700 cursor-pointer"
+                  className="text-purple-600 hover:text-purple-700 cursor-pointer"
                   onClick={() => handleEdit(testimonial)}
                 >
                   <TiEdit />

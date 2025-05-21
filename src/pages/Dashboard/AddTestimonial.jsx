@@ -3,7 +3,6 @@ import Swal from 'sweetalert2';
 
 const AddTestimonial = () => {
   const [formData, setFormData] = useState({
-    image: '',
     text: '',
     author: '',
     position: '',
@@ -33,7 +32,6 @@ const AddTestimonial = () => {
       if (response.ok) {
         Swal.fire('Success!', 'Testimonial added successfully!', 'success');
         setFormData({
-          image: '',
           text: '',
           author: '',
           position: '',
@@ -48,23 +46,8 @@ const AddTestimonial = () => {
 
   return (
     <div className="max-w-lg mx-auto bg-white shadow-lg p-6 mt-8 text-black">
-      <h2 className="text-2xl font-semibold text-center text-orange-600 mb-6">Add Testimonial</h2>
+      <h2 className="text-2xl font-semibold text-center text-purple-600 mb-6">Add Testimonial</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-        
-        {/* Image URL */}
-        <div>
-          <label htmlFor="image" className="block font-medium">Image URL</label>
-          <input
-            type="text"
-            id="image"
-            name="image"
-            value={formData.image}
-            onChange={handleChange}
-            required
-            className="border border-gray-300 p-3 w-full"
-            placeholder="Enter image URL"
-          />
-        </div>
 
         {/* Testimonial Text */}
         <div>
@@ -112,7 +95,7 @@ const AddTestimonial = () => {
         </div>
 
         {/* Submit Button */}
-        <button type="submit" className="w-full bg-orange-600 text-white py-3 mt-4 hover:bg-orange-700 transition duration-200 cursor-pointer">
+        <button type="submit" className="w-full bg-purple-600 text-white py-3 mt-4 hover:bg-purple-700 transition duration-200 cursor-pointer">
           Add Testimonial
         </button>
       </form>

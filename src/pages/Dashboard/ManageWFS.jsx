@@ -67,7 +67,7 @@ const ManageWFS = () => {
 
   return (
     <div className="p-4 overflow-x-auto">
-      <h2 className="text-xl lg:text-2xl font-bold mb-4 text-orange-600 text-center">Manage WFS</h2>
+      <h2 className="text-xl lg:text-2xl font-bold mb-4 text-purple-600 text-center">Manage WFS</h2>
       <table className="min-w-full table-auto border-collapse">
         <thead>
           <tr className="text-left">
@@ -85,7 +85,7 @@ const ManageWFS = () => {
               </td>
               <td className="p-3 border border-stone-500 space-x-2">
                 <TiEdit
-                  className="cursor-pointer text-orange-600 text-xl inline"
+                  className="cursor-pointer text-purple-600 text-xl inline"
                   onClick={() => handleEdit(wfs._id, wfs.imageUrl)}
                 />
                 <AiOutlineDelete

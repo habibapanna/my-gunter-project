@@ -86,7 +86,7 @@ const RecentProjects = () => {
 
       {/* Bottom Indicator */}
       {!loading && !error && projects.length > 0 && (
-        <div className="flex justify-center gap-2 mt-5">
+        <div className="flex justify-center gap-2">
           {projects.slice(0, 2).map((_, index) => (
             <span
               key={index}
@@ -99,7 +99,7 @@ const RecentProjects = () => {
       )}
 
       {/* View All Projects Button */}
-      <div className="mt-10">
+      <div className="mt-5">
         <button className="shadow-animation bg-purple-600 px-4 md:px-6 py-2 md:py-4 text-white lg:font-semibold flex items-center gap-2 shadow-animation mt-4 md:mt-0 mx-auto cursor-pointer">
           <Link to="/blog">All Projects </Link>
           <FaArrowRightLong />

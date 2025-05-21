@@ -67,6 +67,7 @@ import ManageWFS from "../pages/Dashboard/ManageWFS";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import AddOurClients from "../pages/Dashboard/AddOurClients";
 import ManageOurClients from "../pages/Dashboard/ManageOurClients";
+import Team from "../pages/Team";
 
 
 const router = createBrowserRouter([
@@ -76,6 +77,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             { path: "/", element: <Home /> },
+            { path: "/team", element: <Team></Team> },
             { path: "blog", element: <Blog />,
                 children: [
                     {

@@ -28,13 +28,13 @@ function Header() {
                     <Link
                         key={index}
                         to={service.path}
-                        className="relative flex items-center justify-between bg-stone-100 text-black px-5 py-4 rounded-l-full group cursor-pointer overflow-hidden transition-all duration-500 hover:bg-orange-600"
+                        className="relative flex items-center justify-between bg-stone-100 text-black px-5 py-4 rounded-l-full group cursor-pointer overflow-hidden transition-all duration-500 hover:bg-purple-600"
                     >
                         {/* Animated Background Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-b from-orange-600 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
                         {/* Left Icon */}
-                        <div className="text-2xl text-orange-600 p-4 bg-white rounded-full transition-all duration-500  z-10">
+                        <div className="text-2xl text-purple-600 p-4 bg-white rounded-full transition-all duration-500  z-10">
                             {service.icon}
                         </div>
 
@@ -44,7 +44,7 @@ function Header() {
                         </h3>
 
                         {/* Right Arrow Icon (Moves to Right on Hover) */}
-                        <FaArrowRightLong className="text-orange-600 text-xl transition-transform duration-500 group-hover:translate-x-2 group-hover:text-white z-10" />
+                        <FaArrowRightLong className="text-purple-600 text-xl transition-transform duration-500 group-hover:translate-x-2 group-hover:text-white z-10" />
                     </Link>
                 ))}
             </div>

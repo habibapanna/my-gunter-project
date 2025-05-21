@@ -45,7 +45,7 @@ const AllUsers = () => {
 
     return (
         <div className="py-6">
-            <h2 className="text-xl font-bold mb-4 text-orange-600 text-center ">All Users</h2>
+            <h2 className="text-xl font-bold mb-4 text-purple-600 text-center ">All Users</h2>
            <div className='overflow-x-scroll w-[320px] md:overflow-x-hidden md:w-full'>
            <table className="w-full border-collapse border border-stone-600">
                 <thead>
@@ -67,7 +67,7 @@ const AllUsers = () => {
                                     <AiOutlineDelete />
                                 </button>
                                 {user.role !== "admin" && (
-                                    <button className="shadow-animation text-sm bg-orange-600 g:px-3 px-1 py-1 cursor-pointer" onClick={() => handleMakeAdmin(user._id)}>
+                                    <button className="shadow-animation text-sm bg-purple-600 g:px-3 px-1 py-1 cursor-pointer" onClick={() => handleMakeAdmin(user._id)}>
                                         Make Admin
                                     </button>
                                 )}

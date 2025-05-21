@@ -29,18 +29,31 @@ const ManageHero = () => {
 
   // Update Hero (PUT request)
   const handleUpdate = async () => {
+    const form = new FormData();
+    form.append("title", formData.title);
+    form.append("description", formData.description);
+    if (formData.image instanceof File) {
+      form.append("image", formData.image); // New file
+    } else {
+      form.append("image", formData.image); // Existing URL
+    }
+  
     const response = await fetch(`https://my-gunter-project-server.vercel.app/heroes/${selectedHero._id}`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      body: form,
     });
-
+  
     if (response.ok) {
+      const updated = await response.json();
       Swal.fire("Updated!", "Hero updated successfully.", "success");
-      setHeroes((prev) => prev.map((h) => (h._id === selectedHero._id ? { ...h, ...formData } : h)));
+      // Re-fetch or locally update
+      fetch("https://my-gunter-project-server.vercel.app/heroes")
+        .then((res) => res.json())
+        .then((data) => setHeroes(data));
       document.getElementById("edit-modal").close();
     }
   };
+  
 
   // Delete Hero (DELETE request)
   const handleDelete = (id) => {
@@ -66,7 +79,7 @@ const ManageHero = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4 text-center text-orange-600">Manage Heroes</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center text-purple-600">Manage Heroes</h2>
       <div className="overflow-x-auto">
         <table className="table-auto w-full border border-gray-700 text-white">
           <thead>
@@ -82,7 +95,7 @@ const ManageHero = () => {
                 <td className="p-2 border border-stone-500">{hero.title}</td>
                 <td className="p-2 border border-stone-500">{hero.description}</td>
                 <td className="p-2 flex gap-3">
-                  <button onClick={() => openEditModal(hero)} className="text-orange-600 text-lg"><TiEdit /></button>
+                  <button onClick={() => openEditModal(hero)} className="text-purple-600 text-lg"><TiEdit /></button>
                   <button onClick={() => handleDelete(hero._id)} className="text-red-500 text-lg"><AiOutlineDelete /></button>
                 </td>
               </tr>
@@ -92,18 +105,59 @@ const ManageHero = () => {
       </div>
 
       {/* Edit Modal */}
-      <dialog id="edit-modal" className="bg-white p-6">
-        <h3 className="text-orange-600 text-xl mb-4 font-semibold">Edit Hero Section</h3>
-        <input type="text" name="title" value={formData.title} onChange={handleChange} placeholder="Title" className="w-full mb-3 p-2 bg-gray-700 text-white" />
-        <textarea name="description" value={formData.description} onChange={handleChange} placeholder="Description" className="w-full mb-3 p-2 bg-gray-700 text-white"></textarea>
-        <input type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image URL" className="w-full mb-3 p-2 bg-gray-700 text-white" />
-        <div className="flex justify-between">
-          <button onClick={() => document.getElementById("edit-modal").close()} className="bg-gray-600 text-white px-4 py-2">Cancel</button>
-          <button onClick={handleUpdate} className="bg-orange-600 text-white px-4 py-2 cursor-pointer">Update</button>
-        </div>
-      </dialog>
+      <dialog
+  id="edit-modal"
+  className="modal-class backdrop:bg-black rounded-lg max-w-lg w-[90%] mx-auto p-6 bg-white text-black"
+>
+  <form method="dialog" className="space-y-4">
+    <h3 className="text-purple-600 text-xl font-semibold text-center">Edit Hero Section</h3>
+
+    <input
+      type="text"
+      name="title"
+      value={formData.title}
+      onChange={handleChange}
+      placeholder="Title"
+      className="w-full p-2 border border-gray-300 rounded focus:outline-purple-500"
+    />
+
+    <textarea
+      name="description"
+      value={formData.description}
+      onChange={handleChange}
+      placeholder="Description"
+      className="w-full p-2 border border-gray-300 rounded focus:outline-purple-500"
+    ></textarea>
+
+    <input
+      type="file"
+      name="image"
+      accept="image/*"
+      onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })}
+      className="w-full p-2 border border-gray-300 rounded focus:outline-purple-500"
+    />
+
+    <div className="flex justify-between">
+      <button
+        type="button"
+        onClick={() => document.getElementById("edit-modal").close()}
+        className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700"
+      >
+        Cancel
+      </button>
+      <button
+        type="button"
+        onClick={handleUpdate}
+        className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700"
+      >
+        Update
+      </button>
+    </div>
+  </form>
+</dialog>
     </div>
   );
 };
 
 export default ManageHero;
+

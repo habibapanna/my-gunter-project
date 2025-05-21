@@ -44,19 +44,19 @@ const Blog3 = () => {
             <h3 className='text-white text-xl mt-3 mb-3'>Examples of Private Label Businesses:</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-400 text-[16px] font-normal">
             <div className="flex items-start gap-2">
-                <FaDiamond className="text-orange-600 mt-1 text-2xl" />
+                <FaDiamond className="text-purple-600 mt-1 text-2xl" />
                 <p>
                     <strong>Amazon FBA Private Label:</strong> Many sellers source products from suppliers and sell them under their own brand via Fulfillment by Amazon (FBA).
                 </p>
             </div>
             <div className="flex items-start gap-2">
-                <FaDiamond className="text-orange-600 mt-1 text-2xl" />
+                <FaDiamond className="text-purple-600 mt-1 text-2xl" />
                 <p>
                     <strong>Walmart Marketplace Private Label:</strong> Private label brands on Walmart can leverage Walmart Fulfillment Services for logistics and customer service.
                 </p>
             </div>
             <div className="flex items-start gap-2">
-                <FaDiamond className="text-orange-600 mt-1 text-2xl" />
+                <FaDiamond className="text-purple-600 mt-1 text-2xl" />
                 <p>
                     <strong>Shopify Stores:</strong> Entrepreneurs use private labeling to create unique products and build independent eCommerce brands.
                 </p>
@@ -66,26 +66,26 @@ const Blog3 = () => {
 
             <h2 className='text-white text-2xl mb-5 mt-8'>2. Key Benefits of Private Labeling</h2>
             <ul className='text-gray-400 text-[16px] font-normal list-disc pl-5'>
-                <li className="flex items-center gap-2"><FaDiamond className='text-orange-600' /><strong>Higher Profit Margins:</strong> You own the brand and set premium pricing.</li>
-                <li className="flex items-center gap-2"><FaDiamond className='text-orange-600' /><strong>Brand Recognition & Customer Loyalty:</strong> Builds trust and repeat purchases.</li>
-                <li className="flex items-center gap-2"><FaDiamond className='text-orange-600' /><strong>Reduced Competition:</strong> Eliminates direct competition with generic products.</li>
-                <li className="flex items-center gap-2"><FaDiamond className='text-orange-600' /><strong>Full Control:</strong> Over product quality, packaging, pricing, and marketing.</li>
+                <li className="flex items-center gap-2"><FaDiamond className='text-purple-600' /><strong>Higher Profit Margins:</strong> You own the brand and set premium pricing.</li>
+                <li className="flex items-center gap-2"><FaDiamond className='text-purple-600' /><strong>Brand Recognition & Customer Loyalty:</strong> Builds trust and repeat purchases.</li>
+                <li className="flex items-center gap-2"><FaDiamond className='text-purple-600' /><strong>Reduced Competition:</strong> Eliminates direct competition with generic products.</li>
+                <li className="flex items-center gap-2"><FaDiamond className='text-purple-600' /><strong>Full Control:</strong> Over product quality, packaging, pricing, and marketing.</li>
             </ul>
 
             <h2 className='text-white text-2xl mb-5 mt-8'>3. How to Succeed with Private Labeling</h2>
             <ul className='text-gray-400 text-[16px] font-normal list-decimal pl-5'>
-                <li className="flex items-center gap-2"><FaDiamond className='text-orange-600' />Market Research & Product Selection</li>
-                <li className="flex items-center gap-2"><FaDiamond className='text-orange-600' />Find a Reliable Supplier</li>
-                <li className="flex items-center gap-2"><FaDiamond className='text-orange-600' />Branding & Packaging</li>
-                <li className="flex items-center gap-2"><FaDiamond className='text-orange-600' />Listing & Marketing Your Product</li>
-                <li className="flex items-center gap-2"><FaDiamond className='text-orange-600' />Scale & Expand</li>
+                <li className="flex items-center gap-2"><FaDiamond className='text-purple-600' />Market Research & Product Selection</li>
+                <li className="flex items-center gap-2"><FaDiamond className='text-purple-600' />Find a Reliable Supplier</li>
+                <li className="flex items-center gap-2"><FaDiamond className='text-purple-600' />Branding & Packaging</li>
+                <li className="flex items-center gap-2"><FaDiamond className='text-purple-600' />Listing & Marketing Your Product</li>
+                <li className="flex items-center gap-2"><FaDiamond className='text-purple-600' />Scale & Expand</li>
             </ul>
 
             <h2 className='text-white text-2xl mb-5 mt-8'>4. Final Thoughts</h2>
             <p className='text-gray-400 text-[16px] font-normal'>Private labeling and branding provide long-term business stability and profitability...</p>
-            <p className='text-orange-600 font-semibold mt-6'>Ready to launch your private label brand? Start today and take control of your eCommerce future!</p>
+            <p className='text-purple-600 font-semibold mt-6'>Ready to launch your private label brand? Start today and take control of your eCommerce future!</p>
             <div className="text-center mt-8">
-          <button className="relative bg-orange-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[18px]">
+          <button className="relative bg-purple-600 px-6 py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation text-[18px]">
             <Link to='/contact'>Contact us today for expert guidance!</Link>
           </button>
         </div>

@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
-import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import { GrContact } from "react-icons/gr";
 import { FaPlayCircle, FaTimesCircle } from "react-icons/fa";
-import { Typewriter } from "react-simple-typewriter";
+import { IoPlay } from "react-icons/io5";
+import { MdPlayArrow } from "react-icons/md";
 
 const HeroSection = () => {
-  const [heroes, setHeroes] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isExiting, setIsExiting] = useState(false);
+  const [hero, setHero] = useState(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   const coloredWords = [
@@ -62,154 +60,104 @@ const HeroSection = () => {
   useEffect(() => {
     fetch("https://my-gunter-project-server.vercel.app/heroes")
       .then((res) => res.json())
-      .then((data) => setHeroes(data))
-      .catch((error) => console.error("Error fetching heroes:", error));
+      .then((data) => setHero(data[0])) // Just take the first hero
+      .catch((error) => console.error("Error fetching hero:", error));
   }, []);
-
-  const changeSlide = (direction) => {
-    setIsExiting(true);
-    setIsVideoPlaying(false); // Stop video when slide changes
-    setTimeout(() => {
-      setCurrentIndex((prevIndex) =>
-        direction === "next"
-          ? (prevIndex + 1) % heroes.length
-          : prevIndex === 0
-          ? heroes.length - 1
-          : prevIndex - 1
-      );
-      setIsExiting(false);
-    }, 300);
-  };
 
   const scrollToContact = () => {
     const section = document.getElementById("contact");
     section?.scrollIntoView({ behavior: "smooth" });
   };
 
-  if (heroes.length === 0) {
+  if (!hero) {
     return <p className="text-white text-center mt-10">Loading...</p>;
   }
 
-  const { image, video, title, description } = heroes[currentIndex];
+  const { image, title, description } = hero;
 
   return (
-    <div className="relative bg-black flex justify-center items-center overflow-hidden mx-auto">
-      {/* Left Arrow */}
-      <button
-        onClick={() => changeSlide("prev")}
-        className="shadow-animation absolute left-0 lg:left-2 lg:top-1/2 top-50 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-purple-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 cursor-pointer"
-      >
-        <FaArrowLeftLong />
-      </button>
-      {/* Hero Content */}
-      <div className="lg:hero-content flex flex-col-reverse lg:flex-row-reverse items-center w-full lg:px-10">
+    <div className="relative bg-black flex justify-center items-center overflow-hidden mx-auto py-16 px-5 lg:px-10">
+      <div className="flex flex-col-reverse lg:flex-row-reverse items-center max-w-7xl w-full gap-10">
         {/* Image / Video Section */}
-        <div className="lg:w-1/2 relative flex justify-center items-center">
+        <div className="w-full lg:w-1/2 relative flex justify-center items-center">
           {!isVideoPlaying ? (
             <div className="relative">
-              <img
-                src={image}
-                alt="Hero"
-                className={`h-[300px] lg:h-[500px] object-cover lg:max-w-md transition-transform duration-700 z-10 ${
-                  isExiting ? "animate-slide-down" : "animate-slide-up"
-                }`}
-              />
-              <button
-                onClick={() => setIsVideoPlaying(true)}
-                className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 hover:bg-opacity-60 transition rounded mx-auto"
-              >
-                <FaPlayCircle className="text-purple-600 text-5xl hover:text-amber-500" />
-              </button>
+            <img
+              src={image}
+              alt="Hero"
+              className="h-[300px] lg:h-[400px] object-cover w-full max-w-md rounded-lg bg-gray-300"
+            />
+          
+            {/* Play Button */}
+            <button
+  onClick={() => setIsVideoPlaying(true)}
+  className="absolute inset-0 flex items-center justify-center transition"
+>
+  <IoPlay className="text-white text-4xl rounded-full mt-10 p-2 cursor-pointer bg-amber-500 backdrop-blur-xl shadow-md" />
+</button>
+
+          
+            {/* Feature Info Below Play Button */}
+            <div className="absolute hidden bottom-5 left-1/2 -translate-x-1/2 md:flex flex-col space-y-1 mt-4 text-sm w-full md:px-5">
+              <div className="flex items-center gap-2 bg-black/50 backdrop-blur-md p-2 rounded-full">
+                <p className="w-5 h-5 bg-white text-black rounded-full flex items-center justify-center font-bold">1</p>
+                <p className="text-white">All eCommerce Solution</p>
+              </div>
+              <div className="flex items-center gap-2 bg-black/50 backdrop-blur-md p-2 rounded-full">
+                <p className="w-5 h-5 bg-white text-black rounded-full flex items-center justify-center font-bold">2</p>
+                <p className="text-white">Design & Development Services</p>
+              </div>
+              <div className="flex items-center gap-2 bg-black/50 backdrop-blur-md p-2 rounded-full">
+                <p className="w-5 h-5 bg-white text-black rounded-full flex items-center justify-center font-bold">3</p>
+                <p className="text-white">All type of Digital Solution</p>
+              </div>
             </div>
+          </div>
+          
           ) : (
-            <div className="relative">
-              <video
-                src={video}
-                autoPlay
-                controls
-                className="h-[300px] lg:h-[500px] object-cover lg:max-w-md transition-transform duration-700 z-10"
-              />
+            <div className="relative w-full max-w-md h-[300px] lg:h-[400px]">
+              <iframe
+                className="w-full h-full rounded-md"
+                src="https://www.youtube.com/embed/QsY8fnvMn6c?si=b0dFBkHLfrBz4JBx"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
               <button
                 onClick={() => setIsVideoPlaying(false)}
                 className="absolute top-2 right-2 bg-black bg-opacity-70 p-2 rounded-full text-white text-xl"
               >
-                <FaTimesCircle />
+                <FaTimesCircle className="text-amber-500  cursor-pointer" />
               </button>
             </div>
           )}
         </div>
 
         {/* Text Section */}
-        <div
-          key={currentIndex}
-          className={`lg:w-1/2 text-left transition-opacity duration-700 ${
-            isExiting ? "animate-slide-down" : "animate-slide-up"
-          } mb-10 mt-10 lg:mt-0 lg:mb-0`}
-        >
-          <span className="border-8 w-10 h-28 lg:w-16 lg:h-40 border-amber-500 bg-amber-500 mt-2 lg:mt-5"></span>
-          <h1 className="text-3xl lg:text-5xl font-bold text-white mb-5 lg:mb-10">
+        <div className="w-full lg:w-1/2 text-left">
+        <p className="text-amber-500 text-lg lg:text-xl">
+            ★★★★★ Rated 5/5 | Based on 20+ Happy Clients
+          </p>
+          <h1 className="text-3xl lg:text-5xl font-bold text-white mb-5 leading-tight">
             {title || "Default Title"}
           </h1>
-          <div className="mt-5 text-left">
-            <h1 className="text-2xl lg:text-4xl font-semibold text-purple-600 mb-2">
-              We Provided Services
-            </h1>
-            <span className="text-lg lg:text-2xl font-semibold text-amber-500 px-3 py-1 rounded-full inline-block text-center mx-auto mb-5">
-              <span className={`font-semibold ${coloredWords[wordIndex].color}`}>
-                {displayText}
-                <span className="animate-pulse">|</span>
-              </span>
-            </span>
-          </div>
-
-          <p>
-            <span className="text-amber-500 mb-5">★★★★★</span> Rated 5/5 | Based on 20+ Happy Clients
-          </p>
-
-          <p className="py-5 lg:py-6 text-white lg:mb-5">
+          
+          <p className="mt-2 mb-5 lg:mb-8 text-white">
             {description || "Default description."}
           </p>
-          <div className="flex gap-5 lg:justify-start">
+
+          <div className="flex gap-5">
             <button
               onClick={scrollToContact}
-              className="flex items-center shadow-animation bg-purple-600 py-2 px-4 lg:px-6 lg:py-3 text-white lg:font-semibold transition duration-300 cursor-pointer"
+              className="flex items-center shadow-animation bg-amber-500 py-2 lg:py-3 px-5 lg:px-8 text-black rounded-full cursor-pointer font-semibold transition duration-300"
             >
-              <GrContact className="text-xl mr-2" />
               Contact Us
             </button>
           </div>
         </div>
       </div>
-      {/* Right Arrow */}
-      <button
-        onClick={() => changeSlide("next")}
-        className="shadow-animation absolute right-0 lg:right-2 lg:top-1/2 top-50 transform -translate-y-1/2 text-white text-lg p-2 lg:p-3 bg-purple-600 bg-opacity-50 hover:bg-opacity-80 transition z-40 cursor-pointer"
-      >
-        <FaArrowRightLong />
-      </button>
-
-      {/* CSS Animations */}
-      <style>
-        {`
-          @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-          }
-
-          @keyframes slideDown {
-            from { transform: translateY(0); opacity: 1; }
-            to { transform: translateY(50px); opacity: 0; }
-          }
-
-          .animate-slide-up {
-            animation: slideUp 0.6s ease-out;
-          }
-
-          .animate-slide-down {
-            animation: slideDown 0.3s ease-out;
-          }
-        `}
-      </style>
     </div>
   );
 };

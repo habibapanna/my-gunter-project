@@ -47,7 +47,7 @@ const AddAnnouncements = () => {
 
     return (
         <div className="max-w-md mx-auto mt-5 bg-white p-6 text-black shadow-md text-sm">
-            <h2 className="text-xl text-orange-600 text-center font-bold mb-4">Add Announcement</h2>
+            <h2 className="text-xl text-purple-600 text-center font-bold mb-4">Add Announcement</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <label className="block text-gray-700">Image URL</label>
@@ -114,7 +114,7 @@ const AddAnnouncements = () => {
                 </div>
                 <button
                     type="submit"
-                    className="mt-4 w-full bg-orange-600 shadow-animation text-white py-2 cursor-pointer"
+                    className="mt-4 w-full bg-purple-600 shadow-animation text-white py-2 cursor-pointer"
                 >
                     Add Announcement
                 </button>

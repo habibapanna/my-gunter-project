@@ -53,7 +53,7 @@ const AddBlog = () => {
 
     return (
         <div className="max-w-lg mx-auto bg-white p-6 text-black shadow-md mt-8">
-            <h2 className="text-2xl font-bold mb-4 text-center text-orange-600">Add New Blog</h2>
+            <h2 className="text-2xl font-bold mb-4 text-center text-purple-600">Add New Blog</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <input type="text" name="image" value={blogData.image} onChange={handleChange} placeholder="Image URL" className="w-full p-2 border border-gray-500" />
                 <input type="text" name="title" value={blogData.title} onChange={handleChange} placeholder="Title" className="w-full p-2 border border-gray-500" />
@@ -61,7 +61,7 @@ const AddBlog = () => {
                 <textarea name="details" value={blogData.details} onChange={handleChange} placeholder="Details" rows="4" className="w-full p-2 border border-gray-500"></textarea>
                 <input type="text" name="category" value={blogData.category} onChange={handleChange} placeholder="Category" className="w-full p-2 border border-gray-500" />
                 <input type="text" name="author" value={blogData.author} onChange={handleChange} placeholder="Author" className="w-full p-2 border border-gray-500" />
-                <button type="submit" className="bg-orange-600 px-6 py-3 text-white font-semibold w-full cursor-pointer">Submit Blog</button>
+                <button type="submit" className="bg-purple-600 px-6 py-3 text-white font-semibold w-full cursor-pointer">Submit Blog</button>
             </form>
             <style>
                 {`

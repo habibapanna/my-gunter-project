@@ -95,7 +95,7 @@ const ManageTeam = () => {
 
     return (
         <div className="p-5">
-            <h2 className="text-2xl font-bold mb-4 text-orange-600 text-center">Manage Team</h2>
+            <h2 className="text-2xl font-bold mb-4 text-purple-600 text-center">Manage Team</h2>
             {loading ? (
                 <p>Loading team members...</p>
             ) : (
@@ -116,7 +116,7 @@ const ManageTeam = () => {
                                     <td className="p-2 border border-stone-500 text-center">
                                         <div className="flex gap-2 lg:gap-5">
                                         <TiEdit
-                                            className="cursor-pointer text-orange-600"
+                                            className="cursor-pointer text-purple-600"
                                             onClick={() => handleEdit(member)}
                                         />
                                         <AiOutlineDelete
@@ -136,7 +136,7 @@ const ManageTeam = () => {
             {editModal && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 mt-16">
                     <div className="bg-white text-black p-6  text-sm overflow-y-scroll h-[500px] w-96 mb-36">
-                        <h2 className="lg:text-2xl font-bold text-center mb-4 text-orange-600">Edit Team Member</h2>
+                        <h2 className="lg:text-2xl font-bold text-center mb-4 text-purple-600">Edit Team Member</h2>
                         <div className="mb-4">
                             <label className="block text-sm font-semibold mb-2">Name</label>
                             <input
@@ -209,7 +209,7 @@ const ManageTeam = () => {
                             </button>
                             <button
                                 onClick={handleUpdate}
-                                className="bg-orange-600 text-white px-4 py-2 cursor-pointer"
+                                className="bg-purple-600 text-white px-4 py-2 cursor-pointer"
                             >
                                 Update
                             </button>

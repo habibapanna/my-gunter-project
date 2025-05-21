@@ -11,14 +11,14 @@ const Banner = () => {
                 <p className='text-center text-white'>
                     <Link 
                         to="/" 
-                        className={`mr-3 transition-colors duration-300 ${location.pathname === '/' ? 'text-orange-600 font-semibold' : 'hover:text-orange-600'}`}
+                        className={`mr-3 transition-colors duration-300 ${location.pathname === '/' ? 'text-purple-600 font-semibold' : 'hover:text-purple-600'}`}
                     >
                         Home
                     </Link>
                     /
                     <Link 
                         to="/services" 
-                        className={`ml-3 transition-colors duration-300 ${location.pathname === '/services' ? 'text-orange-600 font-semibold' : 'hover:text-orange-600'}`}
+                        className={`ml-3 transition-colors duration-300 ${location.pathname === '/services' ? 'text-purple-600 font-semibold' : 'hover:text-purple-600'}`}
                     >
                         Services
                     </Link>

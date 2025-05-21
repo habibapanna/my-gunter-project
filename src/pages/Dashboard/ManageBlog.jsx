@@ -64,7 +64,7 @@ const ManageBlog = () => {
 
   return (
     <div className="py-6 text-white">
-      <h2 className="text-xl font-bold mb-4 text-orange-600 text-center">
+      <h2 className="text-xl font-bold mb-4 text-purple-600 text-center">
         Manage Blogs
       </h2>
 
@@ -101,7 +101,7 @@ const ManageBlog = () => {
                 </td>
                 <td className="border border-stone-600 p-2 flex flex-col md:flex-row md:items-center gap-2">
                   <button
-                    className="text-orange-600 cursor-pointer transition"
+                    className="text-purple-600 cursor-pointer transition"
                     onClick={() => openModal(blog)}
                   >
                     <TiEdit size={18} />
@@ -123,7 +123,7 @@ const ManageBlog = () => {
       {isModalOpen && (
   <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center text-black h-full z-50">
     <div className="bg-white px-6 py-2 w-96 text-sm">
-      <h3 className="text-lg font-bold mb-4 text-center text-orange-600">Update Blog</h3>
+      <h3 className="text-lg font-bold mb-4 text-center text-purple-600">Update Blog</h3>
       <label>Title</label>
       <input
         type="text"
@@ -193,7 +193,7 @@ const ManageBlog = () => {
           Cancel
         </button>
         <button
-          className="bg-orange-600 text-white px-4 py-2 cursor-pointer"
+          className="bg-purple-600 text-white px-4 py-2 cursor-pointer"
           onClick={handleUpdate}
         >
           Update

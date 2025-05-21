@@ -44,7 +44,7 @@ const AddGallery = () => {
 
     return (
         <div className="p-6 mt-5 bg-white text-black max-w-lg mx-auto">
-            <h2 className="text-2xl font-bold mb-4 text-orange-600">Add Gallery Image</h2>
+            <h2 className="text-2xl font-bold mb-4 text-purple-600">Add Gallery Image</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <label className="block text-sm font-semibold mb-2">Title</label>
@@ -90,7 +90,7 @@ const AddGallery = () => {
                     </select>
                 </div>
 
-                <button type="submit" className="mt-4 w-full bg-orange-600 shadow-animation text-white py-2 cursor-pointer">
+                <button type="submit" className="mt-4 w-full bg-purple-600 shadow-animation text-white py-2 cursor-pointer">
                     Add Image
                 </button>
             </form>

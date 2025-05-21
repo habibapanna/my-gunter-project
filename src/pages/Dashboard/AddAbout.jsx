@@ -37,7 +37,7 @@ const AddAbout = () => {
 
   return (
     <div className="container mx-auto p-6 text-black">
-      <h2 className="text-2xl font-bold mb-4 text-orange-600 text-center">Add About Section</h2>
+      <h2 className="text-2xl font-bold mb-4 text-purple-600 text-center">Add About Section</h2>
       <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 shadow-md">
         <input
           type="text"
@@ -74,7 +74,7 @@ const AddAbout = () => {
           className="w-full p-2 border border-gray-500"
           required
         ></textarea>
-        <button type="submit" className="bg-orange-600 text-white px-4 py-2 w-full cursor-pointer">
+        <button type="submit" className="bg-purple-600 text-white px-4 py-2 w-full cursor-pointer">
           Submit
         </button>
       </form>

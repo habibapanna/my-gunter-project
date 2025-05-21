@@ -42,8 +42,8 @@ const Footer = () => {
                         <div className="flex flex-col">
                             <h3 className="text-xl font-semibold text-white mb-3 ">Office Address</h3>
                             <span className='border-2 w-10 border-amber-500 mb-4'></span>
-                            <p className='text-sm md:text-[16px]'>House No: 137/24/A</p>
-                            <p className='text-sm  '>Dhanmondi, Dhaka-1209</p>
+                            <p className='text-sm md:text-[16px]'>House No: 13</p>
+                            <p className='text-sm  '>Ali Pur, Umedpur, Shibchar, Madaripur-7933</p>
                             <p className='text-sm md:text-[16px] '>Bangladesh</p>
                         </div>
                     </Fade>
@@ -56,11 +56,11 @@ const Footer = () => {
                                 <p className="flex items-center gap-2">
                                     <BsEnvelope />
                                     <a href="mailto:Contact@Imaginedreamworld.com" className="hover:text-amber-500 transition md:text-[16px] text-sm ">
-                                        Contact@Imaginedreamworld.com
+                                    rmia99294@gmail.com
                                     </a>
                                 </p>
                                 <p className="flex items-center gap-2 text-sm md:text-[16px]">
-                                    <HiOutlinePhone /> +8801XXXXXXXXX
+                                    <HiOutlinePhone /> +880 1777368969
                                 </p>
                                 <p className="flex items-center gap-2 text-sm md:text-[16px]">
                                     <AiOutlineGlobal />

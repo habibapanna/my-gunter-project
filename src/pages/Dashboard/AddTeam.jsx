@@ -52,7 +52,7 @@ const AddTeam = () => {
 
   return (
     <div className="max-w-lg mx-auto bg-white shadow-lg p-6 text-black mt-5">
-      <h2 className="text-xl font-semibold text-center mb-4 text-orange-600">Add Team Member</h2>
+      <h2 className="text-xl font-semibold text-center mb-4 text-purple-600">Add Team Member</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         
         {/* Name Input */}
@@ -96,27 +96,8 @@ const AddTeam = () => {
             placeholder="Enter image URL"
           />
         </div>
-
-        {/* Social Media Links */}
-        <div>
-          <label className="block font-medium">Facebook URL:</label>
-          <input type="url" name="facebook" value={teamData.facebook} onChange={handleChange} className="border border-gray-500 p-2 w-full" />
-        </div>
-        <div>
-          <label className="block font-medium">Instagram URL:</label>
-          <input type="url" name="instagram" value={teamData.instagram} onChange={handleChange} className="border border-gray-500 p-2 w-full" />
-        </div>
-        <div>
-          <label className="block font-medium">X (Twitter) URL:</label>
-          <input type="url" name="x" value={teamData.x} onChange={handleChange} className="border border-gray-500 p-2 w-full" />
-        </div>
-        <div>
-          <label className="block font-medium">LinkedIn URL:</label>
-          <input type="url" name="linkedin" value={teamData.linkedin} onChange={handleChange} className="border border-gray-500 p-2 w-full" />
-        </div>
-
         {/* Submit Button */}
-        <button type="submit" className="bg-orange-600 text-white px-4 py-2 w-full cursor-pointer">
+        <button type="submit" className="bg-purple-600 text-white px-4 py-2 w-full cursor-pointer">
           Add Team Member
         </button>
       </form>

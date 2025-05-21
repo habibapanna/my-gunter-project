@@ -33,7 +33,7 @@ const ServiceCards = () => {
   const displayedServices = showAll ? allServices : allServices.slice(0, 6);
 
   return (
-    <div className='bg-black py-5'>
+    <div className='bg-black'>
         <div className='flex justify-between items-center p-10'>
                     <div>
                         <h3 className='text-amber-500 font-semibold'>WHAT WE DO</h3>

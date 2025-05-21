@@ -12,24 +12,23 @@ const OurClients = () => {
   }, []);
 
   return (
-    <div className="mb-10 px-5 lg:px-10">
-      <h3 className="text-amber-500 text-xl font-semibold mb-3">Meet Our Clients</h3>
-      <h2 className="text-2xl lg:text-4xl font-semibold mb-8 text-white">Our Clients</h2>
-      <div className='flex gap-1 mb-5 text-amber-500 group-hover:text-white transition-colors duration-500'>
-                        <span className='border-2 w-8'></span>
-                        <span className='border-2 w-2'></span>
-                        <span className='border-2 w-3'></span>
-                    </div>
-      <Marquee direction="left" pauseOnHover speed={50}>
-        {clients.map((client) => (
-          <img
-            key={client._id}
-            src={client.imageUrl}
-            alt="client-logo"
-            className="w-32 h-20 object-contain mx-6"
-          />
-        ))}
-      </Marquee>
+    <div className="px-5 lg:px-10">
+      <h2 className="text-lg text-center lg:text-xl font-semibold mb-2 text-white">Trusted by top brands </h2>
+      <Marquee direction="left" pauseOnHover speed={40}>
+  {clients.map((client, index) => (
+    <div key={client._id} className="flex items-center">
+      <img
+        src={client.imageUrl}
+        alt="client-logo"
+        className="w-30 h-20 object-contain mx-6"
+      />
+      {index !== clients.length - 1 && (
+        <span className="text-gray-400 text-2xl">|</span>
+      )}
+    </div>
+  ))}
+</Marquee>
+
     </div>
   );
 };

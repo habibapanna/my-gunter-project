@@ -103,7 +103,7 @@ const ManageGallery = () => {
                 <td className="border border-stone-600 p-2">{item.category}</td>
                 <td className="border border-stone-600 px-4 py-4 lg:flex justify-around"> 
                   <TiEdit
-                    className="cursor-pointer text-orange-600"
+                    className="cursor-pointer text-purple-600"
                     onClick={() => {
                       setEditingItem(item._id);
                       setUpdatedTitle(item.title);
@@ -149,7 +149,7 @@ const ManageGallery = () => {
               </button>
               <button
                 onClick={() => handleUpdate(editingItem)}
-                className="mt-4 w-full bg-orange-600 shadow-animation text-white py-2"
+                className="mt-4 w-full bg-purple-600 shadow-animation text-white py-2"
               >
                 Update
               </button>

@@ -8,6 +8,7 @@ import ServiceCards from "../components/ServiceCards/ServiceCards";
 import Testimonials from "../components/Testimonials/Testimonials";
 import OurClients from "../components/OurClients/OurClients";
 import ContactForm from "../components/ContactForm/ContactForm";
+import OurTeam from "../components/OurTeam/OurTeam";
 
 const AnimatedStick = () => {
     return (
@@ -65,9 +66,9 @@ const Home = () => {
             <div className="bg-black overflow-x-hidden">
                 <HeroSection />
                           {/* Service Cards - Continuous Marquee */}
-                <Section>
+                
                     <OurClients></OurClients>
-                </Section>
+                
                 <Section>
                     <ServiceCards />
                 </Section>
@@ -79,6 +80,9 @@ const Home = () => {
                 </Section>
                 <Section>
                     <Testimonials />
+                </Section>
+                <Section>
+                <OurTeam></OurTeam>
                 </Section>
                 <Section>
                     <LatestNews />

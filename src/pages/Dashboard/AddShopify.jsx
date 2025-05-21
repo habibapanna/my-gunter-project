@@ -43,7 +43,7 @@ const AddShopify = () => {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-md text-black">
-      <h2 className="text-xl font-semibold mb-4 text-orange-600 text-center">Add Shopify (Image URL)</h2>
+      <h2 className="text-xl font-semibold mb-4 text-purple-600 text-center">Add Shopify (Image URL)</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block font-medium mb-1">Image URL</label>
@@ -56,7 +56,7 @@ const AddShopify = () => {
             className="w-full px-3 py-2 border border-gray-500"
           />
         </div>
-        <button type="submit" className="bg-orange-600 text-white px-4 py-2 shadow">
+        <button type="submit" className="bg-purple-600 text-white px-4 py-2 shadow">
           Submit
         </button>
       </form>

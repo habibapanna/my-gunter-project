@@ -4,6 +4,8 @@ import Logo from "../assets/Logopw.svg";
 import { FiMenu, FiX } from "react-icons/fi";
 import CalendlyModal from "../components/CalendlyModal/CalendlyModal";
 import OurServices from "../components/OurServices/OurServices";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { FaWhatsapp } from "react-icons/fa6";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +29,7 @@ const Navbar = () => {
     { name: "Gallery", path: "/gallery" },
     { name: "Announcements", path: "/announcements" },
     { name: "Blog", path: "/blog" },
+    { name: "Team", path: "/team" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -43,11 +46,11 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center w-full relative">
           <NavLink to="/">
-            <img className="h-12 lg:h-16 w-auto" src={Logo} alt="Logo" />
+            <img className="h-12 lg:h-18 w-auto" src={Logo} alt="Logo" />
           </NavLink>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex gap-6 items-center justify-center relative">
+          <ul className="hidden md:flex items-center justify-center relative">
             {menuItems.map(({ name, path }) => (
               <li
                 key={name}
@@ -60,25 +63,27 @@ const Navbar = () => {
                 className="relative"
               >
                 <NavLink
-                  to={path}
-                  className={({ isActive }) =>
-                    `relative transition duration-300 hover:text-amber-500 pb-1 font-semibold ${
-                      isActive
-                        ? "text-amber-500 border-b-2 border-amber-500"
-                        : `text-${isBlackBg ? "white" : "black"} border-b-2 border-transparent`
-                    }`
-                  }
-                  onClick={(e) => {
-                    if (isMobile && name === "Services") {
-                      e.preventDefault();
-                      setShowServicesPopup((prev) => !prev);
-                    } else {
-                      setShowServicesPopup(false);
-                    }
-                  }}
-                >
-                  {name}
-                </NavLink>
+  to={path}
+  className={({ isActive }) =>
+    `relative transition duration-300 hover:bg-stone-800 rounded-full py-1 px-3 text-sm flex items-center ${
+      isActive
+        ? "text-white rounded-full px-2 bg-stone-800"
+        : `text-${isBlackBg ? "white" : "black"} border-b-2 border-transparent`
+    }`
+  }
+  onClick={(e) => {
+    if (isMobile && name === "Services") {
+      e.preventDefault();
+      setShowServicesPopup((prev) => !prev);
+    } else {
+      setShowServicesPopup(false);
+    }
+  }}
+>
+  {name}
+  {name === "Services" && <MdOutlineKeyboardArrowDown className="text-xl mt-0.5" />}
+</NavLink>
+
 
                 {/* Services Popup (Desktop) */}
                 {name === "Services" && showServicesPopup && (
@@ -95,25 +100,22 @@ const Navbar = () => {
           </ul>
 
           {/* Calendly & Mobile Menu */}
-          <div className="flex items-center gap-3">
-            <div className="hidden md:block">
-              <CalendlyModal />
-            </div>
 
-            <div className="md:hidden flex items-center">
-              <CalendlyModal />
-              <button
-                className="text-amber-500 text-2xl ml-4"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                {isOpen ? (
-                  <FiX className="hover:text-purple-600" />
-                ) : (
-                  <FiMenu className="hover:text-purple-600" />
-                )}
-              </button>
-            </div>
-          </div>
+<div className="flex items-center gap-3">
+  {/* WhatsApp Icon Button */}
+  <a
+    href="https://wa.me/8801777368969" // Replace with your number
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-green-500 hover:bg-green-600 text-white p-1 md:p-3 rounded-full transition duration-300"
+  >
+    <FaWhatsapp className="text-xl" />
+  </a>
+
+  {/* Calendly Button */}
+  <CalendlyModal />
+</div>
+
         </div>
 
         {/* Mobile Menu */}

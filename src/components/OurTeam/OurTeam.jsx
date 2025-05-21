@@ -105,7 +105,7 @@ const OurTeam = () => {
       {/* View All Button */}
       <div className="mt-10">
         <button className="shadow-animation bg-purple-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto cursor-pointer">
-          <Link to="/contact"> View All</Link>
+          <Link to="/team"> View All</Link>
           <FaArrowRightLong />
         </button>
       </div>

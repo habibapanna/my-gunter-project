@@ -27,13 +27,13 @@ const services = [
 const AddService = () => {
     return (
         <div className="p-6">
-            <h2 className="text-xl lg:text-2xl font-semibold mb-4 text-orange-600 text-center">Add New Service</h2>
+            <h2 className="text-xl lg:text-2xl font-semibold mb-4 text-purple-600 text-center">Add New Service</h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {services.map((service, index) => (
                     <Link
                         key={index}
                         to={service.path}
-                        className="flex items-center justify-center bg-black hover:bg-orange-600 text-white border border-stone-500 hover:border-none shadow-md px-4 py-3 text-center font-medium transition"
+                        className="flex items-center justify-center bg-black hover:bg-purple-600 text-white border border-stone-500 hover:border-none shadow-md px-4 py-3 text-center font-medium transition"
                     >
                         {service.icon}
                         {service.label}

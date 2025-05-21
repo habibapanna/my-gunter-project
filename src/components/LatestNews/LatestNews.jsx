@@ -24,7 +24,7 @@ const LatestNews = () => {
 
   return (
     <div className="bg-black px-5 lg:px-10">
-      <div className="flex flex-col md:flex-row justify-between mb-6">
+      <div className="flex flex-col md:flex-row justify-between">
         <div>
           <h3 className="text-amber-500 font-semibold">OUR COMPANY BLOG</h3>
           <h2 className="text-2xl lg:text-4xl font-bold mt-3 text-white">Latest News</h2>

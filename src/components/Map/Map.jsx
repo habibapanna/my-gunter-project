@@ -5,7 +5,7 @@ const Map = () => {
         <div>
                   <div className="w-full my-8">
         <h2 className="text-center text-white text-lg lg:text-2xl font-semibold mb-5">
-          <span className="text-amber-500">Visit Us:</span> House No: 137/24/A, Dhanmondi, Dhaka-1209, Bangladesh
+          <span className="text-amber-500">Visit Us:</span> HOUSE 13, ALI PUR, UMEDPUR, SHIBCHAR, MADARIPUR-7933, BANGLADESH
         </h2>
         <div className="w-full h-[300px] px-5">
           <iframe
@@ -16,7 +16,7 @@ const Map = () => {
             style={{ filter: "invert(100%) hue-rotate(180deg)" }}
             loading="lazy"
             allowFullScreen
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.4392742515685!2d90.37483377531796!3d23.803910886918406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7a061e3f557%3A0x2e66b5dd9e8818fc!2s137%20Rd%20No.%2024A%2C%20Dhaka%201209!5e0!3m2!1sen!2sbd!4v1712811229244!5m2!1sen!2sbd"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d141422.9778735239!2d90.11104121312465!3d23.273960048130405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755770056734bfd%3A0x7723f8ac7f61bf0!2sShibchar%20Madaripur!5e0!3m2!1sen!2sbd!4v1746724941525!5m2!1sen!2sbd"
           ></iframe>
         </div>
       </div>

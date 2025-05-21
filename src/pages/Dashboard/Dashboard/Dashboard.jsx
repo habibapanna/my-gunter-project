@@ -46,7 +46,7 @@ const Dashboard = () => {
           className="absolute top-4 right-4 text-white md:hidden cursor-pointer"
           onClick={() => setIsOpen(false)}
         >
-          <FaTimes className="hover:text-orange-600" size={24} />
+          <FaTimes className="hover:text-purple-600" size={24} />
         </button>
 
         <div className="flex flex-col space-y-4 px-4 py-14 md:py-6 overflow-y-scroll h-full">
@@ -55,7 +55,7 @@ const Dashboard = () => {
             to="/dashboard/all-user"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 ${
-                isActive ? "text-white bg-stone-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-stone-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -66,7 +66,7 @@ const Dashboard = () => {
             to="/dashboard/all-user"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -77,7 +77,7 @@ const Dashboard = () => {
             to="/dashboard/add-service"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -89,7 +89,7 @@ const Dashboard = () => {
             to="/dashboard/manage-service"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -101,7 +101,7 @@ const Dashboard = () => {
             to="/dashboard/add-blog"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -113,7 +113,7 @@ const Dashboard = () => {
             to="/dashboard/manage-blog"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -125,7 +125,7 @@ const Dashboard = () => {
             to="/dashboard/add-gallery"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 cursor-pointer transition-all duration-200 ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -137,7 +137,7 @@ const Dashboard = () => {
             to="/dashboard/manage-gallery"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -148,7 +148,7 @@ const Dashboard = () => {
             to="/dashboard/add-announcements"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -159,7 +159,7 @@ const Dashboard = () => {
             to="/dashboard/manage-announcements"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -170,7 +170,7 @@ const Dashboard = () => {
             to="/dashboard/add-team"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -181,7 +181,7 @@ const Dashboard = () => {
             to="/dashboard/manage-team"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -192,7 +192,7 @@ const Dashboard = () => {
             to="/dashboard/add-testimonial"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -203,7 +203,7 @@ const Dashboard = () => {
             to="/dashboard/manage-testimonial"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -214,7 +214,7 @@ const Dashboard = () => {
             to="/dashboard/add-hero"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -225,7 +225,7 @@ const Dashboard = () => {
             to="/dashboard/manage-hero"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -236,7 +236,7 @@ const Dashboard = () => {
             to="/dashboard/add-about"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -247,7 +247,7 @@ const Dashboard = () => {
             to="/dashboard/manage-about"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -258,7 +258,7 @@ const Dashboard = () => {
             to="/dashboard/add-our-clients"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -269,19 +269,19 @@ const Dashboard = () => {
             to="/dashboard/manage-our-clients"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
             <AiOutlineMan size={20} />
             <span>Manage Our Clients</span>
           </NavLink>
-          <div className="border text-orange-600 mx-4 mt-5"></div>
+          <div className="border text-purple-600 mx-4 mt-5"></div>
           <NavLink
             to="/"
             className={({ isActive }) =>
               `flex items-center space-x-2 p-2 transition-all duration-200 cursor-pointer ${
-                isActive ? "text-white bg-orange-600" : "text-white hover:bg-orange-600"
+                isActive ? "text-white bg-purple-600" : "text-white hover:bg-purple-600"
               }`
             }
           >
@@ -311,7 +311,7 @@ const Dashboard = () => {
             setIsOpen(true);
           }}
         >
-          <FaBars className="text-orange-600 hover:text-orange-500 cursor-pointer" size={24} />
+          <FaBars className="text-purple-600 hover:text-purple-500 cursor-pointer" size={24} />
         </button>
 
         <Outlet /> {/* Loads the selected route content */}

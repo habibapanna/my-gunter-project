@@ -78,11 +78,11 @@ const ContactForm = () => {
                 <div className="space-y-2">
                   <p className="flex items-center gap-2 text-gray-300">
                     <MdEmail className="text-xl text-white" />
-                    Contact@Imaginedreamworld.com
+                    rmia99294@gmail.com
                   </p>
                   <p className="flex items-center gap-2 text-gray-300 mt-3">
                     <FaPhone className="text-lg text-white" />
-                    +880 1234-567890
+                    +880 1777368969
                   </p>
                 </div>
               </Slide>
@@ -90,7 +90,7 @@ const ContactForm = () => {
               {/* Social Media Links */}
               <Bounce cascade damping={0.1} triggerOnce>
                 <div className="flex gap-4 mt-10">
-                  {[FaWhatsapp, FaFacebook, FaLinkedin, SiTelegram, FaSkype, SiWechat].map((Icon, i) => (
+                  {[FaWhatsapp, FaFacebook, FaLinkedin, SiTelegram, SiWechat].map((Icon, i) => (
                     <a
                       key={i}
                       href="#"
@@ -108,7 +108,7 @@ const ContactForm = () => {
 
           {/* RIGHT SIDE - FORM */}
           <Slide direction="right" triggerOnce>
-            <form onSubmit={handleSubmit} className="space-y-6 w-full bg-stone-950 lg:py-5 p-5 lg:px-16 rounded-xl shadow-xl">
+            <form onSubmit={handleSubmit} className="space-y-6 w-full bg-stone-950 lg:py-5 p-5 lg:px-16 shadow-xl">
               <div className="grid grid-cols-1 gap-4">
                 {["name", "email", "phone", "subject"].map((field) => (
                   <div className="form-group" key={field}>
