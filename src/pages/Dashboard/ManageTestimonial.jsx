@@ -35,7 +35,6 @@ const ManageTestimonial = () => {
         <input type="text" id="author" class="swal2-input" placeholder="Author" value="${testimonial.author}" />
         <input type="text" id="text" class="swal2-input" placeholder="Text" value="${testimonial.text}" />
         <input type="text" id="position" class="swal2-input" placeholder="Position" value="${testimonial.position}" />
-        <input type="url" id="image" class="swal2-input" placeholder="Image URL" value="${testimonial.image}" />
       `,
       preConfirm: async () => {
         const author = document.getElementById('author').value;

@@ -99,48 +99,53 @@ const handleAnnouncementClick = (announcement) => {
     });
 };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setModalIsOpen(false);
-  
-    const form = new FormData();
-    form.append("name", `${formData.firstName} ${formData.lastName}`);
-    form.append("email", formData.email);
-    form.append("phone", formData.whatsapp);
-    form.append("topic", formData.topic);
-    form.append("preferredDate", formData.preferredDate);
-    form.append("cvFile", formData.cvFile);
-  
-    try {
-      const response = await fetch("https://my-gunter-project-server.vercel.app/submit-form", {
-        method: "POST",
-        body: form,
+const handleSubmit = async () => {
+  if (!formData.cvFile) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Missing CV',
+      text: 'Please upload your CV before submitting.',
+    });
+    return;
+  }
+
+  const formPayload = new FormData();
+  formPayload.append('firstName', formData.firstName);
+  formPayload.append('lastName', formData.lastName);
+  formPayload.append('email', formData.email);
+  formPayload.append('whatsapp', formData.whatsapp);
+  formPayload.append('topic', formData.topic);
+  formPayload.append('preferredDate', formData.preferredDate);
+  formPayload.append('cvFile', formData.cvFile);
+
+  try {
+    const res = await fetch('http://localhost:5000/api/submit-application', {
+      method: 'POST',
+      body: formPayload
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Application Submitted',
+        text: 'Thank you for your application. We will contact you soon!',
       });
-  
-      const result = await response.json();
-  
-      if (response.ok) {
-        Swal.fire("Success!", result.message, "success");
-        
-        // ✅ Reset form after successful submission
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          whatsapp: "",
-          topic: "",
-          preferredDate: "",
-          cvFile: null,
-        });
-  
-      } else {
-        Swal.fire("Error", result.message || "Submission failed", "error");
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      Swal.fire("Error", "Something went wrong. Please try again later.", "error");
+      setModalIsOpen(false);
+    } else {
+      throw new Error(data.error);
     }
-  };
+  } catch (error) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Submission Failed',
+      text: 'Something went wrong. Please try again later.',
+    });
+    console.error(error);
+  }
+};
+
+
 
   // Handle input changes for form fields
   const handleChange = (e) => {
@@ -204,7 +209,7 @@ const handleAnnouncementClick = (announcement) => {
                  <div className="text-center mt-6">
                    <button
                      onClick={() => setModalIsOpen(true)}
-                     className="bg-purple-600 px-6 py-3 text-white font-semibold transition duration-300 mt-3 shadow-animation cursor-pointer"
+                     className="bg-purple-600 px-6 py-3 text-white font-semibold transition duration-300 mt-3 hover:scale-95 hover:bg-purple-500 cursor-pointer"
                    >
                      Apply Now
                    </button>
@@ -278,7 +283,7 @@ const handleAnnouncementClick = (announcement) => {
     {/* Apply Now Button */}
     <button
       onClick={() => setModalIsOpen(true)}
-      className="bg-amber-500 px-6 py-3 text-white font-semibold transition duration-300 mt-3 shadow-animation cursor-pointer mb-5 shadow-md"
+      className="bg-amber-500 px-6 py-3 text-white font-semibold transition duration-300 mt-3 hover:scale-95 hover:bg-amber-400 cursor-pointer mb-5 shadow-md"
     >
       Apply Now
     </button>
@@ -459,57 +464,6 @@ const handleAnnouncementClick = (announcement) => {
 </Modal>
 
 <NewSection></NewSection>
-
-      <style>
-        {`
-          .shadow-animation {
-              position: relative;
-              overflow: hidden;
-          }
-
-          .shadow-animation::before,
-          .shadow-animation::after {
-              content: '';
-              position: absolute;
-              width: 50%;
-              height: 100%;
-              background: rgba(0, 0, 0, 0.9);
-              transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-              opacity: 0;
-          }
-
-          .shadow-animation::before {
-              left: 0;
-              bottom: -100%;
-          }
-
-          .shadow-animation::after {
-              right: 0;
-              top: -100%;
-          }
-
-          .shadow-animation:hover::before {
-              transform: translateY(-100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::after {
-              transform: translateY(100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::before,
-          .shadow-animation:hover::after {
-              animation: panelDisappear 1s ease-in-out forwards;
-          }
-
-          @keyframes panelDisappear {
-              0% { opacity: 1; }
-              70% { opacity: 1; }
-              100% { opacity: 0; transform: translateY(0); }
-          }
-        `}
-      </style>
     </div>
   );
 };

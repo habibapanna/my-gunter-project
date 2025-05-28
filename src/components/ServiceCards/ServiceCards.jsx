@@ -9,15 +9,15 @@ import { PiChartLine } from "react-icons/pi";
 import { TbUsersGroup } from "react-icons/tb";
 
 const allServices = [
-  { title: "Private Label", icon: <IoRocketOutline />, path: "private-label" },
-  { title: "Retail / Online Arbitrage", icon: <HiOutlineShoppingCart />, path: "retail-arbitrage" },
-  { title: "Wholesale FBA / WFS", icon: <MdOutlineWarehouse />, path: "wholesale-fba" },
-  { title: "Web Development", icon: <IoGlobeOutline />, path: "web-development" },
-  { title: "Shopify", icon: <AiOutlineBoxPlot />, path: "shopify" },
-  { title: "Creative Design", icon: <MdOutlineDesignServices />, path: "creative-design" },
-  { title: "Digital Marketing", icon: <PiChartLine />, path: "digital-marketing" },
-  { title: "Product Photography", icon: <IoCameraOutline />, path: "product-photography" },
-  { title: "F-Commerce Service", icon: <TbUsersGroup />, path: "f-commerce-service" },
+  { title: "Private Label", details: "Private Label is your path to brand uniqueness. Starting from sourcing, design, to packaging, we manage products that truly stand out.", icon: <IoRocketOutline />, path: "private-label" },
+  { title: "Retail / Online Arbitrage", details: "Maximize your retail arbitrage success! We handle product identification, competitive pricing, and marketplace listing to boost your profits and expand your market presence.", icon: <HiOutlineShoppingCart />, path: "retail-arbitrage" },
+  { title: "Wholesale FBA / WFS", details: "Managing inventory and fulfillment is now super easy! We handle product sourcing, stock management, and order fulfillment to optimize workflows and maximize revenue.", icon: <MdOutlineWarehouse />, path: "wholesale-fba" },
+  { title: "Web Development", details: "75% of consumers judge a business's credibility based on its website. Our developers build responsive, scalable, and user-friendly websites to enhance online presence.", icon: <IoGlobeOutline />, path: "web-development" },
+  { title: "Shopify", details: "We create and manage custom Shopify stores, optimizing design and functionality to enhance user experiences. Your brand's next level of success is just a launch away!", icon: <AiOutlineBoxPlot />, path: "shopify" },
+  { title: "Creative Design", details: "Your brand deserves to stand out! Our industry-leading designer crafts custom graphic designs that capture attention, tell your story, and enhance your brand's visual identity.", icon: <MdOutlineDesignServices />, path: "creative-design" },
+  { title: "Digital Marketing", details: "We optimize your digital presence through targeted SEO strategies. Improve search rankings and drive organic traffic to increase conversion rate. ", icon: <PiChartLine />, path: "digital-marketing" },
+  { title: "Product Photography", details: "Bring your products to life with our expert photography and videography. We capture every detail and compelling imagery that sets your brand apart and captivate your audience.", icon: <IoCameraOutline />, path: "product-photography" },
+  { title: "F-Commerce Service", details: "Ensure lightning-fast deliveries with our professional inventory management, storage solutions, and fulfillment processes. Efficient warehouse support equals higher customer satisfaction.", icon: <TbUsersGroup />, path: "f-commerce-service" },
 ];
 
 const cardVariants = {
@@ -37,7 +37,9 @@ const ServiceCards = () => {
         <div className='flex justify-between items-center p-10'>
                     <div>
                         <h3 className='text-amber-500 font-semibold'>WHAT WE DO</h3>
-                        <h2 className='text-2xl lg:text-4xl font-bold mt-3 text-white'>Our Services</h2>
+                        <h2 className='text-2xl lg:text-4xl font-bold mt-3 text-white mb-3'>We Offer Dynamic  E-Commerce Services to Power Your Brand</h2>
+                        <p>Transform your brand with our professional e-commerce solutions on any leading platform like Amazon, Shopify, and Walmart. Optimize your sales operations, increase visibility, and ensure long-term growth.
+                        </p>
                         <div className='flex gap-1 mt-8 lg:mb-5 text-amber-500'>
                             <span className='border-2 w-8'></span>
                             <span className='border-2 w-2'></span>
@@ -76,7 +78,7 @@ const ServiceCards = () => {
                   <span className='border-2 w-3'></span>
                 </div>
                 <p className='mb-10 text-white transition-colors duration-500'>
-                  Explore our premium {service.title} service and learn how we can help you scale.
+                   {service.details}
                 </p>
                 <img className='absolute bottom-1 right-21' src="https://themes.envytheme.com/gunter/wp-content/themes/gunter/assets/img/dot.png" alt="" />
                 <img className='absolute bottom-1 right-1' src="https://themes.envytheme.com/gunter/wp-content/themes/gunter/assets/img/white-dot.png" alt="" />
@@ -89,61 +91,10 @@ const ServiceCards = () => {
       <div className='text-center mt-10'>
         <button
           onClick={() => setShowAll(!showAll)}
-          className='px-6 py-3 shadow-animation bg-purple-600 text-white font-semibold hover:bg-purple-700 transition duration-300 cursor-pointer'
+          className='px-6 py-3 hover:bg-purple-500  bg-purple-600 text-white font-semibold transition duration-300 hover:scale-95 cursor-pointer'
         >
           {showAll ? 'View Less' : 'View All Services'}
         </button>
-
-        <style>
-          {`
-          .shadow-animation {
-              position: relative;
-              overflow: hidden;
-          }
-
-          .shadow-animation::before,
-          .shadow-animation::after {
-              content: '';
-              position: absolute;
-              width: 50%;
-              height: 100%;
-              background: rgba(0, 0, 0, 0.9);
-              transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-              opacity: 0;
-          }
-
-          .shadow-animation::before {
-              left: 0;
-              bottom: -100%;
-          }
-
-          .shadow-animation::after {
-              right: 0;
-              top: -100%;
-          }
-
-          .shadow-animation:hover::before {
-              transform: translateY(-100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::after {
-              transform: translateY(100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::before,
-          .shadow-animation:hover::after {
-              animation: panelDisappear 1s ease-in-out forwards;
-          }
-
-          @keyframes panelDisappear {
-              0% { opacity: 1; }
-              70% { opacity: 1; }
-              100% { opacity: 0; transform: translateY(0); }
-          }
-          `}
-        </style>
       </div>
     </div>
   );

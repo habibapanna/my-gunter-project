@@ -60,7 +60,8 @@ const Testimonials = () => {
     <div className="bg-black py-16 px-5 lg:px-10 relative overflow-hidden">
       <div className="text-left mb-12">
         <h3 className="text-amber-500 font-semibold tracking-wide">WHAT CLIENTS SAY ABOUT US</h3>
-        <h2 className="text-2xl lg:text-4xl font-bold mt-3 text-white">Our Testimonials</h2>
+        <h2 className="text-2xl lg:text-4xl font-bold mt-3 text-white">Real Stories, Real Success: Hear from Our Satisfied Clients
+        </h2>
         <div className="flex gap-1 mt-6 mb-5">
           <span className="border-2 w-8 border-amber-500"></span>
           <span className="border-2 w-2 border-amber-500"></span>
@@ -87,7 +88,7 @@ const Testimonials = () => {
                 key={index}
                 className="bg-white/10 backdrop-blur-md text-white p-6 h-[184px] lg:h-[240px] rounded shadow-lg flex flex-col justify-center items-center text-center relative transition duration-300"
               >
-                <BiSolidQuoteAltLeft className="text-4xl text-amber-500 mb-4" />
+                <BiSolidQuoteAltLeft className="text-xl text-amber-500 mb-4" />
                 <p className="italic text-sm mb-4">{item.text}</p>
                 <h3 className="font-semibold">{item.author}</h3>
                 <p className="text-amber-500 text-sm">{item.position}</p>

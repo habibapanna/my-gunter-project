@@ -28,8 +28,7 @@ const About = () => {
         <div>
             <div className='bg-black p-5 lg:p-10 flex flex-col lg:flex-row gap-10 lg:gap-20'>
                 <div className='lg:w-1/2'>
-                    <h3 className='text-amber-500 font-semibold mb-3'>ABOUT US</h3>
-                    <h1 className='text-white text-2xl lg:text-4xl font-bold'>{aboutData.title}</h1>
+                    <h1 className='text-white text-2xl lg:text-4xl font-bold'>ABOUT US</h1>
                     <div className='flex gap-1 mt-8 mb-5 text-amber-500'>
                         <span className='border-2 w-8'></span>
                         <span className='border-2 w-2'></span>
@@ -38,11 +37,10 @@ const About = () => {
                     <div className='flex gap-3'>
                         <span><FaRegStar className='text-2xl lg:text-4xl text-amber-500' /></span>
                         <div>
-                            <h1 className='text-lg lg:text-xl font-semibold mb-5 text-white'>{aboutData.title}</h1>
                             <p>{aboutData.description}</p>
                             <div className='right-20 mt-5 lg:mt-10'>
-                                <button onClick={scrollToContact} className="shadow-animation bg-purple-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation cursor-pointer">
-                                    <Link>More About Us</Link> <FaArrowRightLong />
+                                <button onClick={scrollToContact} className="hover:bg-purple-500 hover:scale-95 bg-purple-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 cursor-pointer">
+                                    <Link to="/gallery">More About Us</Link> <FaArrowRightLong />
                                 </button>
                             </div>
                         </div>
@@ -62,56 +60,6 @@ const About = () => {
                     />
                 </div>
             </div>
-            <style>
-        {`
-          .shadow-animation {
-              position: relative;
-              overflow: hidden;
-          }
-
-          .shadow-animation::before,
-          .shadow-animation::after {
-              content: '';
-              position: absolute;
-              width: 50%;
-              height: 100%;
-              background: rgba(0, 0, 0, 0.9);
-              transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-              opacity: 0;
-          }
-
-          .shadow-animation::before {
-              left: 0;
-              bottom: -100%;
-          }
-
-          .shadow-animation::after {
-              right: 0;
-              top: -100%;
-          }
-
-          .shadow-animation:hover::before {
-              transform: translateY(-100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::after {
-              transform: translateY(100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::before,
-          .shadow-animation:hover::after {
-              animation: panelDisappear 1s ease-in-out forwards;
-          }
-
-          @keyframes panelDisappear {
-              0% { opacity: 1; }
-              70% { opacity: 1; }
-              100% { opacity: 0; transform: translateY(0); }
-          }
-        `}
-      </style>
         </div>
     );
 };

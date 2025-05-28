@@ -2,62 +2,93 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 
 const AddWFS = () => {
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageFile, setImageFile] = useState(null);
+  const [uploading, setUploading] = useState(false);
 
-  const handleChange = (e) => {
-    setImageUrl(e.target.value);
+  const handleFileChange = (e) => {
+    setImageFile(e.target.files[0]);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!imageUrl.trim()) {
-      Swal.fire("Error", "Please enter an image URL.", "error");
+    if (!imageFile) {
+      Swal.fire("Error", "Please select an image to upload.", "error");
       return;
     }
 
-    const WFSData = {
-      imageUrl, // Send only one image URL
-      createdAt: new Date(),
-    };
+    setUploading(true);
 
     try {
-      const res = await fetch("https://my-gunter-project-server.vercel.app/wfs", {
+      // 1. Upload image to Cloudinary
+      const formData = new FormData();
+      formData.append("file", imageFile);
+      formData.append("upload_preset", "my_unsigned_preset");
+
+      const cloudinaryRes = await fetch(
+        "https://api.cloudinary.com/v1_1/drqvpholc/image/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const cloudinaryData = await cloudinaryRes.json();
+
+      if (!cloudinaryData.secure_url) {
+        throw new Error("Cloudinary upload failed");
+      }
+
+      const imageUrl = cloudinaryData.secure_url;
+
+      // 2. Send to your backend
+      const WFSData = {
+        imageUrl,
+        createdAt: new Date(),
+      };
+
+      const backendRes = await fetch("https://my-gunter-project-server.vercel.app/wfs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(WFSData),
       });
 
-      const data = await res.json();
-      if (res.ok) {
+      const data = await backendRes.json();
+
+      if (backendRes.ok) {
         Swal.fire("Success!", "WFS added successfully!", "success");
-        setImageUrl(""); // Reset input field after success
+        setImageFile(null);
+        e.target.reset(); // Reset the file input
       } else {
-        Swal.fire("Error", data.message || "Failed to add wfs.", "error");
+        Swal.fire("Error", data.message || "Failed to add WFS.", "error");
       }
     } catch (err) {
       console.error(err);
-      Swal.fire("Error", "Failed to add wfs.", "error");
+      Swal.fire("Error", "Something went wrong!", "error");
+    } finally {
+      setUploading(false);
     }
   };
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-md text-black">
-      <h2 className="text-xl font-semibold mb-4 text-purple-600 text-center">Add WFS (Image URL)</h2>
+      <h2 className="text-xl font-semibold mb-4 text-purple-600 text-center">Add WFS (Upload Image)</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block font-medium mb-1">Image URL</label>
+          <label className="block font-medium mb-1">Choose Image</label>
           <input
-            type="text"
-            value={imageUrl}
-            onChange={handleChange}
-            placeholder="https://example.com/image.jpg"
-            required
-            className="w-full px-3 py-2 border border-gray-500"
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            className="w-full border border-gray-400 px-3 py-2"
           />
         </div>
-        <button type="submit" className="bg-purple-600 text-white px-4 py-2 shadow">
-          Submit
+        <button
+          type="submit"
+          disabled={uploading}
+          className="bg-purple-600 text-white px-4 py-2 shadow disabled:opacity-50"
+        >
+          {uploading ? "Uploading..." : "Submit"}
         </button>
       </form>
     </div>

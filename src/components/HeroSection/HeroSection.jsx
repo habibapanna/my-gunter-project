@@ -76,7 +76,7 @@ const HeroSection = () => {
   const { image, title, description } = hero;
 
   return (
-    <div className="relative bg-black flex justify-center items-center overflow-hidden mx-auto py-16 px-5 lg:px-10">
+    <div className="relative bg-black flex justify-center items-center overflow-hidden mx-auto py-24 px-5 lg:px-10">
       <div className="flex flex-col-reverse lg:flex-row-reverse items-center max-w-7xl w-full gap-10">
         {/* Image / Video Section */}
         <div className="w-full lg:w-1/2 relative flex justify-center items-center">
@@ -140,7 +140,7 @@ const HeroSection = () => {
         <p className="text-amber-500 text-lg lg:text-xl">
             ★★★★★ Rated 5/5 | Based on 20+ Happy Clients
           </p>
-          <h1 className="text-3xl lg:text-5xl font-bold text-white mb-5 leading-tight">
+          <h1 className="text-3xl lg:text-4xl font-bold text-white mb-5 leading-tight">
             {title || "Default Title"}
           </h1>
           
@@ -151,7 +151,7 @@ const HeroSection = () => {
           <div className="flex gap-5">
             <button
               onClick={scrollToContact}
-              className="flex items-center shadow-animation bg-amber-500 py-2 lg:py-3 px-5 lg:px-8 text-black rounded-full cursor-pointer font-semibold transition duration-300"
+              className="flex items-center hover:bg-amber-400 bg-amber-500 py-2 lg:py-3 px-5 lg:px-8 text-black rounded-full cursor-pointer font-semibold transition duration-300 hover:scale-95"
             >
               Contact Us
             </button>

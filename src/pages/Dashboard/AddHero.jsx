@@ -11,7 +11,7 @@ const AddHero = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!image || !name || !description) {
+    if (!image || !title || !description) {
       Swal.fire('Error!', 'All fields are required!', 'error');
       return;
     }
@@ -31,7 +31,7 @@ const AddHero = () => {
       if (response.ok) {
         Swal.fire('Success!', 'Hero added successfully!', 'success');
         setImage('');
-        setName('');
+        setTitle('');
         setDescription('');
         fileInputRef.current.value = null; // ✅ Reset the file input field
       } else {

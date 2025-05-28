@@ -42,9 +42,11 @@ const OurTeam = () => {
       <div className="flex flex-col md:flex-row justify-between mb-6">
         <div className="text-left">
           <h3 className="text-amber-500 font-semibold">Meet our experts</h3>
-          <h2 className="text-3xl md:text-4xl font-bold mt-3 text-white">
-            Our Team
+          <h2 className="text-3xl md:text-4xl font-bold mt-3 text-white mb-3">
+          Meet Our Expert Team
           </h2>
+          <p>We have a team of experts, each bringing specialized skills to the table. Their professional experience ensures that every aspect of your e-commerce business is in capable hands.
+</p>
           <div className="flex gap-1 justify-start mt-6 mb-5">
             <span className="border-2 w-8 border-amber-500"></span>
             <span className="border-2 w-2 border-amber-500"></span>
@@ -75,7 +77,7 @@ const OurTeam = () => {
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:translate-y-5"
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:translate-y-5 bg-gradient-to-br from-amber-500 to-purple-600"
               />
 
               {/* Overlay Text */}
@@ -104,61 +106,11 @@ const OurTeam = () => {
 
       {/* View All Button */}
       <div className="mt-10">
-        <button className="shadow-animation bg-purple-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto cursor-pointer">
-          <Link to="/team"> View All</Link>
+        <button className="bg-purple-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden hover:scale-95 hover:bg-purple-500 mx-auto cursor-pointer">
+          <Link to="/gallery"> View All</Link>
           <FaArrowRightLong />
         </button>
       </div>
-      <style>
-        {`
-          .shadow-animation {
-              position: relative;
-              overflow: hidden;
-          }
-
-          .shadow-animation::before,
-          .shadow-animation::after {
-              content: '';
-              position: absolute;
-              width: 50%;
-              height: 100%;
-              background: rgba(0, 0, 0, 0.9);
-              transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-              opacity: 0;
-          }
-
-          .shadow-animation::before {
-              left: 0;
-              bottom: -100%;
-          }
-
-          .shadow-animation::after {
-              right: 0;
-              top: -100%;
-          }
-
-          .shadow-animation:hover::before {
-              transform: translateY(-100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::after {
-              transform: translateY(100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::before,
-          .shadow-animation:hover::after {
-              animation: panelDisappear 1s ease-in-out forwards;
-          }
-
-          @keyframes panelDisappear {
-              0% { opacity: 1; }
-              70% { opacity: 1; }
-              100% { opacity: 0; transform: translateY(0); }
-          }
-        `}
-      </style>
     </div>
   );
 };

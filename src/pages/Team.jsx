@@ -12,27 +12,31 @@ const Team = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black py-10 px-6">
-      <h1 className="text-3xl font-bold text-center mb-10 text-purple-600">Meet Our Team</h1>
+    <div className="min-h-screen bg-black py-10">
+      <h1 className="text-2xl md:text-3xl font-bold text-center mb-10 text-purple-600"> Meet the Team Behind Your Future E-commerce Success</h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
         {teamMembers.map((member, index) => (
           <motion.div
             key={member.id}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
-            className="bg-white shadow-md p-4 flex flex-col hover:shadow-2xl transition-all duration-300"
+            className="shadow-md flex flex-col hover:shadow-2xl transition-all duration-300"
           >
-            <img 
-              src={member.image} 
-              alt={member.name} 
-              className="w-full h-60 object-cover mb-4"
-            />
-            <div className="text-center">
-              <h2 className="text-xl font-semibold text-gray-800">{member.name}</h2>
-              <p className="text-gray-500 mt-1">{member.title}</p>
-            </div>
+          <div className="w-full max-w-sm mx-auto mb-4">
+  <div className="relative h-[300px] w-full bg-gradient-to-br from-amber-500 to-purple-600 flex flex-col items-center justify-center overflow-hidden rounded-lg">
+    <img 
+      src={member.image} 
+      alt={member.name} 
+      className="h-[200px] w-[150px] object-cover rounded-full shadow-lg"
+    />
+    <h2 className="mt-4 text-lg sm:text-xl font-semibold text-white text-center px-2">
+      {member.name}
+    </h2>
+  </div>
+</div>
+
           </motion.div>
         ))}
       </div>

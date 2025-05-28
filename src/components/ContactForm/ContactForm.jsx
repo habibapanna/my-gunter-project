@@ -90,17 +90,28 @@ const ContactForm = () => {
               {/* Social Media Links */}
               <Bounce cascade damping={0.1} triggerOnce>
                 <div className="flex gap-4 mt-10">
-                  {[FaWhatsapp, FaFacebook, FaLinkedin, SiTelegram, SiWechat].map((Icon, i) => (
-                    <a
-                      key={i}
-                      href="#"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-stone-800 hover:bg-purple-600 p-3 rounded-full text-white transition duration-300"
-                    >
-                      <Icon size={20} />
-                    </a>
-                  ))}
+                {[FaWhatsapp, FaFacebook, FaLinkedin, SiTelegram].map((Icon, i) => {
+  const links = [
+    "https://wa.me/8801777368969", // WhatsApp
+    "https://www.facebook.com/",   // Facebook (replace with your profile)
+    "https://www.linkedin.com/",   // LinkedIn (replace with your profile)
+    "https://t.me/yourTelegramID", // Telegram (replace with your ID)
+    "#"                            // WeChat: typically doesn't have a URL, maybe replace or handle differently
+  ];
+
+  return (
+    <a
+      key={i}
+      href={links[i]}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-stone-800 hover:bg-purple-600 p-3 rounded-full text-white transition duration-300"
+    >
+      <Icon size={20} />
+    </a>
+  );
+})}
+
                 </div>
               </Bounce>
             </div>

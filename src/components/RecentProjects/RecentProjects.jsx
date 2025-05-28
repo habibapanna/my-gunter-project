@@ -32,7 +32,8 @@ const RecentProjects = () => {
       <div className="flex flex-col md:flex-row justify-between text-left mb-6">
         <div>
           <h3 className="text-amber-500 font-semibold">OUR COMPLETED PROJECTS</h3>
-          <h2 className="text-2xl md:text-4xl font-bold mt-3 text-white">Recent Projects</h2>
+          <h2 className="text-2xl md:text-4xl font-bold mt-3 text-white mb-3">Every Store Presents a Journey of Growth</h2>
+          <p>Explore the journey behind each store’s success.  From innovative strategies to remarkable growth, learn how solutions power up your business growth and drive lasting transformations. </p>
           <div className="flex gap-1 mt-6 mb-5 justify-start">
             <span className="border-2 w-8 border-amber-500"></span>
             <span className="border-2 w-2 border-amber-500"></span>
@@ -100,61 +101,11 @@ const RecentProjects = () => {
 
       {/* View All Projects Button */}
       <div className="mt-5">
-        <button className="shadow-animation bg-purple-600 px-4 md:px-6 py-2 md:py-4 text-white lg:font-semibold flex items-center gap-2 shadow-animation mt-4 md:mt-0 mx-auto cursor-pointer">
-          <Link to="/blog">All Projects </Link>
+        <button className="bg-purple-600 px-4 md:px-6 py-2 md:py-4 text-white lg:font-semibold flex items-center gap-2 hover:scale-95 hover:bg-purple-500 mb-10 mt-4 md:mt-10 mx-auto cursor-pointer">
+          <Link to="/gallery">All Projects </Link>
           <FaArrowRightLong />
         </button>
       </div>
-      <style>
-        {`
-          .shadow-animation {
-              position: relative;
-              overflow: hidden;
-          }
-
-          .shadow-animation::before,
-          .shadow-animation::after {
-              content: '';
-              position: absolute;
-              width: 50%;
-              height: 100%;
-              background: rgba(0, 0, 0, 0.9);
-              transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-              opacity: 0;
-          }
-
-          .shadow-animation::before {
-              left: 0;
-              bottom: -100%;
-          }
-
-          .shadow-animation::after {
-              right: 0;
-              top: -100%;
-          }
-
-          .shadow-animation:hover::before {
-              transform: translateY(-100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::after {
-              transform: translateY(100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::before,
-          .shadow-animation:hover::after {
-              animation: panelDisappear 1s ease-in-out forwards;
-          }
-
-          @keyframes panelDisappear {
-              0% { opacity: 1; }
-              70% { opacity: 1; }
-              100% { opacity: 0; transform: translateY(0); }
-          }
-        `}
-      </style>
     </div>
   );
 };

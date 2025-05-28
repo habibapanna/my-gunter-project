@@ -19,14 +19,14 @@ const NewSection = () => {
           Would you like to start a project with us?
         </h3>
         <p className="text-white leading-relaxed text-sm md:text-[16px] text-center">
-          Etiam erat lectus, finibus eget commodo quis, tincidunt eget leo.
-          Nullam quis vulputate orci, ac accumsan quam. Morbi fringilla congue
-          libero. 1-800-1234-567
+        Imagine Dream World is your ultimate partner for expert e-commerce strategies and online store solutions. We offer industry-leading development, marketing, and optimization services to elevate your brand growth and identity.
+
+
         </p>
       </div>
       <div className="flex flex-wrap justify-center gap-5">
         <Link to="/contact">
-          <button className="py-2 lg:py-4 text-white px-10 text-sm bg-purple-600 shadow-animation shadow-md cursor-pointer font-semibold">
+          <button className="py-2 lg:py-4 text-white px-10 text-sm bg-purple-600 hover:bg-purple-500 shadow-md cursor-pointer font-semibold hover:scale-95">
             Get In Touch
           </button>
         </Link>

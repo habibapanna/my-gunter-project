@@ -26,10 +26,9 @@ const Navbar = () => {
   const menuItems = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
-    { name: "Gallery", path: "/gallery" },
+    { name: "About Us", path: "/gallery" },
     { name: "Announcements", path: "/announcements" },
     { name: "Blog", path: "/blog" },
-    { name: "Team", path: "/team" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -98,23 +97,33 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
+          
 
           {/* Calendly & Mobile Menu */}
 
-<div className="flex items-center gap-3">
-  {/* WhatsApp Icon Button */}
+          <div className="flex items-center gap-3">
+  {/* Hamburger Menu Toggle (Mobile Only) */}
+
+  {/* WhatsApp Icon */}
   <a
-    href="https://wa.me/8801777368969" // Replace with your number
+    href="https://wa.me/8801777368969"
     target="_blank"
     rel="noopener noreferrer"
-    className="bg-green-500 hover:bg-green-600 text-white p-1 md:p-3 rounded-full transition duration-300"
+    className="bg-green-500 hover:bg-green-400 hover:scale-95 text-white p-1 md:p-3 rounded-full transition duration-300"
   >
     <FaWhatsapp className="text-xl" />
   </a>
 
   {/* Calendly Button */}
   <CalendlyModal />
+  <button
+    onClick={() => setIsOpen(!isOpen)}
+    className="md:hidden text-white text-2xl focus:outline-none hover:text-amber-500 hover:cursor-pointer"
+  >
+    {isOpen ? <FiX /> : <FiMenu />}
+  </button>
 </div>
+
 
         </div>
 

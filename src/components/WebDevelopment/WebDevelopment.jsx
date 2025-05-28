@@ -1,51 +1,142 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 import { FaCheck } from "react-icons/fa6";
-import { useEffect, useState } from "react";
-import { Fade, Slide, Zoom } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
+import { Fade, Zoom } from "react-awesome-reveal";
+import CountUp from "react-countup";
+
 
 function WebDevelopment() {
   const [images, setImages] = useState([]);
+  const [startCount, setStartCount] = useState(false);
+  const sectionRef = useRef(null);
 
-  const services = [
-    "Custom Website Design & Development – Modern, mobile-friendly & high-speed websites.",
-    "E-Commerce Website Development – Shopify, WooCommerce, Magento & more.",
-    "SEO & Speed Optimization – Improve ranking and performance on Google.",
-    "UI/UX Design & Branding – Engaging, visually appealing layouts.",
-    "Web App Development – Scalable solutions for startups & enterprises.",
-    "Website Maintenance & Security – Regular updates & protection against cyber threats.",
-  ];
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStartCount(true);
+          observer.disconnect(); // only trigger once
+        }
+      },
+      {
+        threshold: 0.5, // trigger when 50% visible
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     fetch("https://my-gunter-project-server.vercel.app/web-development")
       .then((res) => res.json())
-      .then((data) => {
-        setImages(data);
-      })
+      .then((data) => setImages(data))
       .catch((err) => console.error("Error fetching images:", err));
   }, []);
 
+  const servicePoints = [
+    "Custom-designed e-commerce website with intuitive navigation",
+    "Fully responsive design optimized for all devices",
+    "Secure payment gateway integration",
+    "Advanced product and inventory management",
+    "Shopping cart and checkout optimization",
+    "Third-party integration (CRM, ERP, marketing tools)",
+    "Ongoing technical support & performance enhancement",
+    "Proactive security and regular updates",
+    "Data-driven insights for continuous optimization",
+  ];
+
+  const steps = [
+    "Ongoing Support & Optimization",
+    "Design & Prototype Approval",
+    "Development & Integration",
+    "Testing & Quality Assurance",
+    "Launch & Deployment",
+    "Consultation & Requirement Analysis",
+  ];
+
+  const testimonials = [
+    {
+      name: "Sarah Ahmed, CEO of TrendyWear",
+      quote:
+        "I wasn’t sure what to expect, but the team made everything easy. Our new site looks great and sales have definitely picked up.",
+    },
+    {
+      name: "Rajib Khan, Marketing Head at FreshFoods",
+      quote:
+        "The mobile site works flawlessly, and customers keep telling us how easy it is to shop. Definitely recommend their work!",
+    },
+    {
+      name: "Nadia Rahman, Owner of HomeStyle Decor",
+      quote:
+        "They listened carefully to what we needed and delivered on time. The secure payment setup made our customers feel safe.",
+    },
+    {
+      name: "Imran Hossain, Operations Manager at TechGadgets",
+      quote:
+        "Professional team who really know their stuff. They fixed issues fast and communication was clear throughout the project.",
+    },
+  ];
+
+  const pricing = [
+    {
+      plan: "Basic",
+      features: [
+        "Custom-designed e-commerce website",
+        "Mobile responsive design",
+        "Basic product catalog management",
+        "Secure payment integration",
+        "Post-launch support",
+      ],
+    },
+    {
+      plan: "Standard",
+      features: [
+        "Everything in Basic",
+        "Advanced inventory management",
+        "Streamlined checkout process",
+        "Third-party integrations",
+        "Enhanced security and priority support",
+      ],
+    },
+    {
+      plan: "Premium",
+      features: [
+        "Everything in Standard",
+        "Performance tuning & scalability",
+        "Multi-channel sales integration",
+        "Custom features & analytics",
+        "Dedicated support",
+      ],
+    },
+  ];
+
   return (
-    <div className="bg-black min-h-screen py-5 text-white">
-      {/* Carousel Section */}
-      <section className="md:w-full md:max-w-3x max-w- w-full mx-auto mb-10 px-5">
-        <Zoom cascade triggerOnce>
+    <div className="bg-black text-white min-h-screen py-10 px-4 lg:px-20">
+      {/* Hero & Carousel */}
+      <section className="mb-10">
+        <Zoom triggerOnce>
           <Swiper
             modules={[Pagination, Autoplay]}
             pagination={{ clickable: true }}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            loop={true}
-            className="w-full"
+            autoplay={{ delay: 3000 }}
+            loop
+            className="rounded-xl overflow-hidden"
           >
-            {images.map((img, index) => (
-              <SwiperSlide key={index}>
+            {images.map((img, idx) => (
+              <SwiperSlide key={idx}>
                 <img
                   src={img.imageUrl}
-                  alt={`Slide ${index}`}
-                  className="w-full shadow-md h-[300px] lg:h-[400px] object-cover rounded-xl"
+                  alt={`Slide ${idx}`}
+                  className="w-full h-[300px] lg:h-[400px] object-cover"
                 />
               </SwiperSlide>
             ))}
@@ -53,104 +144,145 @@ function WebDevelopment() {
         </Zoom>
       </section>
 
-      {/* Hero Section */}
-      <section className="md:px-20 px-5 text-center">
-        <Fade cascade direction="up" triggerOnce>
-          <h1 className="text-2xl lg:text-4xl font-bold mb-4 text-purple-600">
-            Web Development Services
-          </h1>
-          <p className="text-[16px] text-gray-300">
-            Need a fast, responsive, and SEO-optimized website? We specialize
-            in custom web development for businesses, eCommerce, and personal
-            brands, ensuring a user-friendly experience and maximum conversions.
-          </p>
+      {/* Intro Text */}
+      <Fade cascade direction="up" triggerOnce>
+        <h1 className="text-purple-600 text-3xl lg:text-4xl font-bold text-center mb-6">
+          Premier E-commerce Web Development Service for Lasting Growth
+        </h1>
+        <p className="text-gray-300 text-center max-w-4xl mx-auto mb-4">
+          We offer innovative, secure, and user-friendly e-commerce web
+          development services to elevate your brand. Increase sales and create
+          seamless shopping experiences that keep customers coming back.
+        </p>
+        <div className="text-center mt-6">
+          <Link
+            to="/contact"
+            className="bg-purple-600 hover:bg-purple-700 transition px-6 py-3 rounded-md font-semibold"
+          >
+            Get a Free Consultation
+          </Link>
+        </div>
+      </Fade>
+
+      {/* Key Stats */}
+      <section
+      ref={sectionRef}
+      className="grid grid-cols-2 sm:grid-cols-4 text-center gap-6 mt-12"
+    >
+      <div>
+        <h2 className="text-3xl font-bold text-amber-500">
+          {startCount ? <CountUp end={60} duration={2} /> : 0}+
+        </h2>
+        <p className="text-gray-400">Expert Web Developers</p>
+      </div>
+      <div>
+        <h2 className="text-3xl font-bold text-amber-500">
+          {startCount ? <CountUp end={80} duration={2} /> : 0}+
+        </h2>
+        <p className="text-gray-400">Successful Projects</p>
+      </div>
+      <div>
+        <h2 className="text-3xl font-bold text-amber-500">Excellent</h2>
+        <p className="text-gray-400">Customer Reviews</p>
+      </div>
+      <div>
+        <h2 className="text-3xl font-bold text-amber-500">4.8 ★</h2>
+        <p className="text-gray-400">On Clutch</p>
+      </div>
+    </section>
+
+      {/* Services */}
+      <section className="mt-14">
+        <Fade cascade triggerOnce>
+          <h2 className="text-2xl font-bold text-center text-amber-500 mb-6">
+            Custom E-commerce Web Development Solutions
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {servicePoints.map((point, idx) => (
+              <div
+                key={idx}
+                className="bg-zinc-900 p-5 border border-zinc-700 rounded-md"
+              >
+                <div className="flex gap-3 text-gray-300">
+                  <FaCheck className="text-amber-500 mt-1" />
+                  <span>{point}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </Fade>
       </section>
 
-      {/* Services Section */}
-      <section className="services bg-black px-5 md:px-20 mt-14">
-  <Slide direction="left" triggerOnce>
-    <h2 className="text-xl text-amber-500 lg:text-2xl font-bold mb-6 text-center">
-      Our Web Development Services
-    </h2>
-  </Slide>
+      {/* Development Steps */}
+      <section className="mt-16 md:max-w-2xl mx-auto">
+        <h2 className="text-2xl font-bold text-purple-500 mb-4 text-center">
+          Just 6 Steps to Build Your Perfect Online Store
+        </h2>
+        <ol className="list-decimal text-gray-300  space-y-2 pl-20 grid grid-cols-1 md:grid-cols-2 ">
+          {steps.map((step, i) => (
+            <li key={i}>{step}</li>
+          ))}
+        </ol>
+      </section>
 
-  {/* Services Grid */}
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-    {services.map((service, index) => (
-      <Fade key={index} direction="up" delay={index * 100} triggerOnce>
-        <div className="bg-zinc-900 hover:bg-zinc-800 transition duration-300 p-5 shadow-lg border border-zinc-700">
-          <div className="flex items-start gap-3 text-gray-300 text-[16px]">
-            <FaCheck className="text-amber-500 text-xl mt-1" />
-            <span>{service}</span>
-          </div>
+      {/* Testimonials */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-amber-500 mb-8 text-center">
+          What Our Clients Say
+        </h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          {testimonials.map((item, idx) => (
+            <div
+              key={idx}
+              className="bg-zinc-900 p-5 rounded-md border border-zinc-700"
+            >
+              <p className="italic text-gray-300 mb-2">“{item.quote}”</p>
+              <p className="text-purple-500 font-semibold">{item.name}</p>
+            </div>
+          ))}
         </div>
-      </Fade>
-    ))}
-  </div>
+      </section>
 
-  {/* Call To Action Button */}
-  <Fade delay={500} triggerOnce>
-    <div className="text-center mt-10">
-      <button className="relative bg-purple-600 text-[16px] px-2 py-2 lg:px-6 lg:py-4 text-white font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 shadow-animation lg:text-[18px] cursor-pointer mx-auto hover:bg-purple-700">
-        <Link to="/contact">Contact us today for expert guidance!</Link>
-      </button>
-    </div>
-  </Fade>
-</section>
+      {/* Pricing Table */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-center text-purple-600 mb-8">
+          Flexible E-commerce Development Pricing Packages
+        </h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {pricing.map((pkg, idx) => (
+            <div
+              key={idx}
+              className="bg-zinc-900 p-6 border border-purple-600 rounded-md"
+            >
+              <h3 className="text-xl font-bold text-purple-400 mb-4">
+                {pkg.plan} Plan
+              </h3>
+              <ul className="list-disc pl-5 space-y-2 text-gray-300 text-sm">
+                {pkg.features.map((feat, i) => (
+                  <li key={i}>{feat}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
 
-
-      {/* Custom Shadow Button Animation */}
-      <style>
-        {`
-          .shadow-animation {
-              position: relative;
-              overflow: hidden;
-          }
-
-          .shadow-animation::before,
-          .shadow-animation::after {
-              content: '';
-              position: absolute;
-              width: 50%;
-              height: 100%;
-              background: rgba(0, 0, 0, 0.9);
-              transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-              opacity: 0;
-          }
-
-          .shadow-animation::before {
-              left: 0;
-              bottom: -100%;
-          }
-
-          .shadow-animation::after {
-              right: 0;
-              top: -100%;
-          }
-
-          .shadow-animation:hover::before {
-              transform: translateY(-100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::after {
-              transform: translateY(100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::before,
-          .shadow-animation:hover::after {
-              animation: panelDisappear 1s ease-in-out forwards;
-          }
-
-          @keyframes panelDisappear {
-              0% { opacity: 1; }
-              70% { opacity: 1; }
-              100% { opacity: 0; transform: translateY(0); }
-          }
-        `}
-      </style>
+      {/* Final CTA */}
+      <section className="text-center mt-20">
+        <h2 className="text-3xl font-bold text-amber-500 mb-6">
+          Ready to Launch Your Online Store?
+        </h2>
+        <p className="text-gray-300 max-w-2xl mx-auto mb-6">
+          Partner with us to build a secure, scalable, and user-friendly
+          e-commerce platform. Let’s take your business to the next level!
+        </p>
+        <Link
+          to="/contact"
+          className="bg-purple-600 hover:bg-purple-700 transition px-8 py-4 rounded-md text-lg font-bold"
+        >
+          Contact Us Now
+        </Link>
+      </section>
     </div>
   );
 }

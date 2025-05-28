@@ -2,223 +2,163 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { TiEdit } from "react-icons/ti";
 import Swal from "sweetalert2";
-import { FaFacebook, FaInstagram, FaXTwitter, FaLinkedin } from "react-icons/fa6";
 
 const ManageTeam = () => {
-    const [team, setTeam] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [selectedMember, setSelectedMember] = useState(null);
-    const [editModal, setEditModal] = useState(false);
-    const [formData, setFormData] = useState({
-        name: "",
-        title: "",
-        image: "",
-        facebook: "",
-        x: "",
-        instagram: "",
-        linkedin: "",
+  const [team, setTeam] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedMember, setSelectedMember] = useState(null);
+  const [editModal, setEditModal] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    title: "",
+    image: null,
+  });
+
+  useEffect(() => {
+    fetch("https://my-gunter-project-server.vercel.app/team")
+      .then((res) => res.json())
+      .then((data) => {
+        setTeam(data);
+        setLoading(false);
+      });
+  }, []);
+
+  const handleEdit = (member) => {
+    setFormData({
+      name: member.name,
+      title: member.title || "",
+      image: null, // Don't prefill image file input
     });
+    setSelectedMember(member);
+    setEditModal(true);
+  };
 
-    useEffect(() => {
-        fetch("https://my-gunter-project-server.vercel.app/team")
-            .then((res) => res.json())
-            .then((data) => {
-                setTeam(data);
-                setLoading(false);
-            })
-            .catch((err) => console.error("Error fetching team data:", err));
-    }, []);
-
-    // Handle edit button click
-    const handleEdit = (member) => {
-        setFormData({
-            name: member.name,
-            title: member.title,
-            image: member.image,
-            facebook: member.facebook,
-            x: member.x,
-            instagram: member.instagram,
-            linkedin: member.linkedin,
-        });
-        setSelectedMember(member);
-        setEditModal(true);
-    };
-
-    // Handle delete button click
-    const handleDelete = (id) => {
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#d33",
-            cancelButtonColor: "#3085d6",
-            confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch(`https://my-gunter-project-server.vercel.app/team/${id}`, {
-                    method: "DELETE",
-                })
-                    .then((res) => res.json())
-                    .then((data) => {
-                        if (data.deletedCount > 0) {
-                            setTeam(team.filter(member => member._id !== id));
-                            Swal.fire("Deleted!", "Team member has been deleted.", "success");
-                        }
-                    });
-            }
-        });
-    };
-
-    // Handle form submission (update member data)
-    const handleUpdate = () => {
-        fetch(`https://my-gunter-project-server.vercel.app/team/${selectedMember._id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "This action cannot be undone!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://my-gunter-project-server.vercel.app/team/${id}`, {
+          method: "DELETE",
         })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.modifiedCount > 0) {
-                    setTeam(
-                        team.map((member) =>
-                            member._id === selectedMember._id ? { ...member, ...formData } : member
-                        )
-                    );
-                    Swal.fire("Updated!", "Team member has been updated.", "success");
-                    setEditModal(false);
-                }
-            });
-    };
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              setTeam(team.filter((m) => m._id !== id));
+              Swal.fire("Deleted!", "Member has been removed.", "success");
+            }
+          });
+      }
+    });
+  };
 
-    return (
-        <div className="p-5">
-            <h2 className="text-2xl font-bold mb-4 text-purple-600 text-center">Manage Team</h2>
-            {loading ? (
-                <p>Loading team members...</p>
-            ) : (
-                <div className="overflow-x-auto">
-                    <table className="min-w-full bg-black border">
-                        <thead>
-                            <tr>
-                                <th className="py-2 border border-stone-500">Name</th>
-                                <th className="py-2 border border-stone-500">Title</th>
-                                <th className="p-2 border border-stone-500">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {team.map((member) => (
-                                <tr key={member._id}>
-                                    <td className="p-2 border border-stone-500 text-center">{member.name}</td>
-                                    <td className="p-2 border border-stone-500 text-center">{member.title}</td>
-                                    <td className="p-2 border border-stone-500 text-center">
-                                        <div className="flex gap-2 lg:gap-5">
-                                        <TiEdit
-                                            className="cursor-pointer text-purple-600"
-                                            onClick={() => handleEdit(member)}
-                                        />
-                                        <AiOutlineDelete
-                                            className="cursor-pointer text-red-600"
-                                            onClick={() => handleDelete(member._id)}
-                                        />
-                                        </div>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            )}
+  const handleUpdate = async () => {
+    const form = new FormData();
+    form.append("name", formData.name);
+    form.append("title", formData.title);
+    if (formData.image) {
+      form.append("image", formData.image);
+    }
 
-            {/* Edit Modal */}
-            {editModal && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 mt-16">
-                    <div className="bg-white text-black p-6  text-sm overflow-y-scroll h-[500px] w-96 mb-36">
-                        <h2 className="lg:text-2xl font-bold text-center mb-4 text-purple-600">Edit Team Member</h2>
-                        <div className="mb-4">
-                            <label className="block text-sm font-semibold mb-2">Name</label>
-                            <input
-                                type="text"
-                                value={formData.name}
-                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                className="w-full px-4 py-2 border border-gray-300"
-                            />
-                        </div>
-                        <div className="mb-4">
-                            <label className="block text-sm font-semibold mb-2">Title</label>
-                            <input
-                                type="text"
-                                value={formData.title}
-                                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                                className="w-full px-4 py-2 border border-gray-300"
-                            />
-                        </div>
-                        <div className="mb-4">
-                            <label className="block text-sm font-semibold mb-2">Image URL</label>
-                            <input
-                                type="text"
-                                value={formData.image}
-                                onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                                className="w-full px-4 py-2 border border-gray-300"
-                            />
-                        </div>
-                        <div className="mb-4">
-                            <label className="block text-sm font-semibold mb-2">Facebook Link</label>
-                            <input
-                                type="text"
-                                value={formData.facebook}
-                                onChange={(e) => setFormData({ ...formData, facebook: e.target.value })}
-                                className="w-full px-4 py-2 border border-gray-300"
-                            />
-                        </div>
-                        <div className="mb-4">
-                            <label className="block text-sm font-semibold mb-2">Twitter Link</label>
-                            <input
-                                type="text"
-                                value={formData.x}
-                                onChange={(e) => setFormData({ ...formData, x: e.target.value })}
-                                className="w-full px-4 py-2 border border-gray-300"
-                            />
-                        </div>
-                        <div className="mb-4">
-                            <label className="block text-sm font-semibold mb-2">Instagram Link</label>
-                            <input
-                                type="text"
-                                value={formData.instagram}
-                                onChange={(e) => setFormData({ ...formData, instagram: e.target.value })}
-                                className="w-full px-4 py-2 border border-gray-300"
-                            />
-                        </div>
-                        <div className="mb-4">
-                            <label className="block text-sm font-semibold mb-2">LinkedIn Link</label>
-                            <input
-                                type="text"
-                                value={formData.linkedin}
-                                onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })}
-                                className="w-full px-4 py-2 border border-gray-300"
-                            />
-                        </div>
-                        <div className="flex justify-between mt-4">
-                            <button
-                                onClick={() => setEditModal(false)}
-                                className="bg-gray-500 text-white px-4 py-2 cursor-pointer"
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                onClick={handleUpdate}
-                                className="bg-purple-600 text-white px-4 py-2 cursor-pointer"
-                            >
-                                Update
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
-        </div>
+    const response = await fetch(
+      `https://my-gunter-project-server.vercel.app/team/${selectedMember._id}`,
+      {
+        method: "PUT",
+        body: form,
+      }
     );
+
+    const result = await response.json();
+    if (result.modifiedCount > 0) {
+      Swal.fire("Success!", "Member updated successfully.", "success");
+      setEditModal(false);
+
+      // Refresh team list
+      const updatedData = await fetch("https://my-gunter-project-server.vercel.app/team").then((res) => res.json());
+      setTeam(updatedData);
+    }
+  };
+
+  return (
+    <div className="p-5">
+      <h2 className="text-2xl font-bold mb-4 text-purple-600 text-center">Manage Team</h2>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-black border">
+            <thead>
+              <tr>
+                <th className="py-2 border">Name</th>
+                <th className="py-2 border">Title</th>
+                <th className="py-2 border">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {team.map((member) => (
+                <tr key={member._id}>
+                  <td className="p-2 border text-center">{member.name}</td>
+                  <td className="p-2 border text-center">{member.title}</td>
+                  <td className="p-2 border text-center">
+                    <div className="flex gap-4 justify-center">
+                      <TiEdit className="cursor-pointer text-purple-600" onClick={() => handleEdit(member)} />
+                      <AiOutlineDelete className="cursor-pointer text-red-600" onClick={() => handleDelete(member._id)} />
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {/* Edit Modal */}
+      {editModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
+          <div className="bg-white text-black p-6 rounded shadow-md w-96">
+            <h2 className="text-xl font-semibold text-center text-purple-600 mb-4">Edit Team Member</h2>
+            <label className="block mb-2">
+              Name:
+              <input
+                type="text"
+                className="w-full border px-3 py-2 mt-1"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              />
+            </label>
+            
+            <label className="block mb-4">
+              Upload New Image:
+              <input
+                type="file"
+                accept="image/*"
+                className="w-full mt-1 border px-3 py-2"
+                onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })}
+              />
+            </label>
+            <div className="flex justify-between mt-4">
+              <button
+                onClick={() => setEditModal(false)}
+                className="bg-gray-500 text-white px-4 py-2 rounded"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleUpdate}
+                className="bg-purple-600 text-white px-4 py-2 rounded"
+              >
+                Update
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default ManageTeam;

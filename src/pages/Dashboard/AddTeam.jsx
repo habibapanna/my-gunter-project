@@ -2,47 +2,34 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 
 const AddTeam = () => {
-  const [teamData, setTeamData] = useState({
-    name: "", // New field
-    title: "", // New field
-    image: "", 
-    facebook: "",
-    instagram: "",
-    x: "",
-    linkedin: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setTeamData({ ...teamData, [name]: value });
-  };
+  const [name, setName] = useState("");
+  const [imageFile, setImageFile] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!imageFile) {
+      Swal.fire("Error!", "Please select an image!", "error");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("image", imageFile); // image file
 
     try {
       const response = await fetch("https://my-gunter-project-server.vercel.app/team", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json", 
-        },
-        body: JSON.stringify(teamData),
+        body: formData,
       });
 
       const result = await response.json();
       if (result.success) {
         Swal.fire("Success!", "Team member added successfully!", "success");
-        setTeamData({
-          name: "",
-          title: "",
-          image: "",
-          facebook: "",
-          instagram: "",
-          x: "",
-          linkedin: "",
-        });
+        setName("");
+        setImageFile(null);
       } else {
-        Swal.fire("Error!", "Something went wrong!", "error");
+        Swal.fire("Error!", result.message || "Something went wrong!", "error");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -53,49 +40,34 @@ const AddTeam = () => {
   return (
     <div className="max-w-lg mx-auto bg-white shadow-lg p-6 text-black mt-5">
       <h2 className="text-xl font-semibold text-center mb-4 text-purple-600">Add Team Member</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        
+      <form onSubmit={handleSubmit} className="space-y-4" encType="multipart/form-data">
         {/* Name Input */}
         <div>
           <label className="block font-medium">Name:</label>
           <input
             type="text"
             name="name"
-            value={teamData.name}
-            onChange={handleChange}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
             className="border border-gray-500 p-2 w-full"
             placeholder="Enter name"
           />
         </div>
 
-        {/* Title Input */}
+        {/* Image File Input */}
         <div>
-          <label className="block font-medium">Title:</label>
+          <label className="block font-medium">Upload Image:</label>
           <input
-            type="text"
-            name="title"
-            value={teamData.title}
-            onChange={handleChange}
+            type="file"
+            accept="image/*"
+            name="image"
+            onChange={(e) => setImageFile(e.target.files[0])}
             required
             className="border border-gray-500 p-2 w-full"
-            placeholder="Enter title (e.g., Team Leader)"
           />
         </div>
 
-        {/* Image URL Input */}
-        <div>
-          <label className="block font-medium">Image URL:</label>
-          <input
-            type="url"
-            name="image"
-            value={teamData.image}
-            onChange={handleChange}
-            required
-            className="border border-gray-500 p-2 w-full"
-            placeholder="Enter image URL"
-          />
-        </div>
         {/* Submit Button */}
         <button type="submit" className="bg-purple-600 text-white px-4 py-2 w-full cursor-pointer">
           Add Team Member

@@ -27,8 +27,9 @@ const LatestNews = () => {
       <div className="flex flex-col md:flex-row justify-between">
         <div>
           <h3 className="text-amber-500 font-semibold">OUR COMPANY BLOG</h3>
-          <h2 className="text-2xl lg:text-4xl font-bold mt-3 text-white">Latest News</h2>
-          <div className="flex gap-1 mt-8 mb-5">
+          <h2 className="text-2xl lg:text-4xl font-bold mt-3 text-white mb-3">Latest Insights and Trends from the E-Commerce Frontlines</h2>
+          <p className="">Explore our blog for expert strategies, practical tips, and real-world success stories. The latest e-commerce trends will be the inspiration driver for your next big move! </p>
+          <div className="flex gap-1 mt-8 mb-10">
             <span className="border-2 w-8 border-amber-500"></span>
             <span className="border-2 w-2 border-amber-500"></span>
             <span className="border-2 w-3 border-amber-500"></span>
@@ -92,9 +93,9 @@ const LatestNews = () => {
       </div>
 
       <div className="mt-10">
-        <Link to="/announcements">
-          <button className="bg-purple-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden shadow-animation mx-auto cursor-pointer">
-            View All <FaArrowRightLong />
+        <Link to="/blog">
+          <button className="bg-purple-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden hover:scale-95 hover:bg-purple-500 mx-auto cursor-pointer">
+          View All Blogs <FaArrowRightLong />
           </button>
         </Link>
       </div>

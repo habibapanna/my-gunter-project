@@ -2,38 +2,36 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 
 const AddPrivateLabel = () => {
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageFile, setImageFile] = useState(null);
 
   const handleChange = (e) => {
-    setImageUrl(e.target.value);
+    setImageFile(e.target.files[0]);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!imageUrl.trim()) {
-      Swal.fire("Error", "Please enter an image URL.", "error");
+    if (!imageFile) {
+      Swal.fire("Error", "Please select an image file.", "error");
       return;
     }
 
-    const privateLabelData = {
-      imageUrl, // Send only one image URL
-      createdAt: new Date(),
-    };
+    const formData = new FormData();
+    formData.append("image", imageFile); // must match multer field name
 
     try {
       const res = await fetch("https://my-gunter-project-server.vercel.app/private-labels", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(privateLabelData),
+        body: formData,
       });
 
       const data = await res.json();
+
       if (res.ok) {
         Swal.fire("Success!", "Private Label added successfully!", "success");
-        setImageUrl(""); // Reset input field after success
+        setImageFile(null); // Reset
       } else {
-        Swal.fire("Error", data.message || "Failed to add private label.", "error");
+        Swal.fire("Error", data.message || "Upload failed.", "error");
       }
     } catch (err) {
       console.error(err);
@@ -43,20 +41,19 @@ const AddPrivateLabel = () => {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-md text-black">
-      <h2 className="text-xl font-semibold mb-4 text-purple-600 text-center">Add Private Label (Image URL)</h2>
+      <h2 className="text-xl font-semibold mb-4 text-purple-600 text-center">Add Private Label (Upload Image)</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block font-medium mb-1">Image URL</label>
+          <label className="block font-medium mb-1">Select Image</label>
           <input
-            type="text"
-            value={imageUrl}
+            type="file"
+            accept="image/*"
             onChange={handleChange}
-            placeholder="https://example.com/image.jpg"
             required
-            className="w-full px-3 py-2 border border-gray-500"
+            className="w-full border p-2 hover:cursor-pointer"
           />
         </div>
-        <button type="submit" className="bg-purple-600 text-white px-4 py-2 shadow">
+        <button type="submit" className="bg-purple-600 hover:bg-purple-500 hover:cursor-pointer text-white px-4 py-2 shadow">
           Submit
         </button>
       </form>

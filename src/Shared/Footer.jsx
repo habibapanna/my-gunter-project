@@ -22,15 +22,10 @@ const Footer = () => {
                     <div className="falling absolute -left-1 w-2 h-8 bg-black animate-falling"></div>
                     <div className="falling absolute -left-1 w-2 h-4 bg-black animate-falling" style={{ animationDelay: "0.5s" }}></div>
                 </div>
-                <img
-                    src="https://themes.envytheme.com/gunter/wp-content/themes/gunter/assets/img/footer-shape1.png"
-                    alt="footer-shape1"
-                    className="absolute top-5 left-10 transform -translate-x-1/4 translate-y-1/4 w-32"
-                />
 
                 <div className="mt-5 text-right border-t border-stone-500 pt-4 relative mb-2"></div>
 
-                <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 px-5 lg:px-0">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 py-10 px-5 lg:px-0">
                     <Slide direction="up" triggerOnce>
                         <div className="flex flex-col items-start justify-start">
                             <img className='h-16 lg:h-24' src={Logo} alt="Logo" />
@@ -72,12 +67,6 @@ const Footer = () => {
                         </div>
                     </Fade>
                 </div>
-
-                <img
-                    src="https://themes.envytheme.com/gunter/wp-content/themes/gunter/assets/img/footer-shape2.png"
-                    alt="footer-shape2"
-                    className="absolute bottom-0 right-10 transform translate-x-1/4 -translate-y-1/4 w-32"
-                />
 
                 <Fade direction="up" delay={300} triggerOnce>
                     <div className="relative mt-5 bg-purple-600 text-sm text-center text-stone-300 py-4 flex items-center justify-center">
