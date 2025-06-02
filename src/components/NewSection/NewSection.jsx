@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import CalendlyPopup from "../CalendlyPopup/CalendlyPopup";
+import { Fade } from "react-awesome-reveal";
 
 
 const NewSection = () => {
     return (
-        <div id="contact">
+       <div>
+        <Fade direction="up"> <div id="contact">
                             <div
       className="mx-auto max-w-5xl flex flex-col gap-10 bg-black bg-cover bg-center rounded px-5 py-5 lg:p-10 items-center justify-between shadow-lg mb-5"
       style={{
@@ -32,57 +34,8 @@ const NewSection = () => {
         </Link>
       </div>
     </div>
-    <style>
-        {`
-          .shadow-animation {
-              position: relative;
-              overflow: hidden;
-          }
-
-          .shadow-animation::before,
-          .shadow-animation::after {
-              content: '';
-              position: absolute;
-              width: 50%;
-              height: 100%;
-              background: rgba(0, 0, 0, 0.9);
-              transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-              opacity: 0;
-          }
-
-          .shadow-animation::before {
-              left: 0;
-              bottom: -100%;
-          }
-
-          .shadow-animation::after {
-              right: 0;
-              top: -100%;
-          }
-
-          .shadow-animation:hover::before {
-              transform: translateY(-100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::after {
-              transform: translateY(100%);
-              opacity: 1;
-          }
-
-          .shadow-animation:hover::before,
-          .shadow-animation:hover::after {
-              animation: panelDisappear 1s ease-in-out forwards;
-          }
-
-          @keyframes panelDisappear {
-              0% { opacity: 1; }
-              70% { opacity: 1; }
-              100% { opacity: 0; transform: translateY(0); }
-          }
-        `}
-      </style>
-        </div>
+        </div></Fade>
+       </div>
     );
 };
 

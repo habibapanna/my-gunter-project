@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Fade } from "react-awesome-reveal";
 import Marquee from "react-fast-marquee";
 
 const OurClients = () => {
@@ -12,7 +13,8 @@ const OurClients = () => {
   }, []);
 
   return (
-    <div className="px-5 lg:px-10 py-5">
+    <div>
+      <Fade direction="up"><div className="px-5 lg:px-10 py-5">
       <h2 className="text-xl text-center lg:text-2xl font-semibold mb-3 text-amber-500">Join The Ranks Of Successful Brands That Trust Our E-Commerce Expertise </h2>
       <p className="text-center mb-10">We've supported global brands with efficient store optimization and growth strategies.
 
@@ -32,6 +34,7 @@ const OurClients = () => {
   ))}
 </Marquee>
 
+    </div></Fade>
     </div>
   );
 };

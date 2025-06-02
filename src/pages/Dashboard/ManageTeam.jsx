@@ -11,6 +11,7 @@ const ManageTeam = () => {
   const [formData, setFormData] = useState({
     name: "",
     title: "",
+    linkedin: "",
     image: null,
   });
 
@@ -25,9 +26,10 @@ const ManageTeam = () => {
 
   const handleEdit = (member) => {
     setFormData({
-      name: member.name,
+      name: member.name || "",
       title: member.title || "",
-      image: null, // Don't prefill image file input
+      linkedin: member.linkedin || "",
+      image: null,
     });
     setSelectedMember(member);
     setEditModal(true);
@@ -60,6 +62,7 @@ const ManageTeam = () => {
     const form = new FormData();
     form.append("name", formData.name);
     form.append("title", formData.title);
+    form.append("linkedin", formData.linkedin);
     if (formData.image) {
       form.append("image", formData.image);
     }
@@ -77,7 +80,6 @@ const ManageTeam = () => {
       Swal.fire("Success!", "Member updated successfully.", "success");
       setEditModal(false);
 
-      // Refresh team list
       const updatedData = await fetch("https://my-gunter-project-server.vercel.app/team").then((res) => res.json());
       setTeam(updatedData);
     }
@@ -95,6 +97,7 @@ const ManageTeam = () => {
               <tr>
                 <th className="py-2 border">Name</th>
                 <th className="py-2 border">Title</th>
+                <th className="py-2 border">LinkedIn</th>
                 <th className="py-2 border">Actions</th>
               </tr>
             </thead>
@@ -104,9 +107,29 @@ const ManageTeam = () => {
                   <td className="p-2 border text-center">{member.name}</td>
                   <td className="p-2 border text-center">{member.title}</td>
                   <td className="p-2 border text-center">
+                    {member.linkedin ? (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-blue-500 underline"
+                      >
+                        Profile
+                      </a>
+                    ) : (
+                      "N/A"
+                    )}
+                  </td>
+                  <td className="p-2 border text-center">
                     <div className="flex gap-4 justify-center">
-                      <TiEdit className="cursor-pointer text-purple-600" onClick={() => handleEdit(member)} />
-                      <AiOutlineDelete className="cursor-pointer text-red-600" onClick={() => handleDelete(member._id)} />
+                      <TiEdit
+                        className="cursor-pointer text-purple-600"
+                        onClick={() => handleEdit(member)}
+                      />
+                      <AiOutlineDelete
+                        className="cursor-pointer text-red-600"
+                        onClick={() => handleDelete(member._id)}
+                      />
                     </div>
                   </td>
                 </tr>
@@ -121,6 +144,7 @@ const ManageTeam = () => {
         <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
           <div className="bg-white text-black p-6 rounded shadow-md w-96">
             <h2 className="text-xl font-semibold text-center text-purple-600 mb-4">Edit Team Member</h2>
+
             <label className="block mb-2">
               Name:
               <input
@@ -130,7 +154,27 @@ const ManageTeam = () => {
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               />
             </label>
-            
+
+            <label className="block mb-2">
+              Title / Position:
+              <input
+                type="text"
+                className="w-full border px-3 py-2 mt-1"
+                value={formData.title}
+                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+              />
+            </label>
+
+            <label className="block mb-2">
+              LinkedIn URL:
+              <input
+                type="text"
+                className="w-full border px-3 py-2 mt-1"
+                value={formData.linkedin}
+                onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })}
+              />
+            </label>
+
             <label className="block mb-4">
               Upload New Image:
               <input
@@ -140,6 +184,7 @@ const ManageTeam = () => {
                 onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })}
               />
             </label>
+
             <div className="flex justify-between mt-4">
               <button
                 onClick={() => setEditModal(false)}

@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { HiTrendingUp, HiSearch, HiColorSwatch, HiCube, HiLightBulb } from "react-icons/hi";
 import { FaQuoteLeft, FaQuestionCircle } from "react-icons/fa";
 import { HiMiniRocketLaunch } from "react-icons/hi2";
+import NewSection from "../NewSection/NewSection";
 
 function PrivateLabelPage() {
   const [images, setImages] = useState([]);
@@ -243,7 +244,7 @@ function PrivateLabelPage() {
         </section>
 
         {/* Call to Action */}
-        <section className="mt-28 text-center max-w-4xl mx-auto">
+        {/* <section className="mt-28 text-center max-w-4xl mx-auto">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -267,7 +268,10 @@ function PrivateLabelPage() {
               Contact Us Today
             </Link>
           </motion.div>
-        </section>
+        </section> */}
+      </section>
+      <section className="mt-20">
+      <NewSection></NewSection>
       </section>
     </div>
   );

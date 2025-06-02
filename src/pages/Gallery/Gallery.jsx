@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Spinner from "../../components/Spinner/Spinner";
 import NewSection from "../../components/NewSection/NewSection";
 import Team from "../Team";
+import { Fade } from "react-awesome-reveal";
 
 const Gallery = () => {
   const [search, setSearch] = useState("");
@@ -84,13 +85,13 @@ const Gallery = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h3 className="text-2xl font-semibold text-amber-500 mb-2">About Us</h3>
-          <p className="text-gray-200 leading-relaxed">
+          <Fade direction="left"> <p className="text-gray-200 leading-relaxed">
             At Imagine Dream World, we understand that running a thriving online business demands more than just a great product. It requires expert management, strategic marketing, and advanced technologies.
             <br /><br />
             That’s where we excel. We offer a comprehensive suite of e-commerce management services designed to ensure the long-lasting growth of your business and domination of the digital marketplace.
             <br /><br />
             From retail arbitrage solutions to private label development, web development, UI/UX design, digital marketing, and Keap CRM integration — our team is equipped to deliver results.
-          </p>
+          </p></Fade>
         </motion.div>
 
         {/* Image Section */}
@@ -100,11 +101,11 @@ const Gallery = () => {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <img
+         <Fade direction="right"> <img
             src="https://i.postimg.cc/wxSX9mmt/aerial-view-business-team.jpg"
             alt="Aerial view of business team"
             className="rounded-lg shadow-lg w-full h-auto object-cover"
-          />
+          /></Fade>
         </motion.div>
       </div>
     </section>
@@ -116,11 +117,12 @@ const Gallery = () => {
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
       >
         <h3 className="text-2xl font-semibold text-amber-500 mb-2">How Our Journey Began</h3>
-        <p>
+        <Fade direction="up"><p>
           Imagine Dream World was founded with a vision: to empower businesses to unlock their full potential online. Seeing the struggles many face with e-commerce and digital strategy, our mission became clear — to remove these barriers with tailored, high-impact solutions.
           <br /><br />
           Since day one, we've partnered with startups and industry leaders alike to build strong digital presences, optimize operations, and boost revenue through innovation and expertise.
         </p>
+        </Fade>
       </motion.div>
 
       <motion.div
@@ -130,18 +132,21 @@ const Gallery = () => {
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
       >
         <h3 className="text-2xl font-semibold text-amber-500 mb-2">Our Commitment to You</h3>
+        <Fade direction="up">
         <p>
           At Imagine Dream World, we prioritize clear communication and custom strategies. We take the time to understand your goals so we can build results-driven solutions that work.
           <br /><br />
           Whether it’s launching your site with a stunning UI or managing listings and campaigns, we handle every detail with care. We're here for the long run, offering strategic support to keep you ahead of the competition.
         </p>
+      </Fade>
       </motion.div>
     </div>
-
+    <Fade direction="up">
         <div className="max-w-6xl mx-auto px-4">
         <Team></Team>
         </div>
-
+        </Fade>
+        <Fade direction="up">
         <div>
           <h3 className="text-2xl font-semibold text-amber-500 mb-2">The Difference We Make For Your E-commerce Excellence </h3>
           <ul className="list-disc list-inside space-y-2">
@@ -152,7 +157,7 @@ const Gallery = () => {
             <li><strong>Transparent Communication:</strong> We keep you informed every step of the way.</li>
           </ul>
         </div>
-
+        </Fade>
         <motion.div
       className="max-w-6xl mx-auto mt-12 px-4"
       initial={{ opacity: 0, y: 40 }}
@@ -167,7 +172,7 @@ const Gallery = () => {
         Visit our testimonials to find how Imagine Dream World has powered up businesses like yours to conquer the digital arena.
       </p>
 
-      <div className="space-y-8">
+      <Fade direction="up">  <div className="space-y-8">
         <div className="bg-stone-900 p-6 rounded-lg shadow-md">
           <p className="text-white italic">
             "Imagine Dream World really helped us get our online store organized and growing. Their team is responsive and knows how to get results. Highly recommended!"
@@ -189,6 +194,7 @@ const Gallery = () => {
           <p className="mt-2 text-amber-400 font-medium">— David Lee, CEO of HomeTech Solutions</p>
         </div>
       </div>
+      </Fade>
     </motion.div>
 
       </section>

@@ -72,20 +72,51 @@ const OurTeam = () => {
       >
         {teamMembers.map((member, index) => (
           <SwiperSlide key={member._id || index}>
-            <div className="relative group h-[400px] shadow-lg">
-              {/* Image */}
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:translate-y-5 bg-gradient-to-br from-amber-500 to-purple-600"
-              />
+           <div className="relative h-[300px] overflow-hidden shadow-lg group">
+  {/* Left Half with BG Image */}
+  <div className="flex h-full grayscale group-hover:grayscale-0 transition duration-300">
+    <div
+      className="w-1/2 h-full bg-cover bg-center"
+      style={{
+        backgroundImage: `url('https://i.postimg.cc/85rt5wdg/Frame-1000002036.png')`,
+      }}
+    ></div>
 
-              {/* Overlay Text */}
-              <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-70 text-white py-4 px-10 text-center">
-                <h3 className="font-bold text-lg">{member.name}</h3>
-                <p className="text-amber-500 text-sm">{member.title}</p>
-              </div>
-            </div>
+    {/* Right Half with vertical title */}
+    <div className="w-1/2 h-full bg-black flex items-start justify-end text-right px-2">
+      <p className="text-purple-500 font-semibold tracking-widest text-[14px] leading-[18px] uppercase whitespace-pre-line text-center pt-4">
+        {member.title.split("").join("\n")}
+      </p>
+    </div>
+  </div>
+
+  {/* Centered Member Image */}
+  <div className="absolute inset-0 flex items-center justify-center">
+    <img
+      src={member.image}
+      alt={member.name}
+      className="h-[196px] md:h-[190px] object-cover z-10 transition-all duration-500"
+    />
+  </div>
+
+  {/* Name and social icons */}
+  <div className="absolute bottom-0 left-0 w-full bg-stone-900 bg-opacity-90 text-white py-4 px-4 flex justify-between items-center">
+    <h3 className="text-sm md:text-base text-amber-500 font-semibold">{member.name}</h3>
+    <div className="flex items-center gap-2">
+      {member.linkedin && (
+        <a
+          href={member.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-amber-500"
+        >
+          <FaLinkedin size={18} />
+        </a>
+      )}
+    </div>
+  </div>
+</div>
+
           </SwiperSlide>
         ))}
       </Swiper>

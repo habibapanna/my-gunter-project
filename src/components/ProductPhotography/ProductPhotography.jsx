@@ -7,6 +7,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 import { Fade } from "react-awesome-reveal";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react"; 
+import { FaRocket, FaClock, FaCheckCircle, FaBrush, FaTabletAlt } from "react-icons/fa";
 import {
   Camera,
   Image as ImageIcon,
@@ -14,66 +15,148 @@ import {
   Rotate3d,
   Scissors,
 } from "lucide-react"; // Lucide icons
-
+import NewSection from "../NewSection/NewSection";
 const services = [
   {
     title: "Studio Product Photography",
-    desc: "High-res images with controlled lighting to showcase every detail for catalogs, websites, and marketplaces.",
+    desc: "We create high-resolution images with controlled lighting to highlight every detail. Our studio shoots focus on clarity and precision. It ensures your products look flawless and professional. You can use them for catalogs, websites, and online marketplaces.",
     icon: <Camera className="w-6 h-6 text-amber-500" />,
   },
   {
     title: "Lifestyle Photography",
-    desc: "Images captured in real-life settings to create emotional connections and relatability.",
+    desc: "We create high-resolution images with controlled lighting to highlight every detail. Our studio shoots focus on clarity and precision. It ensures your products look flawless and professional. You can use them for catalogs, websites, and online marketplaces.",
     icon: <ImageIcon className="w-6 h-6 text-amber-500" />,
   },
   {
     title: "Product Videography",
-    desc: "Videos showcasing product features and benefits, increasing engagement and decision-making.",
+    desc: "We produce high-quality videos that highlight product functionality, showcase unique selling points, and engage viewers. Ultimate results? It increases visitors’ time spent on your site and helps customers make informed buying decisions.",
     icon: <Video className="w-6 h-6 text-amber-500" />,
   },
   {
     title: "360° & Interactive Visuals",
-    desc: "Immersive visuals letting customers explore your product from every angle.",
+    desc: "We create Interactive spins and visuals that let customers explore products from every angle. These immersive experiences provide transparency and confidence to the shoppers. It also enhances conversion rates through engaging, hands-on interaction.",
     icon: <Rotate3d className="w-6 h-6 text-amber-500" />,
   },
   {
     title: "Image & Video Editing",
-    desc: "Professional retouching and branding for polished, on-brand visuals.",
+    desc: "We offer professional retouching and editing to ensure polished product photos and videos. Our editing team enhances colors, removes imperfections. They apply branding elements, guaranteeing a polished look across your product catalog.",
     icon: <Scissors className="w-6 h-6 text-amber-500" />,
   },
 ];
-
+const processSteps = [
+  {
+    title: "Creative Consultation",
+    description:
+      "We first deeply understand your brand, your products, and your target audience. Our expert team works with you to develop a visual strategy customized to your goals, ensuring every shot supports your unique selling points and enhances customer appeal.",
+  },
+  {
+    title: "Product Delivery",
+    description:
+      "You send us your products or samples securely. We handle all logistics carefully to ensure items arrive in perfect condition, ready for styling and photography. We maintain clear communication throughout the process to keep you informed.",
+  },
+  {
+    title: "Styling & Shooting",
+    description:
+      "Our expert team styles your products to highlight their best features and arranges lighting and backgrounds for maximum impact. We capture high-quality images and videos using advanced equipment.",
+  },
+  {
+    title: "Post-Production Perfection",
+    description:
+      "Our editing specialists enhance each image and video with color correction, retouching, and formatting. We ensure visuals meet brand standards and platform requirements. Our motive is simple- delivering polished content that engages and converts!",
+  },
+  {
+    title: "Final Delivery",
+    description:
+      "You will receive your ready-to-use visuals through an easy digital delivery system. Files are optimized for web, social media, and marketplaces, ensuring fast loading and flawless display to help your products stand out online.",
+  },
+];
 
 function ProductPhotography() {
   const [images, setImages] = useState([]);
   const [openIndex, setOpenIndex] = useState(0); // First question open by default
 
+  const reasons = [
+    "Instantly capture your customer's attention",
+    "Build trust and credibility with professional images",
+    "Help shoppers understand product details and features",
+    "Reduce hesitation and boost purchase confidence",
+    "Lower return rates by setting accurate expectations",
+    "Differentiate your brand from competitors",
+    "Improve conversion rates across all sales platforms",
+  ];
+
   const faqs = [
     {
       question: "What types of products do you photograph and film?",
       answer:
-        "We handle small accessories, apparel, electronics, and more — tailored for your brand.",
+        "We handle a wide range of products. It includes small accessories, electronics, apparel, and home goods. Our team adapts techniques to suit different sizes, textures, and brand styles to create the best visual impact.",
     },
     {
       question: "How long does the process take?",
       answer:
-        "Typically 1–2 weeks depending on project scope — from planning to final delivery.",
+        "The entire process typically spans from initial planning to final delivery. Usually, it takes between one to two weeks, depending on project complexity. For instance, pre-shoot prep, shooting, post-production, and client review.",
     },
     {
       question: "What equipment do you use?",
       answer:
-        "DSLR/mirrorless cameras, lightboxes, stabilizers, and more to ensure sharp and stunning visuals.",
+        "We use professional DSLR and mirrorless cameras from trusted brands to capture sharp, high-quality images. Our setup includes studio lighting, lightboxes, and tripods to ensure consistent, well-lit shots. For videography, we employ advanced video cameras and stabilizers to produce smooth, detailed product videos. ",
     },
     {
       question: "Do you offer rush services?",
       answer:
-        "Yes, expedited services are available based on availability and urgency.",
+        "Yes, rush or expedited services are available for urgent projects. It allows faster turnaround times while maintaining quality, subject to scheduling and resource availability to meet tight deadlines.",
     },
   ];
 
   const toggleAccordion = (index) => {
     setOpenIndex(index === openIndex ? null : index);
   };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.15,
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    }),
+  };
+
+  const features = [
+    {
+      title: "E-commerce Focused",
+      description:
+        "We specialize in visuals that speak directly to online shoppers as we understand buyer behavior and platform trends. Our images and videos help boost clicks, conversions, and customer trust.",
+      icon: <FaRocket className="text-2xl text-purple-600" />,
+    },
+    {
+      title: "Fast Turnaround",
+      description:
+        "On a short timeline? No worries! Our efficient workflow delivers high-quality visuals right when you need them. Ultimately, your product launches and campaigns stay on track.",
+      icon: <FaClock className="text-2xl text-purple-600" />,
+    },
+    {
+      title: "Consistent Quality",
+      description:
+        "Our every shot meets a high standard. We maintain sharpness, styling, and, more importantly, they align with your brand across every product.",
+      icon: <FaCheckCircle className="text-2xl text-purple-600" />,
+    },
+    {
+      title: "Custom Branding Options",
+      description:
+        "We capture every shoot to reflect your unique brand identity. This includes carefully selecting backgrounds and packaging details that enhance your product’s appeal.",
+      icon: <FaBrush className="text-2xl text-purple-600" />,
+    },
+    {
+      title: "Multi-Platform Formats",
+      description:
+        "We deliver images and videos optimized for Shopify, Amazon, Instagram, and all major e-commerce and social platforms. This ensures your visuals look perfect and perform well, no matter where your customers find your products.",
+      icon: <FaTabletAlt className="text-2xl text-purple-600" />,
+    },
+  ];
 
 
   useEffect(() => {
@@ -111,11 +194,11 @@ function ProductPhotography() {
       {/* Hero Section */}
       <Fade direction="up" triggerOnce>
         <section className="text-center px-5 md:px-20">
-          <h1 className="text-3xl lg:text-4xl font-bold text-purple-500 mb-4">
+          <h1 className="text-3xl lg:text-4xl font-bold text-purple-600 mb-4">
             Professional Product Photography & Videography For Your Online Business
           </h1>
           <p className="text-gray-300 mb-6 max-w-3xl mx-auto">
-            Stand out in the competitive online marketplace with compelling product photos and videos. Capture attention, build trust, and increase conversions with professional visuals.
+          Stand out in the competitive online marketplace with compelling product photos and videos. Capture attention, build trust, and increase conversions with professional visuals.
           </p>
           <Link
             to="/contact"
@@ -133,40 +216,53 @@ function ProductPhotography() {
             Your Partner for High-Impact E-commerce Visuals
           </h2>
           <p className="text-gray-300 text-center max-w-4xl mx-auto">
-            At Imagine Dream World, we help online businesses stand out with product photos and videos that are built to convert. Our visuals align with your brand, capture attention, and drive better buying decisions across platforms.
+          At Imagine Dream World, we help online businesses stand out with product photos and videos that are built to convert. Our team creates clean studio images, lifestyle compositions, and engaging product videos that align with your brand’s visual identity. Each visual is designed to build trust, capture attention, and support better buying decisions. It doesn’t matter which platform you sell the products on, we ensure your products make a lasting impression.
           </p>
         </section>
       </Fade>
 
       {/* Benefits */}
-      <Fade direction="up">
-        <section className="px-5 md:px-20 mt-16 ">
-          <h2 className="text-2xl font-bold text-center text-amber-500 mb-6">
-            Why Quality Product Visuals Matter in E-commerce
-          </h2>
-          <ul className="text-gray-300 grid gap-4 md:grid-cols-3 list-disc list-inside">
-          <li>Improve conversion rates</li>
-            <li>Build trust and credibility</li>
-            <li>Show product details clearly</li>
-            <li>Boost purchase confidence</li>
-            <li>Differentiate from competitors</li>
-            <li>Instantly capture customer attention</li>
-            <li>Lower return rates</li>
-          </ul>
-        </section>
-      </Fade>
+      <section className="py-10 px-4 md:px-10 lg:px-20  text-white">
+      <motion.h2
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-2xl md:text-3xl font-bold text-center mb-5 text-purple-600"
+      >
+        Why Quality Product Visuals Matter in E-commerce
+      </motion.h2>
+
+      <div className="max-w-5xl mx-auto grid md:grid-cols-2">
+        {reasons.map((reason, i) => (
+          <motion.div
+            key={i}
+            custom={i}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={fadeInUp}
+            className="flex items-start gap-4 p-4 bg- rounded-xl shadow-md"
+          >
+            <FaCheckCircle className="text-amber-500 text-xl mt-1" />
+            <p className="text-gray-200 text-sm md:text-base leading-relaxed">
+              {reason}
+            </p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
 
       {/* Service Cards */}
-      <Fade direction="up" cascade damping={0.15}>
-      <section className="px-5 md:px-20 mt-16">
-        <h2 className="text-2xl text-center text-amber-500 font-bold mb-6">
+      <Fade direction="left" cascade damping={0.15}>
+      <section className="px-5 md:px-20 mt-10">
+        <h2 className="text-2xl md:text-3xl text-center text-amber-500 font-bold mb-6">
           Our E-commerce Visual Services
         </h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 grid-cols-1">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-gray-900 border border-gray-700 p-6 rounded shadow hover:shadow-lg transition flex flex-col gap-3"
+              className="bg-stone-900 border border-stone-800 p-6 rounded shadow hover:shadow-lg transition flex flex-col gap-3"
             >
               <div className="flex items-center gap-3">
                 {service.icon}
@@ -180,36 +276,82 @@ function ProductPhotography() {
     </Fade>
 
       {/* Process */}
-      <Fade direction="up">
-        <section className="px-5 md:px-20 mt-16">
-          <h2 className="text-2xl text- text-amber-500 font-bold mb-6 text-center">
-            From Planning to Perfection: Our Seamless Process
-          </h2>
-          <div className="space-y-6 text-gray-300 mx-auto grid grid-cols-1 md:grid-cols-2">
-            <p><strong className="text-purple-600">Creative Consultation:</strong> Understanding your brand, goals, and audience for tailored visuals.</p>
-            <p><strong className="text-purple-600">Product Delivery:</strong> Secure logistics and communication until we receive your items.</p>
-            <p><strong className="text-purple-600">Styling & Shooting:</strong> Styling and capturing visuals with precision using high-end gear.</p>
-            <p><strong className="text-purple-600">Post-Production:</strong> Editing for perfection with branding, color correction, and formatting.</p>
-            <p><strong className="text-purple-600">Final Delivery:</strong> Optimized files delivered digitally for all platforms.</p>
-          </div>
-        </section>
+      <Fade direction="right">
+      <section className="py-20 px-4 md:px-10 lg:px-20 bg-stone-950 text-white">
+      <div className="max-w-6xl mx-auto">
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center text-amber-500 mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          From Planning to Perfection: Our Seamless Process
+        </motion.h2>
+
+        <div className="">
+          {processSteps.map((step, index) => (
+            <motion.div
+              key={index}
+              className="p-5 shadow-md"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+            >
+              <div className="flex items-start gap-4">
+                <div className="text-amber-400 mt-1">
+                  <FaCheckCircle className="text-2xl" />
+                </div>
+                <div>
+                  <h3 className="text-xl text-purple-600 md:text-2xl font-semibold mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
       </Fade>
 
       {/* Why Choose Us */}
-      <Fade direction="up">
-        <section className="px-5 md:px-20 mt-16 max-w-2xl mx-auto">
-          <h2 className="text-2xl text-center text-amber-500 font-bold mb-6 ">
-            Why Choose Imagine Dream World?
-          </h2>
-          <ul className="text-gray-300 grid grid-cols-1 mx-auto list-disc list-inside max-w-2xl gap-2 md:grid-cols-2">
-            <li>E-commerce Focused</li>
-            <li>Multi-Platform Formats</li>
-            <li>Consistent Quality</li>
-            <li>Custom Branding Options</li>
-            <li>Fast Turnaround</li>
-            
-          </ul>
-        </section>
+      <Fade direction="left">
+      <section className="py-10 px-4 md:px-10 lg:px-20  text-white">
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="text-3xl md:text-4xl font-bold text-center mb-12 text-purple-600"
+      >
+        Why Choose Imagine Dream World?
+      </motion.h2>
+
+      <div className="grid grid-cols-1 max-w-6xl mx-auto">
+        {features.map((feature, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+            viewport={{ once: true }}
+            className="p-5 rounded-2xl shadow hover:shadow-lg hover:scale-[1.02] transition-transform duration-300"
+          >
+            <div className="flex items-start gap-4">
+              {feature.icon}
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-amber-500">{feature.title}</h3>
+                <p className="text-gray-300">{feature.description}</p>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
       </Fade>
 
       {/* Portfolio Placeholder */}
@@ -225,11 +367,11 @@ function ProductPhotography() {
 
       {/* Testimonials */}
       <Fade direction="up">
-        <section className="px-5 md:px-20 mt-16">
+        <section className="px-5 md:px-20 mt-10">
           <h2 className="text-2xl text-center text-amber-500 font-bold mb-6">
             What Our Clients Say
           </h2>
-          <div className="grid gap-6 md:grid-cols-3 text-gray-300">
+          <div className="grid gap-6 grid-cols-1 text-gray-300">
             {[
               {
                 quote: "The photos were exactly what we needed. Sales went up within a week of updating our product listings.",
@@ -247,10 +389,10 @@ function ProductPhotography() {
                 title: "Fashion Boutique Founder",
               },
             ].map((testimonial, i) => (
-              <div key={i} className="bg-gray-900 border border-gray-700 p-5 rounded shadow">
+              <div key={i} className="bg-stone-900 border border-gray-700 p-5 rounded shadow">
                 <p className="italic mb-2">“{testimonial.quote}”</p>
-                <p className="text-sm font-semibold">{testimonial.name}</p>
-                <p className="text-xs text-gray-400">{testimonial.title}</p>
+                <p className="text-sm font-semibold text-purple-600">{testimonial.name}</p>
+                <p className="text-amber-500">{testimonial.title}</p>
               </div>
             ))}
           </div>
@@ -263,7 +405,7 @@ function ProductPhotography() {
         <h2 className="text-2xl text-center text-amber-500 font-bold mb-6">
           Frequently Asked Questions
         </h2>
-        <div className="text-gray-300 max-w-4xl mx-auto space-y-4">
+        <div className="text-purple-600 max-w-4xl mx-auto space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
@@ -274,7 +416,7 @@ function ProductPhotography() {
               >
                 <button
                   onClick={() => toggleAccordion(index)}
-                  className="w-full px-5 py-4 bg-gray-900 hover:bg-gray-800 flex justify-between items-center text-left font-semibold text-lg transition-colors duration-200"
+                  className="w-full px-5 py-4 bg-stone-900 hover:bg-gray-800 flex justify-between items-center text-left font-semibold text-lg transition-colors duration-200"
                 >
                   <span>{faq.question}</span>
                   <motion.span
@@ -306,7 +448,7 @@ function ProductPhotography() {
     </Fade>
 
       {/* Final CTA */}
-      <Fade direction="up">
+      {/* <Fade direction="up">
         <section className="text-center mt-16 px-5">
           <h2 className="text-2xl font-bold text-purple-500 mb-4">Let’s Work Together To Create Visuals That Boost Sales</h2>
           <Link
@@ -316,7 +458,10 @@ function ProductPhotography() {
             Contact Us Now
           </Link>
         </section>
-      </Fade>
+      </Fade> */}
+      <section className="mt-10">
+        <NewSection></NewSection>
+      </section>
     </div>
   );
 }

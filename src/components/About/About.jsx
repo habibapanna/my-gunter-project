@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FaArrowRightLong, FaRegStar } from 'react-icons/fa6';
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
+import { Fade } from 'react-awesome-reveal';
 
 const About = () => {
     const [aboutData, setAboutData] = useState(null);
@@ -26,7 +27,7 @@ const About = () => {
 
     return (
         <div>
-            <div className='bg-black p-5 lg:p-10 flex flex-col lg:flex-row gap-10 lg:gap-20'>
+           <div className='bg-black p-5 lg:p-10 flex flex-col lg:flex-row gap-10 lg:gap-20'>
                 <div className='lg:w-1/2'>
                     <h1 className='text-white text-2xl lg:text-4xl font-bold'>ABOUT US</h1>
                     <div className='flex gap-1 mt-8 mb-5 text-amber-500'>
@@ -36,7 +37,7 @@ const About = () => {
                     </div>
                     <div className='flex gap-3'>
                         <span><FaRegStar className='text-2xl lg:text-4xl text-amber-500' /></span>
-                        <div>
+                        <Fade direction='left'>   <div>
                             <p>{aboutData.description}</p>
                             <div className='right-20 mt-5 lg:mt-10'>
                                 <button onClick={scrollToContact} className="hover:bg-purple-500 hover:scale-95 bg-purple-600 px-4 py-2 lg:px-6 lg:py-4 text-white lg:font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300 cursor-pointer">
@@ -44,6 +45,7 @@ const About = () => {
                                 </button>
                             </div>
                         </div>
+                        </Fade>
                     </div>
                 </div>
                 <div className='lg:w-1/2 right-0 relative group'>

@@ -3,6 +3,7 @@ import { GrContact } from "react-icons/gr";
 import { FaPlayCircle, FaTimesCircle } from "react-icons/fa";
 import { IoPlay } from "react-icons/io5";
 import { MdPlayArrow } from "react-icons/md";
+import { Fade } from "react-awesome-reveal";
 
 const HeroSection = () => {
   const [hero, setHero] = useState(null);
@@ -93,7 +94,7 @@ const HeroSection = () => {
   onClick={() => setIsVideoPlaying(true)}
   className="absolute inset-0 flex items-center justify-center transition"
 >
-  <IoPlay className="text-white text-4xl rounded-full mt-10 p-2 cursor-pointer bg-amber-500 backdrop-blur-xl shadow-md" />
+  <IoPlay className="text-white text-4xl rounded-full mt-10 p-2 cursor-pointer hover:scale-95 hover:bg-amber-400 bg-amber-500 backdrop-blur-xl shadow-md" />
 </button>
 
           
@@ -140,9 +141,9 @@ const HeroSection = () => {
         <p className="text-amber-500 text-lg lg:text-xl">
             ★★★★★ Rated 5/5 | Based on 20+ Happy Clients
           </p>
-          <h1 className="text-3xl lg:text-4xl font-bold text-white mb-5 leading-tight">
+          <Fade direction="up"> <h1 className="text-3xl lg:text-4xl font-bold text-white mb-5 leading-tight">
             {title || "Default Title"}
-          </h1>
+          </h1></Fade>
           
           <p className="mt-2 mb-5 lg:mb-8 text-white">
             {description || "Default description."}

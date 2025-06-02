@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BiSolidQuoteAltLeft } from 'react-icons/bi';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Fade } from 'react-awesome-reveal';
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
@@ -57,8 +58,9 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="bg-black py-16 px-5 lg:px-10 relative overflow-hidden">
-      <div className="text-left mb-12">
+   <div>
+   <div className="bg-black py-16 px-5 lg:px-10 relative overflow-hidden">
+   <Fade direction='up'> <div className="text-left mb-12">
         <h3 className="text-amber-500 font-semibold tracking-wide">WHAT CLIENTS SAY ABOUT US</h3>
         <h2 className="text-2xl lg:text-4xl font-bold mt-3 text-white">Real Stories, Real Success: Hear from Our Satisfied Clients
         </h2>
@@ -67,7 +69,7 @@ const Testimonials = () => {
           <span className="border-2 w-2 border-amber-500"></span>
           <span className="border-2 w-3 border-amber-500"></span>
         </div>
-      </div>
+      </div></Fade>
 
       {/* Cards Grid with Animation */}
       <div className="relative">
@@ -119,6 +121,7 @@ const Testimonials = () => {
         <FaArrowRight />
       </button>
     </div>
+   </div>
   );
 };
 

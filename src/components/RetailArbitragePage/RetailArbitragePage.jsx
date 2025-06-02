@@ -6,8 +6,10 @@ import { Pagination, Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
 import { FaShopify, FaAmazon, FaEbay, FaEtsy } from "react-icons/fa";
 import { TbBrandWalmart } from "react-icons/tb";
-import { FaBoxOpen, FaFileAlt, FaChartLine, FaTruck, FaSearch, FaDollarSign } from "react-icons/fa";
+import { FaBoxOpen, FaFileAlt, FaChartLine, FaTruck, FaSearch, FaDollarSign, FaHandshake, FaShippingFast, FaRocket, FaTools, FaBolt, FaShieldAlt  } from "react-icons/fa";
 import { ShoppingCart, Rocket, Crown } from 'lucide-react';
+import NewSection from "../NewSection/NewSection";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -42,6 +44,72 @@ const services = [
   },
 ];
 
+const plans = [
+  {
+    icon: <ShoppingCart className="w-10 h-10" />,
+    title: "Starter Plan",
+    price: "$40/month",
+    features: [
+      "Product Sourcing Guidance",
+      "Basic Order Fulfillment",
+      "Inventory Tracking Setup",
+      "Email Support",
+      "Marketplace Compliance Tips",
+      "— Advanced Product Research",
+      "— Enhanced Order Fulfillment",
+      "— Automated Inventory Updates",
+      "— Listing Optimization",
+      "— Priority Email & Chat Support",
+    ],
+    button: "Launch Your Store",
+  },
+  {
+    icon: <Rocket className="w-10 h-10" />,
+    title: "Growth Plan",
+    price: "$60/month",
+    features: [
+      "Product Sourcing Guidance",
+      "Basic Order Fulfillment",
+      "Inventory Tracking Setup",
+      "Email Support",
+      "Marketplace Compliance Tips",
+      "Advanced Product Research",
+      "Enhanced Order Fulfillment",
+      "Automated Inventory Updates",
+      "Listing Optimization",
+      "— Priority Email & Chat Support",
+    ],
+    button: "Upgrade for Growth",
+  },
+  {
+    icon: <Crown className="w-10 h-10" />,
+    title: "Premium Plan",
+    price: "$89/month",
+    features: [
+      "Product Sourcing Guidance",
+      "Basic Order Fulfillment",
+      "Inventory Tracking Setup",
+      "Email Support",
+      "Marketplace Compliance Tips",
+      "Advanced Product Research",
+      "Enhanced Order Fulfillment",
+      "Automated Inventory Updates",
+      "Listing Optimization",
+      "Priority Email & Chat Support",
+      "Monthly Performance Reports",
+      "Pricing Strategy Guidance",
+      "Priority Product Sourcing",
+      "Dedicated Fulfillment Management",
+      "Multi-Channel Inventory Integration",
+      "24/7 Dedicated Account Manager",
+      "Full Account Management & Strategy",
+      "Custom Analytics & Growth Consultation",
+      "Exclusive Supplier Access",
+    ],
+    button: "Maximize Your Profits",
+  },
+];
+
 const platforms = [
   {
     name: "Shopify",
@@ -70,6 +138,47 @@ const platforms = [
   },
 ];
 
+const steps = [
+  {
+    title: 'Personalized Consultation',
+    description:
+      'We start with a thorough and custom consultation to understand your business goals and needs. This way, we will recommend the best strategies and products to maximize your store’s potential.',
+    icon: <FaHandshake className="text-4xl text-amber-500 mb-4" />,
+  },
+  {
+    title: 'Product & Supplier Onboarding',
+    description:
+      'We assist you in picking and onboarding reliable suppliers and high-demand products. This ensures a smooth start with quality inventory aligned to your target market.',
+    icon: <FaBoxOpen className="text-4xl text-amber-500 mb-4" />,
+  },
+  {
+    title: 'Integrated Order Fulfillment',
+    description:
+      'Our seamless fulfillment process manages orders from placement to delivery. We coordinate inventory, packaging, and shipping to guarantee timely and accurate order completion.',
+    icon: <FaShippingFast className="text-4xl text-amber-500 mb-4" />,
+  },
+  {
+    title: 'Ongoing Support & Optimization',
+    description:
+      'We provide continuous support and performance analysis. Regular optimization of listings, pricing, and operations helps you stay competitive and grow your business steadily.',
+    icon: <FaChartLine className="text-4xl text-amber-500 mb-4" />,
+  },
+];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -83,6 +192,39 @@ const staggerContainer = {
     },
   },
 };
+
+const features = [
+  {
+    icon: <FaRocket className="text-amber-500 text-3xl mb-3" />,
+    title: "Lower Startup Costs",
+    desc: "Minimize your initial investment by reducing inventory risks and upfront expenses. Launch and grow without heavy financial burden.",
+  },
+  {
+    icon: <FaTools className="text-amber-500 text-3xl mb-3" />,
+    title: "Full-Cycle E-commerce Expertise",
+    desc: "We offer support from product sourcing to customer service, ensuring seamless operations and sustained growth.",
+  },
+  {
+    icon: <FaBolt className="text-amber-500 text-3xl mb-3" />,
+    title: "Advanced Automation Tools",
+    desc: "Leverage cutting-edge automation for inventory, repricing, and order processing to reduce errors and scale effectively.",
+  },
+  {
+    icon: <FaChartLine className="text-amber-500 text-3xl mb-3" />,
+    title: "Scalable Business Model",
+    desc: "Our hybrid approach supports multi-platform growth and expansion, maintaining quality and control.",
+  },
+  {
+    icon: <FaShieldAlt className="text-amber-500 text-3xl mb-3" />,
+    title: "Compliance Guaranteed",
+    desc: "We ensure full compliance with marketplace policies and legal standards to protect your account and reputation.",
+  },
+  {
+    icon: <FaTruck className="text-amber-500 text-3xl mb-3" />,
+    title: "Fast Shipping",
+    desc: "Optimized logistics deliver quick and reliable shipping, enhancing customer satisfaction and boosting loyalty.",
+  },
+];
 
 
 function RetailArbitragePage() {
@@ -139,7 +281,7 @@ function RetailArbitragePage() {
           <p className="text-lg max-w-3xl mx-auto text-gray-300">
             Scale Faster, Sell Smarter — Accelerate your online store’s success with our proven arbitrage solutions. Reliable sourcing, efficient fulfillment, and expert pricing strategies to drive consistent sales and lasting growth.
           </p>
-          <button className="mt-6 px-6 py-3 bg-purple-600 text-white rounded-md shadow-lg hover:bg-amber-500 transition">
+          <button className="mt-6 px-6 py-3 bg-purple-600 text-white rounded-md shadow-lg hover:bg-amber-500 transition hover:cursor-pointer">
             Request a Free Consultation
           </button>
           </motion.header>
@@ -248,21 +390,6 @@ function RetailArbitragePage() {
         ))}
       </div>
       </motion.section>
-
-        {/* Unique Selling Points */}
-        <section className="mb-14">
-          <h3 className="text-2xl font-semibold mb-4 border-b-2 border-amber-400 pb-2">
-            Why Our Hybrid Model Wins
-          </h3>
-          <ul className="list-disc list-inside text-gray-300 space-y-3 max-w-4xl">
-            <li><strong>Low Startup Costs</strong></li>
-            <li><strong>Full-Cycle Expertise</strong></li>
-            <li><strong>Advanced Automation</strong></li>
-            <li><strong>Scalable Growth</strong></li>
-            <li><strong>Strict Compliance</strong></li>
-            <li><strong>Fast, Reliable Shipping</strong></li>
-          </ul>
-        </section>
         {/* Case Studies */}
 {/* Case Studies */}
 <motion.section className="mb-14"
@@ -313,104 +440,113 @@ viewport={{ once: true }}>
   </div>
 </motion.section>
 
+<section className="py-16 px-6 md:px-20 text-white">
+      <motion.h2
+        className="text-2xl md:text-3xl font-bold text-center text-amber-400 mb-10"
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        Unmatched Excellence in Our Hybrid Retail Arbitrage and Dropshipping Solution
+      </motion.h2>
 
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {features.map((item, index) => (
+          <motion.div
+            key={index}
+            className="p-6 rounded-2xl bg-stone-900 shadow-lg hover:shadow-amber-500/30 transition-all duration-300"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
+          >
+            {item.icon}
+            <h4 className="text-lg font-semibold mb-2 text-white">{item.title}</h4>
+            <p className="text-gray-400 text-sm">{item.desc}</p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
 
         {/* 4-Step Process */}
-        <section className="mb-14">
-          <h3 className="text-2xl font-semibold mb-6 border-b-2 border-amber-400 pb-2">
-            Get Started in 4 Easy Steps
-          </h3>
-          <ol className="list-decimal list-inside text-gray-300 space-y-4 max-w-4xl">
-            <li><strong>Consultation:</strong> Understand your business goals.</li>
-            <li><strong>Sourcing & Setup:</strong> Setup pricing, logistics, and listings.</li>
-            <li><strong>Launch & Growth:</strong> Start strong with expert support.</li>
-            <li><strong>Scale Up:</strong> Expand into new verticals and platforms.</li>
-          </ol>
-        </section>
+        <section className="py-16 text-white">
+      <div className="max-w-6xl mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-amber-400">
+          Get Started in 4 Easy Steps — Simple, Transparent, Effective
+        </h2>
+
+        <motion.div
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-4"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          {steps.map((step, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="bg-stone-800 rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-shadow duration-300"
+            >
+              {step.icon}
+              <h3 className="text-xl font-semibold text-amber-300 mb-3">
+                {step.title}
+              </h3>
+              <p className="text-sm text-gray-300">{step.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
 
         {/* Final CTA */}
         <section className="text-center">
-          <button className="px-8 py-3 bg-purple-700 text-white font-semibold rounded-md shadow hover:bg-amber-500 transition">
+          <button className="px-8 py-3 bg-purple-700 text-white font-semibold rounded-md shadow hover:bg-amber-500 transition hover:cursor-pointer">
             Schedule Your Free Consultation Today
           </button>
         </section>
         {/* Pricing Table */}
         <section className="mt-20 mb-14">
-  <h3 className="text-3xl font-bold mb-12 text-center text-amber-500">
-    Flexible Pricing Plans for Every Stage of Your Business
-  </h3>
+      <h3 className="text-3xl font-bold mb-12 text-center text-amber-500">
+        Flexible Pricing Plans for Every Stage of Your Business
+      </h3>
 
-  <div className="grid gap-8 md:grid-cols-3">
-    {/* Starter Plan */}
-    <div className="bg-stone-900 rounded-2xl p-6 shadow-lg hover:shadow-amber-400/40 transition-shadow duration-300">
-      <div className="flex justify-center mb-4 text-amber-400">
-        <ShoppingCart className="w-10 h-10" />
-      </div>
-      <h4 className="text-xl font-bold text-purple-600 mb-2 text-center">Starter Plan</h4>
-      <ul className="space-y-3 text-gray-300">
-        <li>Product Sourcing Guidance</li>
-        <li>Basic Order Fulfillment</li>
-        <li>Inventory Tracking Setup</li>
-        <li>Email Support</li>
-        <li>Marketplace Compliance Tips</li>
-        <li>— Advanced Product Research</li>
-        <li>— Enhanced Order Fulfillment</li>
-        <li>— Automated Inventory Updates</li>
-        <li>— Listing Optimization</li>
-        <li>— Priority Email & Chat Support</li>
-      </ul>
-    </div>
+      <div className="grid gap-8 md:grid-cols-3">
+        {plans.map((plan, index) => (
+          <motion.div
+            key={index}
+            className="bg-stone-900 rounded-2xl p-6 shadow-lg hover:shadow-amber-400/40 transition-shadow duration-300 flex flex-col justify-between"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            viewport={{ once: true }}
+          >
+            <div>
+              <div className="flex justify-center mb-4 text-amber-400">{plan.icon}</div>
+              <h4 className="text-xl font-bold text-purple-600 mb-2 text-center">
+                {plan.title}
+              </h4>
+              <p className="text-center text-amber-400 font-semibold text-lg mb-4">
+                {plan.price}
+              </p>
+              <ul className="space-y-3 text-gray-300 text-sm">
+                {plan.features.map((feature, idx) => (
+                  <li key={idx}>{feature}</li>
+                ))}
+              </ul>
+            </div>
 
-    {/* Growth Plan */}
-    <div className="bg-stone-900 rounded-2xl p-6 shadow-lg hover:shadow-amber-400/40 transition-shadow duration-300">
-      <div className="flex justify-center mb-4 text-amber-400">
-        <Rocket className="w-10 h-10" />
+            <div className="mt-6 flex justify-center">
+              <Link to="/contact">
+              <button className="bg-amber-500 hover:bg-amber-400 text-black font-semibold py-2 px-4 rounded-lg transition duration-200 hover:cursor-pointer">
+                {plan.button}
+              </button></Link>
+            </div>
+          </motion.div>
+        ))}
       </div>
-      <h4 className="text-xl font-bold text-purple-600 mb-2 text-center">Growth Plan</h4>
-      <ul className="space-y-3 text-gray-300">
-        <li>Product Sourcing Guidance</li>
-        <li>Basic Order Fulfillment</li>
-        <li>Inventory Tracking Setup</li>
-        <li>Email Support</li>
-        <li>Marketplace Compliance Tips</li>
-        <li>Advanced Product Research</li>
-        <li>Enhanced Order Fulfillment</li>
-        <li>Automated Inventory Updates</li>
-        <li>Listing Optimization</li>
-        <li>— Priority Email & Chat Support</li>
-      </ul>
-    </div>
-
-    {/* Premium Plan */}
-    <div className="bg-stone-900 rounded-2xl p-6 shadow-lg hover:shadow-amber-400/40 transition-shadow duration-300">
-      <div className="flex justify-center mb-4 text-amber-400">
-        <Crown className="w-10 h-10" />
-      </div>
-      <h4 className="text-xl font-bold text-purple-600 mb-2 text-center">Premium Plan</h4>
-      <ul className="space-y-3 text-gray-300">
-        <li>Product Sourcing Guidance</li>
-        <li>Basic Order Fulfillment</li>
-        <li>Inventory Tracking Setup</li>
-        <li>Email Support</li>
-        <li>Marketplace Compliance Tips</li>
-        <li>Advanced Product Research</li>
-        <li>Enhanced Order Fulfillment</li>
-        <li>Automated Inventory Updates</li>
-        <li>Listing Optimization</li>
-        <li>Priority Email & Chat Support</li>
-        <li>Monthly Performance Reports</li>
-        <li>Pricing Strategy Guidance</li>
-        <li>Priority Product Sourcing</li>
-        <li>Dedicated Fulfillment Management</li>
-        <li>Multi-Channel Inventory Integration</li>
-        <li>24/7 Dedicated Account Manager</li>
-        <li>Full Account Management & Strategy</li>
-        <li>Custom Analytics & Growth Consultation</li>
-        <li>Exclusive Supplier Access</li>
-      </ul>
-    </div>
-  </div>
-</section>
+    </section>
 {/* FAQ Accordion Section */}
 <section className="mt-20 max-w-4xl mx-auto">
   <h3 className="text-3xl font-bold mb-8 text-center text-amber-500">
@@ -459,6 +595,9 @@ viewport={{ once: true }}>
 </section>
 
       </motion.div>
+      <section>
+        <NewSection></NewSection>
+      </section>
     </div>
   );
 }
