@@ -75,15 +75,10 @@ const OurTeam = () => {
            <div className="relative h-[300px] overflow-hidden shadow-lg group">
   {/* Left Half with BG Image */}
   <div className="flex h-full grayscale group-hover:grayscale-0 transition duration-300">
-    <div
-      className="w-1/2 h-full bg-cover bg-center"
-      style={{
-        backgroundImage: `url('https://i.postimg.cc/85rt5wdg/Frame-1000002036.png')`,
-      }}
-    ></div>
+   
 
     {/* Right Half with vertical title */}
-    <div className="w-1/2 h-full bg-black flex items-start justify-end text-right px-2">
+    <div className=" h-full bg-black flex items-start justify-end text-right px-2">
       <p className="text-purple-500 font-semibold tracking-widest text-[14px] leading-[18px] uppercase whitespace-pre-line text-center pt-4">
         {member.title.split("").join("\n")}
       </p>
@@ -100,20 +95,9 @@ const OurTeam = () => {
   </div>
 
   {/* Name and social icons */}
-  <div className="absolute bottom-0 left-0 w-full bg-stone-900 bg-opacity-90 text-white py-4 px-4 flex justify-between items-center">
-    <h3 className="text-sm md:text-base text-amber-500 font-semibold">{member.name}</h3>
-    <div className="flex items-center gap-2">
-      {member.linkedin && (
-        <a
-          href={member.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 hover:text-amber-500"
-        >
-          <FaLinkedin size={18} />
-        </a>
-      )}
-    </div>
+  <div className="absolute bottom-0 left-0 w-full bg-opacity-90 text-white py-4 px-4 bg-stone-900">
+    <h3 className="text-center text-amber-500 font-semibold">{member.name}</h3>
+   
   </div>
 </div>
 

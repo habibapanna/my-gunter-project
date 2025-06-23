@@ -32,7 +32,7 @@ const OurServices = () => {
   }, [location]);
 
   return (
-    <div className="p-4 md:p-6 bg-stone-900 rounded-lg max-h-[80vh] overflow-y-auto scrollbar-thin scrollbar-thumb-amber-600 scrollbar-track-stone-800">
+    <div className="p-4 bg-stone-900 max-h-[80vh] overflow-y-auto scrollbar-thin scrollbar-thumb-amber-600 scrollbar-track-stone-800">
       <Fade cascade damping={0.1} triggerOnce>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service, index) => (

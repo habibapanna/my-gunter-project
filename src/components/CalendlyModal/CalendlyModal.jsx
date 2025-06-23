@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { InlineWidget } from "react-calendly";
-import { FcCalendar } from "react-icons/fc";
 
 const CalendlyModal = () => {
   const [showModal, setShowModal] = useState(false);
@@ -29,11 +28,11 @@ const CalendlyModal = () => {
 
       {showModal && (
         <div className="fixed z-50 bg-black bg-opacity-60 flex items-center justify-center px-4 md:px-0">
-          <div className="absolute w-[450px] max-w-xl h-[80vh] bg-white dark:bg-white shadow-lg overflow-hidden top-0">
+          <div className="absolute w-[300px] md:w-[400px] max-w-xl h-[80vh] bg-white dark:bg-white shadow-lg overflow-hidden top-0">
             {/* Close Button */}
             <button
               onClick={toggleModal}
-              className="absolute top-3 right-4 text-gray-600 dark:text-gray-300 hover:text-red-500 text-3xl font-bold z-10"
+              className="absolute top-3 right-4 text-gray-600 dark:text-gray-300 hover:text-red-500 text-3xl font-bold z-10 cursor-pointer"
             >
               &times;
             </button>
@@ -41,7 +40,7 @@ const CalendlyModal = () => {
             {/* Calendly iframe */}
             <div className="w-full h-full overflow-y-auto pt-8">
               <InlineWidget
-                url="https://calendly.com/habibapanna49/30min"
+                url="https://calendly.com/ashiq5770411/30min"
                 styles={{ height: "100%", width: "100%" }}
               />
             </div>

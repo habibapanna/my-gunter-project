@@ -92,9 +92,9 @@ const ContactForm = () => {
                 <div className="flex gap-4 mt-10">
                 {[FaWhatsapp, FaFacebook, FaLinkedin, SiTelegram].map((Icon, i) => {
   const links = [
-    "https://wa.me/8801777368969", // WhatsApp
-    "https://www.facebook.com/",   // Facebook (replace with your profile)
-    "https://www.linkedin.com/",   // LinkedIn (replace with your profile)
+    "https://wa.me/8801714114459", // WhatsApp
+    " https://www.facebook.com/IDWLTD",   // Facebook (replace with your profile)
+    "https://www.linkedin.com/company/103198412/admin/dashboard/",   // LinkedIn (replace with your profile)
     "https://t.me/yourTelegramID", // Telegram (replace with your ID)
     "#"                            // WeChat: typically doesn't have a URL, maybe replace or handle differently
   ];

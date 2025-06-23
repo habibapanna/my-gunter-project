@@ -532,11 +532,11 @@ function Shopify() {
           >
             <button
               onClick={() => toggle(idx)}
-              className="w-full flex justify-between items-center text-left p-4 text-white font-medium hover:bg-stone-700 transition"
+              className="w-full flex justify-between items-center text-left p-4 text-amber-500 font-medium hover:bg-stone-700 transition"
             >
               {faq.question}
               <FaChevronDown
-                className={`transition-transform duration-300 ${
+                className={`transition-transform duration-300 cursor-pointer ${
                   openIndex === idx ? "rotate-180" : ""
                 }`}
               />
@@ -550,7 +550,7 @@ function Shopify() {
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="px-4 pb-4 text-sm text-gray-300"
+                  className="px-4 pb-4 text-sm text-white"
                 >
                   {faq.answer}
                 </motion.div>

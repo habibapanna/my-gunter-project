@@ -87,7 +87,7 @@ const Navbar = () => {
                 {/* Services Popup (Desktop) */}
                 {name === "Services" && showServicesPopup && (
                   <div
-                    className="top-0 fixed left-1/2 transform -translate-x-1/2 mt-3 w-[100vw] max-w-4xl bg-black bg-opacity-95 z-[200] p-6 rounded-lg shadow-lg"
+                    className="top-0 fixed left-1/2 transform -translate-x-1/2 mt-3 w-[100vw] max-w-4xl bg-black bg-opacity-95 z-[200] shadow-lg"
                     onMouseEnter={() => !isMobile && setShowServicesPopup(true)}
                     onMouseLeave={() => !isMobile && setShowServicesPopup(false)}
                   >
@@ -106,7 +106,8 @@ const Navbar = () => {
 
   {/* WhatsApp Icon */}
   <a
-    href="https://wa.me/8801777368969"
+    href="https://wa.me/8801714114459
+"
     target="_blank"
     rel="noopener noreferrer"
     className="bg-green-500 hover:bg-green-400 hover:scale-95 text-white p-1 md:p-3 rounded-full transition duration-300"

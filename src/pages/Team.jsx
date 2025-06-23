@@ -30,16 +30,11 @@ const Team = () => {
             {/* Image area divided in half: left bg-img, right title */}
             <div className="relative flex h-[250px]">
               {/* Left Half with BG Image */}
-              <div
-                className="w-1/2 h-full bg-cover bg-center"
-                style={{
-                  backgroundImage: `url('https://i.postimg.cc/85rt5wdg/Frame-1000002036.png')`,
-                }}
-              ></div>
+              
 
               {/* Right Half with vertical title */}
-              <div className="w-1/2 h-full bg-black flex items-start justify-end text-right px-2">
-                <p className="text-purple-700 font-semibold tracking-widest text-[14px] leading-[18px] uppercase whitespace-pre-line text-center">
+              <div className=" h-full bg-black flex items-start justify-end text-right px-2">
+                <p className="text-gray-500 font-semibold tracking-widest text-[14px] leading-[18px] uppercase whitespace-pre-line text-center">
                   {member.title.split("").join("\n")}
                 </p>
               </div>
@@ -55,18 +50,8 @@ const Team = () => {
             </div>
 
             {/* Name & LinkedIn Section */}
-            <div className="flex justify-between items-center px-4 py-5 bg-stone-900">
+            <div className="text-center px-4 py-5 bg-stone-900">
               <h3 className="text-xl text-amber-500 font-semibold">{member.name}</h3>
-              {member.linkedin && (
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-amber-500"
-                >
-                  <FaLinkedin size={18} />
-                </a>
-              )}
             </div>
           </motion.div>
         ))}
